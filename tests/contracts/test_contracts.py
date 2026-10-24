@@ -36,6 +36,33 @@ class ContractTests(unittest.TestCase):
         self.documents[0]['schemaVersion'] = '2.0.0'
         self.invalid()
 
+    def test_content_11_preserves_portfolio_type_with_explicit_source_type(self):
+        content = self.documents[0]
+        content['schemaVersion'] = '1.1.0'
+        for item in content['items']:
+            item['sourceMetadata']['sourceType'] = item['kind']
+        content['items'][0]['kind'] = 'portfolio'
+        content['items'][0]['sourceMetadata']['sourceType'] = 'portfolio'
+        content['items'][0]['categories'] = [{'sourceId': 'wp-portfolio-category:7',
+                                             'slug': 'sample-work', 'name': 'Sample work'}]
+        validate_bundle(*self.documents)
+
+    def test_content_10_rejects_new_portfolio_and_source_type_features(self):
+        item = self.documents[0]['items'][0]
+        item['kind'] = 'portfolio'
+        self.invalid()
+        item['kind'] = 'post'
+        item['sourceMetadata']['sourceType'] = 'post'
+        self.invalid()
+
+    def test_content_11_requires_matching_source_type(self):
+        self.documents[0]['schemaVersion'] = '1.1.0'
+        self.invalid()
+        for item in self.documents[0]['items']:
+            item['sourceMetadata']['sourceType'] = item['kind']
+        self.documents[0]['items'][0]['sourceMetadata']['sourceType'] = 'page'
+        self.invalid()
+
     def test_unknown_status_and_dates_without_timezone_are_rejected(self):
         item = self.documents[0]['items'][0]
         item['status'] = 'deleted'
