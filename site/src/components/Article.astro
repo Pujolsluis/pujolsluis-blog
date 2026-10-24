@@ -1,6 +1,8 @@
 ---
 import { renderHtml, dateLabel } from '../../lib/content.mjs';
 import { withBase } from '../../lib/config.mjs';
+import type { Bundle, ContentItem } from '../../lib/types';
+interface Props { item: ContentItem; bundle: Bundle; archive?: boolean }
 const { item, bundle, archive = false } = Astro.props;
 const body = renderHtml(archive && item.sourceMetadata.excerptHtml ? item.sourceMetadata.excerptHtml : item.content.html, bundle);
 const comments = archive ? [] : item.comments.filter(comment => Date.parse(comment.publishedAt) <= bundle.config.buildTime.getTime());

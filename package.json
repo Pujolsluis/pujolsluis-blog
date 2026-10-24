@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "node site/build.mjs && astro preview",
     "build": "node site/build.mjs",
+    "lint": "eslint site tests/rendering astro.config.mjs eslint.config.mjs && astro check",
     "test:rendering": "node --test tests/rendering/*.test.mjs"
   },
   "dependencies": {
@@ -18,5 +19,11 @@
     "ajv-formats": "3.0.1",
     "astro": "7.4.2",
     "parse5": "8.0.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@eslint/js": "10.0.1",
+    "eslint": "10.13.0",
+    "typescript": "6.0.3"
   }
 }

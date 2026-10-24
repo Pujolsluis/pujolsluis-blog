@@ -2,9 +2,11 @@
 import Blog from '../layouts/Blog.astro';
 import Article from '../components/Article.astro';
 import { loadBundle } from '../../lib/content.mjs';
+import type { Bundle, Route } from '../../lib/types';
+interface Props { route: Route; bundle: Bundle }
 
 export function getStaticPaths() {
-  const bundle = loadBundle();
+  const bundle: Bundle = loadBundle();
   return bundle.routes.map(route => ({
     params: { path: route.path === '/' ? undefined : decodeURIComponent(route.path.slice(1, -1)) },
     props: { route, bundle },

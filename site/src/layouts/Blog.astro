@@ -7,6 +7,8 @@ import '@fontsource/karla/latin-ext-400-italic.css';
 import '@fontsource/karla/latin-ext-700.css';
 import '@fontsource/coustard/latin-400.css';
 import { withBase, publicUrl } from '../../lib/config.mjs';
+import type { Bundle } from '../../lib/types';
+interface Props { bundle: Bundle; title: string; currentPath?: string; language?: string }
 const { bundle, title, currentPath = '/', language = 'en' } = Astro.props;
 const { config, items } = bundle;
 const pages = items.filter(item => item.kind === 'page');

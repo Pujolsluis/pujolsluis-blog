@@ -1,6 +1,6 @@
 # Static renderer foundation
 
-This is a fixture-driven MIG-04 foundation, not a migrated production archive or a fidelity-approved replacement. The existing Python preview build remains available; no workflow or production-domain configuration changes here. Astro is locked for this prototype. Final architecture acceptance still depends on archive/media sizing and complete feature inventory.
+This is a fixture-driven MIG-04 foundation, not a migrated production archive or a fidelity-approved replacement. The existing Python preview remains the deployed artifact. CI now checks the renderer in isolation, then builds the Python placeholder last. Astro is locked for this prototype. Final architecture acceptance still depends on archive/media sizing and complete feature inventory.
 
 ## Run
 
@@ -8,6 +8,7 @@ Use Node **>=22.23.4** and npm >=9.6.5, as required by the locked Astro 7.4.2 pa
 
 ```sh
 npm ci --ignore-scripts
+npm run lint
 npm run test:rendering
 npm run build
 npm run dev -- --host 127.0.0.1 --port 4321
@@ -45,4 +46,4 @@ Failures return a nonzero exit status with a descriptive error: invalid JSON/sch
 
 Only the root archive is implemented. Category/tag/date/author archives and pagination need MIG-05 selection metadata. Feed, redirect and query-alias routes are explicitly deferred in the report for MIG-05 rather than represented as functioning HTTP compatibility. Inline CSS, scripts, forms, plugin interactions, active embed elements and unresolved resource references fail instead of passing through silently. This renderer is not a general HTML sanitizer and production imports require review. Featured-image alt text/captions need a richer approved contract; featured images are archived but not inserted by guessing missing semantics. Production logos, author widgets, likes, search, subscriptions, comment submission, galleries/lightboxes, shop/cart/checkout/account functionality and other discovered features need source-specific implementation and compatibility decisions.
 
-Structural checks and synthetic snapshots cannot establish visual fidelity to real posts. Full source export, original uploads, settings/custom CSS, licensed theme material, frozen screenshots at all target viewports and complete behavior verification remain required. See `evidence.md` and `../public/theme/LICENSES.md`.
+Structural checks and synthetic snapshots cannot establish visual fidelity to real posts. The owner has now supplied the WXR, uploads and theme backup. They remain outside the public repository and integration/verification is in progress. Settings/custom CSS, frozen screenshots at all target viewports and complete behavior verification remain required. The supplied theme can be used locally for this site's migration; public redistribution of the reusable commercial package is a separate issue. See `evidence.md`, `theme-observations.md` and `../public/theme/LICENSES.md`.
