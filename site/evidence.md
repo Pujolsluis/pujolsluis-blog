@@ -1,0 +1,19 @@
+# MIG-04 renderer evidence
+
+This document records a **partial foundation** for issue #4. It does not close the issue or prove source fidelity.
+
+| Acceptance criterion | Evidence | Result / blocker |
+| --- | --- | --- |
+| Static fixture renderer | Astro 7.4.2; immutable MIG-01 contracts at `5a6c288`; `npm run build` renders 2 synthetic content records and the root archive | Implemented for fixtures |
+| Preserved HTML/media | Tests cover Unicode, code indentation, caption/alt text, source calendar date, anchors, normalized gallery HTML, declared iframe identity, original media bytes/checksum | Implemented for represented fixture cases |
+| Root and repository prefix | Full builds at `/` and `/pujolsluis-blog/` verify local links/fonts/styles/media exist; extra encoded `/caf%C3%A9/` route exercises filesystem behavior | Automated checks pass |
+| Draft exclusion / staging | Tests exclude synthetic draft/future/private/pending records and future published records; full builds omit private title/path/media; every output page noindex, no CNAME/sitemap, disallow robots | Automated checks pass |
+| Source layout observation | Public homepage HTML fetched 2026-10-24 and decoded from gzip; observed centered site identity, Home/Activities links, previews with category/date metadata, right sidebar, TheBlogger references, Karla/Coustard requests | Original structural foundation only; no proprietary theme files copied |
+| Desktop/tablet/mobile visual equivalence | Source browser navigation attempted through CUA, returned `net::ERR_BLOCKED_BY_CLIENT` | **Not verified**. No baseline screenshots available; all viewport comparison gates remain open |
+| Keyboard navigation | Semantic anchors/nav/main, skip link, current-page marker, visible focus styles; no custom interactive controls | Markup implemented; browser keyboard walkthrough still required |
+| Theme/widgets/behavior fidelity | Licensed theme package, settings/logo/widget assets, archive and backend decisions unavailable | **Blocked**. Search, likes, forms, commerce, lightbox and other plugin functionality are not claimed |
+| Documentation | `site/README.md`, `public/theme/LICENSES.md`, pinned package lock, this report | Inputs/outputs/errors/commands documented |
+
+Local validation: Node 26.0.0, npm 11.12.1, macOS, 2026-10-24. `npm run test:rendering` passes 11 tests; the suite performs two complete temporary static builds. `npm run build` passes, producing three fixture HTML routes. `npm install --ignore-scripts` reports zero known vulnerabilities at collection time. Tests are structural and integrity evidence, not screenshot/behavior parity evidence.
+
+The existing GitHub workflow and Python placeholder have not been changed. CI integration belongs to MIG-07. Do not deploy this artifact as a completed migration, approve domain cutover, merge a fidelity-complete claim or close #4 based on this evidence.

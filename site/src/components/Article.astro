@@ -1,0 +1,27 @@
+---
+import { renderHtml, dateLabel } from '../../lib/content.mjs';
+import { withBase } from '../../lib/config.mjs';
+const { item, bundle, archive = false } = Astro.props;
+const body = renderHtml(archive && item.sourceMetadata.excerptHtml ? item.sourceMetadata.excerptHtml : item.content.html, bundle);
+const comments = archive ? [] : item.comments.filter(comment => Date.parse(comment.publishedAt) <= bundle.config.buildTime.getTime());
+---
+<article class:list={['entry', { 'archive-entry': archive }]} data-source-id={item.sourceId}>
+  <header class="entry-header">
+    {archive ? <h2 class="entry-title"><a href={withBase(item.path, bundle.config.base)}>{item.title}</a></h2> : <h1 class="entry-title">{item.title}</h1>}
+    <p class="entry-meta">
+      {item.categories.length > 0 && <span>in {item.categories.map(category => category.name).join(', ')} · </span>}
+      <time datetime={item.publishedAt}>{dateLabel(item.publishedAt)}</time>
+      <span> · {item.author.name}</span>
+    </p>
+  </header>
+  <div class="entry-content" set:html={body} />
+  {archive && <p class="read-more"><a href={withBase(item.path, bundle.config.base)}>Read More<span class="sr-only">: {item.title}</span></a></p>}
+  {!archive && item.tags.length > 0 && <footer class="entry-tags">Tags: {item.tags.map(tag => tag.name).join(', ')}</footer>}
+  {comments.length > 0 && <section class="comments" aria-label="Comments">
+    <h2>Comments</h2>
+    {comments.map(comment => <article id={`comment-${comment.sourceId.split(':').at(-1)}`} class="comment" data-parent-id={comment.parentId || undefined}>
+      <header><strong>{comment.authorName}</strong> · <time datetime={comment.publishedAt}>{dateLabel(comment.publishedAt)}</time></header>
+      <div set:html={renderHtml(comment.html, bundle)} />
+    </article>)}
+  </section>}
+</article>

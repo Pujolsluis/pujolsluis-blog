@@ -1,0 +1,51 @@
+---
+import '@fontsource/karla/latin-400.css';
+import '@fontsource/karla/latin-400-italic.css';
+import '@fontsource/karla/latin-700.css';
+import '@fontsource/karla/latin-ext-400.css';
+import '@fontsource/karla/latin-ext-400-italic.css';
+import '@fontsource/karla/latin-ext-700.css';
+import '@fontsource/coustard/latin-400.css';
+import { withBase, publicUrl } from '../../lib/config.mjs';
+const { bundle, title, currentPath = '/', language = 'en' } = Astro.props;
+const { config, items } = bundle;
+const pages = items.filter(item => item.kind === 'page');
+const posts = items.filter(item => item.kind === 'post').sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+---
+<!doctype html>
+<html lang={language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} — Pujolsluis Blog migration preview</title>
+    <link rel="canonical" href={publicUrl(currentPath, config)} />
+    <link rel="stylesheet" href={withBase('/theme/renderer.css', config.base)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="preview-notice">Migration preview · Synthetic fixtures · Fidelity not verified</div>
+    <header class="site-header">
+      <a class="site-title" href={withBase('/', config.base)}>Pujolsluis Blog</a>
+      <p class="site-description">Software Engineering &amp; Mobile Development blog</p>
+      <nav class="main-navigation" aria-label="Main navigation">
+        <a href={withBase('/', config.base)} aria-current={currentPath === '/' ? 'page' : undefined}>Home</a>
+        {pages.map(page => <a href={withBase(page.path, config.base)} aria-current={currentPath === page.path ? 'page' : undefined}>{page.title}</a>)}
+      </nav>
+    </header>
+    <div class="layout">
+      <main id="main" tabindex="-1"><slot /></main>
+      <aside class="sidebar" aria-label="Blog sidebar">
+        <section class="widget">
+          <h2 class="widget-title">Recent Posts</h2>
+          <ul>{posts.slice(0, 5).map(post => <li><a href={withBase(post.path, config.base)}>{post.title}</a></li>)}</ul>
+        </section>
+        <section class="widget preview-context">
+          <h2 class="widget-title">Migration preview</h2>
+          <p>This build uses synthetic examples to verify the renderer. The WordPress archive, original media and theme verification are pending.</p>
+        </section>
+      </aside>
+    </div>
+    <footer class="site-footer"><a href={withBase('/', config.base)}>Pujolsluis Blog</a> · Migration preview</footer>
+  </body>
+</html>

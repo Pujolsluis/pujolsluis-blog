@@ -1,0 +1,23 @@
+---
+import Blog from '../layouts/Blog.astro';
+import Article from '../components/Article.astro';
+import { loadBundle } from '../../lib/content.mjs';
+
+export function getStaticPaths() {
+  const bundle = loadBundle();
+  return bundle.routes.map(route => ({
+    params: { path: route.path === '/' ? undefined : decodeURIComponent(route.path.slice(1, -1)) },
+    props: { route, bundle },
+  }));
+}
+const { route, bundle } = Astro.props;
+const item = bundle.items.find(item => item.sourceId === route.contentId);
+const posts = bundle.items.filter(item => item.kind === 'post').sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+---
+<Blog bundle={bundle} title={item?.title || 'Home'} currentPath={route.path} language={item?.language || 'en'}>
+  {item ? <Article item={item} bundle={bundle} /> : <>
+    <h1 class="sr-only">Blog posts</h1>
+    {posts.map(post => <Article item={post} bundle={bundle} archive />)}
+    {posts.length === 0 && <p>No published posts are available in this bundle.</p>}
+  </>}
+</Blog>
