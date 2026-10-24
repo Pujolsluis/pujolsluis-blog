@@ -1,6 +1,6 @@
 # Public source inventory
 
-This is an unauthenticated acquisition baseline for MIG-01 and issue #1. It is **not a complete source inventory or a source freeze**. WordPress remains production; the owner WXR export, uploads archive, settings/theme/customizations and final delta are still required.
+This is an unauthenticated acquisition baseline for MIG-01 and issue #1. It is **not a complete source inventory or a source freeze**. WordPress remains production. An owner WXR, uploads directory and theme directory were subsequently supplied and reconciled below; production editing freeze, complete settings/customizations, full rendered baselines and final delta remain required.
 
 The machine-readable report is [`migration/inventory/public/observations.json`](../migration/inventory/public/observations.json). Its `schemaVersion` is `1.0.0`; `records` use the normalized contract identity `wp:<WordPress ID>`, but this acquisition report is deliberately separate from an import bundle. It stores public metadata, exact rendered-content UTF-8 hashes, per-page references, response statuses/body hashes and discovery reconciliation. It stores no article bodies, comments, private exports, credentials or authenticated responses.
 
@@ -36,7 +36,7 @@ Embed evidence includes YouTube, Canva, SlideShare, a same-site WordPress embed 
 
 Source images predominantly use Jetpack `i0.wp.com`, `i1.wp.com` and `i2.wp.com` URLs. Every observed CDN reference and its transformation query is retained. `uploadOriginCandidate` maps only CDN paths explicitly containing the configured source host and `/wp-content/uploads/` back to that host. A candidate can be a resized filename and is not proof of an original attachment. Third-party images are not reclassified as owned merely because they use the same CDN.
 
-The snapshot identifies 2,151 upload reference URLs mapping to 458 distinct origin candidates. Ten origins were measured for a partial known total of 4,459,043 bytes; 448 origins still have unknown byte counts. This total is not an estimate of the complete archive. HEAD measurements count distinct origin candidate URLs once, while retaining all reference variants. `unknownUploadOriginBytes` identifies unmeasured/unknown candidates; a measured sum of zero with unknown candidates means unknown, not an empty archive. HEAD Content-Length is an acquisition estimate, not a downloaded checksum or byte-for-byte verification. Full originals, CSS dependency traversal, JavaScript-loaded assets and the complete uploads archive remain pending. Therefore this report cannot establish the 1 GB Pages feasibility gate or authorize source-host shutdown.
+The snapshot identifies 2,151 upload reference URLs mapping to 458 distinct origin candidates. Ten origins were measured for a partial known total of 4,459,043 bytes; 448 origins still have unknown byte counts. This total is not an estimate of the complete archive. HEAD measurements count distinct origin candidate URLs once, while retaining all reference variants. `unknownUploadOriginBytes` identifies unmeasured/unknown candidates; a measured sum of zero with unknown candidates means unknown, not an empty archive. HEAD Content-Length is an acquisition estimate, not a downloaded checksum or byte-for-byte verification. This initial public capture predates the supplied owner archive. Its partial HEAD sizing remains separate from the complete backup hashing below; CSS dependency traversal and JavaScript-loaded assets remain unresolved. Therefore this report cannot establish the 1 GB Pages feasibility gate or authorize source-host shutdown.
 
 ## Reproduce and continue
 
@@ -58,10 +58,71 @@ Tests cover pagination with authoritative totals, namespaced image sitemaps, rel
 
 | Acceptance requirement | Current evidence | Remaining input/gate |
 | --- | --- | --- |
-| Every published item accounted for | Public REST totals reconcile for 45 posts and 12 pages; sitemap/feed differences recorded | Owner WXR, all relevant public types and frozen final delta reconciliation |
-| Owned media measured | Referenced direct/CDN origin candidates enumerated; resumable partial HEAD sizing | Complete uploads/original byte archive, SHA-256, dimensions, total hosting budget |
+| Every published item accounted for | Owner WXR post/page IDs match all 57 REST IDs; 12 published portfolios and 98 attachment routes explain sitemap extras | Explicit handling of plugin/config records, complete feature/settings evidence and frozen final delta |
+| Owned media measured | All 2,402 backup upload files hashed privately; exact aggregate footprints and case-loss recovery below | Complete source/media URL reconciliation, per-item asset mapping and approved hosting decision |
 | No private export data committed | No export/authentication/comment collection; published metadata allowlist and body hashes | Apply the same private-data boundary to owner inputs/import intermediates |
 | Versioned contracts and synthetic coverage | Owned by MIG-01 foundation PR #11 | Consume committed contracts; acquisition metadata is not a normalized content bundle |
 | Frozen visual/backend fidelity | Feature and route evidence identifies work | Full snapshots/screenshots and interactive verification at required viewports |
 
 No DNS, custom-domain configuration, production publication or feature retirement is part of this inventory.
+
+
+## Owner backup acquisition and reconciliation
+
+The later owner backup contains one top-level WXR export (2,165,608 bytes), `uploads/` and `themes/`. The acquisition command reads these inputs and never changes them. The versioned sanitized report is [`owner-backup-summary.json`](../migration/inventory/owner-backup-summary.json). The full per-file SHA-256/path manifest and recovered media stay in a private directory outside Git, with directory mode 0700 and manifest mode 0600. No XML, draft content, comments/email/IP/password data, or licensed theme source enters this repository.
+
+WXR has **550 items**: 45 published posts, 7 draft posts, 12 published pages, 4 draft pages, 12 published portfolios, 448 inherited attachments, 15 published navigation-menu definitions, 3 ad definitions, 1 ad-placement definition, 1 Elementor library record and 2 subscription-form definitions. Configuration records are explicit work items, not silently discarded editorial content. Draft counts are aggregate only; no private IDs, titles or bodies appear in the report.
+
+All 45 published post IDs and 12 published page IDs equal the public REST sets, with zero missing or additional IDs. The public sitemap's 111 non-REST URLs are now classified: 12 published portfolio URLs, 98 attachment URLs and the homepage. This resolves route identity classification, not fidelity or final source completeness. The WXR export plus upload copy is not evidence that production editing has frozen, nor does it contain complete database options, theme/plugin behavior or all externally hosted data.
+
+All 446 available attachment metadata payloads parsed successfully with a data-only PHP serialization reader that cannot instantiate PHP objects. Metadata identifies primary attachment files, explicit original images, generated size variants and image-edit backups. No symlinks were traversed. Original/private-parent attachment candidates are an archival planning set, **not a publication allowlist**.
+
+| Upload classification | Present files | Known bytes | Exact-path misses |
+| --- | ---: | ---: | ---: |
+| Entire uploads backup | 2,402 | 1,076,148,970 | Not applicable |
+| Attachment main/original-image candidates | 459 | 673,948,321 | 2 |
+| Image-edit backup variants | 19 | 17,160,808 | 0 |
+| Metadata size derivatives | 1,889 | 384,303,215 | 2 |
+| Observed public references | 494 | 684,445,082 | 2 |
+| Originals + edit backups + observed public references (union) | 525 | 697,725,468 | 2 |
+| All attachment metadata + observed references (union) | 2,370 | **1,075,541,365** | 4 |
+| Metadata derivatives not observed in the bounded public capture | 1,845 | 377,815,897 | 2 |
+| Remaining unclassified/unreferenced backup files | 32 | 607,605 | 0 |
+
+Rows overlap; use the union rows instead of summing categories. The two/ four exact-path misses are case-collision evidence discussed below, not an assumption that matching case-insensitive bytes are interchangeable. Present byte sums precede URL-correct reconstruction and additional renderer/theme assets.
+
+The limited observed-reference union fits 1 GB, but it excludes many metadata derivatives and does not establish that those historical public URLs may be omitted. Preserving the complete attachment metadata/reference union already requires 1,075,541,365 known bytes, above both 1,000,000,000 bytes and 1 GiB before site HTML, fonts and source-case repairs. The exact final deployment footprint remains unverified pending complete mapping and a hosting/routing decision. Nothing has been deleted, compressed or moved out of scope to fit Pages.
+
+Uploads contain 529,484,277 bytes of PNG, 486,086,393 bytes of JPG, 49,096,927 bytes of GIF and 10,742,401 bytes of JPEG, plus CSS/fonts and small auxiliary files. The largest file is 10,411,474 bytes; no file reaches 50 MiB or 100 MiB. Per-file Git size is therefore not the present blocker; total preserved deployment bytes are.
+
+The backup has 2,151 distinct SHA-256 values and 119,980,396 bytes of repeated content. Identical bytes do **not** automatically permit deduplicating URLs on plain Pages: every historical media URL still needs to serve the correct bytes. Rewriting current HTML to one shared URL would leave old direct links unresolved. No deduplication occurred; a future storage/routing design must preserve the original URL-to-bytes contract explicitly.
+
+The theme directory identifies **TheBlogger 2.3.3, ThemeForest License**, plus 15 bundled WordPress default themes. This confirms available source identity only; active theme selection, owner customizations, database options and redistribution rights for deployed theme assets still need verification. No commercial theme implementation or bundled plugin archive is copied into Git. The backup contains no original uploads ZIP/TAR; five ZIP files are theme-bundled plugin packages and are unrelated to upload recovery.
+
+### Exact-case media loss and private recovery
+
+[`missing-upload-case-evidence.json`](../migration/inventory/public/missing-upload-case-evidence.json) records eight successful public GET observations with exact URL, status, byte count and SHA-256. The four exact-case metadata misses are:
+
+- `2018/06/cropped-Pujolsluis-icon.png`
+- `2018/06/cropped-Pujolsluis-icon-1.png`
+- `2018/06/cropped-Pujolsluis-icon-150x150.png`
+- `2018/06/cropped-Pujolsluis-Icon-1-150x150.png`
+
+WXR has separate original attachment identities for `icon` versus `Icon` names (31/41 and 34/44). Upper- and lower-case source URLs return different bytes. The case-insensitive backup has four path entries holding the opposite-case URL's content; even an exact-looking filename cannot be trusted without its source hash. Case-only path normalization would silently replace media.
+
+All eight live URL variants were captured into **private SHA-256-addressed blobs**, with an exact, case-sensitive source URL-to-hash mapping. Three live blobs totaling **16,569 bytes** were absent anywhere in the backup; a fourth mismatched candidate's bytes existed under another filename. All eight URLs and all eight distinct live hashes are now preserved privately. The backup remains unchanged. Future acquisition should use content-addressed storage or a case-sensitive filesystem and retain exact source URLs separately, preventing another macOS case collision. Reconstruction into public routes remains a later asset-mapping task; these GET observations do not declare the entire uploads archive source-verified.
+
+### Reproduce owner acquisition
+
+Choose a new private output directory outside every Git checkout; existing output directories are rejected to preserve prior acquisition evidence:
+
+```sh
+python -m scripts.inventory.backup \
+  --backup /path/to/pujolsluis-wordpress-backup \
+  --public-inventory migration/inventory/public/observations.json \
+  --private-output /private/tmp/pujolsluis-mig-01-new-acquisition \
+  --report migration/inventory/owner-backup-summary.json
+python -m unittest discover -s tests/inventory -v
+```
+
+The script discovers exactly one top-level XML, rejects DTD/entity declarations, checks uploads paths, skips file/directory symlinks, hashes every regular upload file and keeps sensitive per-file detail outside Git. Tests cover UTF-8 PHP byte lengths, rejection of PHP objects/trailing data, URL-decoded traversal, symlink boundaries, private-data allowlisting, private file permissions and unchanged source bytes. The separately recorded eight public GET snapshots are frozen source-case evidence; broad crawling is not repeated as part of owner acquisition.

@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "https://www.pujolsluis.com/",
+  "purpose": "Exact-case public upload variants; backup remains unchanged",
+  "observations": [
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1-150x150.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-Icon-1-150x150.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": false,
+      "sourceBytes": 2103,
+      "sourceSha256": "290bf26d59e1a4998c6caf4674e5c980561aa0be65243c4fcc58f72d49bbfdb8",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-icon-1-150x150.png",
+          "backupSha256": "290bf26d59e1a4998c6caf4674e5c980561aa0be65243c4fcc58f72d49bbfdb8",
+          "matchesLiveBytes": true
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": true
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-Icon-1.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": true,
+      "sourceBytes": 3232,
+      "sourceSha256": "5bfcee3e36f618ce165177f18e21100c8ebec1918ca8d80b8069f3d94a7ef453",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-Icon-1.png",
+          "backupSha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b",
+          "matchesLiveBytes": false
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": true
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-150x150.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-Icon-150x150.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": true,
+      "sourceBytes": 1139,
+      "sourceSha256": "6d82c767799f7ec42fa315d1ef0c61771a4dcb1629d6a36ae155740d2075b49b",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-Icon-150x150.png",
+          "backupSha256": "c2c5a2a72df7fd7052914cdbd373b6fde6d438d6b13dae01f7fec5e89ee7b747",
+          "matchesLiveBytes": false
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": false
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-Icon.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": true,
+      "sourceBytes": 1564,
+      "sourceSha256": "0699549771a8bf2a86bfdfae188ffe1986a953c3f0aaccc82f5c9f5fa4ec6674",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-Icon.png",
+          "backupSha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b2065026d4aa3",
+          "matchesLiveBytes": false
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": false
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1-150x150.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-icon-1-150x150.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": true,
+      "sourceBytes": 13866,
+      "sourceSha256": "eb79e55bf105a1cc6bdbf57876693d53372aa754d4f4ed34b06fc99dd766756b",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-icon-1-150x150.png",
+          "backupSha256": "290bf26d59e1a4998c6caf4674e5c980561aa0be65243c4fcc58f72d49bbfdb8",
+          "matchesLiveBytes": false
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": false
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-icon-1.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": false,
+      "sourceBytes": 21158,
+      "sourceSha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-Icon-1.png",
+          "backupSha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b",
+          "matchesLiveBytes": true
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": true
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-150x150.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-icon-150x150.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": false,
+      "sourceBytes": 13585,
+      "sourceSha256": "c2c5a2a72df7fd7052914cdbd373b6fde6d438d6b13dae01f7fec5e89ee7b747",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-Icon-150x150.png",
+          "backupSha256": "c2c5a2a72df7fd7052914cdbd373b6fde6d438d6b13dae01f7fec5e89ee7b747",
+          "matchesLiveBytes": true
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": true
+    },
+    {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon.png",
+      "relativePath": "2018/06/cropped-Pujolsluis-icon.png",
+      "sourceStatus": 200,
+      "exactBackupPathPresent": false,
+      "sourceBytes": 30945,
+      "sourceSha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b2065026d4aa3",
+      "caseCandidateEvidence": [
+        {
+          "path": "2018/06/cropped-Pujolsluis-Icon.png",
+          "backupSha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b2065026d4aa3",
+          "matchesLiveBytes": true
+        }
+      ],
+      "sourceBlobPresentAnywhereInBackup": true
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1-150x150.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1-150x150.png",
+      "contentType": "image/png",
+      "contentLength": "2103",
+      "bytesRead": 2103,
+      "sha256": "290bf26d59e1a4998c6caf4674e5c980561aa0be65243c4fcc58f72d49bbfdb8"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1.png",
+      "contentType": "image/png",
+      "contentLength": "3232",
+      "bytesRead": 3232,
+      "sha256": "5bfcee3e36f618ce165177f18e21100c8ebec1918ca8d80b8069f3d94a7ef453"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-150x150.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-150x150.png",
+      "contentType": "image/png",
+      "contentLength": "1139",
+      "bytesRead": 1139,
+      "sha256": "6d82c767799f7ec42fa315d1ef0c61771a4dcb1629d6a36ae155740d2075b49b"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon.png",
+      "contentType": "image/png",
+      "contentLength": "1564",
+      "bytesRead": 1564,
+      "sha256": "0699549771a8bf2a86bfdfae188ffe1986a953c3f0aaccc82f5c9f5fa4ec6674"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1-150x150.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1-150x150.png",
+      "contentType": "image/png",
+      "contentLength": "13866",
+      "bytesRead": 13866,
+      "sha256": "eb79e55bf105a1cc6bdbf57876693d53372aa754d4f4ed34b06fc99dd766756b"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1.png",
+      "contentType": "image/png",
+      "contentLength": "21158",
+      "bytesRead": 21158,
+      "sha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-150x150.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon-150x150.png",
+      "contentType": "image/png",
+      "contentLength": "13585",
+      "bytesRead": 13585,
+      "sha256": "c2c5a2a72df7fd7052914cdbd373b6fde6d438d6b13dae01f7fec5e89ee7b747"
+    },
+    {
+      "url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon.png",
+      "method": "GET",
+      "status": 200,
+      "finalUrl": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-icon.png",
+      "contentType": "image/png",
+      "contentLength": "30945",
+      "bytesRead": 30945,
+      "sha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b2065026d4aa3"
+    }
+  ],
+  "errors": [],
+  "capturedAt": "2026-10-24T23:03:39.780257+00:00",
+  "summary": {
+    "verifiedPublicUrls": 8,
+    "distinctLiveBlobs": 8,
+    "liveBlobsAbsentFromBackup": 3,
+    "recoveredAbsentBlobBytes": 16569,
+    "sourceStorage": "Private SHA-256-addressed blobs; original case-sensitive URL to hash mapping retained",
+    "backupModified": false
+  }
+}

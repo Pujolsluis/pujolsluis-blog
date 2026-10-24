@@ -1,0 +1,706 @@
+{
+  "schemaVersion": "1.0.0",
+  "capturedAt": "2026-10-24T23:03:39.725513+00:00",
+  "completeness": "unverified",
+  "source": "https://www.pujolsluis.com/",
+  "sourceInputs": {
+    "ownerWxrSha256": "deae8936282e86fd03376bcced44e0e698b1bfa141029ad79c3a406493ae3d11",
+    "ownerWxrBytes": 2165608,
+    "backupModified": false
+  },
+  "wxr": {
+    "totalItems": 550,
+    "byTypeAndStatus": [
+      {
+        "type": "advanced_ads",
+        "status": "publish",
+        "count": 3
+      },
+      {
+        "type": "advanced_ads_plcmnt",
+        "status": "publish",
+        "count": 1
+      },
+      {
+        "type": "attachment",
+        "status": "inherit",
+        "count": 448
+      },
+      {
+        "type": "elementor_library",
+        "status": "publish",
+        "count": 1
+      },
+      {
+        "type": "mc4wp-form",
+        "status": "publish",
+        "count": 2
+      },
+      {
+        "type": "nav_menu_item",
+        "status": "publish",
+        "count": 15
+      },
+      {
+        "type": "page",
+        "status": "draft",
+        "count": 4
+      },
+      {
+        "type": "page",
+        "status": "publish",
+        "count": 12
+      },
+      {
+        "type": "portfolio",
+        "status": "publish",
+        "count": 12
+      },
+      {
+        "type": "post",
+        "status": "draft",
+        "count": 7
+      },
+      {
+        "type": "post",
+        "status": "publish",
+        "count": 45
+      }
+    ],
+    "publicEditorialRecords": [
+      {
+        "sourceId": "wp:86",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/page-full-width/"
+      },
+      {
+        "sourceId": "wp:93",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/shortcodes/"
+      },
+      {
+        "sourceId": "wp:117",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/contact/"
+      },
+      {
+        "sourceId": "wp:1997",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/page-with-sidebar/"
+      },
+      {
+        "sourceId": "wp:1998",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/typography/"
+      },
+      {
+        "sourceId": "wp:1999",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/about-me/"
+      },
+      {
+        "sourceId": "wp:333",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/planet-unknown/"
+      },
+      {
+        "sourceId": "wp:342",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/lenvers-des-contes/"
+      },
+      {
+        "sourceId": "wp:347",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/matin-ordinaire/"
+      },
+      {
+        "sourceId": "wp:354",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/blank-space/"
+      },
+      {
+        "sourceId": "wp:359",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/stages/"
+      },
+      {
+        "sourceId": "wp:365",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/chemistry-ft-blackbear/"
+      },
+      {
+        "sourceId": "wp:367",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/disclosure-you-me/"
+      },
+      {
+        "sourceId": "wp:369",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/changes/"
+      },
+      {
+        "sourceId": "wp:371",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/makeba-jain/"
+      },
+      {
+        "sourceId": "wp:373",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/the-kitchens/"
+      },
+      {
+        "sourceId": "wp:375",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/various-illustrations-2016/"
+      },
+      {
+        "sourceId": "wp:380",
+        "type": "portfolio",
+        "url": "https://www.pujolsluis.com/portfolio/branding-exploration/"
+      },
+      {
+        "sourceId": "wp:1946",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/cookie-policy/"
+      },
+      {
+        "sourceId": "wp:1948",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/shop/"
+      },
+      {
+        "sourceId": "wp:1949",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/cart/"
+      },
+      {
+        "sourceId": "wp:1950",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/checkout/"
+      },
+      {
+        "sourceId": "wp:1951",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/my-account/"
+      },
+      {
+        "sourceId": "wp:2001",
+        "type": "page",
+        "url": "https://www.pujolsluis.com/portfolio/"
+      },
+      {
+        "sourceId": "wp:36",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/welcome-127-0-0-1/"
+      },
+      {
+        "sourceId": "wp:57",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/google-client-plugin-for-xamarin/"
+      },
+      {
+        "sourceId": "wp:99",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/linkedin-client-plugin-for-xamarin/"
+      },
+      {
+        "sourceId": "wp:161",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/google-plugin-1-1-0-released-goodies-and-improvements/"
+      },
+      {
+        "sourceId": "wp:202",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/creating-custom-controls-part-1-extendedlistview/"
+      },
+      {
+        "sourceId": "wp:269",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/lets-create-a-xamarin-plugin/"
+      },
+      {
+        "sourceId": "wp:271",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/creating-custom-controls-part-2-sliderview/"
+      },
+      {
+        "sourceId": "wp:274",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/"
+      },
+      {
+        "sourceId": "wp:279",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/"
+      },
+      {
+        "sourceId": "wp:981",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/sharing-is-caring-xamarin-forms-and-prism-template-pack/"
+      },
+      {
+        "sourceId": "wp:983",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/wowza-client-plugin-for-xamarin/"
+      },
+      {
+        "sourceId": "wp:1106",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/streaming-on-xamarin-forms-xamarin-online-latam-fest/"
+      },
+      {
+        "sourceId": "wp:1158",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/lets-talk-architecture-with-prism-xamarin-forms-south-florida-code-camp-2019/"
+      },
+      {
+        "sourceId": "wp:1194",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/"
+      },
+      {
+        "sourceId": "wp:1222",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/visual-studio-2019-launch-recap-dotnetdo/"
+      },
+      {
+        "sourceId": "wp:1212",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/debugging-hiccups-in-xamarin-and-how-to-overcome-them/"
+      },
+      {
+        "sourceId": "wp:1254",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/"
+      },
+      {
+        "sourceId": "wp:1279",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/xamarin-forms-ui-challenge-ficus-iot-app/"
+      },
+      {
+        "sourceId": "wp:1301",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/printing-pdfs-and-images-xamarin-forms/"
+      },
+      {
+        "sourceId": "wp:1343",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/devops-panama-app-center-with-xamarin/"
+      },
+      {
+        "sourceId": "wp:1368",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/ui-challenge-ficus-iot-app-part-2/"
+      },
+      {
+        "sourceId": "wp:1370",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-lets-create-a-xamarin-plugin-monkey-fest-latam-2019/"
+      },
+      {
+        "sourceId": "wp:1434",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/cross-platform-mobile-development-with-xamarin-forms-tampacc/"
+      },
+      {
+        "sourceId": "wp:1450",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/dotnetdo-community-anniversary-v1-0-year-overview-and-party/"
+      },
+      {
+        "sourceId": "wp:1573",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/lets-talk-architecture-with-prism-tampacc/"
+      },
+      {
+        "sourceId": "wp:1575",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/mobile-devops-made-easy-tampacc/"
+      },
+      {
+        "sourceId": "wp:1639",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/upgrading-custom-sliderview-app-with-xamarin-forms-4-4-goodies/"
+      },
+      {
+        "sourceId": "wp:1702",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/mobile-app-redesign-for-developers-gittrends/"
+      },
+      {
+        "sourceId": "wp:1715",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/how-to-display-pdf-in-xamarin-forms-with-ease/"
+      },
+      {
+        "sourceId": "wp:1830",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/mobile-app-redesign-for-developers-colors-and-typography/"
+      },
+      {
+        "sourceId": "wp:1889",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/mobile-app-redesign-for-developers-iconography-magic-numbers/"
+      },
+      {
+        "sourceId": "wp:2112",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/mobile-devops-made-easy-with-vs-app-center-south-florida-code-camp-2020/"
+      },
+      {
+        "sourceId": "wp:2118",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/talk-mobile-app-redesign-for-developers-xamarin-assemble/"
+      },
+      {
+        "sourceId": "wp:2139",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/talk-toronto-mobile-developers-mobile-app-redesign-gittrends/"
+      },
+      {
+        "sourceId": "wp:2182",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/8-bits-microsoft-learntv-show-hosted-by-chloe-condon-brandon-minnick-with-guest-luis-pujols/"
+      },
+      {
+        "sourceId": "wp:2149",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-azure-for-devs-week-1/"
+      },
+      {
+        "sourceId": "wp:2169",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-azure-for-devs-week-2/"
+      },
+      {
+        "sourceId": "wp:2202",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/net-docs-show-creating-an-oss-mobile-app-using-xamarin-azure/"
+      },
+      {
+        "sourceId": "wp:2223",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/talk-dci-breaking-mental-barriers-and-dominating-your-path-in-tech/"
+      },
+      {
+        "sourceId": "wp:2237",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-azure-for-devs-week-3/"
+      },
+      {
+        "sourceId": "wp:2243",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-azure-for-devs-week-4/"
+      },
+      {
+        "sourceId": "wp:2258",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-azure-for-devs-week-5/"
+      },
+      {
+        "sourceId": "wp:2271",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/panel-how-to-become-a-xamarin-developer-latam/"
+      },
+      {
+        "sourceId": "wp:2288",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/study-group-exam-prep-sessions-for-az-900-net-dominicana/"
+      },
+      {
+        "sourceId": "wp:2306",
+        "type": "post",
+        "url": "https://www.pujolsluis.com/workshop-reactive-programming-with-net-and-xamarin-forms-with-andres-pineda-net-dominicana/"
+      }
+    ],
+    "attachmentParentCounts": {
+      "unattached": 100,
+      "publicEditorialParent": 347,
+      "otherOrPrivateParent": 1
+    },
+    "metadataParseErrors": 0
+  },
+  "reconciliation": {
+    "publicRestIdsAbsentFromOwnerWxr": [],
+    "ownerWxrPublishedPostPageIdsAbsentFromRest": [],
+    "sitemapExtrasMatchedPublishedEditorial": 12,
+    "sitemapExtrasMatchedAttachmentRoutes": 98,
+    "sitemapExtrasUnclassified": []
+  },
+  "uploads": {
+    "totalFiles": 2402,
+    "totalBytes": 1076148970,
+    "byExtension": {
+      ".png": {
+        "files": 1397,
+        "bytes": 529484277
+      },
+      "(none)": {
+        "files": 4,
+        "bytes": 10283
+      },
+      ".jpg": {
+        "files": 742,
+        "bytes": 486086393
+      },
+      ".css": {
+        "files": 3,
+        "bytes": 129021
+      },
+      ".woff2": {
+        "files": 25,
+        "bytes": 596964
+      },
+      ".jpeg": {
+        "files": 187,
+        "bytes": 10742401
+      },
+      ".gif": {
+        "files": 39,
+        "bytes": 49096927
+      },
+      ".txt": {
+        "files": 2,
+        "bytes": 2346
+      },
+      ".html": {
+        "files": 2,
+        "bytes": 0
+      },
+      ".log": {
+        "files": 1,
+        "bytes": 358
+      }
+    },
+    "symlinksSkipped": 0,
+    "distinctSha256": 2151,
+    "distinctContentBytes": 956168574,
+    "duplicateContentBytes": 119980396,
+    "attachmentOriginalCandidates": {
+      "referencedFiles": 461,
+      "presentFiles": 459,
+      "missingFiles": 2,
+      "bytes": 673948321
+    },
+    "attachmentBackupVariants": {
+      "referencedFiles": 19,
+      "presentFiles": 19,
+      "missingFiles": 0,
+      "bytes": 17160808
+    },
+    "metadataDerivativeCandidates": {
+      "referencedFiles": 1891,
+      "presentFiles": 1889,
+      "missingFiles": 2,
+      "bytes": 384303215
+    },
+    "observedPublicReferences": {
+      "referencedFiles": 496,
+      "presentFiles": 494,
+      "missingFiles": 2,
+      "bytes": 684445082
+    },
+    "knownPreservationCandidateUnion": {
+      "referencedFiles": 527,
+      "presentFiles": 525,
+      "missingFiles": 2,
+      "bytes": 697725468
+    },
+    "allAttachmentMetadataUnion": {
+      "referencedFiles": 2371,
+      "presentFiles": 2367,
+      "missingFiles": 4,
+      "bytes": 1075412344
+    },
+    "fullMetadataAndObservedReferenceUnion": {
+      "referencedFiles": 2374,
+      "presentFiles": 2370,
+      "missingFiles": 4,
+      "bytes": 1075541365
+    },
+    "expectedCaseDistinctGroups": 4,
+    "exactCaseMissingWithCaseOnlyCandidate": 4,
+    "missingWithoutCaseOnlyCandidate": 0,
+    "metadataDerivativesNotObserved": {
+      "referencedFiles": 1847,
+      "presentFiles": 1845,
+      "missingFiles": 2,
+      "bytes": 377815897
+    },
+    "unclassifiedOrUnreferencedFiles": {
+      "referencedFiles": 32,
+      "presentFiles": 32,
+      "missingFiles": 0,
+      "bytes": 607605
+    },
+    "unsafeReferences": 0,
+    "filesAtOrAbove100MiB": 0,
+    "filesAtOrAbove50MiB": 0,
+    "largestFiles": [
+      {
+        "bytes": 10411474,
+        "extension": ".gif",
+        "attachmentOriginalCandidate": false,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 10172350,
+        "extension": ".gif",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 7514491,
+        "extension": ".gif",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 7392393,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 7085399,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 7085399,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 7014731,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 6759873,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 6701665,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      },
+      {
+        "bytes": 6701665,
+        "extension": ".jpg",
+        "attachmentOriginalCandidate": true,
+        "observedPublicReference": true
+      }
+    ]
+  },
+  "themeHeaders": [
+    {
+      "Theme Name": "TheBlogger",
+      "Version": "2.3.3",
+      "License": "ThemeForest License"
+    },
+    {
+      "Theme Name": "Twenty Eleven",
+      "Version": "5.2",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Fifteen",
+      "Version": "4.3",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Fourteen",
+      "Version": "4.6",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Nineteen",
+      "Version": "3.4",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Seventeen",
+      "Version": "4.2",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Sixteen",
+      "Version": "3.9",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Ten",
+      "Version": "4.7",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Thirteen",
+      "Version": "4.7",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twelve",
+      "Version": "4.9",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twenty",
+      "Version": "3.2",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twenty-Five",
+      "Version": "1.5",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twenty-Four",
+      "Version": "1.6",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twenty-One",
+      "Version": "2.9",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twenty-Three",
+      "Version": "1.7",
+      "License": "GNU General Public License v2 or later"
+    },
+    {
+      "Theme Name": "Twenty Twenty-Two",
+      "Version": "2.2",
+      "License": "GNU General Public License v2 or later"
+    }
+  ],
+  "feasibility": {
+    "fullUploadsExceeds1000000000Bytes": true,
+    "fullUploadsExceeds1GiB": true,
+    "knownPreservationCandidateBytes": 697725468,
+    "remainingBytesTo1000000000BeforeSiteFiles": 302274532,
+    "fullMetadataAndObservedReferenceBytes": 1075541365,
+    "fullMetadataAndObservedExceeds1000000000Bytes": true,
+    "fullMetadataAndObservedExceeds1GiB": true,
+    "requiredDeploymentFootprintVerified": false
+  },
+  "limitations": [
+    "Owner WXR and media backup are observed acquisition inputs, not a documented production editing freeze or final delta.",
+    "Published post/page ID equality does not resolve all plugin/custom-type semantics or prove full feature fidelity.",
+    "Original candidates include every attachment main file plus explicit original_image entries. WordPress image-edit backups and observed public resources are preserved separately in the union.",
+    "Exact-case missing paths and same-case bytes require case-sensitive source verification; case-insensitive backup files may contain the opposite-case variant. See separately captured public source URL/hash evidence.",
+    "Identical hashes do not authorize removing any original URL. Plain Pages requires a file at every preserved URL; remapping references alone does not preserve historical direct URLs.",
+    "All upload files are hashed privately. Hash equality is evidence only; no deduplication, optimization, removal or source modification occurred.",
+    "Known preservation union is a planning footprint, not a publication allowlist: attachments with private/unknown parents still require privacy review.",
+    "CSS/JS dynamic requests, shortcode/theme/plugin expansion, final renderer assets and every route screenshot remain unresolved; exact required deployment footprint is not proven.",
+    "Raw XML, comment/email/IP/password metadata, per-file paths/hashes, missing-reference details and theme source remain outside Git."
+  ]
+}
