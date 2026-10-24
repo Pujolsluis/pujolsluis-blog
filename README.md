@@ -53,7 +53,7 @@ Assign one subagent per ready issue, each in its own worktree/branch (`codex/mig
 
 ## CI/CD included now
 
-[CI and Pages](.github/workflows/pages.yml) runs on PRs targeting `master`, pushes to `master`, and manual dispatch. It installs pinned Ruff, lints Python, runs unittest safety checks, builds the temporary preview and uploads a Pages artifact. Deployment depends on successful checks and is restricted to `master`; PRs never deploy. The deploy job alone receives `pages: write` and `id-token: write` and uses the `github-pages` environment.
+[CI and Pages](.github/workflows/pages.yml) runs on PRs targeting `master`, pushes to `master`, and manual dispatch. It installs pinned Ruff, lints Python, runs unittest safety checks, builds the temporary preview and uploads a Pages artifact. Actions use the latest stable releases verified on 2026-10-24, pinned to full commit SHAs. Both jobs use Ubuntu 24.04 to avoid runner-label migration notices. The workflow packages `artifact.tar` directly and uploads it with the current `upload-artifact` release, avoiding an older transitive dependency in the Pages upload wrapper. Deployment depends on successful checks and is restricted to `master`; PRs never deploy. The deploy job alone receives `pages: write` and `id-token: write` and uses the `github-pages` environment.
 
 These bootstrap tests check that the preview cannot claim the production domain or expose unexpected files. They do **not** establish migration fidelity. MIG-07 adds importer, route, media, browser and visual regression suites before migration acceptance.
 
