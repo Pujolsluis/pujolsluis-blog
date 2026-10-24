@@ -29,12 +29,12 @@ MIGRATION_INPUT_DIR=/absolute/path/to/bundle npm run build
 | `MIGRATION_INPUT_DIR` | `fixtures/v1` | Directory containing `content.json`, `assets.json`, `routes.json`, and referenced `media/` files |
 | `SITE_BASE` | `/pujolsluis-blog/` | `/` or a slash-delimited repository prefix ending in `/` |
 | `SITE_URL` | `https://pujolsluis.github.io` | Preview canonical HTTP(S) origin; no path or credentials |
-| `SITE_OUTPUT_DIR` | `dist` | Build artifact directory; cannot overlap input or source directories |
+| `SITE_OUTPUT_DIR` | `dist` | Dedicated directory named `dist` or `*-dist`; cannot overlap input or source directories, including through symlinks |
 | `BUILD_TIME` | Start of build | Fixed ISO timestamp for publication filtering and reproducibility |
 
 ## Contract and output
 
-Consumes committed `docs/contracts/v1` schemas, validates schema version and structure, original/rendered HTML provenance hashes, identities, canonical paths and content routes. Only `status=publish` records whose publication time is at or before `BUILD_TIME` enter routes, navigation, article HTML or copied media. Referenced originals are copied without transformation after byte length and SHA-256 verification; symlinks outside the input directory fail.
+Consumes committed `docs/contracts/v1` schemas (content 1.0.0 and additive 1.1.0; assets/routes 1.0.0), validates schema version and structure, original/rendered HTML provenance hashes, identities, canonical paths and content routes. Content 1.1.0 portfolios retain their own routes and render through the article layout; they are excluded from the root blog feed. Only `status=publish` records whose publication time is at or before `BUILD_TIME` enter routes, navigation, article HTML or copied media. Referenced originals are copied without transformation after byte length and SHA-256 verification; symlinks outside the input directory fail.
 
 Astro emits directory `index.html` files for content and the root archive. URL paths, fragments and query strings retain their source identity while deployment prefixes are added. Encoded Unicode routes use decoded filesystem directories and encoded public URLs. Article HTML is parsed and serialized without collapsing code whitespace; resource URLs are mapped to the media manifest, and external iframe sources must match a declared embed. No conversion through Markdown is performed. The home archive uses the preserved excerpt when available. Approved comments can be displayed with original WordPress-style comment anchors; threaded presentation and interaction fidelity are pending.
 

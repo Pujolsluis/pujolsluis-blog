@@ -14,7 +14,7 @@ export interface ContentItem {
   categories: TaxonomyTerm[];
   tags: TaxonomyTerm[];
   content: { format: string; original: string; html: string; provenance: Record<string, string> };
-  sourceMetadata: { guid: string; excerptHtml: string; commentStatus: string; pingStatus: string; featuredAssetId: string | null };
+  sourceMetadata: { guid: string; excerptHtml: string; commentStatus: string; pingStatus: string; featuredAssetId: string | null; sourceType?: string };
   assetIds: string[];
   embeds: { provider: string; url: string; html: string }[];
   comments: Comment[];

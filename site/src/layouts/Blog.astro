@@ -13,6 +13,7 @@ const { bundle, title, currentPath = '/', language = 'en' } = Astro.props;
 const { config, items } = bundle;
 const pages = items.filter(item => item.kind === 'page');
 const posts = items.filter(item => item.kind === 'post').sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+const synthetic = items.every(item => item.content.provenance.kind === 'synthetic');
 ---
 <!doctype html>
 <html lang={language}>
@@ -26,7 +27,7 @@ const posts = items.filter(item => item.kind === 'post').sort((a, b) => Date.par
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="preview-notice">Migration preview · Synthetic fixtures · Fidelity not verified</div>
+    <div class="preview-notice">Migration preview · {synthetic ? 'Synthetic fixtures' : 'Imported source preview'} · Fidelity not verified</div>
     <header class="site-header">
       <a class="site-title" href={withBase('/', config.base)}>Pujolsluis Blog</a>
       <p class="site-description">Software Engineering &amp; Mobile Development blog</p>
@@ -44,7 +45,7 @@ const posts = items.filter(item => item.kind === 'post').sort((a, b) => Date.par
         </section>
         <section class="widget preview-context">
           <h2 class="widget-title">Migration preview</h2>
-          <p>This build uses synthetic examples to verify the renderer. The WordPress archive, original media and theme verification are pending.</p>
+          <p>{synthetic ? 'This build uses synthetic examples to verify the renderer.' : 'This build previews imported source records.'} Full archive, media, appearance and behavior verification are pending.</p>
         </section>
       </aside>
     </div>

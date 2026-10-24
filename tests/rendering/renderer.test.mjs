@@ -30,7 +30,11 @@ function attribute(node, name) { return node.attrs?.find(attr => attr.name === n
 
 test('base configuration rejects malformed paths and dangerous output directories', () => {
   for (const base of ['relative', '//other/', '/x/../', '/x', '/%2e%2e/']) assert.throws(() => configuration({ SITE_BASE: base }));
-  for (const dir of ['.', '..', '/', 'site', 'public/output', 'fixtures/v1']) assert.throws(() => configuration({ SITE_OUTPUT_DIR: dir }));
+  for (const dir of ['.', '..', '/', 'site/generated-dist', 'public/generated-dist', 'fixtures/v1/generated-dist', 'tests/generated-dist', 'node_modules/generated-dist']) assert.throws(() => configuration({ SITE_OUTPUT_DIR: dir }));
+  temporaryBundle(directory => {
+    fs.symlinkSync(path.resolve('site'), path.join(directory, 'linked'));
+    assert.throws(() => configuration({ SITE_OUTPUT_DIR: path.join(directory, 'linked', 'generated-dist') }), /overlap/);
+  });
   assert.equal(withBase('/about/#biography', '/preview/'), '/preview/about/#biography');
   assert.equal(withBase('//external.test/image', '/preview/'), '//external.test/image');
   assert.equal(withBase('/about/', '/'), '/about/');
@@ -38,7 +42,7 @@ test('base configuration rejects malformed paths and dangerous output directorie
 
 test('paths preserve encoding but reject traversal, aliases and file output ambiguity', () => {
   assert.equal(safePath('/caf%C3%A9/'), '/caf%C3%A9/');
-  for (const route of ['/../', '/%2e%2e/', '//host/', '/a%2fb/', '/a\\b/', '/post?x=1', '/post']) assert.throws(() => safePath(route));
+  for (const route of ['/../', '/%2e%2e/', '//host/', '/a%2fb/', '/a%0ab/', '/a\\b/', '/post?x=1', '/post']) assert.throws(() => safePath(route));
 });
 
 test('contract version, provenance and missing media references fail closed', () => {
@@ -68,6 +72,11 @@ test('duplicate, missing and mismatched content routes fail closed', () => {
   temporaryBundle(directory => {
     edit(directory, 'routes', r => { r.routes[0].path = '/wrong/'; });
     assert.throws(() => loadBundle({ ...baseConfig, inputDir: directory }), /Missing matching content route/);
+  });
+  temporaryBundle(directory => {
+    edit(directory, 'content', c => { c.items.push({ ...structuredClone(c.items[1]), sourceId: 'wp:103', path: '/%61bout/', canonicalUrl: 'https://example.invalid/%61bout/' }); });
+    edit(directory, 'routes', r => { r.routes.push({ path: '/%61bout/', kind: 'content', contentId: 'wp:103', query: '', fragments: [] }); });
+    assert.throws(() => loadBundle({ ...baseConfig, inputDir: directory }), /Duplicate decoded output route/);
   });
 });
 
@@ -127,15 +136,20 @@ for (const base of ['/', '/pujolsluis-blog/']) {
     edit(directory, 'content', content => {
       content.items.push({ ...structuredClone(content.items[0]), sourceId: 'wp:999', path: '/secret-draft/', canonicalUrl: 'https://example.invalid/secret-draft/', title: 'SECRET_DRAFT_SENTINEL', status: 'private', assetIds: ['wp:998'] });
       content.items.push({ ...structuredClone(content.items[1]), sourceId: 'wp:997', path: '/caf%C3%A9/', canonicalUrl: 'https://example.invalid/caf%C3%A9/' });
+      content.schemaVersion = '1.1.0';
+      for (const item of content.items) item.sourceMetadata.sourceType = item.kind;
+      const portfolio = { ...structuredClone(content.items[1]), sourceId: 'wp:996', kind: 'portfolio', title: 'Synthetic portfolio', path: '/portfolio/synthetic/', canonicalUrl: 'https://example.invalid/portfolio/synthetic/' };
+      portfolio.sourceMetadata.sourceType = 'portfolio';
+      content.items.push(portfolio);
     });
     edit(directory, 'assets', assets => { assets.assets.push({ ...assets.assets[0], assetId: 'wp:998', localPath: 'media/secret.svg', sourceUrl: 'https://example.invalid/secret.svg' }); });
-    edit(directory, 'routes', routes => { routes.routes.push({ path: '/secret-draft/', kind: 'content', contentId: 'wp:999', query: '', fragments: [] }, { path: '/caf%C3%A9/', kind: 'content', contentId: 'wp:997', query: '', fragments: [] }); });
+    edit(directory, 'routes', routes => { routes.routes.push({ path: '/secret-draft/', kind: 'content', contentId: 'wp:999', query: '', fragments: [] }, { path: '/caf%C3%A9/', kind: 'content', contentId: 'wp:997', query: '', fragments: [] }, { path: '/portfolio/synthetic/', kind: 'content', contentId: 'wp:996', query: '', fragments: [] }); });
     const outDir = path.join(directory, '..', `${path.basename(directory)}-dist`);
     try {
       const result = spawnSync(process.execPath, ['site/build.mjs'], { encoding: 'utf8', env: { ...process.env, ASTRO_TELEMETRY_DISABLED: '1', BUILD_TIME: fixedTime, SITE_BASE: base, MIGRATION_INPUT_DIR: directory, SITE_OUTPUT_DIR: outDir } });
       assert.equal(result.status, 0, result.stdout + result.stderr);
       const report = JSON.parse(fs.readFileSync(path.join(outDir, 'renderer-report.json')));
-      assert.equal(report.renderedContent, 3);
+      assert.equal(report.renderedContent, 4);
       assert.equal(report.copiedAssets, 1);
       assert.equal(report.fidelityVerified, false);
       assert.equal(report.base, base);
@@ -163,6 +177,7 @@ for (const base of ['/', '/pujolsluis-blog/']) {
       assert.deepEqual(fs.readFileSync(path.join(outDir, 'media/example.svg')), fs.readFileSync('fixtures/v1/media/example.svg'));
       assert.ok(!fs.existsSync(path.join(outDir, 'secret-draft')));
       assert.ok(!fs.existsSync(path.join(outDir, 'media/secret.svg')));
+      assert.ok(!fs.readFileSync(path.join(outDir, 'index.html'), 'utf8').includes('Synthetic portfolio'));
     } finally { fs.rmSync(outDir, { recursive: true, force: true }); }
   }));
 }

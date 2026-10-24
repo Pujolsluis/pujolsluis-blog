@@ -10,7 +10,7 @@ export function safePath(value) {
   if (!value.startsWith('/') || value.startsWith('//') || value.includes('\\') || /[?#\x00-\x1f]/.test(value)) throw new Error(`Unsafe route path: ${value}`);
   let decoded;
   try { decoded = decodeURIComponent(value); } catch { throw new Error(`Invalid encoded route: ${value}`); }
-  if (decoded.split('/').some(p => p === '.' || p === '..') || decoded.includes('\\') || decoded.includes('\0') || /%2f|%5c/i.test(value)) throw new Error(`Unsafe encoded path: ${value}`);
+  if (decoded.split('/').some(p => p === '.' || p === '..') || decoded.includes('\\') || /[\x00-\x1f\x7f]/.test(decoded) || /%2f|%5c/i.test(value)) throw new Error(`Unsafe encoded path: ${value}`);
   if (value !== '/' && !value.endsWith('/')) throw new Error(`Renderer requires directory routes ending in /: ${value}`);
   return value;
 }
@@ -20,8 +20,9 @@ function unique(values, label) {
 }
 
 export function loadBundle(config = configuration()) {
-  // Conditional required properties are defined on the parent object in v1.
-  const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: false });
+  // v1 conditionals inherit parent property/type constraints. Disable only
+  // Ajv's extra schema-authoring warnings for those valid JSON Schema forms.
+  const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: false, strictTypes: false });
   addFormats(ajv);
   const data = {};
   for (const name of ['content', 'assets', 'routes']) {
@@ -50,6 +51,7 @@ export function loadBundle(config = configuration()) {
   const routes = data.routes.routes.filter(r => ['content', 'archive'].includes(r.kind) && !r.query && (r.kind !== 'content' || itemsById.has(r.contentId)));
   if (routes.some(r => r.kind === 'archive' && r.path !== '/')) throw new Error('Non-home archives require MIG-05 archive selection metadata.');
   unique(routes.map(r => r.path), 'rendered route path');
+  unique(routes.map(r => decodeURIComponent(r.path)), 'decoded output route path');
   for (const item of items) {
     if (!routes.some(r => r.kind === 'content' && r.contentId === item.sourceId && r.path === item.path)) throw new Error(`Missing matching content route for ${item.sourceId}`);
   }
