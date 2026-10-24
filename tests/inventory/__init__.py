@@ -1,0 +1,1 @@
+"""Public inventory regression tests."""
