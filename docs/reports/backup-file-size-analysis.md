@@ -2,7 +2,7 @@
 
 Full read-only inventory of `~/Desktop/pujolsluis-wordpress-backup`, including uploads, themes and top-level XML. All binary media and experimental compressed files remain outside Git. No source file was modified. Raw XML contents and EXIF/GPS values are excluded.
 
-Measured quality-preserving opportunities are strongest in the tested PNG screenshots (36–41% smaller), followed by the tested large JPEG photographs (5–7% smaller). All 39 GIFs together save 4.63%. Exact decoded pixels and the stated metadata/animation checks passed; no source image has been replaced. JPEG/PNG figures are samples, not a forecast for the whole archive.
+Measured quality-preserving opportunities are strongest in the tested PNG screenshots (36–41% smaller), followed by the tested large JPEG photographs (5–7% smaller). All 39 GIFs together save 4.63%. Exact decoded pixels and the stated metadata/animation checks passed; no source image has been replaced. Full-corpus lossless trials are now complete: 99,502,299 bytes (94.89 MiB) saved across eligible upload images, with originals kept whenever validation failed or compression did not help. This is an uploads-only planning estimate, not proof that the complete site fits.
 
 The backup contains **4,531 files, 1,152,227,647 bytes (1,098.85 MiB)**. The globally largest 30 files are all uploads and total **202,461,232 bytes (193.08 MiB)**. The JSON companion contains exact hashes, image probes, all type totals and the largest duplicate groups: [`backup-file-size-analysis.json`](../../migration/inventory/backup-file-size-analysis.json).
 
@@ -121,9 +121,22 @@ All **39 upload GIFs (49,096,927 bytes)** passed frame-by-frame composed RGBA pi
 | `2018/07/linkedinclient.gif` | 10,172,350 | 9,458,812 | 713,538 (7.01%) |
 | `2018/07/googleclient.gif` | 7,514,491 | 7,196,621 | 317,870 (4.23%) |
 
-### PNG: pixel/metadata-preserving samples
+### Full upload-image measurements
 
-IDAT-only DEFLATE recompression preserves the decompressed PNG scanline bytes and every non-IDAT chunk byte-for-byte, including ICC/gamma/EXIF and other ancillary metadata. This avoids palette reduction, resizing or color conversion. Fully verified sample outputs:
+| Format | Tested paths | Before bytes | Verified after bytes | Saved bytes | Saved |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| PNG | 1,397 | 529,484,277 | 462,280,889 | 67,203,388 | 12.69% |
+| JPG + JPEG | 929 | 496,828,794 | 466,805,306 | 30,023,488 | 6.04% |
+| GIF | 39 | 49,096,927 | 46,821,504 | 2,275,423 | 4.63% |
+| Total | **2,365** | **1,075,409,998** | **975,907,699** | **99,502,299** | **9.25%** |
+
+Of 2,365 tested image paths, 2,284 improve and 81 retain their original files. Twenty-one JPEG paths were specifically rejected because the tool added JFIF fields or normalized an empty comment; those originals remain unchanged and their rejected savings are not counted. All 789 accepted JPEG payload outputs representing 888 URL paths preserve every original APP/COM marker payload byte-for-byte, alongside decoded pixels and EXIF/ICC/XMP/IPTC/DPI checks.
+
+With other upload files unchanged, the measured recipe yields an **estimated uploads footprint of 976,646,671 bytes**, or **23,353,329 bytes below a conservative 1,000,000,000-byte ceiling**. This excludes site HTML/fonts/scripts/styles, separately recovered source-case variants and any assets still missing from source reconciliation. A complete build and route/media audit must establish the final total. No source media has been replaced, and the optimized binaries are not committed.
+
+### PNG: pixel/metadata-preserving methods and examples
+
+The same-filter zlib level 9 trial preserves decompressed PNG scanline bytes; the largest 30 PNG paths were additionally eligible for re-filtering. Twenty-six re-filtered outputs were selected after decoded-pixel equality checks. Both methods preserve IHDR/PLTE and every non-IDAT chunk byte-for-byte, including ICC/gamma/EXIF and other ancillary metadata. Neither reduces the palette, changes dimensions or converts colors. Fully verified sample outputs:
 
 | Public upload | Before | Verified after | Saved |
 | --- | ---: | ---: | ---: |
@@ -177,6 +190,6 @@ python -m scripts.inventory.file_sizes \
   --report migration/inventory/backup-file-size-analysis.json
 ```
 
-The recorded image probe used Pillow 12.3.0. Full GIF measurements and bounded 10-JPEG/4-PNG trials were supplied by the separate compression-analysis task; source/experimental binaries remain private. Full JPEG/PNG corpus scans are still in progress and are not counted as completed here.
+The recorded image probe used Pillow 12.3.0. Full GIF/PNG/JPEG corpus measurements and bounded largest-file trials were supplied by the separate compression-analysis task; source/experimental binaries remain private. Full measurements were reconciled against final metadata-audited results rather than the earlier provisional scan. The unchanged backup and separately recovered case-sensitive files remain the source archive; optimization has not been applied.
 
 The scanner hashes regular files without following symlinks, ranks the full backup before selecting 30 files, and reads image metadata without encoding or modifying a source image. Compression experiments remain private and are a separate evidence artifact; no compressed binaries, source media or licensed theme files are committed.

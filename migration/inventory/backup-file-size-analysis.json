@@ -333,7 +333,7 @@
         "exifPresent": true
       },
       "verifiedLosslessTrial": {
-        "evidencePath": "uploads/2019/11/IMG_1639-1.jpg",
+        "evidencePath": "uploads/2019/11/IMG_1639.jpg",
         "method": "progressive",
         "beforeBytes": 7085399,
         "afterBytes": 6599894,
@@ -369,7 +369,7 @@
         "exifPresent": true
       },
       "verifiedLosslessTrial": {
-        "evidencePath": "uploads/2019/11/IMG_1639-1.jpg",
+        "evidencePath": "uploads/2019/11/IMG_1639.jpg",
         "method": "progressive",
         "beforeBytes": 7085399,
         "afterBytes": 6599894,
@@ -475,7 +475,7 @@
         "exifPresent": true
       },
       "verifiedLosslessTrial": {
-        "evidencePath": "uploads/2019/11/IMG_1707-1.jpg",
+        "evidencePath": "uploads/2019/11/IMG_1707.jpg",
         "method": "progressive",
         "beforeBytes": 6701665,
         "afterBytes": 6280115,
@@ -511,7 +511,7 @@
         "exifPresent": true
       },
       "verifiedLosslessTrial": {
-        "evidencePath": "uploads/2019/11/IMG_1707-1.jpg",
+        "evidencePath": "uploads/2019/11/IMG_1707.jpg",
         "method": "progressive",
         "beforeBytes": 6701665,
         "afterBytes": 6280115,
@@ -617,7 +617,7 @@
         "exifPresent": true
       },
       "verifiedLosslessTrial": {
-        "evidencePath": "uploads/2019/11/IMG_1698-1.jpg",
+        "evidencePath": "uploads/2019/11/IMG_1698.jpg",
         "method": "progressive",
         "beforeBytes": 6510078,
         "afterBytes": 6102034,
@@ -653,7 +653,7 @@
         "exifPresent": true
       },
       "verifiedLosslessTrial": {
-        "evidencePath": "uploads/2019/11/IMG_1698-1.jpg",
+        "evidencePath": "uploads/2019/11/IMG_1698.jpg",
         "method": "progressive",
         "beforeBytes": 6510078,
         "afterBytes": 6102034,
@@ -792,6 +792,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1666.jpg",
+        "method": "progressive",
+        "beforeBytes": 6372434,
+        "afterBytes": 6045469,
+        "savedBytes": 326965,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -819,6 +828,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1666.jpg",
+        "method": "progressive",
+        "beforeBytes": 6372434,
+        "afterBytes": 6045469,
+        "savedBytes": 326965,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -845,6 +863,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1667.jpg",
+        "method": "progressive",
+        "beforeBytes": 6334777,
+        "afterBytes": 5976024,
+        "savedBytes": 358753,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -871,6 +898,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1669.jpg",
+        "method": "progressive",
+        "beforeBytes": 6212356,
+        "afterBytes": 5873682,
+        "savedBytes": 338674,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -897,6 +933,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1624.jpg",
+        "method": "progressive",
+        "beforeBytes": 6181889,
+        "afterBytes": 5874189,
+        "savedBytes": 307700,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -923,6 +968,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1735.jpg",
+        "method": "progressive",
+        "beforeBytes": 6180563,
+        "afterBytes": 5860043,
+        "savedBytes": 320520,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -949,6 +1003,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1668.jpg",
+        "method": "progressive",
+        "beforeBytes": 6171739,
+        "afterBytes": 5846597,
+        "savedBytes": 325142,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -975,6 +1038,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1537.jpg",
+        "method": "progressive",
+        "beforeBytes": 6111076,
+        "afterBytes": 5727706,
+        "savedBytes": 383370,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -1001,6 +1073,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1600.jpg",
+        "method": "progressive",
+        "beforeBytes": 6055927,
+        "afterBytes": 5773239,
+        "savedBytes": 282688,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -1027,6 +1108,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1574.jpg",
+        "method": "progressive",
+        "beforeBytes": 6053165,
+        "afterBytes": 5782747,
+        "savedBytes": 270418,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -1088,6 +1178,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1676.jpg",
+        "method": "progressive",
+        "beforeBytes": 6022882,
+        "afterBytes": 5722264,
+        "savedBytes": 300618,
+        "identicalInputSha256": true,
+        "verified": true
       }
     },
     {
@@ -1114,6 +1213,15 @@
         "animated": false,
         "iccProfilePresent": false,
         "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1660.jpg",
+        "method": "progressive",
+        "beforeBytes": 6017351,
+        "afterBytes": 5708335,
+        "savedBytes": 309016,
+        "identicalInputSha256": true,
+        "verified": true
       }
     }
   ],
@@ -1281,16 +1389,46 @@
   "compressionEvidence": {
     "sourceBackupModified": false,
     "fullCorpusCoverage": {
-      "gif": {
+      ".gif": {
         "files": 39,
-        "beforeBytes": 49096927,
-        "afterBytes": 46821504,
-        "savedBytes": 2275423,
-        "savedPercent": 4.6346,
-        "allVerified": true
+        "distinct_payloads": 39,
+        "before": 49096927,
+        "after": 46821504,
+        "saving": 2275423,
+        "saving_percent": 4.634552789831429,
+        "improved_paths": 26,
+        "unchanged_paths": 13
       },
-      "png": "sample-only; full corpus scan pending",
-      "jpeg": "sample-only; full corpus scan pending"
+      ".png": {
+        "files": 1397,
+        "distinct_payloads": 1252,
+        "before": 529484277,
+        "after": 462280889,
+        "saving": 67203388,
+        "saving_percent": 12.692234863094905,
+        "improved_paths": 1370,
+        "unchanged_paths": 27
+      },
+      ".jpg": {
+        "files": 742,
+        "distinct_payloads": 666,
+        "before": 486086393,
+        "after": 456711804,
+        "saving": 29374589,
+        "saving_percent": 6.043079876955124,
+        "improved_paths": 716,
+        "unchanged_paths": 26
+      },
+      ".jpeg": {
+        "files": 187,
+        "distinct_payloads": 160,
+        "before": 10742401,
+        "after": 10093502,
+        "saving": 648899,
+        "saving_percent": 6.0405397266402545,
+        "improved_paths": 172,
+        "unchanged_paths": 15
+      }
     },
     "gifRejectedDefaultTrials": 3,
     "gifValidation": "Every composed RGBA frame, frame duration, loop and non-graphic-control extensions preserved; keep-empty fallback required for3files.",
@@ -1986,9 +2124,23 @@
       }
     },
     "limitations": [
-      "Sample results are not extrapolated to untested JPEG/PNG files.",
+      "Full per-file experiment outputs remain private; only sanitized totals and public sample filenames are retained here.",
+      "No duplicate URL or source image was removed.21 JPEGpaths that altered metadata retain original bytes and are excluded from savings.",
       "Lossless pixel/metadata preservation changes file bytes/hash; originals remain unchanged outside Git.",
+      "976646671B is an uploads-only planning estimate, not a complete built-site fit; site assets, recovered variants, source reconciliation and URL routing remain pending.",
       "No compressed binary is committed or automatically selected for deployment."
-    ]
+    ],
+    "overall": {
+      "testedImagePaths": 2365,
+      "improvedPaths": 2284,
+      "originalPathsRetained": 81,
+      "verifiedSavedBytes": 99502299,
+      "estimatedUploadsBytesWithOtherFilesUnchanged": 976646671,
+      "remainingBytesTo1000000000BeforeSiteAndRecovery": 23353329,
+      "completeSiteFitVerified": false,
+      "metadataRejectedJpegPaths": 21
+    },
+    "jpegAdditionalValidation": "All original APP/COM marker payloads preserved byte-for-byte, plus decoded raw pixels and EXIF/ICC/XMP/IPTC/DPI fields; 789 accepted payload outputs represent888 URLpaths.",
+    "pngRecipe": "Same-filter zlib9 tried everywhere; largest30 PNGpaths eligible for Pillow re-filtering with unchanged IHDR/PLTE and all non-IDAT chunks;26 re-filtered outputs selected after decoded-pixel equality."
   }
 }
