@@ -149,6 +149,17 @@ class ImportTests(unittest.TestCase):
         self.manifest['items']['wp:101']['directHtmlReference'] = 'ambiguous-render-evidence'
         self.fails('choose snapshot or direct HTML equality', changed=False)
 
+    def test_rendered_code_arrays_are_literal_and_keep_exact_whitespace(self):
+        entry = self.manifest['items']['wp:101']
+        literal = '\n<pre><code>items = [example]\n    print(items[example])\n</code></pre>'
+        entry['html'] += literal
+        entry['htmlSha256'] = sha(entry['html'])
+        bundle, _ = self.run_import()
+        self.assertTrue(bundle['items'][0]['content']['html'].endswith(literal))
+        entry['html'] += '\n[unresolved]'
+        entry['htmlSha256'] = sha(entry['html'])
+        self.fails('still contains an unresolved', changed=False)
+
     def test_stale_manifest_ids_and_unknown_properties_fail(self):
         self.manifest['items']['wp:99999'] = {}
         self.fails('absent from this complete export', changed=False)

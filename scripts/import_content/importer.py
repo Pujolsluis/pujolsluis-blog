@@ -38,6 +38,40 @@ class ImportFailure(ValueError):
         super().__init__('; '.join(errors))
 
 
+class RenderedStructureProbe(HTMLParser):
+    """Literal brackets in rendered code/scripts are not unresolved shortcodes."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.literal_tags = []
+        self.unresolved = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ('pre', 'code', 'script', 'style'):
+            self.literal_tags.append(tag)
+
+    def handle_endtag(self, tag):
+        if tag in self.literal_tags:
+            while self.literal_tags:
+                if self.literal_tags.pop() == tag:
+                    break
+
+    def handle_data(self, data):
+        if not self.literal_tags and UNRESOLVED.search(data):
+            self.unresolved = True
+
+    def handle_comment(self, data):
+        if re.match(r'\s*/?wp:', data):
+            self.unresolved = True
+
+
+def unresolved_rendered(html):
+    probe = RenderedStructureProbe()
+    probe.feed(html)
+    probe.close()
+    return probe.unresolved
+
+
 def sha(value):
     return hashlib.sha256(value.encode('utf-8')).hexdigest()
 
@@ -235,7 +269,7 @@ def rendered(original, entry, reference):
             raise ValueError('HTML rendering needs a frozen rendered snapshot or hash-bound directHtmlReference attesting exact rendered equality')
         reference = entry.get('directHtmlReference', reference)
         html, kind = original, 'direct-html'
-    if UNRESOLVED.search(html):
+    if unresolved_rendered(html):
         raise ValueError('rendered HTML still contains an unresolved shortcode/block')
     return {'format': 'wordpress-html', 'original': original, 'html': html,
             'provenance': {'kind': kind, 'reference': reference,
@@ -254,7 +288,7 @@ def _normalize(item, source_id, authors, taxonomies, language, manifest, asset_u
         if entry.get('originalExcerptSha256') != sha(excerpt) or 'excerptHtml' not in entry:
             raise ValueError('stale/incomplete excerpt snapshot')
         excerpt = entry['excerptHtml']
-    if UNRESOLVED.search(excerpt):
+    if unresolved_rendered(excerpt):
         raise ValueError('excerpt contains unresolved shortcode/block; needs an excerpt snapshot')
     creator = value(item, 'dc:creator')
     if creator not in authors:

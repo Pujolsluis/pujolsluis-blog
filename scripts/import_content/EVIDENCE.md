@@ -10,7 +10,7 @@ python -m unittest discover -s tests -v
 ruff check --no-cache .
 ```
 
-- Importer suite: 28 tests pass. Root suite: 43 tests pass, including importer discovery, contract/reconciliation and preview safety tests. Ruff passes. Existing pinned GitHub Actions/workflow/dependency files are unchanged by MIG-02.
+- Importer suite: 29 tests pass. Root suite: 44 tests pass, including importer discovery, contract/reconciliation and preview safety tests. Ruff passes. Existing pinned GitHub Actions/workflow/dependency files are unchanged by MIG-02.
 - Synthetic complete WXR reconciles all 5 source IDs: 2 public content records, 1 attachment delegated to MIG-03, 1 excluded draft and 1 excluded password-protected page. Every ID receives a disposition in the private report. Both imported public records validate against the v1 content/assets/routes contracts.
 - Exact body equality verifies Unicode, HTML ordering, heading IDs, local anchors, iframe markup and multiline code indentation. Original GUID, author/category/tag identities, excerpt and featured attachment are checked independently. Local/GMT pairs preserve their offsets and instants; no timezone name is invented.
 - Repeat imports produce byte-identical serialized bundle/report for the same input. Reordering WXR items leaves the public bundle identical. Final full-export comparison reports changed/removed records, with an unchanged case; the new bundle equals a fresh complete import, preventing stale records from surviving.
