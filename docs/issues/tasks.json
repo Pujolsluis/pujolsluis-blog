@@ -1,0 +1,52 @@
+[
+  {
+    "id": "01",
+    "title": "Capture source inventory and freeze migration contracts",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/1"
+  },
+  {
+    "id": "02",
+    "title": "Implement deterministic WordPress content import",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/2"
+  },
+  {
+    "id": "03",
+    "title": "Archive original media and implement asset mapping",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/3"
+  },
+  {
+    "id": "04",
+    "title": "Build static blog renderer matching the existing theme",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/4"
+  },
+  {
+    "id": "05",
+    "title": "Preserve routes, metadata, feeds and blog discovery",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/5"
+  },
+  {
+    "id": "06",
+    "title": "Define Git-based editorial operation and feature replacements",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/6"
+  },
+  {
+    "id": "07",
+    "title": "Extend CI/CD with full migration fidelity gates",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/7"
+  },
+  {
+    "id": "08",
+    "title": "Integrate full archive and prove fidelity in Pages staging",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/8"
+  },
+  {
+    "id": "09",
+    "title": "Rehearse and execute reversible domain cutover",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/9"
+  },
+  {
+    "id": "10",
+    "title": "Protect master and document ongoing maintenance",
+    "url": "https://github.com/Pujolsluis/pujolsluis-blog/issues/10"
+  }
+]
