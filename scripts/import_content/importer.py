@@ -210,6 +210,8 @@ def validate_manifest(manifest):
             raise ValueError('manifest contains an invalid item or unknown field')
         if not all(isinstance(v, str) for k, v in entry.items() if k != 'reviewedPostMeta'):
             raise ValueError(f'{source_id}: snapshot fields must be strings')
+        if 'directHtmlReference' in entry and {'html', 'htmlSha256', 'reference'} & set(entry):
+            raise ValueError(f'{source_id}: choose snapshot or direct HTML equality evidence, not both')
         reviewed = entry.get('reviewedPostMeta', {})
         if not isinstance(reviewed, dict) or any(not isinstance(k, str) or not isinstance(v, str) or not v
                                                  for k, v in reviewed.items()):
@@ -397,6 +399,7 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
         for item in records:
             source_id = 'wp:' + value(item, 'wp:post_id')
             kind, status = value(item, 'wp:post_type'), value(item, 'wp:status')
+            observed_url = item.findtext('link', default='')
             evidence = {'sourceId': source_id, 'kind': kind, 'status': status, 'disposition': 'failed'}
             report['records'].append(evidence)
             if kind == 'attachment':
@@ -417,7 +420,7 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
             if kind not in ('post', 'page'):
                 errors.append(f'{source_id}: unsupported public post type {kind}; requires explicit migration disposition')
                 report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
-                                                     'canonicalUrl': value(item, 'link', required=False)})
+                                                     'canonicalUrl': observed_url})
                 continue
             try:
                 normalized, source_metadata = _normalize(item, source_id, authors, taxonomies, language,
@@ -432,10 +435,10 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
             except (ValueError, ContractError) as error:
                 errors.append(f'{source_id}: {error}')
                 report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
-                                                     'canonicalUrl': value(item, 'link', required=False)})
+                                                     'canonicalUrl': observed_url})
         report['excludedByReason'] = dict(sorted(counts.items()))
         report['publicRecordCount'] = len(items)
-        report['failedRecordCount'] = len(errors)
+        report['failedRecordCount'] = sum(r['disposition'] == 'failed' for r in report['records'])
         if set(manifest['items']) - ids:
             errors.append('snapshot manifest references IDs absent from this complete export')
         paths = [item['path'] for item in items]

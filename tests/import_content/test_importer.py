@@ -145,6 +145,10 @@ class ImportTests(unittest.TestCase):
         del entry['htmlSha256']
         self.fails('snapshot requires', changed=False)
 
+    def test_conflicting_render_evidence_is_not_silently_ignored(self):
+        self.manifest['items']['wp:101']['directHtmlReference'] = 'ambiguous-render-evidence'
+        self.fails('choose snapshot or direct HTML equality', changed=False)
+
     def test_stale_manifest_ids_and_unknown_properties_fail(self):
         self.manifest['items']['wp:99999'] = {}
         self.fails('absent from this complete export', changed=False)
@@ -191,6 +195,14 @@ class ImportTests(unittest.TestCase):
         self.item(1).find('link').text = 'https://example.invalid/about/'
         ET.SubElement(self.item(), 'title').text = 'Duplicate'
         self.fails('duplicate field title')
+
+    def test_duplicate_canonical_field_diagnostic_does_not_stop_other_records(self):
+        ET.SubElement(self.item(), 'link').text = 'https://example.invalid/duplicate/'
+        report = self.fails('duplicate field link')
+        self.assertEqual(report['failedRecordCount'], 1)
+        self.assertEqual(report['publicRecordCount'], 1)
+        self.assertEqual(len(report['records']), 5)
+        self.assertEqual(report['unresolvedRecords'][0]['sourceId'], 'wp:101')
 
     def test_encoded_traversal_query_credentials_and_absolute_paths_rejected(self):
         for suffix in ('/%2e%2e/secret/', '/safe?query=1', '//evil/', '/safe%5csecret/', '/bad%00path/'):
