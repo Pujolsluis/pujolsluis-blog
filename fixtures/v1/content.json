@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "sourceId": "wp:101",
+      "kind": "post",
+      "path": "/2020/01/02/fixture-post/",
+      "canonicalUrl": "https://example.invalid/2020/01/02/fixture-post/",
+      "title": "Fixture café 日本語",
+      "status": "publish",
+      "language": "en",
+      "publishedAt": "2020-01-02T03:04:05-04:00",
+      "modifiedAt": "2020-01-03T07:04:05Z",
+      "author": {
+        "sourceId": "wp-author:1",
+        "name": "Fixture Author"
+      },
+      "categories": [
+        {
+          "sourceId": "wp-category:2",
+          "slug": "examples",
+          "name": "Examples"
+        }
+      ],
+      "tags": [
+        {
+          "sourceId": "wp-tag:3",
+          "slug": "unicode",
+          "name": "Unicode"
+        }
+      ],
+      "content": {
+        "format": "wordpress-html",
+        "original": "<h2 id=\"unicode\">Café, 日本語 &amp; código 👋</h2>\n<p>A synthetic paragraph with <strong>formatting</strong> and a <a href=\"/about/#biography\">local anchor</a>.</p>\n<pre><code>if x &lt; 2:\n    print(\"hola\")\n</code></pre>\n[gallery ids=\"900\"]\n[notice]A known shortcode expanded deterministically.[/notice]\n<iframe src=\"https://www.youtube-nocookie.com/embed/fixture-video\" title=\"Synthetic video example\" allowfullscreen></iframe>",
+        "html": "<h2 id=\"unicode\">Café, 日本語 &amp; código 👋</h2>\n<p>A synthetic paragraph with <strong>formatting</strong> and a <a href=\"/about/#biography\">local anchor</a>.</p>\n<pre><code>if x &lt; 2:\n    print(\"hola\")\n</code></pre>\n<figure class=\"gallery\"><img src=\"/media/example.svg\" width=\"80\" height=\"60\" alt=\"A dark rectangle\"><figcaption>Sanitized gallery caption</figcaption></figure>\n<div class=\"notice\">A known shortcode expanded deterministically.</div>\n<iframe src=\"https://www.youtube-nocookie.com/embed/fixture-video\" title=\"Synthetic video example\" allowfullscreen></iframe>",
+        "provenance": {
+          "kind": "synthetic",
+          "reference": "fixtures/v1/content.json#wp:101",
+          "sha256": "5b316e63750788e4fe8018d8c0996d5c3b4a99628068b32128d02a0e46a4f37c"
+        }
+      },
+      "assetIds": [
+        "wp:900"
+      ],
+      "embeds": [
+        {
+          "provider": "youtube",
+          "url": "https://www.youtube-nocookie.com/embed/fixture-video",
+          "html": "<iframe src=\"https://www.youtube-nocookie.com/embed/fixture-video\" title=\"Synthetic video example\" allowfullscreen></iframe>"
+        }
+      ]
+    },
+    {
+      "sourceId": "wp:102",
+      "kind": "page",
+      "path": "/about/",
+      "canonicalUrl": "https://example.invalid/about/",
+      "title": "About the fixture",
+      "status": "publish",
+      "language": "en",
+      "publishedAt": "2020-01-02T03:04:05-04:00",
+      "modifiedAt": "2020-01-03T07:04:05Z",
+      "author": {
+        "sourceId": "wp-author:1",
+        "name": "Fixture Author"
+      },
+      "categories": [
+        {
+          "sourceId": "wp-category:2",
+          "slug": "examples",
+          "name": "Examples"
+        }
+      ],
+      "tags": [
+        {
+          "sourceId": "wp-tag:3",
+          "slug": "unicode",
+          "name": "Unicode"
+        }
+      ],
+      "content": {
+        "format": "html",
+        "original": "<h1 id=\"biography\">About</h1><p>Entirely synthetic fixture.</p>",
+        "html": "<h1 id=\"biography\">About</h1><p>Entirely synthetic fixture.</p>",
+        "provenance": {
+          "kind": "synthetic",
+          "reference": "fixtures/v1/content.json#wp:102",
+          "sha256": "b923cefcefd7cde2bd7f1f76e911e30ef39a94c8581fcd124f9f104fb7c3ca0c"
+        }
+      },
+      "assetIds": [],
+      "embeds": []
+    }
+  ]
+}

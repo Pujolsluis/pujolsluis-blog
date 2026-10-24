@@ -1,1 +1,2 @@
 ruff==0.14.2
+jsonschema==4.26.0

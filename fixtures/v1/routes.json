@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "path": "/2020/01/02/fixture-post/",
+      "kind": "content",
+      "contentId": "wp:101",
+      "query": "",
+      "fragments": [
+        "unicode"
+      ]
+    },
+    {
+      "path": "/about/",
+      "kind": "content",
+      "contentId": "wp:102",
+      "query": "",
+      "fragments": [
+        "biography"
+      ]
+    },
+    {
+      "path": "/",
+      "kind": "archive",
+      "query": "",
+      "fragments": []
+    },
+    {
+      "path": "/feed/",
+      "kind": "feed",
+      "query": "",
+      "fragments": []
+    },
+    {
+      "path": "/",
+      "kind": "query-alias",
+      "target": "/2020/01/02/fixture-post/",
+      "query": "p=101",
+      "fragments": []
+    },
+    {
+      "path": "/old-fixture/",
+      "kind": "redirect",
+      "target": "/2020/01/02/fixture-post/",
+      "query": "",
+      "fragments": []
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.pujolsluis.com/migration/v1/content.schema.json",
+  "title": "Migration content v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$"
+          },
+          "kind": {
+            "enum": [
+              "post",
+              "page"
+            ]
+          },
+          "status": {
+            "enum": [
+              "publish",
+              "draft",
+              "future",
+              "private",
+              "pending"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^/(?!/|.*(?:\\.{2}|[?#\\\\])).*$"
+          },
+          "canonicalUrl": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "language": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "(?:Z|[+-]\\d{2}:\\d{2})$"
+          },
+          "modifiedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "(?:Z|[+-]\\d{2}:\\d{2})$"
+          },
+          "author": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "sourceId": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "sourceId",
+              "name"
+            ]
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "sourceId": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$"
+                },
+                "slug": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "sourceId",
+                "slug",
+                "name"
+              ]
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "sourceId": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$"
+                },
+                "slug": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "sourceId",
+                "slug",
+                "name"
+              ]
+            }
+          },
+          "content": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "format": {
+                "enum": [
+                  "wordpress-html",
+                  "html"
+                ]
+              },
+              "original": {
+                "type": "string"
+              },
+              "html": {
+                "type": "string"
+              },
+              "provenance": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "reference",
+                  "sha256"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "synthetic",
+                      "rendered-snapshot",
+                      "direct-html"
+                    ]
+                  },
+                  "reference": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                }
+              }
+            },
+            "required": [
+              "format",
+              "original",
+              "html",
+              "provenance"
+            ]
+          },
+          "assetIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$"
+            },
+            "uniqueItems": true
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https?://"
+                },
+                "html": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "provider",
+                "url",
+                "html"
+              ]
+            }
+          }
+        },
+        "required": [
+          "sourceId",
+          "kind",
+          "status",
+          "path",
+          "canonicalUrl",
+          "title",
+          "language",
+          "publishedAt",
+          "modifiedAt",
+          "author",
+          "categories",
+          "tags",
+          "content",
+          "assetIds",
+          "embeds"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "items"
+  ]
+}
