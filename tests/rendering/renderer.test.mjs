@@ -5,8 +5,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { parse } from 'parse5';
+import crypto from 'node:crypto';
 import { configuration, withBase } from '../../site/lib/config.mjs';
 import { assetFile, dateLabel, loadBundle, renderHtml, safePath } from '../../site/lib/content.mjs';
+import { verifyOutput } from '../../site/lib/storage.mjs';
 
 const fixedTime = '2026-01-01T00:00:00Z';
 const baseConfig = configuration({ BUILD_TIME: fixedTime });
@@ -106,6 +108,16 @@ test('media bytes are verified and asset symlinks cannot escape the input bundle
     fs.unlinkSync(path.join(directory, 'media/example.svg'));
     fs.symlinkSync('/etc/hosts', path.join(directory, 'media/example.svg'));
     assert.throws(() => assetFile(fixture.assets[0], directory), /escapes input/);
+  });
+});
+
+test('unresolved LFS pointers fail even when a mistaken manifest hashes the pointer bytes', () => {
+  temporaryBundle(directory => {
+    const pointer = `version https://git-lfs.github.com/spec/v1\noid sha256:${'a'.repeat(64)}\nsize 135\n`;
+    fs.writeFileSync(path.join(directory, 'media/example.svg'), pointer);
+    const asset = { ...fixture.assets[0], bytes: Buffer.byteLength(pointer), sha256: crypto.createHash('sha256').update(pointer).digest('hex') };
+    assert.throws(() => assetFile(asset, directory), /Unresolved LFS asset/);
+    assert.throws(() => verifyOutput(directory), /Unresolved LFS pointer/);
   });
 });
 

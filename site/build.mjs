@@ -3,6 +3,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { configuration } from './lib/config.mjs';
 import { assetFile, loadBundle } from './lib/content.mjs';
+import { verifyOutput } from './lib/storage.mjs';
 
 const config = configuration();
 const bundle = loadBundle(config);
@@ -25,3 +26,4 @@ fs.writeFileSync(path.join(config.outDir, 'renderer-report.json'), `${JSON.strin
   deferredRouteCounts: Object.fromEntries(['feed', 'redirect', 'query-alias'].map(kind => [kind, bundle.allRoutes.filter(r => r.kind === kind).length])),
   fidelityVerified: false,
 }, null, 2)}\n`);
+verifyOutput(config.outDir);

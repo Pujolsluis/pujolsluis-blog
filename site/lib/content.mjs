@@ -75,6 +75,7 @@ export function assetFile(asset, inputDir) {
   const real = fs.realpathSync(filename);
   if (!real.startsWith(`${fs.realpathSync(inputDir)}${path.sep}`)) throw new Error(`Asset escapes input directory: ${asset.localPath}`);
   const bytes = fs.readFileSync(real);
+  if (bytes.subarray(0, 42).toString().startsWith('version https://git-lfs.github.com/spec/v1')) throw new Error(`Unresolved LFS asset: ${asset.assetId}; install Git LFS and run git lfs pull.`);
   if (bytes.length !== asset.bytes || crypto.createHash('sha256').update(bytes).digest('hex') !== asset.sha256) throw new Error(`Asset integrity mismatch: ${asset.assetId}`);
   return { filename: real, bytes };
 }

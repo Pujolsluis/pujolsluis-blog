@@ -16,6 +16,8 @@ npm run dev -- --host 127.0.0.1 --port 4321
 
 `dev` rebuilds and serves the static artifact with Astro preview, so integrity-checked fixture media is present. It does not watch files. Open the printed URL ending in `/pujolsluis-blog/`. Stop the server with Ctrl-C.
 
+Binary source files use Git LFS. If a checked-out asset remains a pointer, install the durable Git LFS CLI and run `git lfs pull`; the renderer fails rather than publishing it. See `docs/storage-policy.md` for the source/index/history checks and Pages compatibility limits. Generated font/media bytes belong in build artifacts, not ordinary Git blobs. Output is checked for pointers/symlinks and capped at 1,000,000,000 bytes; LFS does not bypass this cap.
+
 ```sh
 # Root deployment layout, still a noindex migration preview.
 SITE_BASE=/ BUILD_TIME=2026-01-01T00:00:00Z npm run build
