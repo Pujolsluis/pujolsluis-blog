@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
-      "const": "1.0.0"
+      "enum": ["1.0.0", "1.1.0"]
     },
     "items": {
       "type": "array",
@@ -21,7 +21,8 @@
           "kind": {
             "enum": [
               "post",
-              "page"
+              "page",
+              "portfolio"
             ]
           },
           "status": {
@@ -230,6 +231,9 @@
               "featuredAssetId"
             ],
             "properties": {
+              "sourceType": {
+                "enum": ["post", "page", "portfolio"]
+              },
               "guid": {
                 "type": "string",
                 "minLength": 1
@@ -331,6 +335,49 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": {"properties": {"schemaVersion": {"const": "1.0.0"}}},
+      "then": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {
+                "kind": {"enum": ["post", "page"]},
+                "sourceMetadata": {"not": {"required": ["sourceType"]}}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"schemaVersion": {"const": "1.1.0"}}},
+      "then": {
+        "properties": {
+          "items": {
+            "items": {
+              "properties": {"sourceMetadata": {"required": ["sourceType"]}},
+              "allOf": [
+                {
+                  "if": {"properties": {"kind": {"const": "post"}}},
+                  "then": {"properties": {"sourceMetadata": {"properties": {"sourceType": {"const": "post"}}}}}
+                },
+                {
+                  "if": {"properties": {"kind": {"const": "page"}}},
+                  "then": {"properties": {"sourceMetadata": {"properties": {"sourceType": {"const": "page"}}}}}
+                },
+                {
+                  "if": {"properties": {"kind": {"const": "portfolio"}}},
+                  "then": {"properties": {"sourceMetadata": {"properties": {"sourceType": {"const": "portfolio"}}}}}
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
   "required": [
     "schemaVersion",
     "items"
