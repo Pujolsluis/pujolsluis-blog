@@ -36,7 +36,8 @@
         "provenance": {
           "kind": "synthetic",
           "reference": "fixtures/v1/content.json#wp:101",
-          "sha256": "5b316e63750788e4fe8018d8c0996d5c3b4a99628068b32128d02a0e46a4f37c"
+          "htmlSha256": "5b316e63750788e4fe8018d8c0996d5c3b4a99628068b32128d02a0e46a4f37c",
+          "originalSha256": "ead9c17d740b725a3fb6011360bb531362bd5446d83194352415643585455a75"
         }
       },
       "assetIds": [
@@ -47,6 +48,23 @@
           "provider": "youtube",
           "url": "https://www.youtube-nocookie.com/embed/fixture-video",
           "html": "<iframe src=\"https://www.youtube-nocookie.com/embed/fixture-video\" title=\"Synthetic video example\" allowfullscreen></iframe>"
+        }
+      ],
+      "sourceMetadata": {
+        "guid": "https://example.invalid/?p=101",
+        "excerptHtml": "<p>Synthetic excerpt.</p>",
+        "commentStatus": "closed",
+        "pingStatus": "closed",
+        "featuredAssetId": "wp:900"
+      },
+      "comments": [
+        {
+          "sourceId": "wp-comment:1",
+          "parentId": null,
+          "authorName": "Synthetic Reader",
+          "publishedAt": "2020-01-04T08:00:00Z",
+          "html": "<p>A public fixture comment.</p>",
+          "status": "approved"
         }
       ]
     },
@@ -85,11 +103,20 @@
         "provenance": {
           "kind": "synthetic",
           "reference": "fixtures/v1/content.json#wp:102",
-          "sha256": "b923cefcefd7cde2bd7f1f76e911e30ef39a94c8581fcd124f9f104fb7c3ca0c"
+          "htmlSha256": "b923cefcefd7cde2bd7f1f76e911e30ef39a94c8581fcd124f9f104fb7c3ca0c",
+          "originalSha256": "b923cefcefd7cde2bd7f1f76e911e30ef39a94c8581fcd124f9f104fb7c3ca0c"
         }
       },
       "assetIds": [],
-      "embeds": []
+      "embeds": [],
+      "sourceMetadata": {
+        "guid": "https://example.invalid/?p=102",
+        "excerptHtml": "<p>Synthetic excerpt.</p>",
+        "commentStatus": "closed",
+        "pingStatus": "closed",
+        "featuredAssetId": null
+      },
+      "comments": []
     }
   ]
 }

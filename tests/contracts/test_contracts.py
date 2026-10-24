@@ -83,3 +83,19 @@ class ContractTests(unittest.TestCase):
         self.assertIn('[notice]', content['original'])
         self.assertIn('[gallery ids="900"]', content['original'])
         self.assertNotIn('[notice]', content['html'])
+
+    def test_provenance_hashes_are_verified_against_exact_utf8(self):
+        for field in ('html', 'original'):
+            self.documents = copy.deepcopy(load_bundle(FIXTURES))
+            self.documents[0]['items'][0]['content'][field] += ' modified'
+            self.invalid()
+
+    def test_public_metadata_references_and_comment_privacy(self):
+        self.documents[0]['items'][0]['sourceMetadata']['featuredAssetId'] = 'wp:missing'
+        self.invalid()
+        self.documents = copy.deepcopy(load_bundle(FIXTURES))
+        self.documents[0]['items'][0]['comments'][0]['authorEmail'] = 'private@example.invalid'
+        self.invalid()
+        self.documents = copy.deepcopy(load_bundle(FIXTURES))
+        self.documents[0]['items'][0]['comments'][0]['parentId'] = 'wp-comment:missing'
+        self.invalid()

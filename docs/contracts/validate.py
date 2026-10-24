@@ -1,4 +1,5 @@
 """Validate v1 bundles with JSON Schema and cross-record integrity checks."""
+import hashlib
 import json
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -43,6 +44,17 @@ def validate_bundle(content, assets, routes):
     destinations = {r['path'] for r in paths if not r['query']}
     content_routes = {(r['contentId'], r['path']) for r in paths if r['kind'] == 'content'}
     for item in items:
+        for field in ('html', 'original'):
+            checksum = hashlib.sha256(item['content'][field].encode('utf-8')).hexdigest()
+            if item['content']['provenance'][field + 'Sha256'] != checksum:
+                raise ContractError(f'{field} provenance hash differs: {item["sourceId"]}')
+        featured = item['sourceMetadata']['featuredAssetId']
+        if featured is not None and featured not in asset_ids:
+            raise ContractError('unknown featured asset reference')
+        comment_ids = unique(item['comments'], 'sourceId', 'comment source ID')
+        for comment in item['comments']:
+            if comment['parentId'] is not None and comment['parentId'] not in comment_ids:
+                raise ContractError('unknown comment parent')
         if urlsplit(item['canonicalUrl']).path != item['path']:
             raise ContractError(f'canonical path differs: {item["sourceId"]}')
         if set(item['assetIds']) - asset_ids:
