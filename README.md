@@ -20,7 +20,7 @@ This repository will preserve and operate [Luis Pujols’s blog](https://www.puj
 “100%” is a release gate, not an assertion about an unbuilt site. Freeze the source and reconcile WXR, media archive, crawl, feeds/API and available sitemaps. Every record gets a stable source ID and per-item evidence; samples alone cannot establish completeness.
 
 1. **Content:** every published post/page retains text, headings, ordered structures, code whitespace, Unicode, dates/time zones, authors, categories/tags, captions, alt text, anchors and embed placement. Unknown blocks/shortcodes fail import. Keep drafts private and excluded from public output.
-2. **Assets:** preserve owned originals byte-for-byte, verify SHA-256/size/type/dimensions and map every image, srcset, poster, CSS image, download, audio and video reference. Remove unintended dependency on WordPress hosting before cancellation.
+2. **Assets:** keep owned source masters byte-for-byte in the private backup; for each required optimized repository image, verify source/output SHA-256, size, type, dimensions and references. Map every image, srcset, poster, CSS image, download, audio and video reference. Remove unintended dependency on WordPress hosting before cancellation.
 3. **URLs and discovery:** preserve original paths, fragments, archives, pagination, feeds/GUIDs, attachments, outbound URLs and metadata. Check exact URL paths including case on every build from a committed manifest; crawl absence never licenses deleting an old route. Test both preview subpath and production root. Inventory query aliases, trailing-slash and encoded URL variants. Record pre-existing broken external links separately. Keep canonical/social metadata and image sitemap entries consistent.
 4. **Appearance and behavior:** compare every public page at desktop/tablet/mobile viewports with matching browser/fonts. Allow no unexplained differences; document any nondeterministic masks and manually verify those regions. Review optimized images at their actual rendered sizes for visible artifacts, correct crop/orientation, transparency, captions and alt text. Exercise navigation, galleries, search, players and discovered backend features.
 5. **Launch:** zero missing records/assets/routes, no unexplained diffs or unaccepted behavioral differences, passing CI, owner editorial walkthrough, final delta import reconciliation, rollback rehearsal and explicit cutover approval. Attach reports with counts and denominators.
@@ -33,7 +33,7 @@ Each task has a checked-in issue specification under [docs/issues](docs/issues/)
 | --- | --- | --- |
 | MIG-01: Capture source inventory and freeze migration contracts | [#1](https://github.com/Pujolsluis/pujolsluis-blog/issues/1) | Ready |
 | MIG-02: Implement deterministic WordPress content import | [#2](https://github.com/Pujolsluis/pujolsluis-blog/issues/2) | MIG-01 |
-| MIG-03: Archive original media and implement asset mapping | [#3](https://github.com/Pujolsluis/pujolsluis-blog/issues/3) | MIG-01 |
+| MIG-03: Select, optimize and map required media | [#3](https://github.com/Pujolsluis/pujolsluis-blog/issues/3) | MIG-01 |
 | MIG-04: Build static blog renderer matching the existing theme | [#4](https://github.com/Pujolsluis/pujolsluis-blog/issues/4) | MIG-01 |
 | MIG-05: Preserve routes, metadata, feeds and blog discovery | [#5](https://github.com/Pujolsluis/pujolsluis-blog/issues/5) | MIG-01 |
 | MIG-06: Define Git-based editorial operation and feature replacements | [#6](https://github.com/Pujolsluis/pujolsluis-blog/issues/6) | MIG-01 |
