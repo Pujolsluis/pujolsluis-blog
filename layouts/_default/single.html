@@ -5,10 +5,10 @@
     <div class="article-content">{{ with .Params.preserved_html }}{{ . | safeHTML }}{{ end }}{{ .Content }}</div>
     {{ with .Params.categories }}<p class="taxonomy"><span>Categories:</span> {{ range $i, $v := . }}{{ if $i }}, {{ end }}<a href="{{ (printf "/categories/%s/" ($v | urlize)) | relURL }}">{{ $v }}</a>{{ end }}</p>{{ end }}
     {{ with .Params.tags }}<p class="taxonomy"><span>Tags:</span> {{ range $i, $v := . }}{{ if $i }}, {{ end }}<a href="{{ (printf "/tags/%s/" ($v | urlize)) | relURL }}">{{ $v }}</a>{{ end }}</p>{{ end }}
-    {{ with .Params.comments }}
+    {{ with .Params.migration.comments }}
       {{ if . }}
         <section class="comments" aria-labelledby="comments-heading"><h2 id="comments-heading">Comments</h2>
-          {{ range . }}<article class="comment"{{ with .id }} id="comment-{{ . }}"{{ end }}><header><strong>{{ .author }}</strong>{{ with .date }} <time datetime="{{ . }}">{{ . }}</time>{{ end }}</header><div class="comment-content">{{ .content | safeHTML }}</div></article>{{ end }}
+          {{ range . }}<article class="comment" id="comment-{{ .sourceId }}"{{ with .parentId }} data-parent="{{ . }}"{{ end }}><header><strong>{{ .authorName }}</strong>{{ with .publishedAt }} <time datetime="{{ . }}">{{ . }}</time>{{ end }}</header><div class="comment-content">{{ .html | safeHTML }}</div></article>{{ end }}
         </section>
       {{ end }}
     {{ end }}

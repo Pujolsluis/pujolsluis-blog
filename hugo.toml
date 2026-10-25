@@ -14,6 +14,9 @@ relativeURLs = false
   canonicalBase = 'https://www.pujolsluis.com'
   author = 'Luis Pujols'
 
+[security]
+  allowContent = ['text/html', 'text/markdown']
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
