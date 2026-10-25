@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.pujolsluis.com/migration/v1/routes.schema.json",
+  "title": "Migration routes v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^/(?!/|.*(?:\\.{2}|[?#\\\\])).*$"
+          },
+          "kind": {
+            "enum": [
+              "content",
+              "archive",
+              "pagination",
+              "feed",
+              "attachment",
+              "redirect",
+              "query-alias"
+            ]
+          },
+          "contentId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*:[A-Za-z0-9._-]+$"
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^/(?!/|.*(?:\\.{2}|[?#\\\\])).*$"
+          },
+          "query": {
+            "type": "string"
+          },
+          "fragments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "path",
+          "kind",
+          "query",
+          "fragments"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "content"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "contentId"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "redirect",
+                    "query-alias"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "target"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "routes"
+  ]
+}

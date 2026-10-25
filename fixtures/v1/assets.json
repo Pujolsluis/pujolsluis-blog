@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "assets": [
+    {
+      "assetId": "wp:900",
+      "sourceUrl": "https://example.invalid/wp-content/uploads/example.svg",
+      "localPath": "media/example.svg",
+      "sha256": "730b495616be94610ad2a40be60c6d2f80d389f33eb581d70099d07e30fa5667",
+      "bytes": 135,
+      "mimeType": "image/svg+xml",
+      "width": 80,
+      "height": 60,
+      "owned": true
+    }
+  ]
+}
