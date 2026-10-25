@@ -73,7 +73,7 @@ def selected_media_map(inventory, source_urls, preview_base, static_root):
         raise ValueError('expected MIG-03 asset inventory')
     selected = {}
     for field in ('published_body_path_mappings', 'rendered_page_path_mappings',
-                  'attachment_route_path_mappings'):
+                  'live_rendered_body_path_mappings', 'attachment_route_path_mappings'):
         for row in inventory.get(field, []):
             if row['status'] != 'included':
                 continue

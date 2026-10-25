@@ -89,24 +89,36 @@ class LiveEvidenceTests(unittest.TestCase):
 
     def test_inventory_map_requires_selected_file_checksum(self):
         source = 'https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2020/01/a.jpg?fit=300%2C200'
+        rendered_only = 'https://www.pujolsluis.com/wp-content/uploads/2020/01/live-only.jpg'
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             target = root / 'wp-content/uploads/2020/01/a.jpg'
             target.parent.mkdir(parents=True)
             target.write_bytes(b'optimized image')
             digest = hashlib.sha256(target.read_bytes()).hexdigest()
+            live_target = root / 'wp-content/uploads/2020/01/live-only.jpg'
+            live_target.write_bytes(b'live rendered image')
+            live_digest = hashlib.sha256(live_target.read_bytes()).hexdigest()
             inventory = {'schema_version': '1.0.0', 'published_body_path_mappings': [{
                 'public_url_path': '2020/01/a.jpg', 'status': 'included',
                 'source_assets': [{'output': {'path': 'wp-content/uploads/2020/01/a.jpg',
                                                'sha256': digest}}]}],
-                'rendered_page_path_mappings': [], 'attachment_route_path_mappings': []}
-            document, unresolved = selected_media_map(inventory, [source], '/project/', root)
-            self.assertEqual(document['mappings'], [{'sourceUrl': source,
-                                                       'targetPath': '/wp-content/uploads/2020/01/a.jpg'}])
+                'rendered_page_path_mappings': [], 'attachment_route_path_mappings': [],
+                'live_rendered_body_path_mappings': [{
+                    'public_url_path': '2020/01/live-only.jpg', 'status': 'included',
+                    'source_assets': [{'output': {
+                        'path': 'wp-content/uploads/2020/01/live-only.jpg',
+                        'sha256': live_digest}}]}]}
+            document, unresolved = selected_media_map(inventory, [source, rendered_only],
+                                                      '/project/', root)
+            self.assertEqual(document['mappings'], [
+                {'sourceUrl': source, 'targetPath': '/wp-content/uploads/2020/01/a.jpg'},
+                {'sourceUrl': rendered_only,
+                 'targetPath': '/wp-content/uploads/2020/01/live-only.jpg'}])
             self.assertEqual(unresolved, [])
-            target.write_bytes(b'changed')
+            live_target.write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
-                selected_media_map(inventory, [source], '/project/', root)
+                selected_media_map(inventory, [source, rendered_only], '/project/', root)
 
     def test_attachment_html_page_is_distinct_from_media_file(self):
         url = 'https://www.pujolsluis.com/example-image/'
