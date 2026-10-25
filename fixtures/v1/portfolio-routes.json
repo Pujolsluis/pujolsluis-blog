@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "routes": [
+    {
+      "path": "/portfolio/synthetic-work/",
+      "kind": "content",
+      "contentId": "wp:303",
+      "query": "",
+      "fragments": [
+        "work"
+      ]
+    }
+  ]
+}
