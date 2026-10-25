@@ -9,9 +9,9 @@ import json
 from pathlib import Path
 
 try:
-    from .output_projections import projection_conflicts
+    from .output_projections import live_body_coverage_errors, projection_conflicts
 except ImportError:  # Running as a script from the repository root.
-    from output_projections import projection_conflicts
+    from output_projections import live_body_coverage_errors, projection_conflicts
 
 SIGNATURES = {
     ".jpg": (b"\xff\xd8\xff", "image/jpeg"),
@@ -71,7 +71,8 @@ def check(manifest: dict, static_root: Path) -> tuple[list[str], list[str], dict
     # Every route/content mapping repeats the selected asset's output record.
     # Validate each projection against assets[].output_paths and against disk.
     errors.extend(projection_conflicts(manifest))
-    for section in ("published_body_path_mappings", "rendered_page_path_mappings", "attachment_route_path_mappings"):
+    errors.extend(live_body_coverage_errors(manifest))
+    for section in ("published_body_path_mappings", "rendered_page_path_mappings", "attachment_route_path_mappings", "live_rendered_body_path_mappings"):
         for mapping in manifest.get(section, []):
             for source in mapping.get("source_assets", []):
                 output = source.get("output")

@@ -10,8 +10,9 @@ from pathlib import Path
 from scripts.import_media.inventory import build_inventory
 from scripts.import_media.check import check as check_manifest_outputs
 from scripts.import_media.augment_rendered import augment
+from scripts.import_media.augment_live_bodies import augment as augment_live_bodies
 from scripts.import_media.optimize import PNG_SIGNATURE, png_chunks, png_lossless_optimize, strip_jpeg_gps, strip_tiff_gps
-from scripts.import_media.output_projections import projection_conflicts, sync_output_projections
+from scripts.import_media.output_projections import live_body_coverage_errors, projection_conflicts, sync_output_projections
 
 
 WXR = """<?xml version='1.0'?>
@@ -33,6 +34,78 @@ WXR = """<?xml version='1.0'?>
 
 
 class InventoryTests(unittest.TestCase):
+    def test_hash_bound_live_body_promotion_verifies_source_and_body_digest(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "uploads/2020/01/live.jpg"
+            source.parent.mkdir(parents=True)
+            source.write_bytes(b"source-image")
+            html = '<div><img src="https://example.test/wp-content/uploads/2020/01/live.jpg"></div>'
+            body_manifest = {
+                "sourceReference": "owner-wxr-and-rendered-body-audit",
+                "items": {"wp:42": {
+                    "html": html,
+                    "htmlSha256": hashlib.sha256(html.encode()).hexdigest(),
+                    "originalSha256": "a" * 64,
+                    "reference": "public-page:" + "b" * 64 + ":selector=.entry-content",
+                }},
+            }
+            asset = {
+                "source_path": "2020/01/live.jpg",
+                "source_sha256": hashlib.sha256(b"source-image").hexdigest(),
+                "source_bytes": len(b"source-image"),
+                "extension": ".jpg",
+                "content_type": "image/jpeg",
+                "disposition": "excluded-unreferenced-upload",
+                "referenced_url_paths": [],
+            }
+            manifest = {"assets": [asset], "missing_references": []}
+            self.assertEqual(augment_live_bodies(manifest, body_manifest, root / "uploads", {"wp:42": "/post/"}), 1)
+            self.assertEqual(asset["disposition"], "required-content-candidate")
+            self.assertEqual(manifest["live_rendered_body_evidence"]["records"][0]["owned_upload_url_paths"], ["2020/01/live.jpg"])
+            broken = dict(body_manifest)
+            broken["items"] = {"wp:42": {**body_manifest["items"]["wp:42"], "htmlSha256": "0" * 64}}
+            with self.assertRaisesRegex(ValueError, "rendered body hash mismatch"):
+                augment_live_bodies({"assets": [asset], "missing_references": []}, broken, root / "uploads", {"wp:42": "/post/"})
+
+    def test_live_body_owned_uploads_must_be_selected_or_explicitly_blocked(self) -> None:
+        manifest = {
+            "assets": [{"disposition": "excluded-unreferenced-upload", "referenced_url_paths": ["2020/01/live.jpg"]}],
+            "missing_references": [],
+            "live_rendered_body_evidence": {"records": [{"post_id": "42", "owned_upload_url_paths": ["2020/01/live.jpg", "2020/01/missing.jpg"]}]},
+        }
+        errors = live_body_coverage_errors(manifest)
+        self.assertEqual(len(errors), 2)
+        manifest["assets"][0]["disposition"] = "required-content-candidate"
+        manifest["missing_references"] = [{"url_path": "2020/01/missing.jpg"}]
+        self.assertFalse(live_body_coverage_errors(manifest))
+
+    def test_committed_manifest_selects_all_owned_rendered_body_uploads(self) -> None:
+        import json
+
+        manifest_path = Path(__file__).parents[2] / "migration/assets/manifest.json"
+        manifest = json.loads(manifest_path.read_text())
+        self.assertFalse(live_body_coverage_errors(manifest))
+        selected = {
+            path
+            for asset in manifest["assets"]
+            if asset["disposition"] == "required-content-candidate"
+            for path in asset.get("referenced_url_paths", [])
+        }
+        for path in (
+            "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
+            "2019/01/timelinecontrol-e1547987305307.gif",
+            "2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+            "2019/04/ss1.jpg", "2019/04/ss2.jpg", "2019/04/ss3-e1554798527868.jpg",
+            "2019/04/ss4.jpg", "2019/04/ss5.jpg", "2019/04/ss6.jpg",
+            "2019/09/IMG_20190923_080716-e1569611703771.jpg",
+            "2019/11/IMG_1635.jpg", "2019/11/IMG_1651-1.jpg", "2019/11/IMG_1668.jpg",
+            "2019/11/IMG_1689-1.jpg", "2019/11/IMG_1740.jpg", "2019/11/IMG_1786.jpg",
+        ):
+            self.assertIn(path, selected)
+        self.assertEqual(len(manifest["live_rendered_body_evidence"]["records"]), 5)
+        self.assertEqual(len(manifest["live_rendered_body_path_mappings"]), 71)
+
     def test_checker_validates_rendered_mapping_hashes_against_files(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

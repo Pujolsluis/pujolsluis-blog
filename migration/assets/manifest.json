@@ -28204,21 +28204,56 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "within-1MB-target",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/png",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 412,
+        "width": 200
+      },
+      "disposition": "required-content-candidate",
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content",
+          "url_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png"
+      ],
+      "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "method": "png-zlib-level-9",
+        "pixel_stream_sha256": "daf7f4540f6ba63026e0111d6780b2fba832b2e02d5f8db9dea8475cc38c6ec4"
+      },
+      "output_bytes": 49792,
+      "output_paths": [
+        {
+          "bytes": 49792,
+          "path": "wp-content/uploads/2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
+          "sha256": "8a15ae0272e64ec6b503d43d8b6dba4aaf4ddf304bcfacf983405a96e0a38894"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 66395,
       "source_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
-      "source_sha256": "a9e4aee7a532de3c2ed4697a9194fc6707e94f25c35cbeb883ad343d563cb876"
+      "source_sha256": "a9e4aee7a532de3c2ed4697a9194fc6707e94f25c35cbeb883ad343d563cb876",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [],
@@ -28244,6 +28279,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content",
+          "url_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -28393,6 +28440,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content",
+          "url_path": "2019/01/Timeline-Pieces-of-Puzzle.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/01/Timeline-Pieces-of-Puzzle.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -28732,21 +28791,56 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "within-1MB-target",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/gif",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 616,
+        "width": 300
+      },
+      "disposition": "required-content-candidate",
       "extension": ".gif",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content",
+          "url_path": "2019/01/timelinecontrol-e1547987305307.gif"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/01/timelinecontrol-e1547987305307.gif"
+      ],
+      "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "method": "unchanged-gif-no-safe-optimizer-available",
+        "pixel_equivalence": "byte-identical source copy"
+      },
+      "output_bytes": 74165,
+      "output_paths": [
+        {
+          "bytes": 74165,
+          "path": "wp-content/uploads/2019/01/timelinecontrol-e1547987305307.gif",
+          "sha256": "30796c7b6264c578461acfbb9ca48e356cc36bb3025375ee99e29534f3dcc30d"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/01/timelinecontrol-e1547987305307.gif"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 74165,
       "source_path": "2019/01/timelinecontrol-e1547987305307.gif",
-      "source_sha256": "30796c7b6264c578461acfbb9ca48e356cc36bb3025375ee99e29534f3dcc30d"
+      "source_sha256": "30796c7b6264c578461acfbb9ca48e356cc36bb3025375ee99e29534f3dcc30d",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [],
@@ -28763,6 +28857,18 @@
       "extension": ".gif",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content",
+          "url_path": "2019/01/timelinecontrol.gif"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/01/timelinecontrol.gif"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -30649,6 +30755,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content",
+          "url_path": "2019/02/Screen-Shot-2019-02-07-at-1.05.26-AM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/02/Screen-Shot-2019-02-07-at-1.05.26-AM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -30892,6 +31010,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content",
+          "url_path": "2019/02/Screen-Shot-2019-02-07-at-1.34.34-AM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/02/Screen-Shot-2019-02-07-at-1.34.34-AM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -31436,21 +31566,56 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "within-1MB-target",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/gif",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 616,
+        "width": 300
+      },
+      "disposition": "required-content-candidate",
       "extension": ".gif",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content",
+          "url_path": "2019/02/pull-to-refresh-working-ios-e1549522684429.gif"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/02/pull-to-refresh-working-ios-e1549522684429.gif"
+      ],
+      "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "method": "unchanged-gif-no-safe-optimizer-available",
+        "pixel_equivalence": "byte-identical source copy"
+      },
+      "output_bytes": 35602,
+      "output_paths": [
+        {
+          "bytes": 35602,
+          "path": "wp-content/uploads/2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+          "sha256": "5d9fc24a09fde44dceda1583c6ace09003d41c167463956aeb87cb4a55c3a03c"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/02/pull-to-refresh-working-ios-e1549522684429.gif"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 35602,
       "source_path": "2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
-      "source_sha256": "5d9fc24a09fde44dceda1583c6ace09003d41c167463956aeb87cb4a55c3a03c"
+      "source_sha256": "5d9fc24a09fde44dceda1583c6ace09003d41c167463956aeb87cb4a55c3a03c",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [],
@@ -31467,6 +31632,18 @@
       "extension": ".gif",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content",
+          "url_path": "2019/02/pull-to-refresh-working-ios.gif"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/02/pull-to-refresh-working-ios.gif"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -44018,6 +44195,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss1-1024x768.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss1-1024x768.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -44247,21 +44436,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 2448,
+        "width": 3264
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss1.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 2248510,
+      "output_paths": [
+        {
+          "bytes": 2248510,
+          "path": "wp-content/uploads/2019/04/ss1.jpg",
+          "sha256": "ce93e1b30c15aa1c4e5d64b36f7d3d98b4f3008b5b7b87ea553c6023945ccb6b"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/04/ss1.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 5569357,
       "source_path": "2019/04/ss1.jpg",
-      "source_sha256": "3b3cebad37a9ef5c805b04a0311951fd8dd3fdd424cf18fe98d8c6e2b0d38efb"
+      "source_sha256": "3b3cebad37a9ef5c805b04a0311951fd8dd3fdd424cf18fe98d8c6e2b0d38efb",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -44393,6 +44618,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss2-768x1024.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss2-768x1024.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -44486,21 +44723,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 4032,
+        "width": 3024
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss2.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss2.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 4124571,
+      "output_paths": [
+        {
+          "bytes": 4124571,
+          "path": "wp-content/uploads/2019/04/ss2.jpg",
+          "sha256": "92dd4ac43cb584fed8543cdbf56033d21f91003161a2f44a88dcbdae4ec1b1b1"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/04/ss2.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 4182027,
       "source_path": "2019/04/ss2.jpg",
-      "source_sha256": "ce5beb732c950a9c20be0c1794fc7d4fd0651fcfd80b61b6e2bf1a674c03e776"
+      "source_sha256": "ce5beb732c950a9c20be0c1794fc7d4fd0651fcfd80b61b6e2bf1a674c03e776",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [],
@@ -44642,6 +44915,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss3-e1554798527868-1024x600.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss3-e1554798527868-1024x600.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -44871,21 +45156,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "within-1MB-target",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 1512,
+        "width": 2580
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss3-e1554798527868.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss3-e1554798527868.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": false,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 428089,
+      "output_paths": [
+        {
+          "bytes": 428089,
+          "path": "wp-content/uploads/2019/04/ss3-e1554798527868.jpg",
+          "sha256": "272d83c2d94a7c23ba9c35a9225ee5f6f27abaad78f59a0cfdc4c7266ce733b6"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/04/ss3-e1554798527868.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 439148,
       "source_path": "2019/04/ss3-e1554798527868.jpg",
-      "source_sha256": "eb49675e11ec7e240da54f12250651a3fce11802788753c9c5221e04ced2de6c"
+      "source_sha256": "eb49675e11ec7e240da54f12250651a3fce11802788753c9c5221e04ced2de6c",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [],
@@ -44947,6 +45268,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss4-1024x768.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss4-1024x768.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -45176,21 +45509,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3024,
+        "width": 4032
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss4.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss4.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 2844659,
+      "output_paths": [
+        {
+          "bytes": 2844659,
+          "path": "wp-content/uploads/2019/04/ss4.jpg",
+          "sha256": "273d3f7a43e10359498b0645a8e25621ac8233e6f78bbb71c84af8644457bf19"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/04/ss4.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 2865552,
       "source_path": "2019/04/ss4.jpg",
-      "source_sha256": "a26cfb32aac12595cb91a37878818f765f24fb3503673819fe28c83799bf6954"
+      "source_sha256": "a26cfb32aac12595cb91a37878818f765f24fb3503673819fe28c83799bf6954",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -45322,6 +45691,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss5-768x1024.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss5-768x1024.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -45415,21 +45796,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 4032,
+        "width": 3024
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss5.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss5.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 3068368,
+      "output_paths": [
+        {
+          "bytes": 3068368,
+          "path": "wp-content/uploads/2019/04/ss5.jpg",
+          "sha256": "340814e09025b723a9f4ef941b22f98ac0523d99846660e54129bc2aaa4da354"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/04/ss5.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 3090698,
       "source_path": "2019/04/ss5.jpg",
-      "source_sha256": "e66c191fa37c383ca50cffce11021f97743fa11eb2ad6d01ddd39587b801bfff"
+      "source_sha256": "e66c191fa37c383ca50cffce11021f97743fa11eb2ad6d01ddd39587b801bfff",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -45561,6 +45978,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss6-768x1024.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss6-768x1024.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -45654,21 +46083,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3264,
+        "width": 2448
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content",
+          "url_path": "2019/04/ss6.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/04/ss6.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 2760342,
+      "output_paths": [
+        {
+          "bytes": 2760342,
+          "path": "wp-content/uploads/2019/04/ss6.jpg",
+          "sha256": "a4b1f19e3188033dc9b79c2de884e4e5bf40bce86f23deea14146b5ca3ab0de0"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/04/ss6.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 2777499,
       "source_path": "2019/04/ss6.jpg",
-      "source_sha256": "59eebe6095345ffc07014306944bcd81289f7df92f9fa1afad23c341bf269cf4"
+      "source_sha256": "59eebe6095345ffc07014306944bcd81289f7df92f9fa1afad23c341bf269cf4",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -54043,6 +54508,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG-20190924-WA0095.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG-20190924-WA0095.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -54353,6 +54830,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG-20190924-WA0105.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG-20190924-WA0105.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -54663,6 +55152,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190923_062355.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190923_062355.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -55070,21 +55571,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "within-1MB-target",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 1784,
+        "width": 4032
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190923_080716-e1569611703771.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190923_080716-e1569611703771.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": false,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 789665,
+      "output_paths": [
+        {
+          "bytes": 789665,
+          "path": "wp-content/uploads/2019/09/IMG_20190923_080716-e1569611703771.jpg",
+          "sha256": "37f7d7489f37caefc8d9b63116c2ad8a093915212eb7bfe9922b64833ada7c8b"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/09/IMG_20190923_080716-e1569611703771.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 839881,
       "source_path": "2019/09/IMG_20190923_080716-e1569611703771.jpg",
-      "source_sha256": "0fe830fb007ca745444408decac0e8932ed16ffa5924686d263189daf8672c3d"
+      "source_sha256": "0fe830fb007ca745444408decac0e8932ed16ffa5924686d263189daf8672c3d",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [],
@@ -55116,6 +55653,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190923_080716.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190923_080716.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -55458,6 +56007,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190923_083626.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190923_083626.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -55800,6 +56361,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190923_115531.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190923_115531.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -56142,6 +56715,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190924_141359-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190924_141359-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -56664,6 +57249,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content",
+          "url_path": "2019/09/IMG_20190924_214705-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/09/IMG_20190924_214705-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -70316,6 +70913,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1534.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1534.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -71198,6 +71807,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1574.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1574.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -72260,6 +72881,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1623.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1623.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -72602,6 +73235,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1624.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1624.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -73122,21 +73767,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3456,
+        "width": 5184
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1635.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1635.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": false,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 4928601,
+      "output_paths": [
+        {
+          "bytes": 4928601,
+          "path": "wp-content/uploads/2019/11/IMG_1635.jpg",
+          "sha256": "53d1d2de17694917341bce7351f16bd6a809791b2d3b46bdc05c9f76f38491a5"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/11/IMG_1635.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 5052572,
       "source_path": "2019/11/IMG_1635.jpg",
-      "source_sha256": "236be609fea20a1c44d5feab9550e95c9fc9063975a1540ad0877b5a2cb6a220"
+      "source_sha256": "236be609fea20a1c44d5feab9550e95c9fc9063975a1540ad0877b5a2cb6a220",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -73337,6 +74018,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1638.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1638.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -73853,6 +74546,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1639.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1639.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -74569,21 +75274,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3456,
+        "width": 5184
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1651-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1651-1.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": false,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 5207984,
+      "output_paths": [
+        {
+          "bytes": 5207984,
+          "path": "wp-content/uploads/2019/11/IMG_1651-1.jpg",
+          "sha256": "c86f335627a0063cdfb55bb5af9b6c1612ee30a58f9bc0e3ba59e01e9a2b5c73"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/11/IMG_1651-1.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 5313385,
       "source_path": "2019/11/IMG_1651-1.jpg",
-      "source_sha256": "50d5185618f1789654448d8c98ab413bb12ab0f85c912cdfd46a27885d130a59"
+      "source_sha256": "50d5185618f1789654448d8c98ab413bb12ab0f85c912cdfd46a27885d130a59",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -75864,6 +76605,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1666-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1666-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -76564,21 +77317,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3456,
+        "width": 5184
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1668.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1668.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": false,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 6053494,
+      "output_paths": [
+        {
+          "bytes": 6053494,
+          "path": "wp-content/uploads/2019/11/IMG_1668.jpg",
+          "sha256": "5869a45785f17e397a8d53d9b439887a00ed000d527e54081fda483b704aac62"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/11/IMG_1668.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 6171739,
       "source_path": "2019/11/IMG_1668.jpg",
-      "source_sha256": "0cdc6974a459628b5b32c5d6a38930eacebf7511c14d9f93317b81afe9bd35ad"
+      "source_sha256": "0cdc6974a459628b5b32c5d6a38930eacebf7511c14d9f93317b81afe9bd35ad",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -76779,6 +77568,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1669.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1669.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -77841,6 +78642,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1682.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1682.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -78183,6 +78996,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1688-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1688-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -78703,21 +79528,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3456,
+        "width": 5184
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1689-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1689-1.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": false,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 5798281,
+      "output_paths": [
+        {
+          "bytes": 5798281,
+          "path": "wp-content/uploads/2019/11/IMG_1689-1.jpg",
+          "sha256": "741191007f91c7fec95b6eead67f0095cd866209678120ba245a4f359e587ab9"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/11/IMG_1689-1.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 5910817,
       "source_path": "2019/11/IMG_1689-1.jpg",
-      "source_sha256": "e343d9894f0be916c29d40cac2fe50ce7cf597e44c505a5f8fb906fc19444ebf"
+      "source_sha256": "e343d9894f0be916c29d40cac2fe50ce7cf597e44c505a5f8fb906fc19444ebf",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -79098,6 +79959,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1697.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1697.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -79440,6 +80313,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1698-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1698-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -80142,6 +81027,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1707-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1707-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -80664,6 +81561,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1708.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1708.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -81006,6 +81915,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1716-1.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1716-1.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -81708,6 +82629,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1735.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1735.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -82228,21 +83161,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3456,
+        "width": 5184
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1740.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1740.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 5456811,
+      "output_paths": [
+        {
+          "bytes": 5456811,
+          "path": "wp-content/uploads/2019/11/IMG_1740.jpg",
+          "sha256": "04205b8a6573d730efcd7b217c054fc5072f731410156161a1158a08b222c708"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/11/IMG_1740.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 5573532,
       "source_path": "2019/11/IMG_1740.jpg",
-      "source_sha256": "6eff9a31f923c1175744725635c83b3089513ab26ff7933281bc9c681b638537"
+      "source_sha256": "6eff9a31f923c1175744725635c83b3089513ab26ff7933281bc9c681b638537",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -82443,6 +83412,18 @@
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1770.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1770.jpg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -82963,21 +83944,57 @@
       ],
       "body_references": [],
       "body_url_paths": [],
-      "compatibility_disposition": "No redirect or alias is created; this historical URL remains absent unless later approved as a legacy compatibility path.",
+      "byte_budget_status": "above-1MB-needs-display-sized-review",
+      "compatibility_disposition": "Preserve the exact URL path and extension under static/wp-content/uploads/.",
       "content_type": "image/jpeg",
-      "disposition": "excluded-unreferenced-upload",
+      "dimensions": {
+        "height": 3456,
+        "width": 5184
+      },
+      "disposition": "required-content-candidate",
       "extension": ".jpg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/IMG_1786.jpg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/IMG_1786.jpg"
+      ],
+      "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
-      "reason": "No reference in published WXR body or non-social metadata; no approved legacy-URL evidence supplied.",
-      "referenced_url_paths": [],
+      "optimization": {
+        "gps_metadata_removed": true,
+        "method": "jpegtran-lossless-huffman-copy-all",
+        "pixel_equivalence": "decoded PNG pixel stream matched"
+      },
+      "output_bytes": 6324156,
+      "output_paths": [
+        {
+          "bytes": 6324156,
+          "path": "wp-content/uploads/2019/11/IMG_1786.jpg",
+          "sha256": "3815e6d0da7226b62b2e8a3af74e0e0d8b981fe4832f9b0d3d8a145d7e0a2401"
+        }
+      ],
+      "pixel_equivalence": "verified pixel-identical for JPEG/PNG; GIF copied byte-for-byte",
+      "reason": "Referenced by a hash-bound live rendered post body; exact owner upload exists in the backup.",
+      "referenced_url_paths": [
+        "2019/11/IMG_1786.jpg"
+      ],
+      "role_byte_budget_bytes": 1000000,
       "social_metadata_references": [],
       "social_metadata_url_paths": [],
       "source_bytes": 6422090,
       "source_path": "2019/11/IMG_1786.jpg",
-      "source_sha256": "8a1e5567db1237c7d3aaf7664e2319e2b89d8f4569975ead9480e565f8404907"
+      "source_sha256": "8a1e5567db1237c7d3aaf7664e2319e2b89d8f4569975ead9480e565f8404907",
+      "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained"
     },
     {
       "attachment_records": [
@@ -83352,6 +84369,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-11.58.57-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-11.58.57-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -83703,6 +84732,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.35-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.05.35-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -84054,6 +85095,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.51-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.05.51-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -84405,6 +85458,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.59-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.05.59-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -84762,6 +85827,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.06.21-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.06.21-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -85103,6 +86180,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.06.48-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.06.48-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -85438,6 +86527,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.07.05-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.07.05-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -85969,6 +87070,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -86320,6 +87433,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.08.04-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.08.04-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -86671,6 +87796,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.02-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.13.02-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -87022,6 +88159,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.25-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.13.25-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -87373,6 +88522,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.34-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.13.34-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -87724,6 +88885,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.42-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.13.42-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -88075,6 +89248,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-2.27.15-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-2.27.15-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -88606,6 +89791,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-4.26.49-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-4.26.49-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -88957,6 +90154,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-4.57.41-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-4.57.41-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -89308,6 +90517,18 @@
       "extension": ".png",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/Screen-Shot-2019-11-03-at-5.07.53-PM.png"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/Screen-Shot-2019-11-03-at-5.07.53-PM.png"
+      ],
       "metadata_policy_version": "keep-format-metadata-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -89605,6 +90826,18 @@
       "extension": ".jpeg",
       "homepage_references": [],
       "homepage_url_paths": [],
+      "live_rendered_body_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content",
+          "url_path": "2019/11/WhatsApp-Image-2019-10-17-at-11.48.18-PM.jpeg"
+        }
+      ],
+      "live_rendered_body_url_paths": [
+        "2019/11/WhatsApp-Image-2019-10-17-at-11.48.18-PM.jpeg"
+      ],
       "metadata_policy_version": "jpeg-gps-v1",
       "metadata_references": [],
       "metadata_url_paths": [],
@@ -149857,12 +151090,14 @@
     "attachment_route_paths": 98,
     "backup_upload_files": 2402,
     "homepage_paths": 14,
+    "live_rendered_body_paths": 71,
+    "live_rendered_body_records": 5,
     "missing_referenced_paths": 17,
     "published_body_paths": 240,
     "published_non_social_metadata_paths": 0,
     "rendered_page_paths": 305,
-    "required_asset_files": 404,
-    "required_public_paths": 406,
+    "required_asset_files": 420,
+    "required_public_paths": 422,
     "social_metadata_only_paths": 39,
     "wxr_items": 550
   },
@@ -150895,25 +152130,1986 @@
     "uploads_tree": "uploads/ (private backup-relative; never copy this tree wholesale)",
     "wxr_file": "pujolsluisblog.WordPress.2026-10-24.xml"
   },
-  "metadata_audit": {
-    "gps_removed_source_paths": [
-      "2019/09/IMG_20190923_062355.jpg",
-      "2019/09/IMG_20190923_080716.jpg",
-      "2019/09/IMG_20190923_083626.jpg",
-      "2019/09/IMG_20190923_115531.jpg",
-      "2019/09/IMG_20190924_141359-1.jpg",
-      "2019/09/IMG_20190924_214705-1.jpg",
-      "2019/10/IMG_20191026_125707.jpg",
-      "2019/11/IMG_1534.jpg",
-      "2019/11/IMG_1688-1.jpg",
-      "2019/11/IMG_1716-1.jpg",
-      "2019/11/IMG_1770.jpg"
+  "live_rendered_body_evidence": {
+    "records": [
+      {
+        "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+        "original_content_sha256": "38a8f9a36053d8a41e08ad3879420dfeae7331c8bfcf1ca4b9a2e1deca859a50",
+        "owned_upload_url_paths": [
+          "2019/04/ss1-1024x768.jpg",
+          "2019/04/ss1.jpg",
+          "2019/04/ss2-768x1024.jpg",
+          "2019/04/ss2.jpg",
+          "2019/04/ss3-e1554798527868-1024x600.jpg",
+          "2019/04/ss3-e1554798527868.jpg",
+          "2019/04/ss4-1024x768.jpg",
+          "2019/04/ss4.jpg",
+          "2019/04/ss5-768x1024.jpg",
+          "2019/04/ss5.jpg",
+          "2019/04/ss6-768x1024.jpg",
+          "2019/04/ss6.jpg"
+        ],
+        "post_id": "1194",
+        "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+        "selector": ".entry-content",
+        "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+      },
+      {
+        "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+        "original_content_sha256": "80429ee7492395eaff9e08d274dc265576c5cd83e7aad4cf30e8bc21e83a5500",
+        "owned_upload_url_paths": [
+          "2019/09/IMG-20190924-WA0095.jpg",
+          "2019/09/IMG-20190924-WA0105.jpg",
+          "2019/09/IMG_20190923_062355.jpg",
+          "2019/09/IMG_20190923_080716-e1569611703771.jpg",
+          "2019/09/IMG_20190923_080716.jpg",
+          "2019/09/IMG_20190923_083626.jpg",
+          "2019/09/IMG_20190923_115531.jpg",
+          "2019/09/IMG_20190924_141359-1.jpg",
+          "2019/09/IMG_20190924_214705-1.jpg"
+        ],
+        "post_id": "1343",
+        "route": "/devops-panama-app-center-with-xamarin/",
+        "selector": ".entry-content",
+        "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+      },
+      {
+        "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+        "original_content_sha256": "ce332b795fa9f4250852688343d1aeb616ac230cb13f9e996c051ee60182f673",
+        "owned_upload_url_paths": [
+          "2019/11/IMG_1534.jpg",
+          "2019/11/IMG_1574.jpg",
+          "2019/11/IMG_1623.jpg",
+          "2019/11/IMG_1624.jpg",
+          "2019/11/IMG_1635.jpg",
+          "2019/11/IMG_1638.jpg",
+          "2019/11/IMG_1639.jpg",
+          "2019/11/IMG_1651-1.jpg",
+          "2019/11/IMG_1666-1.jpg",
+          "2019/11/IMG_1668.jpg",
+          "2019/11/IMG_1669.jpg",
+          "2019/11/IMG_1682.jpg",
+          "2019/11/IMG_1688-1.jpg",
+          "2019/11/IMG_1689-1.jpg",
+          "2019/11/IMG_1697.jpg",
+          "2019/11/IMG_1698-1.jpg",
+          "2019/11/IMG_1707-1.jpg",
+          "2019/11/IMG_1708.jpg",
+          "2019/11/IMG_1716-1.jpg",
+          "2019/11/IMG_1735.jpg",
+          "2019/11/IMG_1740.jpg",
+          "2019/11/IMG_1770.jpg",
+          "2019/11/IMG_1786.jpg",
+          "2019/11/Screen-Shot-2019-11-03-at-11.58.57-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.05.35-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.05.51-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.05.59-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.06.21-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.06.48-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.07.05-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.08.04-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.13.02-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.13.25-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.13.34-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.13.42-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-2.27.15-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-4.26.49-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-4.57.41-PM.png",
+          "2019/11/Screen-Shot-2019-11-03-at-5.07.53-PM.png",
+          "2019/11/WhatsApp-Image-2019-10-17-at-11.48.18-PM.jpeg"
+        ],
+        "post_id": "1450",
+        "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+        "selector": ".entry-content",
+        "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+      },
+      {
+        "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+        "original_content_sha256": "0b8b08dc04a08f3b6d0a9cee5edb8bbd81ca08ce490ab82468cc49e74c7c044f",
+        "owned_upload_url_paths": [
+          "2019/02/Screen-Shot-2019-02-07-at-1.05.26-AM.png",
+          "2019/02/Screen-Shot-2019-02-07-at-1.34.34-AM.png",
+          "2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+          "2019/02/pull-to-refresh-working-ios.gif"
+        ],
+        "post_id": "274",
+        "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+        "selector": ".entry-content",
+        "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content"
+      },
+      {
+        "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+        "original_content_sha256": "38eec6ab708f00a9ec1e38cdf2e5967f44aec7f0674175a47a078dabb7d9297b",
+        "owned_upload_url_paths": [
+          "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
+          "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png",
+          "2019/01/Timeline-Pieces-of-Puzzle.png",
+          "2019/01/timelinecontrol-e1547987305307.gif",
+          "2019/01/timelinecontrol.gif"
+        ],
+        "post_id": "279",
+        "route": "/creating-custom-controls-part-3-timelineview/",
+        "selector": ".entry-content",
+        "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+      }
     ],
-    "jpeg_files_with_gps_removed": 11,
+    "schema_version": 1,
+    "source_reference": "owner-wxr-2026-10-24-plus-public-rendered-pages-2026-10-25"
+  },
+  "live_rendered_body_path_mappings": [
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 49792,
+            "path": "wp-content/uploads/2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
+            "sha256": "8a15ae0272e64ec6b503d43d8b6dba4aaf4ddf304bcfacf983405a96e0a38894"
+          },
+          "source_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png",
+          "source_sha256": "a9e4aee7a532de3c2ed4697a9194fc6707e94f25c35cbeb883ad343d563cb876"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 313324,
+            "path": "wp-content/uploads/2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png",
+            "sha256": "0bfcde5ac415db4ca128639fe122d16ff6e8934b43c98bf72969f20c325f54a8"
+          },
+          "source_path": "2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png",
+          "source_sha256": "5bbcfcdb9c2fa38650ee10ae57a500e6679f5cb9873aa19cf02eb16927016d5e"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/01/Timeline-Pieces-of-Puzzle.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 56490,
+            "path": "wp-content/uploads/2019/01/Timeline-Pieces-of-Puzzle.png",
+            "sha256": "f0e0bcbb1627f62cf667790f8614d01c027a3e75581652c2e1a9523dddfb43d3"
+          },
+          "source_path": "2019/01/Timeline-Pieces-of-Puzzle.png",
+          "source_sha256": "9c428a81fc6070281e96e6df6db9bc820e8cb6da87cb4c8a5188c1f88f37ec39"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/gif",
+      "public_url_path": "2019/01/timelinecontrol-e1547987305307.gif",
+      "source_assets": [
+        {
+          "content_type": "image/gif",
+          "output": {
+            "bytes": 74165,
+            "path": "wp-content/uploads/2019/01/timelinecontrol-e1547987305307.gif",
+            "sha256": "30796c7b6264c578461acfbb9ca48e356cc36bb3025375ee99e29534f3dcc30d"
+          },
+          "source_path": "2019/01/timelinecontrol-e1547987305307.gif",
+          "source_sha256": "30796c7b6264c578461acfbb9ca48e356cc36bb3025375ee99e29534f3dcc30d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/gif",
+      "public_url_path": "2019/01/timelinecontrol.gif",
+      "source_assets": [
+        {
+          "content_type": "image/gif",
+          "output": {
+            "bytes": 10411474,
+            "path": "wp-content/uploads/2019/01/timelinecontrol.gif",
+            "sha256": "7a897df77d4096930faead7103bd0c1da70118126905d1ad1091b871c350b7e5"
+          },
+          "source_path": "2019/01/timelinecontrol.gif",
+          "source_sha256": "7a897df77d4096930faead7103bd0c1da70118126905d1ad1091b871c350b7e5"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+          "post_id": "279",
+          "route": "/creating-custom-controls-part-3-timelineview/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/02/Screen-Shot-2019-02-07-at-1.05.26-AM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 159629,
+            "path": "wp-content/uploads/2019/02/Screen-Shot-2019-02-07-at-1.05.26-AM.png",
+            "sha256": "c3ecd66008ea8a22ffda34c794e991d24aaa7fd5dc0c5b4207bff9fbb53265a9"
+          },
+          "source_path": "2019/02/Screen-Shot-2019-02-07-at-1.05.26-AM.png",
+          "source_sha256": "8988aed603848bc4d6a278fe0c11e287b0698312aa78096d18eff023bd06e8cb"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/02/Screen-Shot-2019-02-07-at-1.34.34-AM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 169444,
+            "path": "wp-content/uploads/2019/02/Screen-Shot-2019-02-07-at-1.34.34-AM.png",
+            "sha256": "cc6acda986219f4968301c1aa834b5734cf5d23925b591a45b4146cf3ce3365d"
+          },
+          "source_path": "2019/02/Screen-Shot-2019-02-07-at-1.34.34-AM.png",
+          "source_sha256": "339eb4e4bece43388a5591709258308b7d4c66f38b34ee8f32ed4c577536dbfa"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/gif",
+      "public_url_path": "2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+      "source_assets": [
+        {
+          "content_type": "image/gif",
+          "output": {
+            "bytes": 35602,
+            "path": "wp-content/uploads/2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+            "sha256": "5d9fc24a09fde44dceda1583c6ace09003d41c167463956aeb87cb4a55c3a03c"
+          },
+          "source_path": "2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+          "source_sha256": "5d9fc24a09fde44dceda1583c6ace09003d41c167463956aeb87cb4a55c3a03c"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/gif",
+      "public_url_path": "2019/02/pull-to-refresh-working-ios.gif",
+      "source_assets": [
+        {
+          "content_type": "image/gif",
+          "output": {
+            "bytes": 1277615,
+            "path": "wp-content/uploads/2019/02/pull-to-refresh-working-ios.gif",
+            "sha256": "875dc951079e4e995fd167c11b8b198f45349348f21cff4d9b60d2b8a3744b5e"
+          },
+          "source_path": "2019/02/pull-to-refresh-working-ios.gif",
+          "source_sha256": "875dc951079e4e995fd167c11b8b198f45349348f21cff4d9b60d2b8a3744b5e"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "f00d07b56e6475c706662c7b963201941a2727a729ac5a4d6121435d80331632",
+          "post_id": "274",
+          "route": "/fixing-listview-offset-on-pull-to-refresh-in-xamarin-ios/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:90f8d5057e0aae7d2ba57acf72bf01389b7121b6700a0eeea06075179f21a7a1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss1-1024x768.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 126657,
+            "path": "wp-content/uploads/2019/04/ss1-1024x768.jpg",
+            "sha256": "cfab0476930d3023205d74c0747775bce2a7bad2579f0f01e9233556e20f1dde"
+          },
+          "source_path": "2019/04/ss1-1024x768.jpg",
+          "source_sha256": "fe3e8baf1330e43c8e853b765162ddac71b54af15ee1f3da22b1b1aa13c4943d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 2248510,
+            "path": "wp-content/uploads/2019/04/ss1.jpg",
+            "sha256": "ce93e1b30c15aa1c4e5d64b36f7d3d98b4f3008b5b7b87ea553c6023945ccb6b"
+          },
+          "source_path": "2019/04/ss1.jpg",
+          "source_sha256": "3b3cebad37a9ef5c805b04a0311951fd8dd3fdd424cf18fe98d8c6e2b0d38efb"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss2-768x1024.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 169938,
+            "path": "wp-content/uploads/2019/04/ss2-768x1024.jpg",
+            "sha256": "c020b003359d0093809f882fc64eaa972914e9fe023cce66f4b00bb1cacc3a02"
+          },
+          "source_path": "2019/04/ss2-768x1024.jpg",
+          "source_sha256": "45cfe8b79026872d7fdee2730f8256496b35f47af1e07b0ff40586e3062805d2"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss2.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 4124571,
+            "path": "wp-content/uploads/2019/04/ss2.jpg",
+            "sha256": "92dd4ac43cb584fed8543cdbf56033d21f91003161a2f44a88dcbdae4ec1b1b1"
+          },
+          "source_path": "2019/04/ss2.jpg",
+          "source_sha256": "ce5beb732c950a9c20be0c1794fc7d4fd0651fcfd80b61b6e2bf1a674c03e776"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss3-e1554798527868-1024x600.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 83058,
+            "path": "wp-content/uploads/2019/04/ss3-e1554798527868-1024x600.jpg",
+            "sha256": "8c59adfd3ce75dbc7d6a4c36c1488493b3317b763e61edb7c7489baf1a962b4c"
+          },
+          "source_path": "2019/04/ss3-e1554798527868-1024x600.jpg",
+          "source_sha256": "a0e93821c12df9713d45665ba90435988f2dc7d2c26d59a319d08f22a2ca5ead"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss3-e1554798527868.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 428089,
+            "path": "wp-content/uploads/2019/04/ss3-e1554798527868.jpg",
+            "sha256": "272d83c2d94a7c23ba9c35a9225ee5f6f27abaad78f59a0cfdc4c7266ce733b6"
+          },
+          "source_path": "2019/04/ss3-e1554798527868.jpg",
+          "source_sha256": "eb49675e11ec7e240da54f12250651a3fce11802788753c9c5221e04ced2de6c"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss4-1024x768.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 110286,
+            "path": "wp-content/uploads/2019/04/ss4-1024x768.jpg",
+            "sha256": "4cab6e9ff207166d8c91d7a68816d7744bfb96612d6bc91343ab24f8b7166e53"
+          },
+          "source_path": "2019/04/ss4-1024x768.jpg",
+          "source_sha256": "42c5bd4890f0f260482ae50da6e8919da870ac8ff77dc4acad82495f91587b5d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss4.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 2844659,
+            "path": "wp-content/uploads/2019/04/ss4.jpg",
+            "sha256": "273d3f7a43e10359498b0645a8e25621ac8233e6f78bbb71c84af8644457bf19"
+          },
+          "source_path": "2019/04/ss4.jpg",
+          "source_sha256": "a26cfb32aac12595cb91a37878818f765f24fb3503673819fe28c83799bf6954"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss5-768x1024.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 84917,
+            "path": "wp-content/uploads/2019/04/ss5-768x1024.jpg",
+            "sha256": "4881b994ade8d9ab3109fcbbeaea3de192769cdfff562810c5e4ae0b2d16c590"
+          },
+          "source_path": "2019/04/ss5-768x1024.jpg",
+          "source_sha256": "2b523f12fa622ceade80ac7745107e6a56d0e7bc098bb37336398897d3201532"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss5.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 3068368,
+            "path": "wp-content/uploads/2019/04/ss5.jpg",
+            "sha256": "340814e09025b723a9f4ef941b22f98ac0523d99846660e54129bc2aaa4da354"
+          },
+          "source_path": "2019/04/ss5.jpg",
+          "source_sha256": "e66c191fa37c383ca50cffce11021f97743fa11eb2ad6d01ddd39587b801bfff"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss6-768x1024.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 94943,
+            "path": "wp-content/uploads/2019/04/ss6-768x1024.jpg",
+            "sha256": "36765786819ae7e880237ebaa6f9151107b0955a8e962bc5d4458a1169737f89"
+          },
+          "source_path": "2019/04/ss6-768x1024.jpg",
+          "source_sha256": "72ee0cbbe3bf9c31423e257ec206f43f4fe15194e384dccd2597f461c24b702e"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/04/ss6.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 2760342,
+            "path": "wp-content/uploads/2019/04/ss6.jpg",
+            "sha256": "a4b1f19e3188033dc9b79c2de884e4e5bf40bce86f23deea14146b5ca3ab0de0"
+          },
+          "source_path": "2019/04/ss6.jpg",
+          "source_sha256": "59eebe6095345ffc07014306944bcd81289f7df92f9fa1afad23c341bf269cf4"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "870408951baad4316c4bef7f90380f3d57f545aef96be98e71db7901481ca834",
+          "post_id": "1194",
+          "route": "/consuming-restful-apis-with-refit-xamarin-forms-orlando-code-camp-2019/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:815c77d98877b37371da67331dfb5b8ed1a78dbe99c021554e05c294cddedcc3:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG-20190924-WA0095.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 62060,
+            "path": "wp-content/uploads/2019/09/IMG-20190924-WA0095.jpg",
+            "sha256": "115e611c642492fca16c2656854998354a00b129509f24390028a9d006d49de7"
+          },
+          "source_path": "2019/09/IMG-20190924-WA0095.jpg",
+          "source_sha256": "115e611c642492fca16c2656854998354a00b129509f24390028a9d006d49de7"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG-20190924-WA0105.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 77097,
+            "path": "wp-content/uploads/2019/09/IMG-20190924-WA0105.jpg",
+            "sha256": "acb06943d9b1e26a8e3daddc6a25484d40e90e71fcc53778ace0556c7c81cc70"
+          },
+          "source_path": "2019/09/IMG-20190924-WA0105.jpg",
+          "source_sha256": "acb06943d9b1e26a8e3daddc6a25484d40e90e71fcc53778ace0556c7c81cc70"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190923_062355.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 2052778,
+            "path": "wp-content/uploads/2019/09/IMG_20190923_062355.jpg",
+            "sha256": "34751d8683d5d9bd8ac58c8ef9e434f401c51fa2ff3f9ae4e4193188bfc581ad"
+          },
+          "source_path": "2019/09/IMG_20190923_062355.jpg",
+          "source_sha256": "4495f0a5657363870bacce7c78257e5dd5e03ec3759e71347e9c3c0b7a35ce1a"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190923_080716-e1569611703771.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 789665,
+            "path": "wp-content/uploads/2019/09/IMG_20190923_080716-e1569611703771.jpg",
+            "sha256": "37f7d7489f37caefc8d9b63116c2ad8a093915212eb7bfe9922b64833ada7c8b"
+          },
+          "source_path": "2019/09/IMG_20190923_080716-e1569611703771.jpg",
+          "source_sha256": "0fe830fb007ca745444408decac0e8932ed16ffa5924686d263189daf8672c3d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190923_080716.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 2968712,
+            "path": "wp-content/uploads/2019/09/IMG_20190923_080716.jpg",
+            "sha256": "26c200b5238dada0c0be77dbc4d2e2cad12736c121492996519b9073df03bfcb"
+          },
+          "source_path": "2019/09/IMG_20190923_080716.jpg",
+          "source_sha256": "6e1f72a125e41a6c1cb74d1c30a0c2eca25983f5812061679c30a2b4fe964653"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190923_083626.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 3468059,
+            "path": "wp-content/uploads/2019/09/IMG_20190923_083626.jpg",
+            "sha256": "16287d6c7145d57a439632e55a01cfbe80c7415df0c34c4280d388e4c08337d3"
+          },
+          "source_path": "2019/09/IMG_20190923_083626.jpg",
+          "source_sha256": "9414ab9a83a872190c5eb7a209e7be4bf29a8a79309579cd833651c54819c2e4"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190923_115531.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 3657280,
+            "path": "wp-content/uploads/2019/09/IMG_20190923_115531.jpg",
+            "sha256": "ab054126a6e75120ec8e61482a8eee20c40adc4393ac7c30ed15f5b178955378"
+          },
+          "source_path": "2019/09/IMG_20190923_115531.jpg",
+          "source_sha256": "902c745f5ae57fcc7311247d61ca5714805d301fe9e86620a888e69f6fe2faf3"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190924_141359-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 3272637,
+            "path": "wp-content/uploads/2019/09/IMG_20190924_141359-1.jpg",
+            "sha256": "982136ba786b8ad357888458d3019ba68ae2c27e5f2e8fdd7d50da2c9643eda5"
+          },
+          "source_path": "2019/09/IMG_20190924_141359-1.jpg",
+          "source_sha256": "b046d46058cc129edf2479a411648badf8913c92a669036f94045a6bc317ebbd"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/09/IMG_20190924_214705-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 3121183,
+            "path": "wp-content/uploads/2019/09/IMG_20190924_214705-1.jpg",
+            "sha256": "cfdcfb89b9728f3997339fcaf45754bb6901890fcd25c1e6f8c0fd10bddff406"
+          },
+          "source_path": "2019/09/IMG_20190924_214705-1.jpg",
+          "source_sha256": "6dd77d9be4fbe70e525c1adb1c53251045ec4a1973c3db7ed9b4399f78694e1c"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "da30f4e0757119b834dbbde16dc6847e6b2a3c10eb42f3021639297bf6f21622",
+          "post_id": "1343",
+          "route": "/devops-panama-app-center-with-xamarin/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:781c6fc6840effa5ba187373175039afe9483d788221138cea6e31451db4aef1:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1534.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5029288,
+            "path": "wp-content/uploads/2019/11/IMG_1534.jpg",
+            "sha256": "b134060a9936a3c0768efc789a8ef77da023774ef53f34ec81228d21483fb540"
+          },
+          "source_path": "2019/11/IMG_1534.jpg",
+          "source_sha256": "b9ec5d17be40fa9b25174b7e95c22c72dbb401b20c83a200889cb78fffa68a64"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1574.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5929487,
+            "path": "wp-content/uploads/2019/11/IMG_1574.jpg",
+            "sha256": "bc52c41045f9a40095e424307d1bba694935a913af2ee45c183ba7c8961825f0"
+          },
+          "source_path": "2019/11/IMG_1574.jpg",
+          "source_sha256": "54bff6f94af837880adc025c8e6ffa67922ce98448f576affd5d441581c76e58"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1623.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5731558,
+            "path": "wp-content/uploads/2019/11/IMG_1623.jpg",
+            "sha256": "9f941d19f1c9322ac5b9662e7ca793cbd9a71eae65fce16cd34be07e6f369f75"
+          },
+          "source_path": "2019/11/IMG_1623.jpg",
+          "source_sha256": "25f8622e4b9229f3dd27626ab284e3dbc3bad2edd351e02761352c87f65a611e"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1624.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6031415,
+            "path": "wp-content/uploads/2019/11/IMG_1624.jpg",
+            "sha256": "7e9d25da370845704ebecef31117ad8a975c8caf16535d4e0b91d2220e31a1f1"
+          },
+          "source_path": "2019/11/IMG_1624.jpg",
+          "source_sha256": "4301169add3a3bd5db14678c1eb1fa8c3ef01e37dc43152dafe8e4c73e231986"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1635.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 4928601,
+            "path": "wp-content/uploads/2019/11/IMG_1635.jpg",
+            "sha256": "53d1d2de17694917341bce7351f16bd6a809791b2d3b46bdc05c9f76f38491a5"
+          },
+          "source_path": "2019/11/IMG_1635.jpg",
+          "source_sha256": "236be609fea20a1c44d5feab9550e95c9fc9063975a1540ad0877b5a2cb6a220"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1638.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5817625,
+            "path": "wp-content/uploads/2019/11/IMG_1638.jpg",
+            "sha256": "a4b068156dd4ebdc934aba5ad0c86d5e92897abdbb950c5dfef475718c508e83"
+          },
+          "source_path": "2019/11/IMG_1638.jpg",
+          "source_sha256": "97272eb0eb0b1ad593c60cfb791a366c1f49bb5c5446be247e445b0cce285159"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1639.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6919014,
+            "path": "wp-content/uploads/2019/11/IMG_1639.jpg",
+            "sha256": "364e0cf4cc2395a6a1f46c3758ad11d8ea42bb3495c56bec9023aac9952b9014"
+          },
+          "source_path": "2019/11/IMG_1639.jpg",
+          "source_sha256": "7c92452fdd5e292ca4fc215bd517793b7fbcaac35184e7c3fc354ace8d9cfa8d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1651-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5207984,
+            "path": "wp-content/uploads/2019/11/IMG_1651-1.jpg",
+            "sha256": "c86f335627a0063cdfb55bb5af9b6c1612ee30a58f9bc0e3ba59e01e9a2b5c73"
+          },
+          "source_path": "2019/11/IMG_1651-1.jpg",
+          "source_sha256": "50d5185618f1789654448d8c98ab413bb12ab0f85c912cdfd46a27885d130a59"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1666-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6252108,
+            "path": "wp-content/uploads/2019/11/IMG_1666-1.jpg",
+            "sha256": "f272533e94dda964fe02e26991f02ef1a249cdfd48e9102315ae63b1ecd9ae53"
+          },
+          "source_path": "2019/11/IMG_1666-1.jpg",
+          "source_sha256": "09d3f1d8b3530fa1af8d2812a9992be6fd13865601e65371d40cd868cc2d2642"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1668.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6053494,
+            "path": "wp-content/uploads/2019/11/IMG_1668.jpg",
+            "sha256": "5869a45785f17e397a8d53d9b439887a00ed000d527e54081fda483b704aac62"
+          },
+          "source_path": "2019/11/IMG_1668.jpg",
+          "source_sha256": "0cdc6974a459628b5b32c5d6a38930eacebf7511c14d9f93317b81afe9bd35ad"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1669.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6108702,
+            "path": "wp-content/uploads/2019/11/IMG_1669.jpg",
+            "sha256": "451b35d11ab5284316c128d3619eab114cf815219d50dc1af911057781261d24"
+          },
+          "source_path": "2019/11/IMG_1669.jpg",
+          "source_sha256": "9405f98ee2ea46d7af87b1311affa5afc9291bc427e843fe9c72ac7fb6b18ee8"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1682.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 7231843,
+            "path": "wp-content/uploads/2019/11/IMG_1682.jpg",
+            "sha256": "42210911c6b9dc2a46bfae16633f8423f31fae39c352dbec6acc5ad2faa7b171"
+          },
+          "source_path": "2019/11/IMG_1682.jpg",
+          "source_sha256": "0a8250e20186bad4c5bb742f16e30e15101506c6c636ca696f77f8ddc8e0d255"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1688-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5274156,
+            "path": "wp-content/uploads/2019/11/IMG_1688-1.jpg",
+            "sha256": "a2bf655242774020267a2e112635aadacdf7a3610a0e1e7ab025a5ccc406d816"
+          },
+          "source_path": "2019/11/IMG_1688-1.jpg",
+          "source_sha256": "2255f59ea90ed34aec60cbb008dc26d606b0de890701191bfaee9f3ca9010da3"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1689-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5798281,
+            "path": "wp-content/uploads/2019/11/IMG_1689-1.jpg",
+            "sha256": "741191007f91c7fec95b6eead67f0095cd866209678120ba245a4f359e587ab9"
+          },
+          "source_path": "2019/11/IMG_1689-1.jpg",
+          "source_sha256": "e343d9894f0be916c29d40cac2fe50ce7cf597e44c505a5f8fb906fc19444ebf"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1697.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6859393,
+            "path": "wp-content/uploads/2019/11/IMG_1697.jpg",
+            "sha256": "3980807592816abcc6119ba846bd41c025c508b5e7426d728c5eaa2118089fef"
+          },
+          "source_path": "2019/11/IMG_1697.jpg",
+          "source_sha256": "d9c7db0fa8d00013622a3e5356cfee829a2201d26da142d3a9effdae0ed176fc"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1698-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6378346,
+            "path": "wp-content/uploads/2019/11/IMG_1698-1.jpg",
+            "sha256": "86d2d754871ca701f800aebe040096bc51acd2548cf92161b551fda552e60395"
+          },
+          "source_path": "2019/11/IMG_1698-1.jpg",
+          "source_sha256": "f3daa441277d1dea97d9a41de319902dd806a27223c8c20726b983278fd229b0"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1707-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6571795,
+            "path": "wp-content/uploads/2019/11/IMG_1707-1.jpg",
+            "sha256": "2f432943603cfa592b0cda9fb27e1b4114bd235e209fa191924c8278efbd9e91"
+          },
+          "source_path": "2019/11/IMG_1707-1.jpg",
+          "source_sha256": "6356c505ba4bf3e2319685063d211c3b70379d10aa4f1bcc593f267603106734"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1708.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5737538,
+            "path": "wp-content/uploads/2019/11/IMG_1708.jpg",
+            "sha256": "6749bf5542cf3e9a4d8bf034c8fc4e62303e09948a71f364ad74cb6352d91540"
+          },
+          "source_path": "2019/11/IMG_1708.jpg",
+          "source_sha256": "db96ad1e4dc289a0ba8a06bde7d3345949785ec66e19e8bbb2b4f23b4a1b7e1b"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1716-1.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5289022,
+            "path": "wp-content/uploads/2019/11/IMG_1716-1.jpg",
+            "sha256": "b06626dc60453937fd487f3dfb967da7cc46d2490f01e3d406a61fe77aa97e5e"
+          },
+          "source_path": "2019/11/IMG_1716-1.jpg",
+          "source_sha256": "e1e72cc5f8d03bc4cbaff049f6379071fc3430deb95b00a32d67454975be8a65"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1735.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6071393,
+            "path": "wp-content/uploads/2019/11/IMG_1735.jpg",
+            "sha256": "2b298a31a1a10829b2e91a12eaf27b060eb5d47e7156513c7c9ea1e6bf8c6e82"
+          },
+          "source_path": "2019/11/IMG_1735.jpg",
+          "source_sha256": "68c19da3168c156fe2d19565a13be8a4dce11be149d52e0d532b4fa427f5a433"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1740.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 5456811,
+            "path": "wp-content/uploads/2019/11/IMG_1740.jpg",
+            "sha256": "04205b8a6573d730efcd7b217c054fc5072f731410156161a1158a08b222c708"
+          },
+          "source_path": "2019/11/IMG_1740.jpg",
+          "source_sha256": "6eff9a31f923c1175744725635c83b3089513ab26ff7933281bc9c681b638537"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1770.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6571255,
+            "path": "wp-content/uploads/2019/11/IMG_1770.jpg",
+            "sha256": "4a3877bb4ab2d761d4ddfa3d1b12ca1962b5a78e1ffd8098b3b0aa9d6b3b4c6a"
+          },
+          "source_path": "2019/11/IMG_1770.jpg",
+          "source_sha256": "aed1afa691e5788dd1c14b1ffb1455f0f5e2c5ae183afccc75a28bb4df2b606d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/IMG_1786.jpg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 6324156,
+            "path": "wp-content/uploads/2019/11/IMG_1786.jpg",
+            "sha256": "3815e6d0da7226b62b2e8a3af74e0e0d8b981fe4832f9b0d3d8a145d7e0a2401"
+          },
+          "source_path": "2019/11/IMG_1786.jpg",
+          "source_sha256": "8a1e5567db1237c7d3aaf7664e2319e2b89d8f4569975ead9480e565f8404907"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-11.58.57-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2701584,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-11.58.57-PM.png",
+            "sha256": "bb41dc9f6fffffd2d2a4204d615e5124762c5825073c99bf548744b8e350ae70"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-11.58.57-PM.png",
+          "source_sha256": "80b3ef6ca78c1bfe958a3247062001c1bb3e8f01d840c439f3f449164189bcc4"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.35-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3656463,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.05.35-PM.png",
+            "sha256": "eeda5c3800da716ded25d7f31e47bdf71d64c864cfb81fdb4dfac36e4b54eb50"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.35-PM.png",
+          "source_sha256": "d8f9b049fd95b901d4c1e7c3ba01b371437f69d6f5453dede7edca60f4c55429"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.51-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3330799,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.05.51-PM.png",
+            "sha256": "a64b7f57af524310864f52ca1966cad3f6d8ecff348ce1c87f275d727955dc1b"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.51-PM.png",
+          "source_sha256": "72f7e3e98b4231fac3d2554bff896f7e4ecc4f4262609f605ae27a987bc5dbe4"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.59-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2566175,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.05.59-PM.png",
+            "sha256": "18969961b899863c9394832166455ff2e9b40ac905908d20876200b0deaec4ac"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.05.59-PM.png",
+          "source_sha256": "891a3ee31bb65b2e4bc85ea93a3538ffdb93e6dc6643bdc9c4a1b1497c794540"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.06.21-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2974756,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.06.21-PM.png",
+            "sha256": "f99a0da8344c7b36f646f2fb8f7afac57cc17b1f85b65d4869233e0fad20830b"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.06.21-PM.png",
+          "source_sha256": "199cfb85c8ce69763f585b2e6bc8a086bccb7af0afecf61da5928b180cf0f947"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.06.48-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2394476,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.06.48-PM.png",
+            "sha256": "c08abbfce9a4aed36f19b486ff2ba848e7669109cb84e0601abc64932f44570d"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.06.48-PM.png",
+          "source_sha256": "18d595ce67ef97e4fc232d1b08327884629302e963967217eb54bf6441f3069d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.07.05-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2294701,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.07.05-PM.png",
+            "sha256": "3e021557f66e03438849cd3acda4675b133ecdc3275983b92708db4ef1e0d97d"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.07.05-PM.png",
+          "source_sha256": "b1a5e84053ca218f55a4155b284eb949136049d7c7c6904ac10249c3de1f2d43"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 4049749,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png",
+            "sha256": "96826c86e32e275b83a36f66c99fdabf16e9d0f45f1833ffb7584a039a6b20ab"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png",
+          "source_sha256": "9f5c4c90c91dded13c290d8f132bbdd468e7611b484e2b9b3fc152b3ad80f9e6"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.08.04-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3385618,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.08.04-PM.png",
+            "sha256": "d068023456b49d0e8ac70d59e9a27aff431320187b8b00d401a2a3a3bc31560a"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.08.04-PM.png",
+          "source_sha256": "b6711327abff91453d451b852a5a0a758e03058505170adaacd7c349041b419f"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.02-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3575605,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.13.02-PM.png",
+            "sha256": "d5f24e33f16ef73f8f89c03d3bf3604253454628c8675a1473ee62160d926591"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.02-PM.png",
+          "source_sha256": "8836beaeb7f45d559c2ad77cd0e5a00546b0065ee75c71d65decb3b0f0820ff0"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.25-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3689696,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.13.25-PM.png",
+            "sha256": "fdf9a7b176a5224836bc142711256108d09cc566c79e45b0498e4a24b5d4ac5e"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.25-PM.png",
+          "source_sha256": "5858ad4619dd520c9bb111e984bc68cffb8e7c4cd42125ac4517074fff3a3968"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.34-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3810943,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.13.34-PM.png",
+            "sha256": "90752aedccb5ba4b250fb6bf2beddc4da2b47f33951847a26d1b6236551249e4"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.34-PM.png",
+          "source_sha256": "24467f199c3428daeaadacb5a7157973be683e8fbedd01c0d7c36107efc4d358"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.42-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2802308,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.13.42-PM.png",
+            "sha256": "8b9ca925e459c87a389ef90991ac63daf6804f30340a12149933f1984a0576ce"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.13.42-PM.png",
+          "source_sha256": "999576ca598232e372987c705a691392e9a59242515947d667b3fbe0f9661384"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-2.27.15-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 1719813,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-2.27.15-PM.png",
+            "sha256": "2fe5e1ab44525b84c02c75be2d66ad434b8e3a225fbad173eecbfe0d13d43dea"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-2.27.15-PM.png",
+          "source_sha256": "b9c43729ba5888570f6308b11de4cbb61ecbc23b752b90dc18f54323d158ed48"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-4.26.49-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2463331,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-4.26.49-PM.png",
+            "sha256": "33f51ae426b3f2cb2c236e2d19e63ffd8d0e738365e3e918ba3386a9a4d0eb1a"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-4.26.49-PM.png",
+          "source_sha256": "f412011ea8b95ca1715a9fc1c121456db42fe6d3166aaf45d27793193fc4149d"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-4.57.41-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 2300179,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-4.57.41-PM.png",
+            "sha256": "7a5466629acaee28dec17d7028992c2214f46c6f0f8a0a35d92edcaf3ca2536e"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-4.57.41-PM.png",
+          "source_sha256": "3d0a2f8e94e62fe6dee6b501ea308603f963f9136df559d98508652b83caf189"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/png",
+      "public_url_path": "2019/11/Screen-Shot-2019-11-03-at-5.07.53-PM.png",
+      "source_assets": [
+        {
+          "content_type": "image/png",
+          "output": {
+            "bytes": 3058051,
+            "path": "wp-content/uploads/2019/11/Screen-Shot-2019-11-03-at-5.07.53-PM.png",
+            "sha256": "1b80ab2e61b3283a5a537f70d1626d69fc7fa74e8a24020ea7dc87fdba983ff3"
+          },
+          "source_path": "2019/11/Screen-Shot-2019-11-03-at-5.07.53-PM.png",
+          "source_sha256": "f3ab663051a2cb0c504bbbe0a18bcdce14f8f1132779ff815650d6a6621bfd67"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    },
+    {
+      "content_type": "image/jpeg",
+      "public_url_path": "2019/11/WhatsApp-Image-2019-10-17-at-11.48.18-PM.jpeg",
+      "source_assets": [
+        {
+          "content_type": "image/jpeg",
+          "output": {
+            "bytes": 158446,
+            "path": "wp-content/uploads/2019/11/WhatsApp-Image-2019-10-17-at-11.48.18-PM.jpeg",
+            "sha256": "931db91a7954f513f0de736f0fa9594d3a7b2e3c4ab4d9961fcb33695a58e600"
+          },
+          "source_path": "2019/11/WhatsApp-Image-2019-10-17-at-11.48.18-PM.jpeg",
+          "source_sha256": "931db91a7954f513f0de736f0fa9594d3a7b2e3c4ab4d9961fcb33695a58e600"
+        }
+      ],
+      "source_references": [
+        {
+          "body_html_sha256": "1c2b48383b635d976e32a910c100c20dee8bd11e2317e632acebd476931508bd",
+          "post_id": "1450",
+          "route": "/dotnetdo-community-anniversary-v1-0-year-overview-and-party/",
+          "selector": ".entry-content",
+          "source_reference": "public-page:17af05cd33200d552f19be5ae95570c05d46fb8ae76a49a47c475c0de9514b1f:selector=.entry-content"
+        }
+      ],
+      "status": "included"
+    }
+  ],
+  "metadata_audit": {
+    "jpeg_files_with_gps_removed": 18,
     "jpeg_outputs_with_gps_remaining": 0,
-    "jpeg_source_files_checked": 179,
-    "policy": "standard EXIF GPS IFD removed; other metadata retained",
-    "xmp_gps_markers_detected_in_selected_jpegs": 0
+    "jpeg_source_files_checked": 192,
+    "policy": "standard EXIF GPS IFD removed; other metadata retained"
   },
   "missing_references": [
     {
@@ -150958,6 +154154,21 @@
       ],
       "available_attachments_with_same_parent": [],
       "body_references": [],
+      "case_variant_assessment": "Same dimensions and a case-only filename difference are insufficient to prove byte identity or image lineage. Attachment 44 is distinct from missing attachment 34; no hash-bound recovery for the requested master exists. Candidate is not substituted.",
+      "case_variant_candidates": [
+        {
+          "attachment_id": "44",
+          "attachment_url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon-1.png",
+          "dimensions": {
+            "height": 208,
+            "width": 240
+          },
+          "relationship": "distinct-case-variant-attachment",
+          "source_bytes": 21158,
+          "source_path": "2018/06/cropped-Pujolsluis-Icon-1.png",
+          "source_sha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b"
+        }
+      ],
       "compatibility_disposition": "Hard blocker: preserve this live URL until bytes are recovered or the owner approves a documented replacement.",
       "homepage_references": [],
       "metadata_references": [],
@@ -151084,6 +154295,21 @@
       ],
       "available_attachments_with_same_parent": [],
       "body_references": [],
+      "case_variant_assessment": "Same dimensions and a case-only filename difference are insufficient to prove byte identity or image lineage. Attachment 41 is distinct from missing attachment 31; no hash-bound recovery for the requested master exists. Candidate is not substituted.",
+      "case_variant_candidates": [
+        {
+          "attachment_id": "41",
+          "attachment_url": "https://www.pujolsluis.com/wp-content/uploads/2018/06/cropped-Pujolsluis-Icon.png",
+          "dimensions": {
+            "height": 512,
+            "width": 512
+          },
+          "relationship": "distinct-case-variant-attachment",
+          "source_bytes": 30945,
+          "source_path": "2018/06/cropped-Pujolsluis-Icon.png",
+          "source_sha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b2065026d4aa3"
+        }
+      ],
       "compatibility_disposition": "Hard blocker: preserve this live URL until bytes are recovered or the owner approves a documented replacement.",
       "homepage_references": [],
       "metadata_references": [],
@@ -208127,6 +211353,15 @@
       "role": "rendered_page_html",
       "source_bytes": 371116779,
       "source_files": 289
+    },
+    {
+      "blocked_paths": 0,
+      "included_paths": 71,
+      "mapped_output_bytes": 236667302,
+      "referenced_paths": 71,
+      "role": "hash_bound_live_rendered_bodies",
+      "source_bytes": 255970575,
+      "source_files": 71
     }
   ],
   "schema_version": 1,
@@ -208209,23 +211444,23 @@
         "source_bytes": 738972
       },
       "excluded-unreferenced-upload": {
-        "files": 106,
-        "source_bytes": 297374960
+        "files": 90,
+        "source_bytes": 242990501
       },
       "excluded-unused-generated-size": {
         "files": 1855,
         "source_bytes": 378521719
       }
     },
-    "included_exact_public_paths": 406,
-    "included_source_bytes": 399513319,
-    "included_source_bytes_counted_per_public_path": 401495849,
-    "included_source_files": 404,
-    "lossless_bytes_saved_per_public_path": 37245394,
+    "included_exact_public_paths": 422,
+    "included_source_bytes": 453897778,
+    "included_source_bytes_counted_per_public_path": 455880308,
+    "included_source_files": 420,
+    "lossless_bytes_saved_per_public_path": 41436763,
     "max_output_path_bytes": 10411474,
-    "optimized_output_bytes": 364250455,
-    "optimized_output_paths": 406,
-    "output_paths_above_1mb": 78,
+    "optimized_output_bytes": 414443545,
+    "optimized_output_paths": 422,
+    "output_paths_above_1mb": 89,
     "published_body_paths_mapped": 240,
     "rendered_page_paths_mapped": 305,
     "unresolved_live_paths": 17

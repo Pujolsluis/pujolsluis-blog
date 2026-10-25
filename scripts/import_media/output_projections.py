@@ -8,7 +8,138 @@ PROJECTION_SECTIONS = (
     "published_body_path_mappings",
     "rendered_page_path_mappings",
     "attachment_route_path_mappings",
+    "live_rendered_body_path_mappings",
 )
+
+
+def sync_live_body_mappings(manifest: dict[str, Any]) -> int:
+    """Build live rendered-body path mappings from hash-bound body evidence."""
+    canonical, errors = canonical_outputs(manifest)
+    if errors:
+        raise ValueError("; ".join(errors))
+    assets_by_url = {
+        path: asset
+        for asset in manifest.get("assets", [])
+        for path in asset.get("referenced_url_paths", [])
+        if asset.get("disposition") == "required-content-candidate"
+    }
+    refs_by_path: dict[str, list[dict[str, Any]]] = {}
+    for record in manifest.get("live_rendered_body_evidence", {}).get("records", []):
+        for path in record.get("owned_upload_url_paths", []):
+            refs_by_path.setdefault(path, []).append({
+                "post_id": record["post_id"],
+                "route": record["route"],
+                "body_html_sha256": record["body_html_sha256"],
+                "source_reference": record["source_reference"],
+                "selector": record["selector"],
+            })
+    blockers = {item["url_path"] for item in manifest.get("missing_references", [])}
+    mappings = []
+    for path, references in sorted(refs_by_path.items()):
+        asset = assets_by_url.get(path)
+        if asset is None:
+            if path not in blockers:
+                raise ValueError(f"live rendered-body path is neither selected nor blocked: {path}")
+            mappings.append({"public_url_path": path, "status": "blocked", "source_assets": [], "source_references": references})
+            continue
+        output_path = "wp-content/uploads/" + path
+        output = canonical.get(output_path)
+        if output is None:
+            raise ValueError(f"live rendered-body path has no exact selected output: {path}")
+        mappings.append({
+            "public_url_path": path,
+            "status": "included",
+            "content_type": output["content_type"],
+            "source_assets": [{
+                "source_path": asset["source_path"],
+                "source_sha256": asset["source_sha256"],
+                "content_type": asset["content_type"],
+                "output": {key: output[key] for key in ("path", "sha256", "bytes")},
+            }],
+            "source_references": references,
+        })
+    manifest["live_rendered_body_path_mappings"] = mappings
+    return len(mappings)
+
+
+def live_body_coverage_errors(manifest: dict[str, Any]) -> list[str]:
+    """Fail closed if any owned upload in hash-bound live HTML lacks selection/blocking."""
+    selected = {
+        path
+        for asset in manifest.get("assets", [])
+        if asset.get("disposition") == "required-content-candidate"
+        for path in asset.get("referenced_url_paths", [])
+    }
+    blocked = {item.get("url_path") for item in manifest.get("missing_references", [])}
+    errors = []
+    for record in manifest.get("live_rendered_body_evidence", {}).get("records", []):
+        for path in record.get("owned_upload_url_paths", []):
+            if path not in selected and path not in blocked:
+                errors.append(f"unselected owned live-body upload: wp:{record.get('post_id')}:{path}")
+    return errors
+
+
+def refresh_inventory_totals(manifest: dict[str, Any]) -> None:
+    """Recompute selected/excluded byte and path totals after live-body promotion."""
+    assets = manifest.get("assets", [])
+    selected = [asset for asset in assets if asset.get("disposition") == "required-content-candidate"]
+    selected_outputs = [output for asset in selected for output in asset.get("output_paths", [])]
+    excluded: dict[str, dict[str, int]] = {}
+    for asset in assets:
+        disposition = asset.get("disposition", "unknown")
+        if disposition.startswith("excluded-"):
+            aggregate = excluded.setdefault(disposition, {"files": 0, "source_bytes": 0})
+            aggregate["files"] += 1
+            aggregate["source_bytes"] += int(asset.get("source_bytes", 0))
+    totals = manifest.setdefault("totals", {})
+    totals.update({
+        "included_source_files": len(selected),
+        "included_exact_public_paths": len(selected_outputs),
+        "included_source_bytes": sum(int(asset.get("source_bytes", 0)) for asset in selected),
+        "included_source_bytes_counted_per_public_path": sum(int(asset.get("source_bytes", 0)) * len(asset.get("output_paths", [])) for asset in selected),
+        "optimized_output_paths": len(selected_outputs),
+        "optimized_output_bytes": sum(int(output.get("bytes", 0)) for output in selected_outputs),
+        "max_output_path_bytes": max((int(output.get("bytes", 0)) for output in selected_outputs), default=0),
+        "output_paths_above_1mb": sum(int(output.get("bytes", 0)) > 1_000_000 for output in selected_outputs),
+        "lossless_bytes_saved_per_public_path": sum(int(asset.get("source_bytes", 0)) * len(asset.get("output_paths", [])) for asset in selected) - sum(int(output.get("bytes", 0)) for output in selected_outputs),
+        "excluded_by_disposition": excluded,
+    })
+    manifest.setdefault("counts", {}).update({
+        "required_asset_files": len(selected),
+        "required_public_paths": len(selected_outputs),
+        "live_rendered_body_paths": len(manifest.get("live_rendered_body_path_mappings", [])),
+        "live_rendered_body_records": len(manifest.get("live_rendered_body_evidence", {}).get("records", [])),
+    })
+    selected_by_path = {
+        path: asset
+        for asset in selected
+        for path in asset.get("referenced_url_paths", [])
+    }
+    live_paths = [row["public_url_path"] for row in manifest.get("live_rendered_body_path_mappings", []) if row.get("status") == "included"]
+    live_assets = {selected_by_path[path]["source_path"]: selected_by_path[path] for path in live_paths if path in selected_by_path}
+    live_outputs = [
+        output
+        for path in live_paths
+        for asset in [selected_by_path[path]]
+        if path in selected_by_path
+        for output in asset.get("output_paths", [])
+        if output.get("path") == "wp-content/uploads/" + path
+    ]
+    role_totals = manifest.setdefault("role_totals", [])
+    live_role = {
+        "role": "hash_bound_live_rendered_bodies",
+        "referenced_paths": len(manifest.get("live_rendered_body_path_mappings", [])),
+        "included_paths": len(live_paths),
+        "blocked_paths": len(manifest.get("live_rendered_body_path_mappings", [])) - len(live_paths),
+        "source_files": len(live_assets),
+        "source_bytes": sum(int(asset.get("source_bytes", 0)) for asset in live_assets.values()),
+        "mapped_output_bytes": sum(int(output.get("bytes", 0)) for output in live_outputs),
+    }
+    prior_role = next((row for row in role_totals if row.get("role") == live_role["role"]), None)
+    if prior_role is None:
+        role_totals.append(live_role)
+    else:
+        prior_role.update(live_role)
 
 
 def canonical_outputs(manifest: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], list[str]]:
