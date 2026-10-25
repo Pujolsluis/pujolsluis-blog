@@ -1,0 +1,2146 @@
+{
+  "schemaVersion": "1.0.0",
+  "capturedAt": "2026-10-24T23:35:05.885835+00:00",
+  "scope": "entire owner backup, including uploads/themes/top-level XML",
+  "tool": {
+    "pythonImageLibrary": "Pillow",
+    "readOnly": true,
+    "pillowVersion": "12.3.0"
+  },
+  "totals": {
+    "files": 4531,
+    "bytes": 1152227647,
+    "MiB": 1098.8499,
+    "symlinksSkipped": 0,
+    "byArea": {
+      "top-level": {
+        "files": 2,
+        "bytes": 2171756
+      },
+      "uploads": {
+        "files": 2402,
+        "bytes": 1076148970
+      },
+      "themes": {
+        "files": 2127,
+        "bytes": 73906921
+      }
+    },
+    "byExtension": {
+      ".png": {
+        "files": 1461,
+        "bytes": 536065580
+      },
+      ".jpg": {
+        "files": 844,
+        "bytes": 495066898
+      },
+      ".gif": {
+        "files": 42,
+        "bytes": 49135190
+      },
+      ".woff2": {
+        "files": 384,
+        "bytes": 17118684
+      },
+      ".xml": {
+        "files": 18,
+        "bytes": 11657825
+      },
+      ".jpeg": {
+        "files": 187,
+        "bytes": 10742401
+      },
+      ".zip": {
+        "files": 5,
+        "bytes": 9164733
+      },
+      ".woff": {
+        "files": 96,
+        "bytes": 5611424
+      },
+      ".css": {
+        "files": 141,
+        "bytes": 3230628
+      },
+      ".webp": {
+        "files": 46,
+        "bytes": 3097819
+      },
+      ".php": {
+        "files": 659,
+        "bytes": 2958351
+      },
+      ".json": {
+        "files": 67,
+        "bytes": 2583187
+      },
+      ".ttf": {
+        "files": 11,
+        "bytes": 2071340
+      },
+      ".js": {
+        "files": 184,
+        "bytes": 710138
+      },
+      ".po": {
+        "files": 20,
+        "bytes": 574575
+      },
+      ".mp4": {
+        "files": 1,
+        "bytes": 468755
+      },
+      ".svg": {
+        "files": 9,
+        "bytes": 378808
+      },
+      ".txt": {
+        "files": 55,
+        "bytes": 323581
+      },
+      ".scss": {
+        "files": 145,
+        "bytes": 301088
+      },
+      ".html": {
+        "files": 71,
+        "bytes": 200529
+      },
+      ".mo": {
+        "files": 20,
+        "bytes": 188469
+      },
+      ".eot": {
+        "files": 5,
+        "bytes": 141316
+      },
+      ".pot": {
+        "files": 4,
+        "bytes": 134006
+      },
+      ".dat": {
+        "files": 17,
+        "bytes": 88197
+      },
+      ".wie": {
+        "files": 17,
+        "bytes": 69715
+      },
+      ".map": {
+        "files": 7,
+        "bytes": 51169
+      },
+      ".otf": {
+        "files": 2,
+        "bytes": 36424
+      },
+      "(none)": {
+        "files": 8,
+        "bytes": 30100
+      },
+      ".md": {
+        "files": 4,
+        "bytes": 26359
+      },
+      ".log": {
+        "files": 1,
+        "bytes": 358
+      }
+    },
+    "duplicateGroups": 257,
+    "repeatedBytes": 123126423,
+    "distinctContentBytes": 1029101224,
+    "topFilesBytes": 202461232
+  },
+  "topFiles": [
+    {
+      "rank": 1,
+      "path": "uploads/2019/01/timelinecontrol.gif",
+      "bytes": 10411474,
+      "sha256": "7a897df77d4096930faead7103bd0c1da70118126905d1ad1091b871c350b7e5",
+      "extension": ".gif",
+      "MiB": 9.9292,
+      "wordpressEvidence": [
+        "metadata-image-edit-backup",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/01/timelinecontrol.gif"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "GIF",
+        "width": 600,
+        "height": 1232,
+        "mode": "P",
+        "frames": 154,
+        "animated": true,
+        "iccProfilePresent": false,
+        "exifPresent": false,
+        "loop": 0,
+        "durationMs": 15400,
+        "minimumFrameMs": 100,
+        "maximumFrameMs": 100
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/01/timelinecontrol.gif",
+        "method": "gifsicle -O3",
+        "beforeBytes": 10411474,
+        "afterBytes": 9693075,
+        "savedBytes": 718399,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 2,
+      "path": "uploads/2018/07/linkedinclient.gif",
+      "bytes": 10172350,
+      "sha256": "de13efd72d61bc9d27f168166175d892dab0992896ef66a0ad280b587c1f3559",
+      "extension": ".gif",
+      "MiB": 9.7011,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2018/07/linkedinclient.gif"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "GIF",
+        "width": 800,
+        "height": 1401,
+        "mode": "P",
+        "frames": 197,
+        "animated": true,
+        "iccProfilePresent": false,
+        "exifPresent": false,
+        "loop": 0,
+        "durationMs": 19700,
+        "minimumFrameMs": 100,
+        "maximumFrameMs": 100
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2018/07/linkedinclient.gif",
+        "method": "gifsicle -O3",
+        "beforeBytes": 10172350,
+        "afterBytes": 9458812,
+        "savedBytes": 713538,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 3,
+      "path": "uploads/2018/07/googleclient.gif",
+      "bytes": 7514491,
+      "sha256": "46742fe1bec23b73c431077c8c800836ed586df7ce7c72c988cf4cdfc04f006f",
+      "extension": ".gif",
+      "MiB": 7.1664,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2018/07/googleclient.gif"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "GIF",
+        "width": 600,
+        "height": 1038,
+        "mode": "P",
+        "frames": 200,
+        "animated": true,
+        "iccProfilePresent": false,
+        "exifPresent": false,
+        "loop": 0,
+        "durationMs": 20000,
+        "minimumFrameMs": 100,
+        "maximumFrameMs": 100
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2018/07/googleclient.gif",
+        "method": "gifsicle -O3 -Okeep-empty",
+        "beforeBytes": 7514491,
+        "afterBytes": 7196621,
+        "savedBytes": 317870,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 4,
+      "path": "uploads/2019/11/IMG_1682.jpg",
+      "bytes": 7392393,
+      "sha256": "0a8250e20186bad4c5bb742f16e30e15101506c6c636ca696f77f8ddc8e0d255",
+      "extension": ".jpg",
+      "MiB": 7.0499,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1682.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1682.jpg",
+        "method": "progressive",
+        "beforeBytes": 7392393,
+        "afterBytes": 6940873,
+        "savedBytes": 451520,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 5,
+      "path": "uploads/2019/11/IMG_1639-1.jpg",
+      "bytes": 7085399,
+      "sha256": "7c92452fdd5e292ca4fc215bd517793b7fbcaac35184e7c3fc354ace8d9cfa8d",
+      "extension": ".jpg",
+      "MiB": 6.7572,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1639-1.jpg",
+        "uploads/2019/11/IMG_1639.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1639.jpg",
+        "method": "progressive",
+        "beforeBytes": 7085399,
+        "afterBytes": 6599894,
+        "savedBytes": 485505,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 6,
+      "path": "uploads/2019/11/IMG_1639.jpg",
+      "bytes": 7085399,
+      "sha256": "7c92452fdd5e292ca4fc215bd517793b7fbcaac35184e7c3fc354ace8d9cfa8d",
+      "extension": ".jpg",
+      "MiB": 6.7572,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1639-1.jpg",
+        "uploads/2019/11/IMG_1639.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1639.jpg",
+        "method": "progressive",
+        "beforeBytes": 7085399,
+        "afterBytes": 6599894,
+        "savedBytes": 485505,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 7,
+      "path": "uploads/2019/11/IMG_1697.jpg",
+      "bytes": 7014731,
+      "sha256": "d9c7db0fa8d00013622a3e5356cfee829a2201d26da142d3a9effdae0ed176fc",
+      "extension": ".jpg",
+      "MiB": 6.6898,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1697.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1697.jpg",
+        "method": "progressive",
+        "beforeBytes": 7014731,
+        "afterBytes": 6562632,
+        "savedBytes": 452099,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 8,
+      "path": "uploads/2019/11/IMG_1677.jpg",
+      "bytes": 6759873,
+      "sha256": "c8713d6afcd5fef6fbcf1f8a764bab7b45e035a0568b7b88129455ea84e4c3d3",
+      "extension": ".jpg",
+      "MiB": 6.4467,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1677.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1677.jpg",
+        "method": "progressive",
+        "beforeBytes": 6759873,
+        "afterBytes": 6407871,
+        "savedBytes": 352002,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 9,
+      "path": "uploads/2019/11/IMG_1707-1.jpg",
+      "bytes": 6701665,
+      "sha256": "6356c505ba4bf3e2319685063d211c3b70379d10aa4f1bcc593f267603106734",
+      "extension": ".jpg",
+      "MiB": 6.3912,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1707-1.jpg",
+        "uploads/2019/11/IMG_1707.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1707.jpg",
+        "method": "progressive",
+        "beforeBytes": 6701665,
+        "afterBytes": 6280115,
+        "savedBytes": 421550,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 10,
+      "path": "uploads/2019/11/IMG_1707.jpg",
+      "bytes": 6701665,
+      "sha256": "6356c505ba4bf3e2319685063d211c3b70379d10aa4f1bcc593f267603106734",
+      "extension": ".jpg",
+      "MiB": 6.3912,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1707-1.jpg",
+        "uploads/2019/11/IMG_1707.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1707.jpg",
+        "method": "progressive",
+        "beforeBytes": 6701665,
+        "afterBytes": 6280115,
+        "savedBytes": 421550,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 11,
+      "path": "uploads/2019/11/IMG_1770.jpg",
+      "bytes": 6678427,
+      "sha256": "aed1afa691e5788dd1c14b1ffb1455f0f5e2c5ae183afccc75a28bb4df2b606d",
+      "extension": ".jpg",
+      "MiB": 6.369,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1770.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1770.jpg",
+        "method": "progressive",
+        "beforeBytes": 6678427,
+        "afterBytes": 6245714,
+        "savedBytes": 432713,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 12,
+      "path": "uploads/2019/11/IMG_1648.jpg",
+      "bytes": 6568901,
+      "sha256": "57c64a1d572d09e539ef79da845b00391c53ff7fbcee34dbf9bd20f3f558455f",
+      "extension": ".jpg",
+      "MiB": 6.2646,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1648.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1648.jpg",
+        "method": "progressive",
+        "beforeBytes": 6568901,
+        "afterBytes": 6254591,
+        "savedBytes": 314310,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 13,
+      "path": "uploads/2019/11/IMG_1698-1.jpg",
+      "bytes": 6510078,
+      "sha256": "f3daa441277d1dea97d9a41de319902dd806a27223c8c20726b983278fd229b0",
+      "extension": ".jpg",
+      "MiB": 6.2085,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1698-1.jpg",
+        "uploads/2019/11/IMG_1698.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1698.jpg",
+        "method": "progressive",
+        "beforeBytes": 6510078,
+        "afterBytes": 6102034,
+        "savedBytes": 408044,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 14,
+      "path": "uploads/2019/11/IMG_1698.jpg",
+      "bytes": 6510078,
+      "sha256": "f3daa441277d1dea97d9a41de319902dd806a27223c8c20726b983278fd229b0",
+      "extension": ".jpg",
+      "MiB": 6.2085,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1698-1.jpg",
+        "uploads/2019/11/IMG_1698.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1698.jpg",
+        "method": "progressive",
+        "beforeBytes": 6510078,
+        "afterBytes": 6102034,
+        "savedBytes": 408044,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 15,
+      "path": "uploads/2021/02/Screen-Shot-2021-02-08-at-2.49.05-PM.png",
+      "bytes": 6435497,
+      "sha256": "e3c628af68540871118386d1097565d061cce3b4810e4729cda9eb7c2dc666d7",
+      "extension": ".png",
+      "MiB": 6.1374,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2021/02/Screen-Shot-2021-02-08-at-2.49.05-PM.png"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "PNG",
+        "width": 3352,
+        "height": 1836,
+        "mode": "RGBA",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": true,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2021/02/Screen-Shot-2021-02-08-at-2.49.05-PM.png",
+        "method": "pillow_refilter_preserved_chunks",
+        "beforeBytes": 6435497,
+        "afterBytes": 4100370,
+        "savedBytes": 2335127,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 16,
+      "path": "uploads/2019/11/IMG_1786.jpg",
+      "bytes": 6422090,
+      "sha256": "8a1e5567db1237c7d3aaf7664e2319e2b89d8f4569975ead9480e565f8404907",
+      "extension": ".jpg",
+      "MiB": 6.1246,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1786.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1786.jpg",
+        "method": "progressive",
+        "beforeBytes": 6422090,
+        "afterBytes": 6021763,
+        "savedBytes": 400327,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 17,
+      "path": "uploads/2019/11/IMG_1649.jpg",
+      "bytes": 6384163,
+      "sha256": "fdb76557bdedd3893e4aa275484b909dd75568871fb6c1c77740c8593bc5da84",
+      "extension": ".jpg",
+      "MiB": 6.0884,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1649.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1649.jpg",
+        "method": "progressive",
+        "beforeBytes": 6384163,
+        "afterBytes": 5988481,
+        "savedBytes": 395682,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 18,
+      "path": "uploads/2019/11/IMG_1666-1.jpg",
+      "bytes": 6372434,
+      "sha256": "09d3f1d8b3530fa1af8d2812a9992be6fd13865601e65371d40cd868cc2d2642",
+      "extension": ".jpg",
+      "MiB": 6.0772,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1666-1.jpg",
+        "uploads/2019/11/IMG_1666.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1666.jpg",
+        "method": "progressive",
+        "beforeBytes": 6372434,
+        "afterBytes": 6045469,
+        "savedBytes": 326965,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 19,
+      "path": "uploads/2019/11/IMG_1666.jpg",
+      "bytes": 6372434,
+      "sha256": "09d3f1d8b3530fa1af8d2812a9992be6fd13865601e65371d40cd868cc2d2642",
+      "extension": ".jpg",
+      "MiB": 6.0772,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1666-1.jpg",
+        "uploads/2019/11/IMG_1666.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1666.jpg",
+        "method": "progressive",
+        "beforeBytes": 6372434,
+        "afterBytes": 6045469,
+        "savedBytes": 326965,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 20,
+      "path": "uploads/2019/11/IMG_1667.jpg",
+      "bytes": 6334777,
+      "sha256": "569dfcf68a82942ca26c33f5fae27a85dc23e0aec98fb055d5282a1f41671e2f",
+      "extension": ".jpg",
+      "MiB": 6.0413,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1667.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1667.jpg",
+        "method": "progressive",
+        "beforeBytes": 6334777,
+        "afterBytes": 5976024,
+        "savedBytes": 358753,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 21,
+      "path": "uploads/2019/11/IMG_1669.jpg",
+      "bytes": 6212356,
+      "sha256": "9405f98ee2ea46d7af87b1311affa5afc9291bc427e843fe9c72ac7fb6b18ee8",
+      "extension": ".jpg",
+      "MiB": 5.9246,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1669.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1669.jpg",
+        "method": "progressive",
+        "beforeBytes": 6212356,
+        "afterBytes": 5873682,
+        "savedBytes": 338674,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 22,
+      "path": "uploads/2019/11/IMG_1624.jpg",
+      "bytes": 6181889,
+      "sha256": "4301169add3a3bd5db14678c1eb1fa8c3ef01e37dc43152dafe8e4c73e231986",
+      "extension": ".jpg",
+      "MiB": 5.8955,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1624.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1624.jpg",
+        "method": "progressive",
+        "beforeBytes": 6181889,
+        "afterBytes": 5874189,
+        "savedBytes": 307700,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 23,
+      "path": "uploads/2019/11/IMG_1735.jpg",
+      "bytes": 6180563,
+      "sha256": "68c19da3168c156fe2d19565a13be8a4dce11be149d52e0d532b4fa427f5a433",
+      "extension": ".jpg",
+      "MiB": 5.8942,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1735.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1735.jpg",
+        "method": "progressive",
+        "beforeBytes": 6180563,
+        "afterBytes": 5860043,
+        "savedBytes": 320520,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 24,
+      "path": "uploads/2019/11/IMG_1668.jpg",
+      "bytes": 6171739,
+      "sha256": "0cdc6974a459628b5b32c5d6a38930eacebf7511c14d9f93317b81afe9bd35ad",
+      "extension": ".jpg",
+      "MiB": 5.8858,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1668.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1668.jpg",
+        "method": "progressive",
+        "beforeBytes": 6171739,
+        "afterBytes": 5846597,
+        "savedBytes": 325142,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 25,
+      "path": "uploads/2019/11/IMG_1537.jpg",
+      "bytes": 6111076,
+      "sha256": "ae22111cdda74cf8e3f611c05e76f8511628097ba2bc4147e34cba0a04131a10",
+      "extension": ".jpg",
+      "MiB": 5.828,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1537.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1537.jpg",
+        "method": "progressive",
+        "beforeBytes": 6111076,
+        "afterBytes": 5727706,
+        "savedBytes": 383370,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 26,
+      "path": "uploads/2019/11/IMG_1600.jpg",
+      "bytes": 6055927,
+      "sha256": "d8c1041a059311f26117652681e591d74e04f738426a04b7f5366e9eb7d0d1c1",
+      "extension": ".jpg",
+      "MiB": 5.7754,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1600.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1600.jpg",
+        "method": "progressive",
+        "beforeBytes": 6055927,
+        "afterBytes": 5773239,
+        "savedBytes": 282688,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 27,
+      "path": "uploads/2019/11/IMG_1574.jpg",
+      "bytes": 6053165,
+      "sha256": "54bff6f94af837880adc025c8e6ffa67922ce98448f576affd5d441581c76e58",
+      "extension": ".jpg",
+      "MiB": 5.7727,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1574.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1574.jpg",
+        "method": "progressive",
+        "beforeBytes": 6053165,
+        "afterBytes": 5782747,
+        "savedBytes": 270418,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 28,
+      "path": "uploads/2021/02/Screen-Shot-2021-02-08-at-12.30.07-AM.png",
+      "bytes": 6025965,
+      "sha256": "cbc286b9e256ced03b8c671026b9c22720b2ad20e459574e9458b4ed5cea99b0",
+      "extension": ".png",
+      "MiB": 5.7468,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2021/02/Screen-Shot-2021-02-08-at-12.30.07-AM.png"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "PNG",
+        "width": 3360,
+        "height": 1850,
+        "mode": "RGBA",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": true,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2021/02/Screen-Shot-2021-02-08-at-12.30.07-AM.png",
+        "method": "pillow_refilter_preserved_chunks",
+        "beforeBytes": 6025965,
+        "afterBytes": 3585630,
+        "savedBytes": 2440335,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 29,
+      "path": "uploads/2019/11/IMG_1676.jpg",
+      "bytes": 6022882,
+      "sha256": "aa0da001cccbcda875cb981dde1599a5b461dfde1c816f86ce15bd88e5f32b9a",
+      "extension": ".jpg",
+      "MiB": 5.7439,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1676.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1676.jpg",
+        "method": "progressive",
+        "beforeBytes": 6022882,
+        "afterBytes": 5722264,
+        "savedBytes": 300618,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    },
+    {
+      "rank": 30,
+      "path": "uploads/2019/11/IMG_1660.jpg",
+      "bytes": 6017351,
+      "sha256": "8724fe4c4734f83be6e579f10095790a3c327e8c651f57bf99092af385a636f8",
+      "extension": ".jpg",
+      "MiB": 5.7386,
+      "wordpressEvidence": [
+        "attachment-main-or-original-image",
+        "observed-public-reference"
+      ],
+      "identicalBackupPaths": [
+        "uploads/2019/11/IMG_1660.jpg"
+      ],
+      "image": {
+        "imageProbeAvailable": true,
+        "format": "JPEG",
+        "width": 5184,
+        "height": 3456,
+        "mode": "RGB",
+        "frames": 1,
+        "animated": false,
+        "iccProfilePresent": false,
+        "exifPresent": true
+      },
+      "verifiedLosslessTrial": {
+        "evidencePath": "uploads/2019/11/IMG_1660.jpg",
+        "method": "progressive",
+        "beforeBytes": 6017351,
+        "afterBytes": 5708335,
+        "savedBytes": 309016,
+        "identicalInputSha256": true,
+        "verified": true
+      }
+    }
+  ],
+  "topDuplicateGroups": [
+    {
+      "sha256": "7c92452fdd5e292ca4fc215bd517793b7fbcaac35184e7c3fc354ace8d9cfa8d",
+      "bytesPerFile": 7085399,
+      "copies": 2,
+      "repeatedBytes": 7085399,
+      "paths": [
+        "uploads/2019/11/IMG_1639-1.jpg",
+        "uploads/2019/11/IMG_1639.jpg"
+      ]
+    },
+    {
+      "sha256": "6356c505ba4bf3e2319685063d211c3b70379d10aa4f1bcc593f267603106734",
+      "bytesPerFile": 6701665,
+      "copies": 2,
+      "repeatedBytes": 6701665,
+      "paths": [
+        "uploads/2019/11/IMG_1707-1.jpg",
+        "uploads/2019/11/IMG_1707.jpg"
+      ]
+    },
+    {
+      "sha256": "f3daa441277d1dea97d9a41de319902dd806a27223c8c20726b983278fd229b0",
+      "bytesPerFile": 6510078,
+      "copies": 2,
+      "repeatedBytes": 6510078,
+      "paths": [
+        "uploads/2019/11/IMG_1698-1.jpg",
+        "uploads/2019/11/IMG_1698.jpg"
+      ]
+    },
+    {
+      "sha256": "09d3f1d8b3530fa1af8d2812a9992be6fd13865601e65371d40cd868cc2d2642",
+      "bytesPerFile": 6372434,
+      "copies": 2,
+      "repeatedBytes": 6372434,
+      "paths": [
+        "uploads/2019/11/IMG_1666-1.jpg",
+        "uploads/2019/11/IMG_1666.jpg"
+      ]
+    },
+    {
+      "sha256": "e343d9894f0be916c29d40cac2fe50ce7cf597e44c505a5f8fb906fc19444ebf",
+      "bytesPerFile": 5910817,
+      "copies": 2,
+      "repeatedBytes": 5910817,
+      "paths": [
+        "uploads/2019/11/IMG_1689-1.jpg",
+        "uploads/2019/11/IMG_1689.jpg"
+      ]
+    },
+    {
+      "sha256": "2255f59ea90ed34aec60cbb008dc26d606b0de890701191bfaee9f3ca9010da3",
+      "bytesPerFile": 5419506,
+      "copies": 2,
+      "repeatedBytes": 5419506,
+      "paths": [
+        "uploads/2019/11/IMG_1688-1.jpg",
+        "uploads/2019/11/IMG_1688.jpg"
+      ]
+    },
+    {
+      "sha256": "e1e72cc5f8d03bc4cbaff049f6379071fc3430deb95b00a32d67454975be8a65",
+      "bytesPerFile": 5414747,
+      "copies": 2,
+      "repeatedBytes": 5414747,
+      "paths": [
+        "uploads/2019/11/IMG_1716-1.jpg",
+        "uploads/2019/11/IMG_1716.jpg"
+      ]
+    },
+    {
+      "sha256": "50d5185618f1789654448d8c98ab413bb12ab0f85c912cdfd46a27885d130a59",
+      "bytesPerFile": 5313385,
+      "copies": 2,
+      "repeatedBytes": 5313385,
+      "paths": [
+        "uploads/2019/11/IMG_1651-1.jpg",
+        "uploads/2019/11/IMG_1651.jpg"
+      ]
+    },
+    {
+      "sha256": "9f5c4c90c91dded13c290d8f132bbdd468e7611b484e2b9b3fc152b3ad80f9e6",
+      "bytesPerFile": 4901932,
+      "copies": 2,
+      "repeatedBytes": 4901932,
+      "paths": [
+        "uploads/2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM-1.png",
+        "uploads/2019/11/Screen-Shot-2019-11-03-at-2.07.13-PM.png"
+      ]
+    },
+    {
+      "sha256": "5ac61c08bdc309e91649df927993df0cca5e6dd50ed8a336e05365e091779dc2",
+      "bytesPerFile": 1945449,
+      "copies": 3,
+      "repeatedBytes": 3890898,
+      "paths": [
+        "uploads/2021/02/IMG_9734-1.png",
+        "uploads/2021/02/IMG_9734-2.png",
+        "uploads/2021/02/IMG_9734.png"
+      ]
+    },
+    {
+      "sha256": "b046d46058cc129edf2479a411648badf8913c92a669036f94045a6bc317ebbd",
+      "bytesPerFile": 3291730,
+      "copies": 2,
+      "repeatedBytes": 3291730,
+      "paths": [
+        "uploads/2019/09/IMG_20190924_141359-1.jpg",
+        "uploads/2019/09/IMG_20190924_141359.jpg"
+      ]
+    },
+    {
+      "sha256": "f65fc8abe5d99db7ed14ecf8810f44a4b4b27cdd82191faa25fd735249c9fcc6",
+      "bytesPerFile": 3215140,
+      "copies": 2,
+      "repeatedBytes": 3215140,
+      "paths": [
+        "uploads/2021/02/Screen-Shot-2021-02-07-at-11.35.34-PM-1.png",
+        "uploads/2021/02/Screen-Shot-2021-02-07-at-11.35.34-PM.png"
+      ]
+    },
+    {
+      "sha256": "e7a7e58870be2acf8a99c973a81ab8fe68001e36dc19706c2a7341b9faa9e7d6",
+      "bytesPerFile": 3202788,
+      "copies": 2,
+      "repeatedBytes": 3202788,
+      "paths": [
+        "uploads/2019/03/Screen-Shot-2019-03-05-at-12.46.54-AM-1.png",
+        "uploads/2019/03/Screen-Shot-2019-03-05-at-12.46.54-AM.png"
+      ]
+    },
+    {
+      "sha256": "6dd77d9be4fbe70e525c1adb1c53251045ec4a1973c3db7ed9b4399f78694e1c",
+      "bytesPerFile": 3136078,
+      "copies": 2,
+      "repeatedBytes": 3136078,
+      "paths": [
+        "uploads/2019/09/IMG_20190924_214705-1.jpg",
+        "uploads/2019/09/IMG_20190924_214705.jpg"
+      ]
+    },
+    {
+      "sha256": "a827a0cae74ee80dbe1fd6783b5be5a8cfc3a0532e9f0c4cdb8f3723c6cd9bb5",
+      "bytesPerFile": 1321463,
+      "copies": 3,
+      "repeatedBytes": 2642926,
+      "paths": [
+        "uploads/2021/02/IMG_9734-1-1920x1080.png",
+        "uploads/2021/02/IMG_9734-1920x1080.png",
+        "uploads/2021/02/IMG_9734-2-1920x1080.png"
+      ]
+    }
+  ],
+  "limitations": [
+    "Only file metadata and hashes are reported; no XML contents, EXIF/GPS values, media bytes or licensed theme implementation are retained.",
+    "Original/derivative labels come from owner WXR metadata; an unclassified image is not assumed disposable.",
+    "Duplicate hashes identify equal bytes, not permission to remove URLs or files.",
+    "Compression savings require measured experiments; file size and dimensions alone do not establish safe savings.",
+    "All source files remain unchanged. Recovered case-sensitive media is in a separate owner directory and is not added to backup totals."
+  ],
+  "compressionEvidence": {
+    "sourceBackupModified": false,
+    "fullCorpusCoverage": {
+      ".gif": {
+        "files": 39,
+        "distinct_payloads": 39,
+        "before": 49096927,
+        "after": 46821504,
+        "saving": 2275423,
+        "saving_percent": 4.634552789831429,
+        "improved_paths": 26,
+        "unchanged_paths": 13
+      },
+      ".png": {
+        "files": 1397,
+        "distinct_payloads": 1252,
+        "before": 529484277,
+        "after": 462280889,
+        "saving": 67203388,
+        "saving_percent": 12.692234863094905,
+        "improved_paths": 1370,
+        "unchanged_paths": 27
+      },
+      ".jpg": {
+        "files": 742,
+        "distinct_payloads": 666,
+        "before": 486086393,
+        "after": 456711804,
+        "saving": 29374589,
+        "saving_percent": 6.043079876955124,
+        "improved_paths": 716,
+        "unchanged_paths": 26
+      },
+      ".jpeg": {
+        "files": 187,
+        "distinct_payloads": 160,
+        "before": 10742401,
+        "after": 10093502,
+        "saving": 648899,
+        "saving_percent": 6.0405397266402545,
+        "improved_paths": 172,
+        "unchanged_paths": 15
+      }
+    },
+    "gifRejectedDefaultTrials": 3,
+    "gifValidation": "Every composed RGBA frame, frame duration, loop and non-graphic-control extensions preserved; keep-empty fallback required for3files.",
+    "pngSample": {
+      "files": 4,
+      "beforeBytes": 23973341,
+      "afterBytes": 14538048,
+      "savedBytes": 9435293,
+      "savedPercent": 39.3574,
+      "allVerified": true
+    },
+    "jpegSample": {
+      "files": 10,
+      "beforeBytes": 67517720,
+      "afterBytes": 63403968,
+      "savedBytes": 4113752,
+      "savedPercent": 6.0928,
+      "allVerified": true
+    },
+    "samples": [
+      {
+        "path": "2019/01/timelinecontrol.gif",
+        "before": 10411474,
+        "after": 9693075,
+        "saving": 718399,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 154,
+        "duration_ms": 15400,
+        "dimensions": [
+          600,
+          1232
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/07/linkedinclient.gif",
+        "before": 10172350,
+        "after": 9458812,
+        "saving": 713538,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 197,
+        "duration_ms": 19700,
+        "dimensions": [
+          800,
+          1401
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/10/ficusuichallengept2pujolsluis.gif",
+        "before": 5965364,
+        "after": 5739381,
+        "saving": 225983,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 266,
+        "duration_ms": 13300,
+        "dimensions": [
+          600,
+          1239
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/07/PrintingDemoXamarinFormsPujolsluis.gif",
+        "before": 3546187,
+        "after": 3455483,
+        "saving": 90704,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 300,
+        "duration_ms": 30000,
+        "dimensions": [
+          600,
+          622
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/02/pull-to-refresh-working-ios.gif",
+        "before": 1277615,
+        "after": 1226899,
+        "saving": 50716,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 79,
+        "duration_ms": 7900,
+        "dimensions": [
+          600,
+          1232
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/12/ExtendedListViewDemo.gif",
+        "before": 2437686,
+        "after": 2400274,
+        "saving": 37412,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 168,
+        "duration_ms": 16800,
+        "dimensions": [
+          600,
+          680
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/12/SliderViewSampleDemo.gif",
+        "before": 1038328,
+        "after": 1019502,
+        "saving": 18826,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 159,
+        "duration_ms": 15900,
+        "dimensions": [
+          600,
+          584
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/02/WowzaClientPluginDemo-144x300.gif",
+        "before": 6998,
+        "after": 6499,
+        "saving": 499,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          144,
+          300
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/07/linkedinclient-768x1345.gif",
+        "before": 213361,
+        "after": 213209,
+        "saving": 152,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          768,
+          1345
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/07/linkedinclient-585x1024.gif",
+        "before": 125368,
+        "after": 125219,
+        "saving": 149,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          585,
+          1024
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/07/googleclient-592x1024.gif",
+        "before": 125123,
+        "after": 125034,
+        "saving": 89,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          592,
+          1024
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/01/timelinecontrol-e1547987305307.gif",
+        "before": 74165,
+        "after": 74121,
+        "saving": 44,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          300,
+          616
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/01/timelinecontrol-499x1024.gif",
+        "before": 190947,
+        "after": 190921,
+        "saving": 26,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          499,
+          1024
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/02/pull-to-refresh-working-ios-e1549522684429.gif",
+        "before": 35602,
+        "after": 35577,
+        "saving": 25,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          300,
+          616
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/07/linkedinclient-171x300.gif",
+        "before": 15526,
+        "after": 15508,
+        "saving": 18,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          171,
+          300
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/12/SliderViewSampleDemo-300x292.gif",
+        "before": 18249,
+        "after": 18232,
+        "saving": 17,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          300,
+          292
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/01/timelinecontrol-146x300.gif",
+        "before": 22679,
+        "after": 22665,
+        "saving": 14,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          146,
+          300
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/10/ficusuichallengept2pujolsluis-145x300.gif",
+        "before": 16210,
+        "after": 16198,
+        "saving": 12,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          145,
+          300
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/10/ficusuichallengept2pujolsluis-150x150.gif",
+        "before": 9360,
+        "after": 9351,
+        "saving": 9,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          150,
+          150
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/07/ficusuichallengepujolsluis-300x270.gif",
+        "before": 27483,
+        "after": 27476,
+        "saving": 7,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          300,
+          270
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/12/ExtendedListViewDemo-265x300.gif",
+        "before": 33871,
+        "after": 33866,
+        "saving": 5,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          265,
+          300
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/01/timelinecontrol-150x150.gif",
+        "before": 13027,
+        "after": 13024,
+        "saving": 3,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          150,
+          150
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/07/PrintingDemoXamarinFormsPujolsluis-150x150.gif",
+        "before": 7025,
+        "after": 7024,
+        "saving": 1,
+        "method": "gifsicle -O3",
+        "verified": true,
+        "frames": 1,
+        "duration_ms": 0,
+        "dimensions": [
+          150,
+          150
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/02/WowzaClientPluginDemo-150x150.gif",
+        "before": 1258,
+        "after": 1258,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/02/WowzaClientPluginDemo-492x1024.gif",
+        "before": 84760,
+        "after": 84760,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/02/pull-to-refresh-working-ios-499x1024.gif",
+        "before": 103445,
+        "after": 103445,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/02/pull-to-refresh-working-ios-146x300.gif",
+        "before": 11810,
+        "after": 11810,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/02/pull-to-refresh-working-ios-150x150.gif",
+        "before": 5837,
+        "after": 5837,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/10/ficusuichallengept2pujolsluis-496x1024.gif",
+        "before": 156340,
+        "after": 156340,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/02/WowzaClientPluginDemo.gif",
+        "before": 2402517,
+        "after": 2361940,
+        "saving": 40577,
+        "method": "gifsicle -O3 -Okeep-empty",
+        "verified": true,
+        "frames": 95,
+        "duration_ms": 9500,
+        "dimensions": [
+          600,
+          1249
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/07/PrintingDemoXamarinFormsPujolsluis-289x300.gif",
+        "before": 21482,
+        "after": 21482,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/07/ficusuichallengepujolsluis-150x150.gif",
+        "before": 11007,
+        "after": 11007,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2019/07/ficusuichallengepujolsluis.gif",
+        "before": 2950650,
+        "after": 2890322,
+        "saving": 60328,
+        "method": "gifsicle -O3 -Okeep-empty",
+        "verified": true,
+        "frames": 245,
+        "duration_ms": 35010,
+        "dimensions": [
+          600,
+          539
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2018/07/googleclient-150x150.gif",
+        "before": 8168,
+        "after": 8168,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2018/07/googleclient-173x300.gif",
+        "before": 15451,
+        "after": 15451,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2018/07/linkedinclient-150x150.gif",
+        "before": 8284,
+        "after": 8284,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2018/12/ExtendedListViewDemo-150x150.gif",
+        "before": 11732,
+        "after": 11732,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2018/12/SliderViewSampleDemo-150x150.gif",
+        "before": 5697,
+        "after": 5697,
+        "saving": 0,
+        "method": "gifsicle -O3",
+        "verified": true
+      },
+      {
+        "path": "2018/07/googleclient.gif",
+        "before": 7514491,
+        "after": 7196621,
+        "saving": 317870,
+        "method": "gifsicle -O3 -Okeep-empty",
+        "verified": true,
+        "frames": 200,
+        "duration_ms": 20000,
+        "dimensions": [
+          600,
+          1038
+        ],
+        "metadata": "All non-graphic-control extensions preserved; every composed RGBA frame, frame duration and looping checked"
+      },
+      {
+        "path": "2019/11/IMG_1682.jpg",
+        "before": 7392393,
+        "after": 6940873,
+        "saving": 451520,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1639-1.jpg",
+        "before": 7085399,
+        "after": 6599894,
+        "saving": 485505,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1697.jpg",
+        "before": 7014731,
+        "after": 6562632,
+        "saving": 452099,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1677.jpg",
+        "before": 6759873,
+        "after": 6407871,
+        "saving": 352002,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1707-1.jpg",
+        "before": 6701665,
+        "after": 6280115,
+        "saving": 421550,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1770.jpg",
+        "before": 6678427,
+        "after": 6245714,
+        "saving": 432713,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1648.jpg",
+        "before": 6568901,
+        "after": 6254591,
+        "saving": 314310,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1698-1.jpg",
+        "before": 6510078,
+        "after": 6102034,
+        "saving": 408044,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1786.jpg",
+        "before": 6422090,
+        "after": 6021763,
+        "saving": 400327,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2019/11/IMG_1649.jpg",
+        "before": 6384163,
+        "after": 5988481,
+        "saving": 395682,
+        "method": "progressive",
+        "verified": true,
+        "dimensions": [
+          5184,
+          3456
+        ],
+        "metadata": "jpegtran -copy all; EXIF ICC comment DPI Adobe markers and decoded bytes checked"
+      },
+      {
+        "path": "2021/02/Screen-Shot-2021-02-08-at-2.49.05-PM.png",
+        "before": 6435497,
+        "after": 4100370,
+        "saving": 2335127,
+        "method": "pillow_refilter_preserved_chunks",
+        "verified": true,
+        "metadata": "Every non-IDAT PNG chunk preserved byte for byte"
+      },
+      {
+        "path": "2021/02/Screen-Shot-2021-02-08-at-12.30.07-AM.png",
+        "before": 6025965,
+        "after": 3585630,
+        "saving": 2440335,
+        "method": "pillow_refilter_preserved_chunks",
+        "verified": true,
+        "metadata": "Every non-IDAT PNG chunk preserved byte for byte"
+      },
+      {
+        "path": "2021/02/Screen-Shot-2021-02-08-at-12.00.01-AM.png",
+        "before": 5782517,
+        "after": 3490393,
+        "saving": 2292124,
+        "method": "pillow_refilter_preserved_chunks",
+        "verified": true,
+        "metadata": "Every non-IDAT PNG chunk preserved byte for byte"
+      },
+      {
+        "path": "2021/02/Screen-Shot-2021-02-07-at-11.58.59-PM.png",
+        "before": 5729362,
+        "after": 3361655,
+        "saving": 2367707,
+        "method": "pillow_refilter_preserved_chunks",
+        "verified": true,
+        "metadata": "Every non-IDAT PNG chunk preserved byte for byte"
+      }
+    ],
+    "archiveOnly": {
+      "ownerWxrGzip": {
+        "beforeBytes": 2165608,
+        "afterBytes": 203410,
+        "byteRoundtripVerified": true
+      },
+      "themeTextGzip": {
+        "files": 1220,
+        "beforeBytes": 20347006,
+        "afterBytes": 3257427,
+        "byteRoundtripVerified": true
+      }
+    },
+    "limitations": [
+      "Full per-file experiment outputs remain private; only sanitized totals and public sample filenames are retained here.",
+      "No duplicate URL or source image was removed.21 JPEGpaths that altered metadata retain original bytes and are excluded from savings.",
+      "Lossless pixel/metadata preservation changes file bytes/hash; originals remain unchanged outside Git.",
+      "976646671B is an uploads-only planning estimate, not a complete built-site fit; site assets, recovered variants, source reconciliation and URL routing remain pending.",
+      "No compressed binary is committed or automatically selected for deployment."
+    ],
+    "overall": {
+      "testedImagePaths": 2365,
+      "improvedPaths": 2284,
+      "originalPathsRetained": 81,
+      "verifiedSavedBytes": 99502299,
+      "estimatedUploadsBytesWithOtherFilesUnchanged": 976646671,
+      "remainingBytesTo1000000000BeforeSiteAndRecovery": 23353329,
+      "completeSiteFitVerified": false,
+      "metadataRejectedJpegPaths": 21
+    },
+    "jpegAdditionalValidation": "All original APP/COM marker payloads preserved byte-for-byte, plus decoded raw pixels and EXIF/ICC/XMP/IPTC/DPI fields; 789 accepted payload outputs represent888 URLpaths.",
+    "pngRecipe": "Same-filter zlib9 tried everywhere; largest30 PNGpaths eligible for Pillow re-filtering with unchanged IHDR/PLTE and all non-IDAT chunks;26 re-filtered outputs selected after decoded-pixel equality."
+  }
+}
