@@ -8,6 +8,11 @@ import hashlib
 import json
 from pathlib import Path
 
+try:
+    from .output_projections import live_body_coverage_errors, projection_conflicts
+except ImportError:  # Running as a script from the repository root.
+    from output_projections import live_body_coverage_errors, projection_conflicts
+
 SIGNATURES = {
     ".jpg": (b"\xff\xd8\xff", "image/jpeg"),
     ".jpeg": (b"\xff\xd8\xff", "image/jpeg"),
@@ -63,10 +68,11 @@ def check(manifest: dict, static_root: Path) -> tuple[list[str], list[str], dict
             image_count += 1
             if size > asset.get("role_byte_budget_bytes", 1_000_000):
                 warnings.append(f"above per-image target; measured-size review required: {relative} ({size} bytes)")
-    # Rendered-page mappings duplicate output records as evidence. Keep those
-    # records fail-closed too: otherwise an importer can consume a stale hash
-    # even while the asset-level output record and file agree.
-    for section in ("rendered_page_path_mappings", "attachment_route_path_mappings"):
+    # Every route/content mapping repeats the selected asset's output record.
+    # Validate each projection against assets[].output_paths and against disk.
+    errors.extend(projection_conflicts(manifest))
+    errors.extend(live_body_coverage_errors(manifest))
+    for section in ("published_body_path_mappings", "rendered_page_path_mappings", "attachment_route_path_mappings", "live_rendered_body_path_mappings"):
         for mapping in manifest.get(section, []):
             for source in mapping.get("source_assets", []):
                 output = source.get("output")

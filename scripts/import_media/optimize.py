@@ -13,6 +13,11 @@ import tempfile
 import zlib
 from pathlib import Path
 
+try:
+    from .output_projections import refresh_inventory_totals, sync_live_body_mappings, sync_output_projections
+except ImportError:  # Running as a script from the repository root.
+    from output_projections import refresh_inventory_totals, sync_live_body_mappings, sync_output_projections
+
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 GPS_TAG = 0x8825
 TIFF_TYPE_WIDTH = {1: 1, 2: 1, 3: 2, 4: 4, 5: 8, 6: 1, 7: 1, 8: 2, 9: 4, 10: 8, 11: 4, 12: 8}
@@ -322,6 +327,9 @@ def main() -> int:
                 "visual_review": "not reviewed per asset: rendered HTML is available, but no rendered-pixel captures or measured display viewports are supplied; original dimensions and lossless-only settings were retained",
             }
         )
+    sync_live_body_mappings(manifest)
+    sync_output_projections(manifest)
+    refresh_inventory_totals(manifest)
     args.manifest.write_text(json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
     total_in = sum(row["source_bytes"] * len(row["output_paths"]) for row in rows)
     total_out = sum(row["output_bytes"] for row in rows)
