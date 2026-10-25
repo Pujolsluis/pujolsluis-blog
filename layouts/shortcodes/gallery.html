@@ -1,0 +1,2 @@
+{{- if not .Inner }}{{ errorf "gallery shortcode requires preserved figure markup: %s" .Position }}{{ end -}}
+<div class="gallery" role="group" aria-label="{{ .Get "label" | default "Photo gallery" }}">{{ .Inner | safeHTML }}</div>

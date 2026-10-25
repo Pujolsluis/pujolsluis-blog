@@ -1,0 +1,2 @@
+{{- $id := .Get "id" -}}{{- if not $id }}{{ errorf "youtube shortcode requires id: %s" .Position }}{{ end -}}
+<div class="embed embed-video"><iframe src="https://www.youtube-nocookie.com/embed/{{ $id }}{{ with .Get "start" }}?start={{ . }}{{ end }}" title="{{ .Get "title" | default "YouTube video" }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

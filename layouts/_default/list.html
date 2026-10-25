@@ -1,0 +1,1 @@
+{{ define "main" }}<header class="page-header"><h1>{{ .Title }}</h1>{{ with .Content }}<div>{{ . }}</div>{{ end }}</header>{{ if .Pages }}<div class="post-list">{{ range .Paginator.Pages }}{{ partial "summary.html" . }}{{ end }}</div>{{ template "_internal/pagination.html" . }}{{ else }}<p>No entries yet.</p>{{ end }}{{ end }}

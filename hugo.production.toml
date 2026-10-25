@@ -1,0 +1,6 @@
+baseURL = 'https://www.pujolsluis.com/'
+
+disableKinds = ['RSS']
+
+[params]
+  preview = false

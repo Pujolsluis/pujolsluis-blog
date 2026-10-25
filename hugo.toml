@@ -1,0 +1,49 @@
+baseURL = 'https://pujolsluis.github.io/pujolsluis-blog/'
+title = 'Luis Pujols'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ['RSS', 'sitemap']
+publishDir = 'dist'
+canonifyURLs = false
+relativeURLs = false
+
+[params]
+  preview = true
+  description = ''
+  author = 'Luis Pujols'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    style = 'github'
+
+[permalinks]
+  posts = '/:year/:month/:day/:slug/'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[outputs]
+  home = ['HTML', 'JSON']
+  section = ['HTML', 'RSS']
+
+[outputFormats.JSON]
+  mediaType = 'application/json'
+  baseName = 'search-index'
+  isPlainText = true
+  notAlternative = true
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Blog'
+    pageRef = '/posts'
+    weight = 2

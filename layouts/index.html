@@ -1,0 +1,4 @@
+{{ define "main" }}
+  <section class="intro"><p class="eyebrow">Notes and stories</p><h1>{{ site.Title }}</h1>{{ with site.Params.description }}<p>{{ . }}</p>{{ end }}</section>
+  <section aria-labelledby="latest-heading"><h2 id="latest-heading">Latest posts</h2>{{ $posts := where site.RegularPages "Section" "posts" }}{{ if $posts }}<div class="post-list">{{ range first 10 ($posts.ByDate.Reverse) }}{{ partial "summary.html" . }}{{ end }}</div>{{ else }}<p>Posts will appear here when content is imported.</p>{{ end }}</section>
+{{ end }}

@@ -52,24 +52,29 @@ Each task has a checked-in issue specification under [docs/issues](docs/issues/)
 
 Use issue-scoped tasks for parallel work, each in its own worktree/branch (`codex/mig-NN`). Review each PR and its evidence, resolve integration conflicts, then run the complete fidelity gate. Tasks with unmet prerequisites are not ready; “independent” means scoped fixture-driven execution within each dependency wave.
 
+## Hugo renderer
+
+MIG-04 adds the Hugo theme shell and synthetic renderer fixtures. See [docs/renderer.md](docs/renderer.md) for installation, preview/production-root builds, content adapter expectations and current visual-fidelity blockers. The default `hugo --minify` build is a public, non-indexable preview below `/pujolsluis-blog/`; it has no sitemap or production `CNAME`. Production-root output is for local review and requires separate approval before any domain or deployment change.
+
 ## CI/CD included now
 
 [CI and Pages](.github/workflows/pages.yml) runs on PRs targeting `master`, pushes to `master`, and manual dispatch. It installs pinned Ruff, lints Python, runs unittest safety checks, builds the temporary preview and uploads a Pages artifact. Actions use the latest stable releases verified on 2026-10-24, pinned to full commit SHAs. Both jobs use Ubuntu 24.04 to avoid runner-label migration notices. The workflow packages `artifact.tar` directly and uploads it with the current `upload-artifact` release, avoiding an older transitive dependency in the Pages upload wrapper. Deployment depends on successful checks and is restricted to `master`; PRs never deploy. The deploy job alone receives `pages: write` and `id-token: write` and uses the `github-pages` environment.
 
 These bootstrap tests check that the preview cannot claim the production domain or expose unexpected files. They do **not** establish migration fidelity. MIG-07 adds importer, route, media, browser and visual regression suites before migration acceptance. Hugo builds and Pagefind (if selected after feature inventory) remain static; CI checks exact URLs, metadata, feeds, sitemap and published-output size.
 
-Run locally with Python 3.12:
+Run locally with Python 3.12 and Hugo:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
+brew install hugo
 .venv/bin/ruff check .
 .venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python scripts/build.py
+hugo --minify
 .venv/bin/python -m http.server 8000 --directory dist
 ```
 
-Set repository Pages publishing source to **GitHub Actions**. `master` is the intended default branch. MIG-10 adds required checks/branch protections according to account capabilities. The current build is dependency-light scaffolding; MIG-04 replaces it with the actual renderer, and MIG-07 updates CI in coordination.
+Set repository Pages publishing source to **GitHub Actions**. `master` is the intended default branch. MIG-10 adds required checks/branch protections according to account capabilities. MIG-07 updates CI to build Hugo in coordination with this renderer.
 
 ## Domain cutover and recovery
 
