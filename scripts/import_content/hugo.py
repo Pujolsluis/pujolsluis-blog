@@ -106,6 +106,7 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
     paths = set()
     ids = set()
     unresolved_media = []
+    authored_sections = {item['kind'] for item in bundle['items'] if item['kind'] != 'page'}
     for item in bundle['items']:
         source_id = item['sourceId']
         if source_id in ids:
@@ -137,7 +138,10 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
         # .html extension selects Hugo's HTML content renderer, avoiding any
         # Markdown transformation of code whitespace or element ordering.
         contents = (front + '\n' + rendered_body).encode('utf-8')
-        relative = f'{item["kind"]}/{source_id.replace(":", "-")}.html'
+        section_root = item['kind'] == 'page' and item['path'].strip('/') in authored_sections \
+            and item['path'] == '/' + item['path'].strip('/') + '/'
+        relative = (item['path'].strip('/') + '/_index.html' if section_root else
+                    f'{item["kind"]}/{source_id.replace(":", "-")}.html')
         files[relative] = contents
         entries.append({'sourceId': source_id, 'kind': item['kind'], 'path': item['path'],
                         'file': relative, 'fileSha256': _sha(contents),

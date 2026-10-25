@@ -1,5 +1,6 @@
 """A real Hugo build must preserve imported HTML and exact public paths."""
 
+import copy
 import json
 import shutil
 import subprocess
@@ -23,6 +24,9 @@ class HugoBuildTests(unittest.TestCase):
             (site / 'layouts/_default/single.html').write_text(
                 '<!doctype html><title>{{ .Title }}</title><main>{{ .Content }}</main>',
                 encoding='utf-8')
+            (site / 'layouts/_default/list.html').write_text(
+                '<!doctype html><title>{{ .Title }}</title><main>{{ .Content }}</main>',
+                encoding='utf-8')
             (site / 'hugo.toml').write_text(
                 "baseURL = 'https://example.invalid/project/'\n"
                 "disableKinds = ['taxonomy', 'term', 'RSS', 'sitemap']\n"
@@ -37,6 +41,29 @@ class HugoBuildTests(unittest.TestCase):
             post = (site / 'public/2020/01/02/fixture-post/index.html').read_text()
             self.assertIn(BUNDLE['items'][0]['content']['html'], post)
             self.assertIn('id="unicode"', post)
+
+    def test_authored_section_root_overrides_generated_list_page(self):
+        bundle = copy.deepcopy(BUNDLE)
+        page = bundle['items'][1]
+        page['path'] = '/post/'
+        page['canonicalUrl'] = 'https://example.invalid/post/'
+        with tempfile.TemporaryDirectory() as temporary:
+            site = Path(temporary)
+            (site / 'layouts/_default').mkdir(parents=True)
+            (site / 'layouts/_default/single.html').write_text('{{ .Content }}')
+            (site / 'layouts/_default/list.html').write_text(
+                '<title>{{ .Title }}</title><main>{{ .Content }}</main>')
+            (site / 'hugo.toml').write_text(
+                "baseURL = 'https://example.invalid/project/'\n"
+                "[security]\nallowContent = ['text/html']\n", encoding='utf-8')
+            report = write_hugo(bundle, site / 'content/imported', '2026-10-24T12:00:00-07:00')
+            self.assertIn('post/_index.html', {row['file'] for row in report['items']})
+            result = subprocess.run(['hugo', '--source', str(site), '--destination', str(site / 'public')],
+                                    capture_output=True, text=True, check=False)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            output = (site / 'public/post/index.html').read_text()
+            self.assertIn('<title>' + page['title'] + '</title>', output)
+            self.assertIn(page['content']['html'], output)
 
 
 if __name__ == '__main__':
