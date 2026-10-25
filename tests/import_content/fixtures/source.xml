@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Entirely synthetic WXR. No production content or private user data. -->
+<rss version="2.0" xmlns:wp="http://wordpress.org/export/1.2/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>Synthetic migration source</title><link>https://example.invalid/</link>
+<language>en</language><wp:wxr_version>1.2</wp:wxr_version>
+<wp:author><wp:author_id>1</wp:author_id><wp:author_login>fixture</wp:author_login><wp:author_display_name>Fixture Author</wp:author_display_name><wp:author_email>private-author@example.invalid</wp:author_email></wp:author>
+<wp:category><wp:term_id>2</wp:term_id><wp:category_nicename>examples</wp:category_nicename><wp:cat_name>Examples</wp:cat_name></wp:category>
+<wp:tag><wp:term_id>3</wp:term_id><wp:tag_slug>unicode</wp:tag_slug><wp:tag_name>Unicode</wp:tag_name></wp:tag>
+<item>
+<title>Fixture café 日本語</title><link>https://example.invalid/2020/01/02/fixture-post/</link><guid isPermaLink="false">opaque:original-feed-guid:101</guid><dc:creator>fixture</dc:creator>
+<content:encoded><![CDATA[<h2 id="unicode">Café, 日本語 &amp; código 👋</h2>
+<p>A synthetic paragraph with <strong>formatting</strong> and a <a href="/about/#biography">local anchor</a>.</p>
+<pre><code>if x &lt; 2:
+    print("hola")
+</code></pre>
+[gallery ids="900"]
+[notice]A known shortcode expanded deterministically.[/notice]
+<iframe src="https://www.youtube-nocookie.com/embed/fixture-video" title="Synthetic video example" allowfullscreen></iframe>]]></content:encoded>
+<excerpt:encoded><![CDATA[<p>Synthetic excerpt.</p>]]></excerpt:encoded>
+<wp:post_id>101</wp:post_id><wp:post_name>fixture-post</wp:post_name><wp:post_type>post</wp:post_type><wp:status>publish</wp:status><wp:post_password/>
+<wp:post_date>2020-01-02 03:04:05</wp:post_date><wp:post_date_gmt>2020-01-02 07:04:05</wp:post_date_gmt><wp:post_modified>2020-01-03 03:04:05</wp:post_modified><wp:post_modified_gmt>2020-01-03 07:04:05</wp:post_modified_gmt>
+<wp:post_parent>0</wp:post_parent><wp:menu_order>0</wp:menu_order><wp:is_sticky>0</wp:is_sticky><wp:comment_status>closed</wp:comment_status><wp:ping_status>closed</wp:ping_status>
+<category domain="category" nicename="examples">Examples</category><category domain="post_tag" nicename="unicode">Unicode</category>
+<wp:postmeta><wp:meta_key>_thumbnail_id</wp:meta_key><wp:meta_value>900</wp:meta_value></wp:postmeta>
+<wp:comment>
+<wp:comment_id>1</wp:comment_id><wp:comment_parent>0</wp:comment_parent><wp:comment_author>Synthetic Reader</wp:comment_author><wp:comment_author_email>private-comment@example.invalid</wp:comment_author_email><wp:comment_author_IP>192.0.2.55</wp:comment_author_IP><wp:comment_agent>private-agent-sentinel</wp:comment_agent><wp:comment_date>2020-01-04 04:00:00</wp:comment_date><wp:comment_date_gmt>2020-01-04 08:00:00</wp:comment_date_gmt><wp:comment_content><![CDATA[<p>A public fixture comment.</p>]]></wp:comment_content><wp:comment_approved>1</wp:comment_approved><wp:comment_type/>
+</wp:comment>
+<wp:comment><wp:comment_id>2</wp:comment_id><wp:comment_content>unapproved-private-sentinel</wp:comment_content><wp:comment_approved>0</wp:comment_approved></wp:comment>
+</item>
+<item>
+<title>About the fixture</title><link>https://example.invalid/about/</link><guid>opaque:original-feed-guid:102</guid><dc:creator>fixture</dc:creator><content:encoded><![CDATA[<h1 id="biography">About</h1><p>Entirely synthetic fixture.</p>]]></content:encoded><excerpt:encoded/>
+<wp:post_id>102</wp:post_id><wp:post_name>about</wp:post_name><wp:post_type>page</wp:post_type><wp:status>publish</wp:status><wp:post_password/>
+<wp:post_date>2020-01-02 03:04:05</wp:post_date><wp:post_date_gmt>2020-01-02 07:04:05</wp:post_date_gmt><wp:post_modified>2020-01-03 03:04:05</wp:post_modified><wp:post_modified_gmt>2020-01-03 07:04:05</wp:post_modified_gmt><wp:post_parent>0</wp:post_parent><wp:menu_order>0</wp:menu_order><wp:is_sticky>0</wp:is_sticky><wp:comment_status>open</wp:comment_status><wp:ping_status>closed</wp:ping_status>
+</item>
+<item><wp:post_id>900</wp:post_id><wp:post_type>attachment</wp:post_type><wp:status>inherit</wp:status><wp:attachment_url>https://example.invalid/wp-content/uploads/example.svg</wp:attachment_url></item>
+<item><title>private-draft-title</title><wp:post_id>103</wp:post_id><wp:post_type>post</wp:post_type><wp:status>draft</wp:status><content:encoded>private-draft-body-sentinel</content:encoded></item>
+<item><title>private-password-title</title><wp:post_id>104</wp:post_id><wp:post_type>page</wp:post_type><wp:status>publish</wp:status><wp:post_password>secret-password-sentinel</wp:post_password><content:encoded>private-password-body-sentinel</content:encoded></item>
+</channel></rss>
