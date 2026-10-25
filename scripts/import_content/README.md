@@ -8,7 +8,7 @@ python -m scripts.import_content /private/source/site.xml /private/migration/imp
   --assets /private/migration/assets.json
 ```
 
-The positional input is a **complete WXR 1.2 export**, including posts, pages, authors, categories/tags and attachment records. Partial post-only exports do not establish completeness. `--assets` is optional when attachment identities are present in WXR; supplying MIG-03's v1 manifest also resolves references to assets outside that export. No HTTP requests, media downloads, path rewrites or site deployment occur.
+The positional input is a **complete WXR 1.2 export**, including posts, pages, authors, categories/tags and attachment records. Partial post-only exports do not establish completeness. `--assets` is optional when attachment identities are present in WXR; supplying MIG-03's v1 manifest also resolves references to assets outside that export. The WXR import makes no HTTP requests, media downloads, path rewrites or deployment changes.
 
 Output must be a dedicated private directory outside every Git checkout. New directories use mode 700; existing directories must already have private permissions. Files use mode 600. `content.json` follows the shared content 1.1.0 contract and includes only status `publish`, non-password-protected posts/pages/portfolio records. Draft, pending, private, future, trash, auto-draft and inherited records are excluded before parsing their content. A renderer must additionally filter publication time against its fixed build time. `routes.json` follows the MIG-01 v1 route contract and contains WXR-backed content paths with rendered HTML fragment IDs. `private-report.json` contains input checksum, per-record disposition, aggregate reconciliation, attachment identities and **private** source metadata. Retain the original export privately; the report records its exact byte SHA-256 and opaque evidence reference without copying the WXR into public content.
 
@@ -77,6 +77,31 @@ python -m scripts.import_content.hugo /private/migration/import-01/content.json 
   /private/migration/hugo-content --build-time 2026-10-25T00:00:00-07:00
 ```
 
-The explicit build time filters future-dated records and records every exclusion. Each post, page and portfolio receives a stable `<kind>/wp-<ID>.html` file, JSON front matter with the exact `url`, dates, taxonomy, author, GUID, excerpt, assets, comments and provenance, followed by the unchanged validated rendered HTML. `.hugo-import-report.json` lists source IDs, original paths and per-file/body SHA-256 values. Repeated exports are byte-identical; a complete later bundle removes stale generated files. The adapter refuses to replace a directory containing files it did not generate or files edited since the prior report. This output is a candidate publication artifact; only MIG-08 promotes reviewed production content into the public repository.
+The explicit build time filters future-dated records and records every exclusion. Each post, page, portfolio and captured attachment page receives a stable `<kind>/wp-<ID>.html` file, JSON front matter with its exact route and source evidence, followed by validated rendered HTML. The optional selected media map rewrites only reviewed owned URLs for preview; source body provenance retains the original HTML checksum. `.hugo-import-report.json` lists source IDs, paths, per-file/body SHA-256 values and unresolved preview references. Repeated exports are byte-identical; a complete later bundle removes stale generated files. The adapter refuses to replace a directory containing files it did not generate or files edited since the prior report. This is a private candidate artifact; only MIG-08 promotes reviewed production content into the public repository.
 
-Hugo must enable its [HTML content format](https://gohugo.io/content-management/formats/) with `security.allowContent` and render `.Content` without Markdown conversion. Its layout and route checks belong to MIG-04/05. The adapter preserves media URLs exactly and does not copy images; MIG-03 supplies only required optimized ordinary-Git image files at the matching public paths.
+Hugo must enable its [HTML content format](https://gohugo.io/content-management/formats/) with `security.allowContent = ['text/html']` and render `.Content` without Markdown conversion. MIG-04 must use the exact source-head front matter for title, canonical and social fields. MIG-03 supplies only required optimized ordinary-Git image files at selected exact public paths; the adapter copies no image bytes.
+
+## Production evidence sidecars and preview gates
+
+The private WXR manifest can additionally bind `wxrSha256` to the exact input bytes. `utilityItems` and `deferredItems` are maps keyed by `wp:<ID>`, each with the exact WXR `kind`, `canonicalUrl`, `reason` and opaque `reference`. Utility reasons are `navigation-config`, `ad-config`, `newsletter-form` and `template-config`; a published post/page/portfolio can be withheld only as `backend-dependent`. A changed ID/kind/URL fails. `externalAttachmentIds` maps missing WXR attachment IDs observed in hash-bound rendered HTML to opaque references; they remain explicit MIG-03 blockers, not fabricated assets.
+
+An optional per-item `literalRenderedText` list permits ambiguous bracket text only when each token occurs in both the hash-bound WXR body and its matching frozen rendered HTML. It must not be used for active plugin shortcodes. `deferredPostMeta` maps each unresolved key to `{ "effect": "seo-social|url|layout|media|embed|backend|admin-cache-unverified|unknown", "reference": "opaque-id" }`; the private report lists each source ID/key/effect. These are conservative unresolved classifications, not claims of non-rendering. SEO, URL, layout, media and behavior fields require later mapping before promotion.
+
+Attachment **HTML pages** are distinct from uploaded media files. Freeze reviewed read-only captures with `python -m scripts.import_content.attachments WXR capture-index.json snapshots/ attachment-pages.json`, writing the output outside Git. It checks WXR identity, HTTP 200 HTML with unchanged final URL, snapshot checksum, live article title/body, self canonical, captions, image references and both body and full-page fragments. No image bytes are downloaded by this command.
+
+Use the private evidence when materializing Hugo:
+
+```sh
+python -m scripts.import_content.hugo /private/migration/import-01/content.json \
+  /private/migration/hugo-content --build-time 2026-10-25T00:00:00-07:00 \
+  --head-manifest /private/migration/source-head.json \
+  --head-source-root /private/migration/source-head-html \
+  --attachment-manifest /private/migration/attachment-pages.json \
+  --attachment-source-root /private/migration/attachment-html \
+  --private-report /private/migration/import-01/private-report.json \
+  --media-map /private/migration/selected-media-map.json
+```
+
+The version 1.0.0 source-head sidecar has one record per `sourceId`/`canonicalUrl`, a source HTML `sourcePageSha256` and hashed `.html` `sourcePageReference`, and `fields` for `title`, `description`, `canonical`, `ogTitle`, `ogDescription`, `ogImage`, `twitterTitle`, `twitterDescription` and `twitterImage`. Missing source values are explicit `null`. The adapter re-extracts values from the referenced HTML and rejects changed checksums, duplicate/conflicting source fields or URL mappings, and gaps for selected content. The sidecar can retain three separately deferred backend page heads while materializing the 66 selected records. WXR title remains the article heading; `seoTitle` and social front matter use live source-head values.
+
+The selected media map is `{ "schemaVersion": "1.0.0", "previewBase": "/project/", "mappings": [{ "sourceUrl": "https://...", "targetPath": "/wp-content/uploads/..." }] }`. The adapter rewrites selected owned `src`, `srcset`, poster, CSS `url()`, attachment image links/data attributes and head images beneath that preview base. External-provider URLs stay untouched. Every owned reference without an exact local target appears in `.hugo-import-report.json` as `unresolvedOwnedMedia`; no path is inferred from a CDN URL. The report also records source/full-page attachment fragments and source-shell fragments that the final renderer must preserve or disposition. Original rendered body hashes remain in provenance, with separate hashes of preview-rewritten bodies.

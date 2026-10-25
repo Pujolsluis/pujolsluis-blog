@@ -65,6 +65,39 @@ class ImportTests(unittest.TestCase):
         routes = json.loads((ROOT / 'fixtures/v1/routes.json').read_text())
         validate_bundle(bundle, assets, routes)
 
+    def test_hash_bound_literal_brackets_require_source_and_snapshot_match(self):
+        original = '<p>Literal [caption] label.</p>'
+        self.item().find('content:encoded', NS).text = original
+        entry = self.manifest['items']['wp:101']
+        entry.update(originalSha256=sha(original), html=original, htmlSha256=sha(original),
+                     literalRenderedText=['[caption]'])
+        self.assertEqual(self.run_import(changed=True)[0]['items'][0]['content']['html'], original)
+        entry['literalRenderedText'] = ['[woocommerce_cart]']
+        self.fails('attested literal rendered text is not present', changed=True)
+
+    def test_itemized_utility_and_backend_deferrals_are_source_bound(self):
+        utility = copy.deepcopy(self.item())
+        utility.find('wp:post_id', NS).text = '901'
+        utility.find('wp:post_type', NS).text = 'nav_menu_item'
+        utility.find('link').text = 'https://example.invalid/?p=901'
+        self.source.find('channel').append(utility)
+        self.item(1).find('wp:post_type', NS).text = 'page'
+        data = self.changed_data()
+        self.manifest['wxrSha256'] = hashlib.sha256(data).hexdigest()
+        self.manifest['utilityItems'] = {'wp:901': {
+            'kind': 'nav_menu_item', 'canonicalUrl': 'https://example.invalid/?p=901',
+            'reason': 'navigation-config', 'reference': 'fixture-navigation-review'}}
+        self.manifest['deferredItems'] = {'wp:102': {
+            'kind': 'page', 'canonicalUrl': 'https://example.invalid/about/',
+            'reason': 'backend-dependent', 'reference': 'fixture-backend-review'}}
+        bundle, report = self.run_import(changed=True)
+        self.assertEqual([item['sourceId'] for item in bundle['items']], ['wp:101'])
+        self.assertEqual(report['excludedByReason']['utility:navigation-config'], 1)
+        self.assertEqual(report['excludedByReason']['backend-dependent-public-content'], 1)
+        self.assertEqual(len(report['unresolvedRecords']), 2)
+        self.manifest['utilityItems']['wp:901']['canonicalUrl'] = 'https://example.invalid/wrong/'
+        self.fails('requires explicit migration disposition', changed=True)
+
     def test_timezones_derive_from_source_pairs_and_keep_instant(self):
         bundle, report = self.run_import()
         self.assertEqual(bundle['items'][0]['publishedAt'], '2020-01-02T03:04:05-04:00')

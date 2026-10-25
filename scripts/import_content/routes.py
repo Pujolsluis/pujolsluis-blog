@@ -9,14 +9,16 @@ class Anchors(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.values = []
+        self.duplicates = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         for value in dict.fromkeys((attrs.get('id'), attrs.get('name') if tag == 'a' else None)):
             if value:
                 if value in self.values:
-                    raise ValueError(f'duplicate rendered anchor {value}')
-                self.values.append(value)
+                    self.duplicates.append(value)
+                else:
+                    self.values.append(value)
 
     handle_startendtag = handle_starttag
 
@@ -45,3 +47,16 @@ def routes_from_content(bundle):
     document = {'schemaVersion': '1.0.0', 'routes': routes}
     validate_document('routes', document)
     return document
+
+
+def duplicate_anchors_from_content(bundle):
+    """Report source HTML duplicate IDs without discarding the original HTML."""
+    duplicates = []
+    for item in bundle['items']:
+        anchors = Anchors()
+        anchors.feed(item['content']['html'])
+        anchors.close()
+        if anchors.duplicates:
+            duplicates.append({'sourceId': item['sourceId'],
+                               'duplicateFragments': sorted(set(anchors.duplicates))})
+    return duplicates

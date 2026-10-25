@@ -44,7 +44,7 @@ class RenderedStructureProbe(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=False)
         self.literal_tags = []
-        self.unresolved = False
+        self.unresolved_tokens = []
 
     def handle_starttag(self, tag, attrs):
         if tag in ('pre', 'code', 'script', 'style'):
@@ -57,19 +57,23 @@ class RenderedStructureProbe(HTMLParser):
                     break
 
     def handle_data(self, data):
-        if not self.literal_tags and UNRESOLVED.search(data):
-            self.unresolved = True
+        if not self.literal_tags:
+            self.unresolved_tokens.extend(match.group(0) for match in UNRESOLVED.finditer(data))
 
     def handle_comment(self, data):
         if re.match(r'\s*/?wp:', data):
-            self.unresolved = True
+            self.unresolved_tokens.append('<!-- wp:block -->')
 
 
-def unresolved_rendered(html):
+def unresolved_rendered(html, literal_text=()):
     probe = RenderedStructureProbe()
     probe.feed(html)
     probe.close()
-    return probe.unresolved
+    observed = set(probe.unresolved_tokens)
+    allowed = set(literal_text)
+    if allowed - observed:
+        raise ValueError('attested literal rendered text absent: ' + ', '.join(sorted(allowed - observed)))
+    return bool(observed - allowed)
 
 
 def sha(value):
@@ -233,16 +237,21 @@ class References(HTMLParser):
 
 
 def validate_manifest(manifest):
-    if (not isinstance(manifest, dict) or set(manifest) != {'schemaVersion', 'sourceReference', 'items'}
+    required = {'schemaVersion', 'sourceReference', 'items'}
+    optional = {'wxrSha256', 'utilityItems', 'deferredItems', 'externalAttachmentIds'}
+    if (not isinstance(manifest, dict) or not required <= set(manifest)
+            or set(manifest) - required - optional
             or manifest['schemaVersion'] != '1.0.0' or not isinstance(manifest['sourceReference'], str)
             or not manifest['sourceReference'] or not isinstance(manifest['items'], dict)):
         raise ValueError('manifest requires schemaVersion 1.0.0, opaque sourceReference and items object')
     allowed = {'originalSha256', 'html', 'htmlSha256', 'reference', 'directHtmlReference',
-               'excerptHtml', 'originalExcerptSha256', 'reviewedPostMeta'}
+               'excerptHtml', 'originalExcerptSha256', 'reviewedPostMeta',
+               'literalRenderedText', 'deferredPostMeta'}
     for source_id, entry in manifest['items'].items():
         if not re.fullmatch(r'wp:[1-9][0-9]*', source_id) or not isinstance(entry, dict) or set(entry) - allowed:
             raise ValueError('manifest contains an invalid item or unknown field')
-        if not all(isinstance(v, str) for k, v in entry.items() if k != 'reviewedPostMeta'):
+        if not all(isinstance(v, str) for k, v in entry.items()
+                   if k not in ('reviewedPostMeta', 'literalRenderedText', 'deferredPostMeta')):
             raise ValueError(f'{source_id}: snapshot fields must be strings')
         if 'directHtmlReference' in entry and {'html', 'htmlSha256', 'reference'} & set(entry):
             raise ValueError(f'{source_id}: choose snapshot or direct HTML equality evidence, not both')
@@ -250,6 +259,46 @@ def validate_manifest(manifest):
         if not isinstance(reviewed, dict) or any(not isinstance(k, str) or not isinstance(v, str) or not v
                                                  for k, v in reviewed.items()):
             raise ValueError(f'{source_id}: reviewedPostMeta maps keys to opaque disposition evidence')
+        literal = entry.get('literalRenderedText', [])
+        if (not isinstance(literal, list) or not all(isinstance(v, str) and UNRESOLVED.fullmatch(v)
+                                                     for v in literal) or len(literal) != len(set(literal))
+                or literal and not {'originalSha256', 'htmlSha256', 'html', 'reference'} <= set(entry)):
+            raise ValueError(f'{source_id}: literalRenderedText needs unique bracket tokens and hash-bound snapshot')
+        deferred = entry.get('deferredPostMeta', {})
+        effects = {'layout', 'media', 'url', 'seo-social', 'embed', 'backend',
+                   'admin-cache-unverified', 'unknown'}
+        if (not isinstance(deferred, dict) or set(deferred) & set(reviewed)
+                or any(not isinstance(k, str) or not isinstance(v, dict)
+                       or set(v) != {'effect', 'reference'} or v['effect'] not in effects
+                       or not isinstance(v['reference'], str) or not v['reference']
+                       for k, v in deferred.items())):
+            raise ValueError(f'{source_id}: deferredPostMeta needs effect and opaque reference per key')
+    wxr_hash = manifest.get('wxrSha256')
+    if wxr_hash is not None and (not isinstance(wxr_hash, str)
+                                 or not re.fullmatch(r'[a-f0-9]{64}', wxr_hash)):
+        raise ValueError('wxrSha256 must be an exact SHA-256 digest')
+    for field in ('utilityItems', 'deferredItems'):
+        entries = manifest.get(field, {})
+        if not isinstance(entries, dict) or entries and wxr_hash is None:
+            raise ValueError(f'{field} requires an exact WXR checksum and item map')
+        for source_id, entry in entries.items():
+            if (not re.fullmatch(r'wp:[1-9][0-9]*', source_id) or not isinstance(entry, dict)
+                    or set(entry) != {'kind', 'canonicalUrl', 'reason', 'reference'}
+                    or not all(isinstance(v, str) and v for v in entry.values())):
+                raise ValueError(f'{field}: invalid itemized disposition')
+            if field == 'deferredItems' and entry['reason'] != 'backend-dependent':
+                raise ValueError('deferred content reason must be backend-dependent')
+            if field == 'utilityItems' and entry['reason'] not in (
+                    'navigation-config', 'ad-config', 'newsletter-form', 'template-config'):
+                raise ValueError('unknown utility disposition reason')
+    if set(manifest.get('utilityItems', {})) & set(manifest.get('deferredItems', {})):
+        raise ValueError('item cannot be both utility and deferred content')
+    external = manifest.get('externalAttachmentIds', {})
+    if (not isinstance(external, dict) or external and wxr_hash is None
+            or any(not re.fullmatch(r'wp:[1-9][0-9]*', key)
+                   or not isinstance(reference, str) or not reference
+                   for key, reference in external.items())):
+        raise ValueError('externalAttachmentIds needs exact WXR checksum and opaque references')
 
 
 def rendered(original, entry, reference):
@@ -269,7 +318,10 @@ def rendered(original, entry, reference):
             raise ValueError('HTML rendering needs a frozen rendered snapshot or hash-bound directHtmlReference attesting exact rendered equality')
         reference = entry.get('directHtmlReference', reference)
         html, kind = original, 'direct-html'
-    if unresolved_rendered(html):
+    literal = entry.get('literalRenderedText', [])
+    if any(token not in original for token in literal):
+        raise ValueError('attested literal rendered text is not present in hash-bound source body')
+    if unresolved_rendered(html, literal):
         raise ValueError('rendered HTML still contains an unresolved shortcode/block')
     return {'format': 'wordpress-html', 'original': original, 'html': html,
             'provenance': {'kind': kind, 'reference': reference,
@@ -313,7 +365,11 @@ def _normalize(item, source_id, authors, taxonomies, language, manifest, asset_u
     for node in item.findall('wp:postmeta', NS):
         key = value(node, 'wp:meta_key')
         meta.setdefault(key, []).append(value(node, 'wp:meta_value', required=False))
-    unreviewed = set(meta) - SAFE_META - set(entry.get('reviewedPostMeta', {}))
+    reviewed = set(entry.get('reviewedPostMeta', {}))
+    deferred = set(entry.get('deferredPostMeta', {}))
+    if (reviewed | deferred) - set(meta):
+        raise ValueError('metadata disposition references a field absent from this source record')
+    unreviewed = set(meta) - SAFE_META - reviewed - deferred
     if unreviewed:
         raise ValueError('unsupported postmeta needs recorded disposition evidence: ' + ', '.join(sorted(unreviewed)))
     featured = None
@@ -351,6 +407,7 @@ def _normalize(item, source_id, authors, taxonomies, language, manifest, asset_u
                        'menuOrder': value(item, 'wp:menu_order', required=False),
                        'isSticky': value(item, 'wp:is_sticky', required=False),
                        'postMeta': meta, 'reviewedPostMeta': entry.get('reviewedPostMeta', {}),
+                       'deferredPostMeta': entry.get('deferredPostMeta', {}),
                        'timezoneName': None}
     return normalized, source_metadata
 
@@ -368,10 +425,12 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
               'scope': 'complete-export',
               'sourceCompleteness': 'unverified', 'errors': [], 'excludedByReason': {},
               'sourceMetadata': [], 'attachments': [], 'unresolvedBehavior': [], 'unresolvedRecords': [],
-              'records': []}
+              'unresolvedMetadata': [], 'records': []}
     errors = report['errors']
     try:
         validate_manifest(manifest)
+        if manifest.get('wxrSha256') and manifest['wxrSha256'] != report['sourceSha256']:
+            raise ValueError('manifest WXR checksum differs from source bytes')
         # ElementTree expands internal entities; disallow declarations before parsing.
         if b'<!DOCTYPE' in data.upper() or b'<!ENTITY' in data.upper() or b'\x00' in data:
             raise ValueError('DTD/entity declarations and non-UTF-8 XML are unsupported')
@@ -432,9 +491,17 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
                     raise ValueError('attachment source URL identity conflict')
                 asset_urls[url] = source_id
                 report['attachments'].append({'sourceId': source_id, 'sourceUrl': url})
+        external = manifest.get('externalAttachmentIds', {})
+        if set(external) & known_assets:
+            raise ValueError('external attachment ID collides with WXR or MIG-03 asset identity')
+        known_assets.update(external)
+        report['unresolvedAttachmentIds'] = [
+            {'sourceId': source_id, 'reference': reference, 'reason': 'absent-from-wxr-needs-MIG-03'}
+            for source_id, reference in sorted(external.items())]
         report['sourceRecordCount'] = len(records)
         counts = Counter()
         items = []
+        consumed_utility, consumed_deferred = set(), set()
         for item in records:
             source_id = 'wp:' + value(item, 'wp:post_id')
             kind, status = value(item, 'wp:post_type'), value(item, 'wp:status')
@@ -456,10 +523,36 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
                 counts['password-protected'] += 1
                 evidence['disposition'] = 'excluded-password-protected'
                 continue
+            deferred_entry = manifest.get('deferredItems', {}).get(source_id)
+            if deferred_entry is not None:
+                if (kind != deferred_entry['kind'] or observed_url != deferred_entry['canonicalUrl']
+                        or kind not in ('post', 'page', 'portfolio')):
+                    errors.append(f'{source_id}: deferred content disposition differs from source')
+                else:
+                    counts['backend-dependent-public-content'] += 1
+                    consumed_deferred.add(source_id)
+                    evidence['disposition'] = 'deferred-backend-dependent'
+                    evidence['canonicalUrl'] = observed_url
+                    report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
+                                                         'canonicalUrl': observed_url,
+                                                         'reason': 'backend-dependent',
+                                                         'reference': deferred_entry['reference']})
+                continue
             if kind not in ('post', 'page', 'portfolio'):
-                errors.append(f'{source_id}: unsupported public post type {kind}; requires explicit migration disposition')
-                report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
-                                                     'canonicalUrl': observed_url})
+                utility = manifest.get('utilityItems', {}).get(source_id)
+                if utility is None or utility['kind'] != kind or utility['canonicalUrl'] != observed_url:
+                    errors.append(f'{source_id}: unsupported public post type {kind}; requires explicit migration disposition')
+                    report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
+                                                         'canonicalUrl': observed_url})
+                else:
+                    counts['utility:' + utility['reason']] += 1
+                    consumed_utility.add(source_id)
+                    evidence['disposition'] = 'deferred-utility-' + utility['reason']
+                    evidence['canonicalUrl'] = observed_url
+                    report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
+                                                         'canonicalUrl': observed_url,
+                                                         'reason': utility['reason'],
+                                                         'reference': utility['reference']})
                 continue
             try:
                 normalized, source_metadata = _normalize(item, source_id, authors, taxonomies, language,
@@ -467,6 +560,10 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
                 items.append(normalized)
                 evidence['disposition'] = 'public-content'
                 report['sourceMetadata'].append(source_metadata)
+                report['unresolvedMetadata'].extend(
+                    {'sourceId': source_id, 'key': key, 'effect': disposition['effect'],
+                     'reference': disposition['reference']}
+                    for key, disposition in sorted(source_metadata['deferredPostMeta'].items()))
                 for field in ('parentId', 'menuOrder', 'isSticky'):
                     if source_metadata[field] not in ('', '0'):
                         report['unresolvedBehavior'].append({'sourceId': source_id, 'field': field,
@@ -478,8 +575,16 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
         report['excludedByReason'] = dict(sorted(counts.items()))
         report['publicRecordCount'] = len(items)
         report['failedRecordCount'] = sum(r['disposition'] == 'failed' for r in report['records'])
-        if set(manifest['items']) - ids:
-            errors.append('snapshot manifest references IDs absent from this complete export')
+        for field in ('items', 'utilityItems', 'deferredItems'):
+            if set(manifest.get(field, {})) - ids:
+                errors.append(f'{field} manifest references IDs absent from this complete export')
+        if consumed_utility != set(manifest.get('utilityItems', {})):
+            errors.append('utilityItems dispositions no longer match published utility records')
+        if consumed_deferred != set(manifest.get('deferredItems', {})):
+            errors.append('deferredItems dispositions no longer match published backend records')
+        used_external = set().union(*(set(item['assetIds']) for item in items)) if items else set()
+        if set(external) - used_external:
+            errors.append('externalAttachmentIds contains IDs absent from selected rendered content')
         paths = [item['path'] for item in items]
         if len(paths) != len(set(paths)):
             errors.append('duplicate public canonical path')

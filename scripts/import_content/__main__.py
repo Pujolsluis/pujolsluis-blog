@@ -7,7 +7,7 @@ import tempfile
 from pathlib import Path
 
 from .importer import ImportFailure, import_wxr, serialize
-from .routes import routes_from_content
+from .routes import duplicate_anchors_from_content, routes_from_content
 
 
 def private_directory(raw):
@@ -52,6 +52,7 @@ def main(argv=None):
         bundle, report = import_wxr(args.wxr.read_bytes(), **options)
         try:
             routes = routes_from_content(bundle)
+            report['duplicateRenderedAnchors'] = duplicate_anchors_from_content(bundle)
         except ValueError as error:
             report['errors'].append(f'content route reconciliation: {error}')
             raise ImportFailure(report['errors'], report) from error
