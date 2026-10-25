@@ -1,0 +1,6 @@
+{{ define "main" }}
+  <div class="site-main">
+    <header class="page-header"><p class="eyebrow">Selected work</p><h1>{{ .Title }}</h1>{{ with .Content }}<div>{{ . }}</div>{{ end }}</header>
+    <section class="portfolio-grid" aria-label="Portfolio projects">{{ range .Pages.ByWeight }}{{ $page := . }}<article class="portfolio-card"><a href="{{ .RelPermalink }}">{{ with .Params.featured_image }}<img src="{{ . | relURL }}" alt="{{ $page.Params.featured_image_alt | default $page.Title }}" loading="lazy">{{ end }}<h2>{{ .Title }}</h2></a>{{ with .Params.artist }}<p>{{ . }}</p>{{ end }}{{ with .Params.categories }}<p class="taxonomy">{{ delimit . ", " }}</p>{{ end }}</article>{{ else }}<p>No portfolio entries yet.</p>{{ end }}</section>
+  </div>
+{{ end }}

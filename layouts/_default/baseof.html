@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="masthead" class="site-header">
+      <div class="header-inner">
+        <div class="brand"><a class="site-title" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a><p>Software Engineering &amp; Mobile Development blog</p></div>
+        <nav aria-label="Main navigation"><ul>{{ range site.Menus.main }}<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>{{ end }}<li><span class="search-unavailable" aria-label="Search unavailable in static preview">Search</span></li></ul></nav>
+      </div>
+    </header>
+    <main id="main" class="container">{{ block "main" . }}{{ end }}</main>
+    <footer id="colophon" class="site-footer" aria-label="Site footer"></footer>
+  </body>
+</html>

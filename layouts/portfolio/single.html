@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="site-main two-column">
+    <article class="article content-area with-sidebar">
+      <header class="article-header"><p class="eyebrow">Portfolio</p><h1>{{ .Title }}</h1>{{ with .Params.artist }}<p class="byline">{{ . }}</p>{{ end }}</header>
+      {{ with .Params.featured_image }}<figure class="featured-image"><img src="{{ . | relURL }}" alt="{{ $.Params.featured_image_alt | default $.Title }}" loading="lazy"></figure>{{ end }}
+      <div class="article-content">{{ with .Params.preserved_html }}{{ . | safeHTML }}{{ end }}{{ .Content }}</div>
+      {{ with .Params.categories }}<p class="taxonomy">{{ delimit . ", " }}</p>{{ end }}
+      <nav class="portfolio-pagination" aria-label="Portfolio navigation">{{ with .PrevInSection }}<a rel="prev" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}{{ with .NextInSection }}<a rel="next" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}</nav>
+    </article>
+    {{ partial "sidebar.html" . }}
+  </div>
+{{ end }}

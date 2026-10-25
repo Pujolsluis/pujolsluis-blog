@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <article class="article">
+    <header class="article-header"><p class="eyebrow">{{ with .Section }}{{ . | title }}{{ end }}</p><h1>{{ .Title }}</h1>{{ with .Date }}<time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format "January 2, 2006" }}</time>{{ end }}</header>
+    {{ with .Params.featured_image }}<figure class="featured-image"><img src="{{ . | relURL }}" alt="{{ $.Params.featured_image_alt | default "" }}">{{ with $.Params.featured_image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+    <div class="article-content">{{ with .Params.preserved_html }}{{ . | safeHTML }}{{ end }}{{ .Content }}</div>
+    {{ with .Params.categories }}<p class="taxonomy"><span>Categories:</span> {{ range $i, $v := . }}{{ if $i }}, {{ end }}<a href="{{ (printf "/categories/%s/" ($v | urlize)) | relURL }}">{{ $v }}</a>{{ end }}</p>{{ end }}
+    {{ with .Params.tags }}<p class="taxonomy"><span>Tags:</span> {{ range $i, $v := . }}{{ if $i }}, {{ end }}<a href="{{ (printf "/tags/%s/" ($v | urlize)) | relURL }}">{{ $v }}</a>{{ end }}</p>{{ end }}
+    {{ with .Params.migration.comments }}
+      {{ if . }}
+        <section class="comments" aria-labelledby="comments-heading"><h2 id="comments-heading">Comments</h2>
+          {{ range . }}<article class="comment" id="comment-{{ .sourceId }}"{{ with .parentId }} data-parent="{{ . }}"{{ end }}><header><strong>{{ .authorName }}</strong>{{ with .publishedAt }} <time datetime="{{ . }}">{{ . }}</time>{{ end }}</header><div class="comment-content">{{ .html | safeHTML }}</div></article>{{ end }}
+        </section>
+      {{ end }}
+    {{ end }}
+  </article>
+{{ end }}

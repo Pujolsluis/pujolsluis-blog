@@ -1,0 +1,29 @@
+  {{ $params := .Params }}
+  {{ $seoTitle := .Title }}
+  {{ if isset $params "seotitle" }}{{ with $params.seotitle }}{{ $seoTitle = . }}{{ end }}{{ end }}
+  {{ $description := "" }}
+  {{ if isset $params "description" }}{{ with $params.description }}{{ $description = . | plainify }}{{ end }}{{ else if .Description }}{{ $description = .Description | plainify }}{{ else }}{{ $description = site.Params.description }}{{ end }}
+  {{ $canonicalPath := strings.TrimPrefix site.BaseURL .Permalink }}
+  {{ $derivedCanonical := printf "%s/%s" (strings.TrimRight "/" site.Params.canonicalBase) (strings.TrimLeft "/" $canonicalPath) }}
+  {{ $canonical := $derivedCanonical }}
+  {{ if isset $params "canonical" }}{{ with $params.canonical }}{{ $canonical = . }}{{ else }}{{ $canonical = "" }}{{ end }}{{ end }}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ if site.Params.preview }}<meta name="robots" content="noindex, nofollow, max-image-preview:large">{{ else }}<meta name="robots" content="max-image-preview:large">{{ end }}
+  <title>{{ $seoTitle }}</title>
+  {{ if $description }}<meta name="description" content="{{ $description }}">{{ end }}
+  {{ with $canonical }}<link rel="canonical" href="{{ . }}">{{ end }}
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  {{ if isset $params "ogtitle" }}{{ with $params.ogtitle }}<meta property="og:title" content="{{ . }}">{{ end }}{{ else }}<meta property="og:title" content="{{ $seoTitle }}">{{ end }}
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:locale" content="en_US">
+  {{ with $canonical }}<meta property="og:url" content="{{ . }}">{{ end }}
+  {{ if isset $params "ogdescription" }}{{ with $params.ogdescription }}<meta property="og:description" content="{{ . | plainify }}">{{ end }}{{ else if $description }}<meta property="og:description" content="{{ $description }}">{{ end }}
+  {{ if isset $params "ogimage" }}{{ with $params.ogimage }}<meta property="og:image" content="{{ . }}">{{ end }}{{ else }}{{ with .Params.featured_image }}<meta property="og:image" content="{{ printf "%s%s" (strings.TrimRight "/" site.BaseURL) (. | relURL) }}">{{ with $.Params.featured_image_alt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}{{ with $.Params.featured_image_width }}<meta property="og:image:width" content="{{ . }}">{{ end }}{{ with $.Params.featured_image_height }}<meta property="og:image:height" content="{{ . }}">{{ end }}{{ end }}{{ end }}
+  {{ if isset $params "twittertitle" }}{{ with $params.twittertitle }}<meta name="twitter:title" content="{{ . }}">{{ end }}{{ else }}<meta name="twitter:title" content="{{ $seoTitle }}">{{ end }}
+  {{ if isset $params "twitterdescription" }}{{ with $params.twitterdescription }}<meta name="twitter:description" content="{{ . | plainify }}">{{ end }}{{ else if $description }}<meta name="twitter:description" content="{{ $description }}">{{ end }}
+  {{ if isset $params "twitterimage" }}{{ with $params.twitterimage }}<meta name="twitter:image" content="{{ . }}">{{ end }}{{ else }}{{ with .Params.featured_image }}<meta name="twitter:image" content="{{ printf "%s%s" (strings.TrimRight "/" site.BaseURL) (. | relURL) }}">{{ end }}{{ end }}
+  {{ with .Params.migration.guid }}<meta name="source-guid" content="{{ . }}">{{ else with .Params.guid }}<meta name="source-guid" content="{{ . }}">{{ end }}
+  {{ with .Params.migration.excerptHtml }}<meta name="source-excerpt" content="{{ . | plainify }}">{{ else with .Params.excerpt }}<meta name="source-excerpt" content="{{ . | plainify }}">{{ end }}
+  <link rel="stylesheet" href="{{ "theme/css/main.css" | relURL }}">
+  {{ if not site.Params.preview }}<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">{{ end }}

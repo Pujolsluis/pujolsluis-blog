@@ -1,0 +1,12 @@
+{{- $pages := where site.RegularPages "Section" "posts" -}}
+{{- $pages = first 50 $pages.ByDate.Reverse -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0"><channel>
+  <title>{{ site.Title }}</title><link>{{ site.Home.Permalink }}</link><description>{{ site.Params.description }}</description><language>{{ site.Language.Lang }}</language>
+  {{ range $pages }}{{ $migration := .Params.migration }}{{ $guid := .Permalink }}{{ if isset $migration "guid" }}{{ $guid = $migration.guid }}{{ else if isset .Params "guid" }}{{ $guid = .Params.guid }}{{ end }}{{ $excerpt := .Summary }}{{ if isset $migration "excerpthtml" }}{{ $excerpt = $migration.excerptHtml }}{{ else if isset .Params "excerpt" }}{{ $excerpt = .Params.excerpt }}{{ end }}<item>
+    <title>{{ .Title }}</title><link>{{ .Permalink }}</link>
+    <guid isPermaLink="false">{{ $guid }}</guid>
+    <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+    <description>{{ $excerpt }}</description>
+  </item>{{ end }}
+</channel></rss>

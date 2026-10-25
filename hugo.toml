@@ -1,0 +1,53 @@
+baseURL = 'https://pujolsluis.github.io/pujolsluis-blog/'
+title = 'Pujolsluis Blog'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ['sitemap']
+publishDir = 'dist'
+canonifyURLs = false
+relativeURLs = false
+
+[params]
+  preview = true
+  description = 'Software Engineering & Mobile Development blog'
+  canonicalBase = 'https://www.pujolsluis.com'
+  author = 'Luis Pujols'
+
+[security]
+  allowContent = ['text/html', 'text/markdown']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    style = 'github'
+
+[permalinks]
+  posts = '/:year/:month/:day/:slug/'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[outputs]
+  home = ['HTML', 'JSON']
+  section = ['HTML', 'RSS']
+
+[outputFormats.JSON]
+  mediaType = 'application/json'
+  baseName = 'search-index'
+  isPlainText = true
+  notAlternative = true
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Activities'
+    url = '/categories/'
+    weight = 2
