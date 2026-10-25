@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.1.0",
+  "items": [
+    {
+      "sourceId": "wp:303",
+      "kind": "portfolio",
+      "path": "/portfolio/synthetic-work/",
+      "canonicalUrl": "https://example.invalid/portfolio/synthetic-work/",
+      "title": "Synthetic portfolio piece",
+      "status": "publish",
+      "language": "en",
+      "publishedAt": "2020-01-02T03:04:05-04:00",
+      "modifiedAt": "2020-01-03T07:04:05Z",
+      "author": {
+        "sourceId": "wp-author:1",
+        "name": "Fixture Author"
+      },
+      "categories": [
+        {
+          "sourceId": "wp-portfolio-category:77",
+          "slug": "design",
+          "name": "Design"
+        }
+      ],
+      "tags": [],
+      "content": {
+        "format": "html",
+        "original": "<figure id=\"work\"><img src=\"/media/example.svg\" alt=\"Synthetic work\"></figure>",
+        "html": "<figure id=\"work\"><img src=\"/media/example.svg\" alt=\"Synthetic work\"></figure>",
+        "provenance": {
+          "kind": "synthetic",
+          "reference": "fixtures/v1/portfolio-content.json#wp:303",
+          "originalSha256": "2e6d6203a2b3061ba546ee93ffb26dfbd0d37915b4ff40de7c4927f7494ff58f",
+          "htmlSha256": "2e6d6203a2b3061ba546ee93ffb26dfbd0d37915b4ff40de7c4927f7494ff58f"
+        }
+      },
+      "assetIds": [
+        "wp:900"
+      ],
+      "embeds": [],
+      "sourceMetadata": {
+        "sourceType": "portfolio",
+        "guid": "https://example.invalid/?portfolio=303",
+        "excerptHtml": "<p>Synthetic portfolio excerpt.</p>",
+        "commentStatus": "closed",
+        "pingStatus": "closed",
+        "featuredAssetId": "wp:900"
+      },
+      "comments": []
+    }
+  ]
+}
