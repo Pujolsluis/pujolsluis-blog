@@ -70,4 +70,4 @@ Check the recorded outputs with:
 python3 scripts/import_media/check.py --manifest migration/assets/manifest.json --static-root static
 ```
 
-The checker validates all selected output hashes, sizes and signatures. It warns on outputs above the 1 MB role target. Its nonzero result is expected because 15 pre-existing broken WXR paths and two missing attachment-page image masters remain hard blockers; all 225 available WXR body paths and 96 available attachment-route image paths are mapped and included.
+The checker validates all selected output hashes, sizes and signatures, then compares every published-body, rendered-page and attachment-route mapping against the canonical `assets[].output_paths` records. The optimizer refreshes those projections from the selected asset records after writing outputs. It warns on outputs above the 1 MB role target. Its nonzero result is expected because 15 pre-existing broken WXR paths and two missing attachment-page image masters remain hard blockers; all 225 available WXR body paths and 96 available attachment-route image paths are mapped and included.

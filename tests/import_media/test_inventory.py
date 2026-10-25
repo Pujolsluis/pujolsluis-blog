@@ -11,6 +11,7 @@ from scripts.import_media.inventory import build_inventory
 from scripts.import_media.check import check as check_manifest_outputs
 from scripts.import_media.augment_rendered import augment
 from scripts.import_media.optimize import PNG_SIGNATURE, png_chunks, png_lossless_optimize, strip_jpeg_gps, strip_tiff_gps
+from scripts.import_media.output_projections import projection_conflicts, sync_output_projections
 
 
 WXR = """<?xml version='1.0'?>
@@ -64,6 +65,54 @@ class InventoryTests(unittest.TestCase):
             self.assertEqual(totals["images"], 1)
             self.assertFalse(warnings)
             self.assertTrue(any("mapped output SHA-256 mismatch" in error for error in errors))
+
+    def test_cross_projection_conflicts_are_rejected_and_synchronized(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            target = root / "wp-content/uploads/2020/01/photo.jpg"
+            target.parent.mkdir(parents=True)
+            payload = b"\xff\xd8\xffselected-image"
+            target.write_bytes(payload)
+            output = {
+                "path": "wp-content/uploads/2020/01/photo.jpg",
+                "bytes": len(payload),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+            }
+            asset = {
+                "disposition": "required-content-candidate",
+                "source_path": "2020/01/photo.jpg",
+                "extension": ".jpg",
+                "content_type": "image/jpeg",
+                "output_paths": [output],
+            }
+            manifest = {
+                "assets": [asset],
+                "missing_references": [],
+                "published_body_path_mappings": [{
+                    "public_url_path": "2020/01/photo.jpg",
+                    "content_type": "image/png",
+                    "source_assets": [{"content_type": "image/png", "output": {**output, "sha256": "0" * 64, "bytes": len(payload) + 1, "content_type": "image/png"}}],
+                }],
+                "rendered_page_path_mappings": [{
+                    "public_url_path": "2020/01/photo.jpg",
+                    "source_assets": [{"output": output.copy()}],
+                }],
+                "attachment_route_path_mappings": [],
+            }
+
+            conflicts = projection_conflicts(manifest)
+            self.assertTrue(any("manifest projection conflict (sha256)" in error for error in conflicts))
+            self.assertTrue(any("manifest projection conflict (bytes)" in error for error in conflicts))
+            self.assertTrue(any("manifest projection conflict (content_type)" in error for error in conflicts))
+            errors, _, _ = check_manifest_outputs(manifest, root)
+            self.assertTrue(any("manifest projection conflict (sha256)" in error for error in errors))
+
+            self.assertEqual(sync_output_projections(manifest), 3)
+            self.assertFalse(projection_conflicts(manifest))
+            errors, warnings, totals = check_manifest_outputs(manifest, root)
+            self.assertFalse(errors)
+            self.assertFalse(warnings)
+            self.assertEqual(totals["images"], 1)
 
     def test_rendered_page_image_card_and_share_metadata_select_existing_upload(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
