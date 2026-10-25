@@ -114,7 +114,7 @@ git push -u origin codex/editorial-example-article
 
 Replace the sample names with the approved post and media paths. Include the intended public route and media paths in the PR description. Review the diff for spelling, dates/time zones, heading structure, image paths/case, alt text, captions, links, and embeds. Run the local preview and renderer checks before requesting review.
 
-In the current workflow, a PR runs Python lint/tests and builds the temporary landing-page artifact; it does not build Hugo or provide a hosted per-PR preview. A push to `master` deploys that temporary landing page. MIG-07 must replace this behavior with Hugo validation and the preview deployment before the blog shell can be checked at the public Pages URL. After that integration, use the Actions run and deployment status to confirm a reviewed change was published. The planned repository preview remains public and noindex; it is not private review storage.
+The current workflow runs Python lint/tests and a minified Hugo build on pull requests; PRs do not deploy. A push to `master` deploys the Hugo output under the repository Pages subpath, with `noindex,nofollow` and a site-wide robots disallow. Use the Actions run and deployment status to confirm the reviewed build completed, then inspect the public preview URL. The preview is public and noindex; it is not private review storage. Production-root output, custom-domain configuration, and domain cutover remain separate and are not enabled by this workflow.
 
 ## 7. Publish a future-dated article
 
@@ -126,8 +126,8 @@ GitHub Pages does not run Hugo on a timer. The current repository workflow has n
 
 If a change is still in a pull request, close or revise that PR. If it has merged, use GitHub's **Revert** action on the specific merge commit, or make a new commit restoring the previous content and approved media. Open a PR for that rollback and let the validated deployment workflow publish it after merge. Do not force-push or reset the shared `master` branch.
 
-If a bad staging deployment is already public, revert promptly, verify the new Pages deployment completed, then check the affected route and media paths at the repository preview URL. Until MIG-07 replaces the current workflow, that URL is the temporary landing page and does not reflect Hugo content. Keep WordPress serving production during the migration. This guide does not authorize changing the custom domain, DNS, production deployment mode, or disabling WordPress. Domain cutover and production rollback remain subject to the separate MIG-09 approval and rehearsal.
+If a bad staging deployment is already public, revert promptly, verify the new Pages deployment completed, then check the affected route and media paths at the repository preview URL. Keep WordPress serving production during the migration. This guide does not authorize changing the custom domain, DNS, production deployment mode, or disabling WordPress. Domain cutover and production rollback remain subject to the separate MIG-09 approval and rehearsal.
 
 ## Still pending
 
-The content/media contracts, importer, complete feature decisions, PR checks and deployment workflow are not integrated here. The source theme assets, licensing, frozen screenshots, and production-content reconciliation are also missing. This guide enables local fixture-driven authoring and describes the intended reviewed workflow; it does not claim that migration or production theme fidelity is complete.
+The content/media contracts, importer, complete feature decisions, and production-content reconciliation are not integrated here. The source theme assets, licensing, and visual screenshot baseline are also missing. This guide enables local fixture-driven authoring and describes the current reviewed workflow; it does not claim that migration or production theme fidelity is complete.

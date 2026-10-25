@@ -1,16 +1,17 @@
 baseURL = 'https://pujolsluis.github.io/pujolsluis-blog/'
-title = 'Luis Pujols'
+title = 'Pujolsluis Blog'
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
-disableKinds = ['RSS', 'sitemap']
+disableKinds = ['sitemap']
 publishDir = 'dist'
 canonifyURLs = false
 relativeURLs = false
 
 [params]
   preview = true
-  description = ''
+  description = 'Software Engineering & Mobile Development blog'
+  canonicalBase = 'https://www.pujolsluis.com'
   author = 'Luis Pujols'
 
 [markup]
@@ -44,6 +45,6 @@ relativeURLs = false
     pageRef = '/'
     weight = 1
   [[menu.main]]
-    name = 'Blog'
-    pageRef = '/posts'
+    name = 'Activities'
+    url = '/categories/'
     weight = 2

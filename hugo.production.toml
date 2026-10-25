@@ -1,6 +1,6 @@
 baseURL = 'https://www.pujolsluis.com/'
 
-disableKinds = ['RSS']
+disableKinds = []
 
 [params]
   preview = false

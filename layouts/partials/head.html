@@ -1,12 +1,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ if site.Params.preview }}<meta name="robots" content="noindex, nofollow">{{ else }}<meta name="robots" content="index, follow">{{ end }}
+  {{ if site.Params.preview }}<meta name="robots" content="noindex, nofollow, max-image-preview:large">{{ else }}<meta name="robots" content="max-image-preview:large">{{ end }}
   <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
-  {{ with .Description }}<meta name="description" content="{{ . | plainify | htmlEscape }}">{{ else }}{{ with site.Params.description }}<meta name="description" content="{{ . | htmlEscape }}">{{ end }}{{ end }}
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{ with .Description }}<meta name="description" content="{{ . | plainify }}">{{ else }}{{ with site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}{{ end }}
+  {{ $canonicalPath := strings.TrimPrefix site.BaseURL .Permalink }}
+  {{ $canonical := printf "%s/%s" (strings.TrimRight "/" site.Params.canonicalBase) (strings.TrimLeft "/" $canonicalPath) }}
+  <link rel="canonical" href="{{ $canonical }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-  <meta property="og:title" content="{{ .Title | htmlEscape }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  {{ with .Description }}<meta property="og:description" content="{{ . | plainify | htmlEscape }}">{{ end }}
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="{{ $canonical }}">
+  {{ with .Description }}<meta property="og:description" content="{{ . | plainify }}">{{ else }}<meta property="og:description" content="{{ site.Params.description }}">{{ end }}
+  {{ with .Params.guid }}<meta name="source-guid" content="{{ . }}">{{ end }}
+  {{ with .Params.excerpt }}<meta name="source-excerpt" content="{{ . | plainify }}">{{ end }}
+  {{ with .Params.featured_image }}<meta property="og:image" content="{{ printf "%s%s" (strings.TrimRight "/" site.BaseURL) (. | relURL) }}">{{ with $.Params.featured_image_alt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}{{ with $.Params.featured_image_width }}<meta property="og:image:width" content="{{ . }}">{{ end }}{{ with $.Params.featured_image_height }}<meta property="og:image:height" content="{{ . }}">{{ end }}{{ end }}
   <link rel="stylesheet" href="{{ "theme/css/main.css" | relURL }}">
   {{ if not site.Params.preview }}<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">{{ end }}

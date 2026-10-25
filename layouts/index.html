@@ -1,4 +1,11 @@
 {{ define "main" }}
-  <section class="intro"><p class="eyebrow">Notes and stories</p><h1>{{ site.Title }}</h1>{{ with site.Params.description }}<p>{{ . }}</p>{{ end }}</section>
-  <section aria-labelledby="latest-heading"><h2 id="latest-heading">Latest posts</h2>{{ $posts := where site.RegularPages "Section" "posts" }}{{ if $posts }}<div class="post-list">{{ range first 10 ($posts.ByDate.Reverse) }}{{ partial "summary.html" . }}{{ end }}</div>{{ else }}<p>Posts will appear here when content is imported.</p>{{ end }}</section>
+  <div class="site-main two-column">
+    <section id="primary" class="content-area with-sidebar" aria-labelledby="latest-heading">
+      <header class="page-header"><p class="eyebrow">Notes and stories</p><h1>{{ site.Title }}</h1><p>{{ site.Params.description }}</p></header>
+      <h2 id="latest-heading">Latest posts</h2>
+      {{ $posts := where site.RegularPages "Section" "posts" }}
+      {{ if $posts }}<div class="post-list blog-regular">{{ range first 10 ($posts.ByDate.Reverse) }}{{ partial "summary.html" . }}{{ end }}</div>{{ else }}<p>Posts will appear here when content is imported.</p>{{ end }}
+    </section>
+    {{ partial "sidebar.html" . }}
+  </div>
 {{ end }}
