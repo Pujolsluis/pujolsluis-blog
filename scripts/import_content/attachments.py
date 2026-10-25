@@ -165,7 +165,8 @@ def validate_attachment_manifest(document, source_root, wxr_sha256):
             raise ValueError('attachment source snapshot checksum mismatch')
         page = AttachmentPage(raw.decode('utf-8'), source_id.split(':')[1])
         if (page.canonicals != [url] or page.titles != [row['title']]
-                or page.bodies != [row['html']]
+                or page.bodies != [row['html']] or page.captions != row['captionHtml']
+                or sorted(page.image_refs) != row['imageReferences']
                 or hashlib.sha256(row['html'].encode()).hexdigest() != row['htmlSha256']):
             raise ValueError('attachment source page content/canonical mismatch')
         anchors = Anchors()
