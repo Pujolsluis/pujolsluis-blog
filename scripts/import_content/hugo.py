@@ -17,7 +17,7 @@ from pathlib import Path
 from docs.contracts.validate import validate_document
 from .attachments import validate_attachment_manifest
 from .head import FIELDS, validate_head_manifest
-from .media import rewrite_html, rewrite_url, validate_media_map
+from .media import rewrite_html, rewrite_url, upload_path, validate_media_map
 
 
 class HugoExportError(ValueError):
@@ -131,7 +131,8 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
         front = json.dumps(_front_matter(item, heads.get(source_id), mapping, base, missing_set),
                            ensure_ascii=False, indent=2, sort_keys=True)
         unresolved_media.extend({'sourceId': source_id, 'sourceUrl': url}
-                                for url in sorted(missing_set))
+                                | {'reason': 'unmapped-upload' if upload_path(url)
+                                   else 'owned-non-upload'} for url in sorted(missing_set))
         # JSON front matter uses the outer braces as delimiters in Hugo. The
         # .html extension selects Hugo's HTML content renderer, avoiding any
         # Markdown transformation of code whitespace or element ordering.
@@ -152,7 +153,9 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
             excluded.append({'sourceId': source_id, 'reason': 'future-at-build-time'})
             continue
         body, missing = rewrite_html(item['html'], mapping, base)
-        unresolved_media.extend({'sourceId': source_id, 'sourceUrl': url} for url in missing)
+        unresolved_media.extend({'sourceId': source_id, 'sourceUrl': url,
+                                 'reason': 'unmapped-upload' if upload_path(url)
+                                 else 'owned-non-upload'} for url in missing)
         front = {'title': item['title'], 'date': item['publishedAt'], 'lastmod': item['modifiedAt'],
                  'url': item['path'], 'type': 'attachment', 'draft': False,
                  'canonical': item['canonicalUrl'],

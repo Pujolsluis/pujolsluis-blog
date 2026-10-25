@@ -10,7 +10,7 @@ from pathlib import Path
 from scripts.import_content.attachments import freeze_attachment_pages, validate_attachment_manifest
 from scripts.import_content.head import FIELDS, extract_source_head, validate_head_manifest
 from scripts.import_content.hugo import prepare_hugo
-from scripts.import_content.media import rewrite_html, validate_media_map
+from scripts.import_content.media import rewrite_html, selected_media_map, validate_media_map
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -86,6 +86,27 @@ class LiveEvidenceTests(unittest.TestCase):
             validate_media_map({'schemaVersion': '1.0.0', 'previewBase': '/', 'mappings': [
                 {'sourceUrl': source, 'targetPath': '/a.jpg'},
                 {'sourceUrl': source, 'targetPath': '/b.jpg'}]})
+
+    def test_inventory_map_requires_selected_file_checksum(self):
+        source = 'https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2020/01/a.jpg?fit=300%2C200'
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            target = root / 'wp-content/uploads/2020/01/a.jpg'
+            target.parent.mkdir(parents=True)
+            target.write_bytes(b'optimized image')
+            digest = hashlib.sha256(target.read_bytes()).hexdigest()
+            inventory = {'schema_version': '1.0.0', 'published_body_path_mappings': [{
+                'public_url_path': '2020/01/a.jpg', 'status': 'included',
+                'source_assets': [{'output': {'path': 'wp-content/uploads/2020/01/a.jpg',
+                                               'sha256': digest}}]}],
+                'rendered_page_path_mappings': [], 'attachment_route_path_mappings': []}
+            document, unresolved = selected_media_map(inventory, [source], '/project/', root)
+            self.assertEqual(document['mappings'], [{'sourceUrl': source,
+                                                       'targetPath': '/wp-content/uploads/2020/01/a.jpg'}])
+            self.assertEqual(unresolved, [])
+            target.write_bytes(b'changed')
+            with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
+                selected_media_map(inventory, [source], '/project/', root)
 
     def test_attachment_html_page_is_distinct_from_media_file(self):
         url = 'https://www.pujolsluis.com/example-image/'
