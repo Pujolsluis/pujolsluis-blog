@@ -111,7 +111,6 @@ def strip_jpeg_gps(path: Path) -> bool:
     while offset < len(data):
         if data[offset] != 0xFF:
             break
-        marker_start = offset
         while offset < len(data) and data[offset] == 0xFF:
             offset += 1
         if offset >= len(data):
@@ -276,7 +275,7 @@ def main() -> int:
             raise SystemExit(f"source hash changed since inventory: {asset['source_path']}")
         output_paths = []
         existing_outputs = {output["path"]: output for output in asset.get("output_paths", [])}
-        metadata_policy_current = not asset["extension"] in {".jpg", ".jpeg"} or asset.get("metadata_policy_version") == "jpeg-gps-v1"
+        metadata_policy_current = asset["extension"] not in {".jpg", ".jpeg"} or asset.get("metadata_policy_version") == "jpeg-gps-v1"
         reusable = None
         result = asset.get("optimization")
         for url_path in asset["referenced_url_paths"]:
