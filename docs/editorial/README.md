@@ -1,6 +1,6 @@
 # Editorial workflow for the Hugo preview
 
-This guide describes the Git workflow for editing the Hugo migration preview. The repository contains 66 selected static posts/pages/portfolio records and 98 attachment pages, with 420 selected upload files covering 422 public paths. Merging to `master` deploys these files to the GitHub Pages project URL; WordPress remains production. Source theme and full-page visual parity are still under review, so this is not a completed migration or a cutover approval. See the [preview status report](../reports/content-preview.md) for known gaps.
+This guide describes the Git workflow for editing the Hugo migration preview. The repository contains 45 Markdown posts, 8 pages, 13 portfolio entries and 98 attachment pages, with 420 selected upload files covering 422 public paths. Merging to `master` deploys these files to the GitHub Pages project URL; WordPress remains production. Source theme and full-page visual parity are still under review, so this is not a completed migration or a cutover approval. See the [preview status report](../reports/content-preview.md) for known gaps.
 
 ## 1. Set up a local checkout
 
@@ -40,7 +40,7 @@ Write the article in Markdown. Keep headings in order, use descriptive link text
 and preserve source captions, alt text, dates, links, and embed placement.
 ```
 
-The sample values are illustrative and do not describe an imported article. Set `draft: true` while editing; remove that field only when the article has been reviewed and is ready for a production build. The current single-page template renders `featured_image`, `featured_image_alt`, and `featured_image_caption`. Front matter for author, categories, tags, description, and date is supported; the complete imported-content schema is still pending MIG-01/MIG-02. Do not add `preserved_html` by hand. The importer may use that renderer field only for validated source HTML that cannot safely or faithfully be represented as Markdown.
+The sample values are illustrative and do not describe an imported article. Set `draft: true` while editing; remove that field only when the article has been reviewed and is ready for a production build. The current single-page template renders `featured_image`, `featured_image_alt`, and `featured_image_caption`. Imported posts use JSON front matter with the source route and migration evidence. Keep complex source HTML inline in the `.md` body only when Markdown or a supported shortcode cannot preserve its structure; do not move a post body into a separate `.html` file.
 
 The default permalink pattern is `/:year/:month/:day/:slug/`. Treat the slug as permanent once the route is approved. Route aliases and the frozen route manifest will be governed by MIG-05 when available.
 

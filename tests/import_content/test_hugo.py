@@ -9,6 +9,7 @@ from pathlib import Path
 
 from scripts.import_content.hugo import (HugoExportError, prepare_hugo, sanitize_public_html,
                                          write_hugo)
+from scripts.import_content.markdown import html_to_markdown
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -45,15 +46,16 @@ class HugoTests(unittest.TestCase):
                                   'commentFormCount': 1, 'otherFormCount': 1,
                                   'commentLinkCount': 1, 'editorMarkerCount': 1})
 
-    def test_exact_html_paths_and_source_metadata(self):
+    def test_markdown_post_path_and_source_metadata(self):
         files, report = prepare_hugo(FIXTURE, BUILD_TIME)
         self.assertEqual(report['inputRecordCount'], 2)
         self.assertEqual(report['outputRecordCount'], 2)
-        self.assertEqual(set(files), {'posts/wp-101.html', 'page/wp-102.html'})
-        first = files['posts/wp-101.html'].decode('utf-8')
-        front, body = first.rsplit('}\n', 1)
-        metadata = json.loads(front + '}')
-        self.assertEqual(body, FIXTURE['items'][0]['content']['html'])
+        self.assertEqual(set(files), {'posts/wp-101.md', 'page/wp-102.html'})
+        first = files['posts/wp-101.md'].decode('utf-8')
+        metadata, end = json.JSONDecoder().raw_decode(first)
+        body = first[end + 1:]
+        self.assertEqual(body, html_to_markdown(FIXTURE['items'][0]['content']['html']))
+        self.assertIn('**', body)
         self.assertEqual(metadata['url'], '/2020/01/02/fixture-post/')
         self.assertEqual(metadata['date'], '2020-01-02T03:04:05-04:00')
         self.assertEqual(metadata['migration']['guid'], 'https://example.invalid/?p=101')
@@ -67,15 +69,15 @@ class HugoTests(unittest.TestCase):
             'recordCount': 1, 'commentCount': 1,
             'items': [{'sourceId': 'wp:101', 'count': 1,
                        'disposition': 'owner-publication-decision'}]})
-        self.assertEqual(report['items'][0]['fileSha256'], hashlib.sha256(files['posts/wp-101.html']).hexdigest())
+        self.assertEqual(report['items'][0]['fileSha256'], hashlib.sha256(files['posts/wp-101.md']).hexdigest())
 
     def test_repeat_export_and_final_delta_remove_stale_file(self):
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / 'content' / 'imported'
             first = write_hugo(FIXTURE, destination, BUILD_TIME)
-            before = (destination / 'posts/wp-101.html').read_bytes()
+            before = (destination / 'posts/wp-101.md').read_bytes()
             self.assertEqual(write_hugo(FIXTURE, destination, BUILD_TIME), first)
-            self.assertEqual((destination / 'posts/wp-101.html').read_bytes(), before)
+            self.assertEqual((destination / 'posts/wp-101.md').read_bytes(), before)
             changed = copy.deepcopy(FIXTURE)
             changed['items'].pop()
             second = write_hugo(changed, destination, BUILD_TIME)
@@ -122,7 +124,7 @@ class HugoTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             destination = Path(temporary) / 'imported'
             write_hugo(FIXTURE, destination, BUILD_TIME)
-            target = destination / 'posts/wp-101.html'
+            target = destination / 'posts/wp-101.md'
             target.write_text('owner edit', encoding='utf-8')
             with self.assertRaisesRegex(HugoExportError, 'generated file changed'):
                 write_hugo(FIXTURE, destination, BUILD_TIME)

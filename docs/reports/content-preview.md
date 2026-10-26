@@ -5,6 +5,7 @@ This aggregate report describes the content preview represented in this reposito
 ## Imported preview scope
 
 - 45 posts, 8 pages and 13 portfolio entries are materialized as static Hugo content from hash-bound rendered-body and source-head evidence.
+- All 45 blog posts are Markdown (`content/posts/*.md`) with route-preserving JSON front matter. Common article structure is Markdown; supported video, Gist and image/gallery content uses Hugo shortcodes; complex blocks remain inline HTML when needed to retain source behavior.
 - 98 public attachment URLs are represented as HTML pages with their captured title, body, caption, image references, canonical and fragment evidence.
 - The media inventory commits 420 selected upload files at 414,443,545 bytes for 422 public URL paths. Shared bytes may cover more than one URL.
 - The verified selector maps 1,701 of 1,714 owned reference occurrences: 1,663 distinct URLs across 382 local target files. All selected file hashes are checked before URL rewrites.

@@ -45,7 +45,7 @@ class LiveEvidenceTests(unittest.TestCase):
                 'sourceUrl': document['items'][0]['fields']['ogImage'],
                 'targetPath': '/wp-content/uploads/hero.jpg'}]}
             files, report = prepare_hugo(BUNDLE, BUILD_TIME, document, root, media)
-            front = json.loads(files['posts/wp-101.html'].rsplit(b'}\n', 1)[0] + b'}')
+            front, _ = json.JSONDecoder().raw_decode(files['posts/wp-101.md'].decode('utf-8'))
             self.assertEqual(front['title'], BUNDLE['items'][0]['title'])
             self.assertEqual(front['seoTitle'], 'Live wp:101')
             self.assertIsNone(front['description'])

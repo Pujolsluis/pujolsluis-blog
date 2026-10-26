@@ -25,7 +25,8 @@ class MigratedContentTests(unittest.TestCase):
         routes = set()
         count = 0
         for section, expected in EXPECTED_SECTIONS.items():
-            files = sorted((CONTENT / section).glob("*.html"))
+            extension = "*.md" if section == "posts" else "*.html"
+            files = sorted((CONTENT / section).glob(extension))
             self.assertEqual(len(files), expected, section)
             for path in files:
                 metadata, body = read_front_matter(path)
@@ -51,11 +52,16 @@ class MigratedContentTests(unittest.TestCase):
                 self.assertNotIn('id="respond"', body)
                 self.assertNotRegex(body, r"(?i)(?:href|action)=[\"'][^\"']*#(?:comments?|respond)")
 
+        self.assertEqual(list((CONTENT / "posts").glob("*.html")), [])
+
         self.assertEqual(count, 164)
         self.assertFalse((CONTENT / ".hugo-import-report.json").exists())
+        content_files = [path for section in EXPECTED_SECTIONS
+                         for pattern in ("*.html", "*.md")
+                         for path in (CONTENT / section).glob(pattern)]
         self.assertEqual(
             sum("migration-comment-bridge" in read_front_matter(path)[1]
-                for path in CONTENT.rglob("*.html")), 0)
+                for path in content_files), 0)
 
     @unittest.skipUnless(shutil.which("hugo"), "Hugo is not installed in this environment")
     def test_hugo_preview_publishes_every_imported_route_and_lists_posts(self):
@@ -85,7 +91,8 @@ class MigratedContentTests(unittest.TestCase):
             self.assertTrue((output / "search-index.json").is_file())
 
             for section, _ in EXPECTED_SECTIONS.items():
-                for path in sorted((CONTENT / section).glob("*.html")):
+                extension = "*.md" if section == "posts" else "*.html"
+                for path in sorted((CONTENT / section).glob(extension)):
                     metadata, _ = read_front_matter(path)
                     route = urlsplit(metadata["url"]).path.strip("/")
                     expected = output / route / "index.html"

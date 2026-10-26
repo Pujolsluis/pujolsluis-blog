@@ -19,6 +19,7 @@ from pathlib import Path
 from docs.contracts.validate import validate_document
 from .attachments import validate_attachment_manifest
 from .head import FIELDS, validate_head_manifest
+from .markdown import html_to_markdown
 from .media import rewrite_html, rewrite_url, upload_path, validate_media_map
 
 
@@ -276,21 +277,24 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
                               f'submissions. <a href="{form_url}">Use the form on the live site</a>.'
                               '</aside>')
             form_bridge_count += 1
+        if item['kind'] == 'post':
+            rendered_body = html_to_markdown(rendered_body)
         missing_set = set(missing)
         front = json.dumps(_front_matter(item, heads.get(source_id), mapping, base, missing_set),
                            ensure_ascii=False, indent=2, sort_keys=True)
         unresolved_media.extend({'sourceId': source_id, 'sourceUrl': url}
                                 | {'reason': 'unmapped-upload' if upload_path(url)
                                    else 'owned-non-upload'} for url in sorted(missing_set))
-        # JSON front matter uses the outer braces as delimiters in Hugo. The
-        # .html extension selects Hugo's HTML content renderer, avoiding any
-        # Markdown transformation of code whitespace or element ordering.
+        # JSON front matter uses the outer braces as delimiters in Hugo. Blog
+        # posts are converted into readable Markdown; other route types retain
+        # their validated HTML where conversion could change page semantics.
         contents = (front + '\n' + rendered_body).encode('utf-8')
         section_root = item['kind'] == 'page' and item['path'].strip('/') in authored_sections \
             and item['path'] == '/' + item['path'].strip('/') + '/'
         content_section = 'posts' if item['kind'] == 'post' else item['kind']
+        extension = '.md' if item['kind'] == 'post' else '.html'
         relative = (item['path'].strip('/') + '/_index.html' if section_root else
-                    f'{content_section}/{source_id.replace(":", "-")}.html')
+                    f'{content_section}/{source_id.replace(":", "-")}{extension}')
         files[relative] = contents
         entries.append({'sourceId': source_id, 'kind': item['kind'], 'path': item['path'],
                         'file': relative, 'fileSha256': _sha(contents),
