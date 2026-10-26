@@ -1,0 +1,344 @@
+{
+  "canonical": "https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/",
+  "categories": [
+    "CustomControls",
+    "Xamarin"
+  ],
+  "date": "2019-01-20T08:32:30-05:00",
+  "description": null,
+  "draft": false,
+  "lastmod": "2019-01-20T08:32:48-05:00",
+  "migration": {
+    "assetIds": [
+      "wp:940",
+      "wp:942",
+      "wp:947",
+      "wp:948"
+    ],
+    "author": {
+      "name": "Pujolsluis",
+      "sourceId": "wp-author:1"
+    },
+    "canonicalUrl": "https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/",
+    "categories": [
+      {
+        "name": "CustomControls",
+        "slug": "customcontrols",
+        "sourceId": "wp-category:22"
+      },
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-category:2"
+      }
+    ],
+    "embeds": [],
+    "excerptHtml": "",
+    "featuredAssetId": "wp:947",
+    "guid": "https://www.pujolsluis.com/?p=279",
+    "language": "en-US",
+    "provenance": {
+      "htmlSha256": "5d9a07ffa9e49d8677534fefd7f4cd2bb7ca5a4f328fae357c7f9c484491ff73",
+      "kind": "rendered-snapshot",
+      "originalSha256": "38eec6ab708f00a9ec1e38cdf2e5967f44aec7f0674175a47a078dabb7d9297b",
+      "reference": "public-page:15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c:selector=.entry-content"
+    },
+    "sourceHead": {
+      "fields": {
+        "canonical": "https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/",
+        "description": null,
+        "ogDescription": "Hey Guys! In the second part of this series of articles about creating custom controls, we learned how to create an SlideView that supports sliding through different elements and displayi…",
+        "ogImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2019/01/Banner-For-Custom-Controls-TimelineView-Pujolsluis.png?fit=1200%2C600&ssl=1",
+        "ogTitle": "Creating Custom Controls Part 3: TimelineView",
+        "title": "Creating Custom Controls Part 3: TimelineView – Pujolsluis Blog",
+        "twitterDescription": null,
+        "twitterImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2019/01/Banner-For-Custom-Controls-TimelineView-Pujolsluis.png?fit=1200%2C600&ssl=1&w=640",
+        "twitterTitle": null
+      },
+      "sourcePageReference": "15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c.html",
+      "sourcePageSha256": "15dec77ea4aba307e80445d1f124b0a89189caa3afec2f4ea1a2efa286fc1b5c"
+    },
+    "sourceId": "wp:279",
+    "sourceType": "post",
+    "tags": [
+      {
+        "name": "CustomControls",
+        "slug": "customcontrols",
+        "sourceId": "wp-tag:19"
+      },
+      {
+        "name": "TimelineView",
+        "slug": "timelineview",
+        "sourceId": "wp-tag:25"
+      },
+      {
+        "name": "UI",
+        "slug": "ui",
+        "sourceId": "wp-tag:21"
+      },
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-tag:9"
+      },
+      {
+        "name": "XamarinForms",
+        "slug": "xamarinforms",
+        "sourceId": "wp-tag:18"
+      }
+    ]
+  },
+  "ogDescription": "Hey Guys! In the second part of this series of articles about creating custom controls, we learned how to create an SlideView that supports sliding through different elements and displayi…",
+  "ogImage": "/pujolsluis-blog/wp-content/uploads/2019/01/Banner-For-Custom-Controls-TimelineView-Pujolsluis.png",
+  "ogTitle": "Creating Custom Controls Part 3: TimelineView",
+  "seoTitle": "Creating Custom Controls Part 3: TimelineView – Pujolsluis Blog",
+  "tags": [
+    "CustomControls",
+    "TimelineView",
+    "UI",
+    "Xamarin",
+    "XamarinForms"
+  ],
+  "title": "Creating Custom Controls Part 3: TimelineView",
+  "twitterDescription": null,
+  "twitterImage": "/pujolsluis-blog/wp-content/uploads/2019/01/Banner-For-Custom-Controls-TimelineView-Pujolsluis.png",
+  "twitterTitle": null,
+  "type": "post",
+  "url": "/creating-custom-controls-part-3-timelineview/"
+}
+
+							
+<p class="wp-block-paragraph">Hey Guys!</p>
+
+
+
+<p class="wp-block-paragraph">In the&nbsp;<a href="https://www.pujolsluis.com/creating-custom-controls-part-2-sliderview">second part</a>&nbsp;of this series of articles about creating custom controls, we learned how to create <g class="gr_ gr_20 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar multiReplace" id="20" data-gr-id="20">an SlideView</g> that supports sliding through different elements and displaying visual feedback to our users using a StepperView.</p>
+
+
+
+<p class="wp-block-paragraph">In this&nbsp;article&nbsp;we are going to see our next use case which is creating a TimelineView to support displaying timelines in our Xamarin Forms Apps.</p>
+
+
+
+<span id="more-279"></span>
+
+
+
+<figure class="wp-block-image"><img data-recalc-dims="1" decoding="async" width="499" height="1024" data-attachment-id="948" data-permalink="https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/timelinecontrol/" data-orig-file="/pujolsluis-blog/wp-content/uploads/2019/01/timelinecontrol-e1547987305307.gif" data-orig-size="300,616" data-comments-opened="1" data-image-title="timelinecontrol" data-image-description="" data-image-caption="" data-large-file="/pujolsluis-blog/wp-content/uploads/2019/01/timelinecontrol-e1547987305307.gif" src="/pujolsluis-blog/wp-content/uploads/2019/01/timelinecontrol.gif" alt="" class="wp-image-948"/></figure>
+
+
+
+<h3 class="wp-block-heading">Prerequisites</h3>
+
+
+
+<p class="wp-block-paragraph">You will need previous knowledge on the following subjects to follow along with the sample project in this 3rd part (all of this is discussed on the&nbsp;<a href="https://www.pujolsluis.com/creating-custom-controls-part-1-extendedlistview/">first part</a>&nbsp;of the series, you can revisit it to refresh any doubts you might have while reading this article):</p>
+
+
+
+<ul class="wp-block-list"><li><strong>MVVM Pattern</strong></li><li><strong>Using Fody Property Change Plugin</strong></li><li><strong>BindableProperties</strong></li><li><strong>Commanding</strong></li><li><strong>Handling and Raising Events</strong></li></ul>
+
+
+
+<h2 class="wp-block-heading">Getting Started!</h2>
+
+
+
+<p class="wp-block-paragraph">Sometimes we want to display a timeline of events that we have logged in our application for our users in a compact and friendly way, in which they can go back and see the changes over time of their logs.</p>
+
+
+
+<p class="wp-block-paragraph">To achieve this we are going to be using some a complement between one of the controls we learned how to create previously in our series and other basic controls that Xamarin Forms provides us:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>ExtendedListView</strong></p>
+
+
+
+<p class="wp-block-paragraph">Since we are probably going to be loading the list of logs from a webservice we can directly use our ExtendedListView to manage the loading of this items and add Infinite scrolling, and interaction with them at the same time.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Grid</strong></p>
+
+
+
+<p class="wp-block-paragraph">This will be the base layout for our Timeline control and is the one that is going to help us design our timeline with ease.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>BoxViews</strong></p>
+
+
+
+<p class="wp-block-paragraph">We are going to be using BoxViews to form the timeline structure and visual feedback for our user.</p>
+
+
+
+<h4 class="wp-block-heading">SO LET’S GET TO WORK!🙌☺️</h4>
+
+
+
+<p class="wp-block-paragraph"><strong>Adding&nbsp;our&nbsp;ExtendedListView</strong></p>
+
+
+
+<p class="wp-block-paragraph">To create our timeline we first need to have a list of items, and for that, we are going to use our previous control discussed on <a href="https://www.pujolsluis.com/creating-custom-controls-part-1-extendedlistview/">part 1 of this series.</a></p>
+
+
+
+<h4 class="wp-block-heading">STEP 1: DEFINING OUR ITEMS</h4>
+
+
+
+<p class="wp-block-paragraph">Our control can be used for different types of scenarios, like displaying logs, or the progress of a business process (Example: ordering a pizza), etc. for the sake of our demo we will be creating a timeline of logs and each log will be represented with this model:</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/59a397c343a4ddf4bb1d177b1c700215.js"></script></p>
+
+
+
+<h4 class="wp-block-heading" id="mce_45">STEP 2: CREATING A LIST OF ITEMS FOR OUR TimeLine</h4>
+
+
+
+<p class="wp-block-paragraph">Now that we have defined our items, we can create a list of Items in our DataService which we will feed to our ExtendedListView so we can scroll through each of them and interact on our page.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/0f79e2ed2ec4a3eeeb149e943469ec55.js"></script></p>
+
+
+
+<h4 class="wp-block-heading">STEP 3: ADDING Extendedlistview TO PAGE</h4>
+
+
+
+<p class="wp-block-paragraph">To add our&nbsp;ExtendedListView&nbsp;to our page we first need to add the namespace where we can find our new component:</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/78b679a324f7837f84839aed00195903.js"></script></p>
+
+
+
+<p class="wp-block-paragraph">Once we have added the namespace correctly we&nbsp;can&nbsp;now use our ExtendedListView in our Page normally like any other component, we bind the DataSource Property to our List of&nbsp;Items&nbsp;and define our DataTemplate to Display them on our TimeLine.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/b93cd02fdbbc28cefe29904bd4b254c6.js"></script></p>
+
+
+
+<p class="wp-block-paragraph"><strong><g class="gr_ gr_4 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="4" data-gr-id="4"><g class="gr_ gr_4 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="4" data-gr-id="4">Goodjob</g></g> Guys!! </strong>Now that we have our ExtendedListView all that is left is displaying our Logs as a TimeLine thinking a little bit out of the box and using the power of Grids + BoxViews, let&#8217;s take a close look at what exactly it is we want to achieve with our UI.</p>
+
+
+
+<h4 class="wp-block-heading" id="mce_4">BUILDING OUR TIMELINE</h4>
+
+
+
+<figure class="wp-block-image"><img decoding="async" data-attachment-id="940" data-permalink="https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/screen-shot-2019-01-20-at-6-13-23-am/" data-orig-file="/pujolsluis-blog/wp-content/uploads/2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png" data-orig-size="200,412" data-comments-opened="1" data-image-title="Screen Shot 2019-01-20 at 6.13.23 AM" data-image-description="" data-image-caption="" data-large-file="/pujolsluis-blog/wp-content/uploads/2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM-e1547983043786.png" src="/pujolsluis-blog/wp-content/uploads/2019/01/Screen-Shot-2019-01-20-at-6.13.23-AM.png" alt="" class="wp-image-940"/></figure>
+
+
+
+<p class="wp-block-paragraph">Once we look closely to our UI we notice that we can actually build our Timeline up like a puzzle, dividing the end product by parts and building it up bit by bit, but what will each part consist of?</p>
+
+
+
+<figure class="wp-block-image"><img data-recalc-dims="1" decoding="async" width="512" height="425" data-attachment-id="942" data-permalink="https://www.pujolsluis.com/creating-custom-controls-part-3-timelineview/timeline-pieces-of-puzzle/" data-orig-file="/pujolsluis-blog/wp-content/uploads/2019/01/Timeline-Pieces-of-Puzzle.png" data-orig-size="512,425" data-comments-opened="1" data-image-title="Timeline Pieces of Puzzle" data-image-description="" data-image-caption="" data-large-file="/pujolsluis-blog/wp-content/uploads/2019/01/Timeline-Pieces-of-Puzzle.png" src="/pujolsluis-blog/wp-content/uploads/2019/01/Timeline-Pieces-of-Puzzle.png" alt="" class="wp-image-942" srcset="/pujolsluis-blog/wp-content/uploads/2019/01/Timeline-Pieces-of-Puzzle.png 512w, /pujolsluis-blog/wp-content/uploads/2019/01/Timeline-Pieces-of-Puzzle.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+
+
+
+<h4 class="wp-block-heading">pARTS OF TIMELINE</h4>
+
+
+
+<p class="wp-block-paragraph">Now that we have found each part that we will need, how can we actually implement it in our control?</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Starter Icon</strong></p>
+
+
+
+<p class="wp-block-paragraph">For our starter icon to be included in our layout just once, we will need to use our ExtendedListView header and declare our icon there, so it doesn&#8217;t repeat and only is visible at the start of the timeline.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/f72dd888da4b9b0f418268df873a9307.js"></script></p>
+
+
+
+<p class="wp-block-paragraph"><strong>Title and Description of Logs</strong></p>
+
+
+
+<p class="wp-block-paragraph">To recreate the layout of our logs, we notice that we have basically 2 rows of data, the first one will be for our title of the log that consist of the Author and Date of the log, and the 2nd row is basically the description of the log. So right away we know that we can just use a <strong>Grid</strong> to aid us on this task.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/7713609ecbb852df63f237260fef0ee6.js"></script></p>
+
+
+
+<p class="wp-block-paragraph"><strong>Timeline Conectors and Dot</strong></p>
+
+
+
+<p class="wp-block-paragraph">Last but not least we can notice that our connectors can be created basically using 2 BoxViews (1 Horizontal, 1 Vertical) and an image in the intersection of both for our Dot, by adding a new column to our Grid we can create the first column just for our connectors and move the information of the log to our second column, and each time a new item is added the BoxViews will connect to each other.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/aaa6c4cc048cf150251367a25528b570.js"></script></p>
+
+
+
+<h3 class="wp-block-heading">Ce Finito Guys!🥳</h3>
+
+
+
+<p class="wp-block-paragraph">You made it! now you should have a timeline control that displays your logs connected and the user can see how your events <g class="gr_ gr_7 gr-alert gr_spell gr_inline_cards gr_run_anim ContextualSpelling ins-del multiReplace" id="7" data-gr-id="7">happend</g> through time.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Bonus:</strong></p>
+
+
+
+<p class="wp-block-paragraph">Try updating the layout of your timeline to change the use case and display the progress of a process for example: Ordering a Pizza. (Hint: add a bool variable IsCompleted to your model and display the dot based on it).</p>
+
+
+
+<p class="wp-block-paragraph"><em><strong>Full Source Code for the sample App</strong></em>&nbsp;can be found on my&nbsp;<a href="https://github.com/Pujolsluis/TimelineViewSample">Github Repo [TimelineViewSample]</a></p>
+
+
+
+<p class="wp-block-paragraph">Made with ♥️by Pujols.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p class="wp-block-paragraph">References:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/bindable-properties">https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/bindable-properties</a></p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://blog.xamarin.com/simplifying-events-with-commanding/">https://blog.xamarin.com/simplifying-events-with-commanding/</a></p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://docs.microsoft.com/en-us/dotnet/standard/events/">https://docs.microsoft.com/en-us/dotnet/standard/events/</a></p>
+
+
+
+<p class="wp-block-paragraph">Credits for artwork components:<br>Icons made by&nbsp;<a href="https://www.freepik.com/">Freepik</a>&nbsp;from&nbsp;<a href="https://www.flaticon.com/">www.flaticon.com</a>&nbsp;is licensed by&nbsp;<a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noreferrer noopener">CC 3.0 BY</a><br><a href="https://www.freepik.com/free-vector/creative-workstation-illustration_1240664.htm">Workstation on Banner Designed by Eightonesix</a></p>
+<span class="cp-load-after-post"></span><div class="tptn_counter" id="tptn_counter_279">(Visited 1,461 times, 1 visits today)</div>						

@@ -1,0 +1,225 @@
+{
+  "canonical": "https://www.pujolsluis.com/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/",
+  "categories": [
+    "Android",
+    "Xamarin"
+  ],
+  "date": "2019-07-06T09:00:10-04:00",
+  "description": null,
+  "draft": false,
+  "lastmod": "2019-07-06T05:21:34-04:00",
+  "migration": {
+    "assetIds": [
+      "wp:1266",
+      "wp:1267",
+      "wp:1268"
+    ],
+    "author": {
+      "name": "Pujolsluis",
+      "sourceId": "wp-author:1"
+    },
+    "canonicalUrl": "https://www.pujolsluis.com/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/",
+    "categories": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "sourceId": "wp-category:49"
+      },
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-category:2"
+      }
+    ],
+    "embeds": [],
+    "excerptHtml": "",
+    "featuredAssetId": "wp:1266",
+    "guid": "https://www.pujolsluis.com/?p=1254",
+    "language": "en-US",
+    "provenance": {
+      "htmlSha256": "906f1287fefe2a6384e27d886e6891c7e515ea33c27faa36cac2046a51a370c1",
+      "kind": "rendered-snapshot",
+      "originalSha256": "c4c8abbade3a9e339a225dadd0e8e4a91c12017d30332f1b5f564560ca8dd1eb",
+      "reference": "public-page:2b15d3d3ca9aff732b8e0357ca4a7f5d8f6c62e4bfcd89a2a730eb4c47eee530:selector=.entry-content"
+    },
+    "sourceHead": {
+      "fields": {
+        "canonical": "https://www.pujolsluis.com/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/",
+        "description": null,
+        "ogDescription": "As Xamarin Forms Developers even though we are developing most of our code in Forms, we still need to be attentive to each native platform features and how their ecosystem evolves and how does this…",
+        "ogImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2019/07/Android-Autobackup-Banner-Pujolsluis-Xamarin.png?fit=1200%2C675&ssl=1",
+        "ogTitle": "Android Auto Backup and why we need to manage it properly in Xamarin",
+        "title": "Android Auto Backup and why we need to manage it properly in Xamarin – Pujolsluis Blog",
+        "twitterDescription": null,
+        "twitterImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2019/07/Android-Autobackup-Banner-Pujolsluis-Xamarin.png?fit=1200%2C675&ssl=1&w=640",
+        "twitterTitle": null
+      },
+      "sourcePageReference": "2b15d3d3ca9aff732b8e0357ca4a7f5d8f6c62e4bfcd89a2a730eb4c47eee530.html",
+      "sourcePageSha256": "2b15d3d3ca9aff732b8e0357ca4a7f5d8f6c62e4bfcd89a2a730eb4c47eee530"
+    },
+    "sourceId": "wp:1254",
+    "sourceType": "post",
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "sourceId": "wp-tag:51"
+      },
+      {
+        "name": "auto backup",
+        "slug": "auto-backup",
+        "sourceId": "wp-tag:52"
+      },
+      {
+        "name": "good to know",
+        "slug": "good-to-know",
+        "sourceId": "wp-tag:50"
+      },
+      {
+        "name": "XamarinForms",
+        "slug": "xamarinforms",
+        "sourceId": "wp-tag:18"
+      }
+    ]
+  },
+  "ogDescription": "As Xamarin Forms Developers even though we are developing most of our code in Forms, we still need to be attentive to each native platform features and how their ecosystem evolves and how does this…",
+  "ogImage": "/pujolsluis-blog/wp-content/uploads/2019/07/Android-Autobackup-Banner-Pujolsluis-Xamarin.png",
+  "ogTitle": "Android Auto Backup and why we need to manage it properly in Xamarin",
+  "seoTitle": "Android Auto Backup and why we need to manage it properly in Xamarin – Pujolsluis Blog",
+  "tags": [
+    "Android",
+    "auto backup",
+    "good to know",
+    "XamarinForms"
+  ],
+  "title": "Android Auto Backup and why we need to manage it properly in Xamarin",
+  "twitterDescription": null,
+  "twitterImage": "/pujolsluis-blog/wp-content/uploads/2019/07/Android-Autobackup-Banner-Pujolsluis-Xamarin.png",
+  "twitterTitle": null,
+  "type": "post",
+  "url": "/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/"
+}
+
+							
+<p class="wp-block-paragraph">As Xamarin Forms Developers even though we are developing most of our code in Forms, we still need to be attentive to each native platform features and how their ecosystem evolves and how does this affect our apps, a common case is using Shared Preferences each platform deals with them differently and that brings me to this new article. </p>
+
+
+
+<span id="more-1254"></span>
+
+
+
+<p class="wp-block-paragraph">Each platform decides how it handles it&#8217;s OS, and I want to focus on Shared Preferences and how it is affected by an awesome feature android has added to automatically backup user&#8217;s data that target Android 6.0(API Level 23) or later.  Android saves app data by uploading it to the user&#8217;s Google Drive. But the issue is that this default behavior might not be made for every app scenario, you must be aware that if you have settings for enabling things like auto-login, themes preferences, and upgrades there might be some additional setup you need to make, so your app works correctly taking this into consideration.</p>
+
+
+
+<p class="wp-block-paragraph">If we don&#8217;t each time the user completely uninstall the app and installs it again android will restore its app data backup and cause unexpected behavior in your app fresh install flow, like an auto logging flow being triggered, or setting a theme by default he had before he uninstalled the app generating an inconsistent and erroneous logic for your app.</p>
+
+
+
+<h3 class="wp-block-heading">A few basics to know . . .</h3>
+
+
+
+<ul class="wp-block-list"><li>Auto backup has a limit of 25MB per user (this has no charge for the user to store it&#8217;s app data).</li><li>We can opt out of this feature completely.</li><li>We can customize this feature to our needs.</li><li>By default auto backup will include files in most of the directories that are assigned to your app by the Android system:<ul><li>Shared Preferences Files</li><li>Files saved to your app&#8217;s internal storage, which you can access by <code>getFilesDir()</code> or <code>getDir(String, int)</code></li><li>Files in the directory returned by <code>getDatabasePath(String)</code></li></ul></li></ul>
+
+
+
+<h3 class="wp-block-heading">Examples Cases</h3>
+
+
+
+<p class="wp-block-paragraph">I will walk through 3 example app scenarios that could go wrong and sometimes unnoticed without proper testing of your app while developing (because let&#8217;s face it, sometimes edge cases like fresh install situations can fly by if we are continuously developing an app and don&#8217;t have the need to uninstall it completely from the device we are testing in).</p>
+
+
+
+<h4 class="wp-block-heading">Theming</h4>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="1920" height="1080" data-attachment-id="1267" data-permalink="https://www.pujolsluis.com/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/themes-variants-pujolsluis-autobackup-post/" data-orig-file="/pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png" data-orig-size="1920,1080" data-comments-opened="1" data-image-title="Themes-Variants-Pujolsluis-autobackup-post" data-image-description="" data-image-caption="" data-large-file="/pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png" src="/pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png" alt="" class="wp-image-1267" srcset="/pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png 1920w, /pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png 300w, /pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png 768w, /pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png 1024w, /pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png 1200w, /pujolsluis-blog/wp-content/uploads/2019/07/Themes-Variants-Pujolsluis-autobackup-post.png 1420w" sizes="(max-width: 710px) 100vw, 710px" /><figcaption>So let&#8217;s say we using our shared preferences plugin to store what theme our user like to use in our app, everything works great. but once the user decides to uninstall we want to be able to provide a default user experience to our future user using this device if he decides to install the device again, in this case since we still have autobackup by default, if the user reinstall the app. he will not see the default red theme, but instead will see the blue theme set by the previous install he used in the app. (you always have to make sure what is the requirement of the feature asking for, for some apps this may be an acceptable behavior but for others maybe they don&#8217;t want to persist this decision or at least not generally so you must do a workaround by doing it per users when they login and updating the theme of the app by asking the db what is his preferred theme or any other idea you might come up with :P) </figcaption></figure>
+
+
+
+<h4 class="wp-block-heading">Custom Authentication Experiences</h4>
+
+
+
+<figure class="wp-block-image"><img decoding="async" width="1920" height="1080" data-attachment-id="1268" data-permalink="https://www.pujolsluis.com/android-auto-backup-and-why-we-need-to-manage-it-properly-in-xamarin/cases-pujolsluis-autobackup-post/" data-orig-file="/pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png" data-orig-size="1920,1080" data-comments-opened="1" data-image-title="Cases-Pujolsluis-autobackup-post" data-image-description="" data-image-caption="" data-large-file="/pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png" src="/pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png" alt="" class="wp-image-1268" srcset="/pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png 1920w, /pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png 300w, /pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png 768w, /pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png 1024w, /pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png 1200w, /pujolsluis-blog/wp-content/uploads/2019/07/Cases-Pujolsluis-autobackup-post.png 1420w" sizes="(max-width: 710px) 100vw, 710px" /><figcaption>In these case we are analyzing: what if our app provides custom authentication experiences for our user and we decided to use shared preferences to enable or disable these features like fast auth or auto login. Once the user has enabled one his start screen will be different depending which feature he enabled, so imagen the user uninstalls the app on the device and installs it months after, the app will no longer show him the default starting page on fresh install but instead will show the methods he choose the last time the app was installed causing him to be asked a fingerprint that might not be his, or auto login him in to the app.</figcaption></figure>
+
+
+
+<h3 class="wp-block-heading">How can we manage Android Auto Back feature</h3>
+
+
+
+<p class="wp-block-paragraph">Once we know this default feature our Forms App will have in Android we can mitigate it accordingly, and Android provides us 2 ways to do it, we can either opt out completely of the auto back up feature or we can manage our app data more atomic and include or exclude what we don&#8217;t wish to persist in our backup.</p>
+
+
+
+<h4 class="wp-block-heading">Opting out of Feature</h4>
+
+
+
+<p class="wp-block-paragraph">We can disable backups by simply setting the <code>android:allowBackup</code> property to <code>false</code> in our application tag in our Android Project manifest file.</p>
+
+
+
+<script src="https://gist.github.com/Pujolsluis/95a3af6211a6d9de9f85ce5cd14f540b.js"></script>
+
+
+
+<h4 class="wp-block-heading">Include and Exclude data</h4>
+
+
+
+<p class="wp-block-paragraph">We must remember that Android is backing up by default almost all app related data, so how can we decide what to include or exclude? we simply need to define XML rules which will give us control on what we want to backup.</p>
+
+
+
+<p class="wp-block-paragraph">First, we create a new XML resource called <code>back_up_rules.xml</code> or any name you want to give it and define inside this file our rules using the <code>&lt;include></code> and <code>&lt;exclude></code> tags like for example:</p>
+
+
+
+<script src="https://gist.github.com/Pujolsluis/84e9220e155d786add3c3003ec17b6c2.js"></script>
+
+
+
+<p class="wp-block-paragraph">Once we have our rules ready all that is left is to tell our Android Application where it can find the rules it should follow if the auto backup is enabled, we can do this by simply adding the android:fullBackUpContent attribute to the application tag in our application tag in the manifest file for our app:</p>
+
+
+
+<script src="https://gist.github.com/Pujolsluis/55eda2a6080d36fa18866baf138d9303.js"></script>
+
+
+
+<p class="wp-block-paragraph"><strong>Ce finito Guys!</strong> Now you are able to manage your app&#8217;s data backup correctly and solve the issue of why the shared preferences of your Forms App were always being persisted even after uninstall on Android.</p>
+
+
+
+<p class="wp-block-paragraph">Made with ❤ by Pujolsluis</p>
+
+
+
+<h3 class="wp-block-heading">Good References to learn more about Android Auto Backup feature</h3>
+
+
+
+<p class="wp-block-paragraph">Back up user data with Auto Backup &#8211; Android:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://developer.android.com/guide/topics/data/autobackup">https://developer.android.com/guide/topics/data/autobackup</a></p>
+
+
+
+<p class="wp-block-paragraph">Files that are backed up with the auto backup feature &#8211; Android:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://developer.android.com/guide/topics/data/autobackup#Files">https://developer.android.com/guide/topics/data/autobackup#Files</a></p>
+
+
+
+<p class="wp-block-paragraph">Credits for artwork components:<br>Mobile Icons for the banner&nbsp;of the post made by <a href="https://www.freepik.com/free-photos-vectors/business">Freepik</a></p>
+<span class="cp-load-after-post"></span><div class="tptn_counter" id="tptn_counter_1254">(Visited 1,600 times, 1 visits today)</div>						

@@ -1,0 +1,211 @@
+{
+  "canonical": "https://www.pujolsluis.com/how-to-display-pdf-in-xamarin-forms-with-ease/",
+  "categories": [
+    "Xamarin"
+  ],
+  "date": "2020-08-12T07:50:48-04:00",
+  "description": null,
+  "draft": false,
+  "lastmod": "2020-08-17T08:00:28-04:00",
+  "migration": {
+    "assetIds": [
+      "wp:1783"
+    ],
+    "author": {
+      "name": "Pujolsluis",
+      "sourceId": "wp-author:1"
+    },
+    "canonicalUrl": "https://www.pujolsluis.com/how-to-display-pdf-in-xamarin-forms-with-ease/",
+    "categories": [
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-category:2"
+      }
+    ],
+    "embeds": [],
+    "excerptHtml": "",
+    "featuredAssetId": "wp:1783",
+    "guid": "https://www.pujolsluis.com/?p=1715",
+    "language": "en-US",
+    "provenance": {
+      "htmlSha256": "55e31681e5e88ce8cfd7d6965908eb12127acbdfc81f84b6cd20daff6f5f1725",
+      "kind": "rendered-snapshot",
+      "originalSha256": "1c1a9f7c874fdc0040641095516048ec40c6782f24f3327d47542f49c52733ca",
+      "reference": "public-page:c35230d9bb911ad41e7acdbf1098f35510a94aee3ca9111d2223eaa3bbf6243a:selector=.entry-content"
+    },
+    "sourceHead": {
+      "fields": {
+        "canonical": "https://www.pujolsluis.com/how-to-display-pdf-in-xamarin-forms-with-ease/",
+        "description": null,
+        "ogDescription": "Recently, I was researching different ways of displaying PDFs within our Xamarin Forms Apps, and I found that it all boils down to the following approaches.",
+        "ogImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2020/08/Banner-For-How-To-Display-PDFs-with-Ease.png?fit=1200%2C600&ssl=1",
+        "ogTitle": "How to Display PDF in Xamarin Forms With Ease",
+        "title": "How to Display PDF in Xamarin Forms With Ease – Pujolsluis Blog",
+        "twitterDescription": null,
+        "twitterImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2020/08/Banner-For-How-To-Display-PDFs-with-Ease.png?fit=1200%2C600&ssl=1&w=640",
+        "twitterTitle": null
+      },
+      "sourcePageReference": "c35230d9bb911ad41e7acdbf1098f35510a94aee3ca9111d2223eaa3bbf6243a.html",
+      "sourcePageSha256": "c35230d9bb911ad41e7acdbf1098f35510a94aee3ca9111d2223eaa3bbf6243a"
+    },
+    "sourceId": "wp:1715",
+    "sourceType": "post",
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "sourceId": "wp-tag:51"
+      },
+      {
+        "name": "iOS",
+        "slug": "ios",
+        "sourceId": "wp-tag:56"
+      },
+      {
+        "name": "Mobile Development",
+        "slug": "mobile-development",
+        "sourceId": "wp-tag:73"
+      },
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-tag:9"
+      },
+      {
+        "name": "XamarinForms",
+        "slug": "xamarinforms",
+        "sourceId": "wp-tag:18"
+      }
+    ]
+  },
+  "ogDescription": "Recently, I was researching different ways of displaying PDFs within our Xamarin Forms Apps, and I found that it all boils down to the following approaches.",
+  "ogImage": "/pujolsluis-blog/wp-content/uploads/2020/08/Banner-For-How-To-Display-PDFs-with-Ease.png",
+  "ogTitle": "How to Display PDF in Xamarin Forms With Ease",
+  "seoTitle": "How to Display PDF in Xamarin Forms With Ease – Pujolsluis Blog",
+  "tags": [
+    "Android",
+    "iOS",
+    "Mobile Development",
+    "Xamarin",
+    "XamarinForms"
+  ],
+  "title": "How to Display PDF in Xamarin Forms With Ease",
+  "twitterDescription": null,
+  "twitterImage": "/pujolsluis-blog/wp-content/uploads/2020/08/Banner-For-How-To-Display-PDFs-with-Ease.png",
+  "twitterTitle": null,
+  "type": "post",
+  "url": "/how-to-display-pdf-in-xamarin-forms-with-ease/"
+}
+
+							
+<p class="wp-block-paragraph">Recently, I was researching different ways of displaying PDFs within our Xamarin Forms Apps, and I found that it all boils down to the following approaches.</p>
+
+
+
+<span id="more-1715"></span>
+
+
+
+<p class="wp-block-paragraph">The first thing we need to know is that it all depends on a few gotchas, like where is our PDF stored? Will it be locally stored on the device or remotely? <strong>Do we need to implement a viewer inside the app? Can we delegate the work to the Browser or any existing app?</strong> </p>
+
+
+
+<h2 class="wp-block-heading">Let&#8217;s Get Started!</h2>
+
+
+
+<h3 class="wp-block-heading"><strong>File is stored remotely</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Delegate work to Device Browser</strong>: If the PDF is stored remotely, we can simply pass the URL to the device browser and customize it. We can achieve this by leveraging <strong><em>Xamarin.Essentials</em> </strong>library.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Code Snippet:</strong></p>
+
+
+
+<script src="https://gist.github.com/Pujolsluis/942720123e07df1046cb5ed695dd0024.js"></script>
+
+
+
+<p class="wp-block-paragraph"><strong>More info:</strong><br><a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/xamarin/essentials/open-browser?context=xamarin%2Fandroid&amp;tabs=android" target="_blank">https://docs.microsoft.com/en-us/xamarin/essentials/open-browser?context=xamarin%2Fandroid&amp;tabs=android</a></p>
+
+
+
+<figure class="wp-block-table aligncenter"><table><tbody><tr><td><img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/montemagno.com/content/images/2018/07/Essentials-1.png?w=710&#038;ssl=1" alt="Upgrading from Plugins to Xamarin.Essentials - James Montemagno"><a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/xamarin/essentials/open-browser?context=xamarin%2Fandroid&amp;tabs=android" target="_blank"></a></td><td><a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/xamarin/essentials/open-browser?context=xamarin%2Fandroid&amp;tabs=android" target="_blank">Xamarin.Essentials Open Browser &#8211; Xamarin</a> The Browser class in Xamarin.Essentials enable an application to open a web link in the optimized system preferred browser or the external browser.docs.microsoft.com</td></tr></tbody></table></figure>
+
+
+
+<h3 class="wp-block-heading"><strong>File Stored in Device</strong>: d<strong>elegating work to <em>any existing app</em> on the device</strong></h3>
+
+
+
+<p class="wp-block-paragraph"><strong>Delegate work to Device Launcher:</strong> This allows the user to select which App opens the PDF file such as  Google Drive PDF Viewer. This can be achieved by leveraging <strong><em>Xamarin.Essentials</em> </strong>library.</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://docs.microsoft.com/en-us/xamarin/essentials/launcher?context=xamarin%2Fandroid&amp;tabs=android">https://docs.microsoft.com/en-us/xamarin/essentials/launcher?context=xamarin%2Fandroid&amp;tabs=android</a></p>
+
+
+
+<figure class="wp-block-table aligncenter"><table><tbody><tr><td><img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/montemagno.com/content/images/2018/07/Essentials-1.png?w=710&#038;ssl=1" alt="Upgrading from Plugins to Xamarin.Essentials - James Montemagno"><a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/xamarin/essentials/launcher?context=xamarin%2Fandroid&amp;tabs=android" target="_blank"></a></td><td><a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/xamarin/essentials/launcher?context=xamarin%2Fandroid&amp;tabs=android" target="_blank">Xamarin.Essentials Launcher &#8211; Xamarin</a> The Launcher class in Xamarin.Essentials enable an application to open a URI by the system.docs.microsoft.com</td></tr></tbody></table></figure>
+
+
+
+<h3 class="wp-block-heading"><strong>File Stored in Device: embedded inside our app solution</strong>s</h3>
+
+
+
+<p class="wp-block-paragraph">We can achieve this with the following two approaches:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Implement a Custom Viewer solution:</strong>&nbsp;We could implement a <strong><em>Custom Viewer</em></strong> to display the PDF directly in the app. We could also take advantage of a third party licensed component like <strong><em>Syncfusion</em></strong>,&nbsp;which offers you a bunch of features besides displaying just the PDF.</p>
+
+
+
+<p class="wp-block-paragraph">There is a great post made by one of our awesome community member <a href="https://twitter.com/jfversluis">Gerald Versluis</a></p>
+
+
+
+<p class="wp-block-paragraph"><strong>Custom Viewer:</strong><br><a rel="noreferrer noopener" href="https://blog.verslu.is/xamarin/xamarin-forms-xamarin/showing-pdf-files-xamarin-forms/" target="_blank">https://blog.verslu.is/xamarin/xamarin-forms-xamarin/showing-pdf-files-xamarin-forms/</a></p>
+
+
+
+<figure class="wp-block-table aligncenter"><table><tbody><tr><td><img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/pbs.twimg.com/profile_images/1278622319380922369/Y0qJdgi3_400x400.jpg?w=710&#038;ssl=1" alt="Image" style="width: px;"><a rel="noreferrer noopener" href="https://blog.verslu.is/xamarin/xamarin-forms-xamarin/showing-pdf-files-xamarin-forms/" target="_blank"></a></td><td><a rel="noreferrer noopener" href="https://blog.verslu.is/xamarin/xamarin-forms-xamarin/showing-pdf-files-xamarin-forms/" target="_blank">Showing PDF files in Xamarin.Forms &#8211; Gerald Versluis</a> This will be just a quick-and-dirty blog on showing PDF files in your Xamarin.Forms application. I got the question from an Italian friend who wanted to implement this into an app, so I thought I’d share it with the rest of you!blog.verslu.is</td></tr></tbody></table><figcaption>Note: UIWebView  is now deprecated for iOS, and you must use WKWebView instead. <a href="https://twitter.com/virsanna/status/1293598844714876931">-Virsanna</a> </figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">iOS Solution for Deprecated WebViewRenderer, use a <strong>WKWebViewRenderer</strong> by <a href="https://twitter.com/virsanna">Vira Gryaznova &#8211; Virsanna</a></p>
+
+
+
+<script src="https://gist.github.com/virsanna/aaeb4590824e400415eb9c25260ae396.js"></script>
+
+
+
+<p class="wp-block-paragraph"><strong>Syncfusion PDF Viewer:<br></strong><a rel="noreferrer noopener" href="https://www.syncfusion.com/xamarin-ui-controls/xamarin-pdf-viewer" target="_blank">https://www.syncfusion.com/xamarin-ui-controls/xamarin-pdf-viewer</a></p>
+
+
+
+<figure class="wp-block-table aligncenter"><table><tbody><tr><td><img data-recalc-dims="1" decoding="async" src="https://i0.wp.com/cdn.syncfusion.com/content/images/company-logos/Syncfusion_Logo_Image.png?w=710&#038;ssl=1" alt="NET, Xamarin, JavaScript, Angular UI components | Syncfusion" style="width: px;"><a rel="noreferrer noopener" href="https://www.syncfusion.com/xamarin-ui-controls/xamarin-pdf-viewer" target="_blank"></a></td><td><a rel="noreferrer noopener" href="https://www.syncfusion.com/xamarin-ui-controls/xamarin-pdf-viewer" target="_blank">Xamarin PDF Viewer | View and review PDF files | Syncfusion</a> Overview: The Xamarin PDF Viewer is a feature-rich and high-performance control to view and review PDF files in Xamarin.Forms applications. The bookmark, hyperlink, and table of contents support provide easy navigation within and outside PDF files. www.syncfusion.com</td></tr></tbody></table></figure>
+
+
+
+<h4 class="wp-block-heading">Ce Finito! 🎊☺️</h4>
+
+
+
+<p class="wp-block-paragraph">Great Job! we are now able to display pdfs in any scenario we could encounter. I hope you have a great time trying out all of the solutions and implementing them in your future projects.</p>
+
+
+
+<p class="wp-block-paragraph">Made with ❤ by Pujolsluis</p>
+
+
+
+<p class="wp-block-paragraph">Special Thanks to <a href="https://twitter.com/virsanna">Virsanna</a>, <a href="https://www.linkedin.com/in/faizatkhan/">Faiza Khan</a>, <a href="https://www.linkedin.com/in/damiancastroviejo/">Damian Castroviejo</a> for their great contributions on this article. 🥳</p>
+<span class="cp-load-after-post"></span><div class="tptn_counter" id="tptn_counter_1715">(Visited 8,078 times, 1 visits today)</div>						

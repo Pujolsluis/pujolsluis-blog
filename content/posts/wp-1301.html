@@ -1,0 +1,290 @@
+{
+  "canonical": "https://www.pujolsluis.com/printing-pdfs-and-images-xamarin-forms/",
+  "categories": [
+    "Xamarin"
+  ],
+  "date": "2019-07-29T15:55:39-04:00",
+  "description": null,
+  "draft": false,
+  "lastmod": "2019-07-29T16:08:08-04:00",
+  "migration": {
+    "assetIds": [
+      "wp:1309",
+      "wp:1310"
+    ],
+    "author": {
+      "name": "Pujolsluis",
+      "sourceId": "wp-author:1"
+    },
+    "canonicalUrl": "https://www.pujolsluis.com/printing-pdfs-and-images-xamarin-forms/",
+    "categories": [
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-category:2"
+      }
+    ],
+    "embeds": [],
+    "excerptHtml": "",
+    "featuredAssetId": "wp:1309",
+    "guid": "https://www.pujolsluis.com/?p=1301",
+    "language": "en-US",
+    "provenance": {
+      "htmlSha256": "46aaa86e1a88e65befe42494d440a01db4faea1193cd13fbbe63ec0d9ba34528",
+      "kind": "rendered-snapshot",
+      "originalSha256": "8e9bb24b5f31eb5f5be93964f039613ea9475e9c801a9eb687466a645be0c508",
+      "reference": "public-page:97e1e27f05e205c9ac15163bcc7ec79f2183ae4ee351b9f9c503063824c85bc7:selector=.entry-content"
+    },
+    "sourceHead": {
+      "fields": {
+        "canonical": "https://www.pujolsluis.com/printing-pdfs-and-images-xamarin-forms/",
+        "description": null,
+        "ogDescription": "Hey Guys! Recently I had the need to implement a Printing feature for one of my Xamarin Forms projects, and discovered it was actually kind of straight forward to do, which brings me to our article…",
+        "ogImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2019/07/Xamarin-Forms-Printing-PDFs-and-Images-Pujolsluis.png?fit=1200%2C675&ssl=1",
+        "ogTitle": "Printing PDF’S and Images Xamarin.Forms",
+        "title": "Printing PDF’S and Images Xamarin.Forms – Pujolsluis Blog",
+        "twitterDescription": null,
+        "twitterImage": "https://i0.wp.com/www.pujolsluis.com/wp-content/uploads/2019/07/Xamarin-Forms-Printing-PDFs-and-Images-Pujolsluis.png?fit=1200%2C675&ssl=1&w=640",
+        "twitterTitle": null
+      },
+      "sourcePageReference": "97e1e27f05e205c9ac15163bcc7ec79f2183ae4ee351b9f9c503063824c85bc7.html",
+      "sourcePageSha256": "97e1e27f05e205c9ac15163bcc7ec79f2183ae4ee351b9f9c503063824c85bc7"
+    },
+    "sourceId": "wp:1301",
+    "sourceType": "post",
+    "tags": [
+      {
+        "name": "Android",
+        "slug": "android",
+        "sourceId": "wp-tag:51"
+      },
+      {
+        "name": "iOS",
+        "slug": "ios",
+        "sourceId": "wp-tag:56"
+      },
+      {
+        "name": "Print",
+        "slug": "print",
+        "sourceId": "wp-tag:55"
+      },
+      {
+        "name": "Xamarin",
+        "slug": "xamarin",
+        "sourceId": "wp-tag:9"
+      },
+      {
+        "name": "XamarinForms",
+        "slug": "xamarinforms",
+        "sourceId": "wp-tag:18"
+      }
+    ]
+  },
+  "ogDescription": "Hey Guys! Recently I had the need to implement a Printing feature for one of my Xamarin Forms projects, and discovered it was actually kind of straight forward to do, which brings me to our article…",
+  "ogImage": "/pujolsluis-blog/wp-content/uploads/2019/07/Xamarin-Forms-Printing-PDFs-and-Images-Pujolsluis.png",
+  "ogTitle": "Printing PDF’S and Images Xamarin.Forms",
+  "seoTitle": "Printing PDF’S and Images Xamarin.Forms – Pujolsluis Blog",
+  "tags": [
+    "Android",
+    "iOS",
+    "Print",
+    "Xamarin",
+    "XamarinForms"
+  ],
+  "title": "Printing PDF'S and Images Xamarin.Forms",
+  "twitterDescription": null,
+  "twitterImage": "/pujolsluis-blog/wp-content/uploads/2019/07/Xamarin-Forms-Printing-PDFs-and-Images-Pujolsluis.png",
+  "twitterTitle": null,
+  "type": "post",
+  "url": "/printing-pdfs-and-images-xamarin-forms/"
+}
+
+							
+<p class="wp-block-paragraph">Hey Guys!</p>
+
+
+
+<p class="wp-block-paragraph">Recently I had the need to implement a Printing feature for one of my Xamarin Forms projects, and discovered it was actually kind of straight forward to do, which brings me to our article of this week!</p>
+
+
+
+<span id="more-1301"></span>
+
+
+
+<p class="wp-block-paragraph">Right now Xamarin Forms does not support printing out of the box, but the good news is that each native platform already has support for this feature and we just need to tap into each native library and expose this feature for our App.</p>
+
+
+
+<figure class="wp-block-image"><img data-recalc-dims="1" decoding="async" width="600" height="622" data-attachment-id="1310" data-permalink="https://www.pujolsluis.com/printing-pdfs-and-images-xamarin-forms/printingdemoxamarinformspujolsluis/" data-orig-file="/pujolsluis-blog/wp-content/uploads/2019/07/PrintingDemoXamarinFormsPujolsluis.gif" data-orig-size="600,622" data-comments-opened="1" data-image-title="PrintingDemoXamarinFormsPujolsluis" data-image-description="" data-image-caption="" data-large-file="/pujolsluis-blog/wp-content/uploads/2019/07/PrintingDemoXamarinFormsPujolsluis.gif" src="/pujolsluis-blog/wp-content/uploads/2019/07/PrintingDemoXamarinFormsPujolsluis.gif" alt="" class="wp-image-1310"/></figure>
+
+
+
+<h3 class="wp-block-heading">Prerequisites</h3>
+
+
+
+<p class="wp-block-paragraph">You will need previous knowledge on the following subjects to follow along with the sample project in this article (all of these topics have been discussed on my previous articles, you can revisit them to refresh any doubts you might have while reading this article):</p>
+
+
+
+<ul class="wp-block-list"><li><strong>MVVM Pattern</strong></li><li><strong>Using Fody Property Change Plugin</strong></li><li><strong>Commanding</strong></li><li><strong>Services</strong></li><li><strong>Pris</strong>m</li></ul>
+
+
+
+<h2 class="wp-block-heading">Let’s get Started!</h2>
+
+
+
+<p class="wp-block-paragraph">Now that we know we need to expose the native feature to our Xamarin Forms project, we immediately think on creating a service and consuming it with Dependency Services to get our native print services live, and to do so we will need the following in our app:</p>
+
+
+
+<ul class="wp-block-list"><li><strong>IPrintService</strong> Interface.</li><li><strong>PrintService</strong> Implementation for Xamarin.Android and Xamarin.iOS.</li><li><strong>Embedded PDF Resource File</strong> which we will print.</li><li><strong>James Montemagno</strong> <strong>CurrentActivity, Media and Permissions</strong> Plugins.</li></ul>
+
+
+
+<h4 class="wp-block-heading">IPrintService Interface</h4>
+
+
+
+<p class="wp-block-paragraph">We will create a Services Directory in our project and inside of it, we are going to create IPrintService.cs and declare 2 methods in our interface, <strong>PrintImage(Stream img)</strong> and <strong>PrintPdfFile(Stream file)</strong>:</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/ca3a47bab628a91cab9fa5971dbb8883.js"></script></p>
+
+
+
+<p class="wp-block-paragraph">Now that we have our Interface created, we just need to implement it in each platform, we will start by implementing the PrintImage feature.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Android PrintService:</strong></p>
+
+
+
+<p class="wp-block-paragraph">In Android, we have a method available that allows us to print a Bitmap directly, so to simplify and abstract the method we decided to receive our data as a Stream and simply convert it to a bitmap and print.</p>
+
+
+
+<script src="https://gist.github.com/Pujolsluis/aeceffc65baa2aa1379b7cfc8c90e90e.js"></script>
+
+
+
+<p class="wp-block-paragraph"><strong>iOS PrintService:</strong></p>
+
+
+
+<p class="wp-block-paragraph">In iOS we do something similar to Android but with an UIImage, once we have our UIImage created we can then prepare our printer for the printing job and print right away.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/eb11204bb7cd60f60e596a6624fc6fbd.js"></script></p>
+
+
+
+<p class="wp-block-paragraph">Goodjob! now we should be able to print our images on AirPrint enabled printers, now it&#8217;s time to add our logic for printing PDF&#8217;s, after searching the docs and looking around if someone has done a sample for this I found that in the <a href="https://www.syncfusion.com/kb/8767/how-to-print-pdf-documents-in-xamarin-forms-platform">Syncfusion blog</a> they have a great post that goes according to the official documentation in <a href="https://developer.android.com/training/printing/custom-docs.html">Android</a> and <a href="https://developer.apple.com/airprint/">iOS</a> so I decided to try it out and it worked like a charm and decided to integrate it, Kudos to them for the good work!</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Android PrintService:</strong></p>
+
+
+
+<p class="wp-block-paragraph">For printing files in Android it&#8217;s a bit different than printing a Bitmap, because we will need to handle the printing lifecycle with a custom print adapter but what is a custom print adapter well Android docs states the following: </p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>A print adapter interacts with the Android print framework and handles the steps of the printing process. This process requires users to select printers and print options before creating a document for printing. These selections can influence the final output as the user chooses printers with different output capabilities, different page sizes, or different page orientations. As these selections are made, the print framework asks your adapter to lay out and generate a print document, in preparation for final output. Once a user taps the print button, the framework takes the final print document and passes it to a print provider for output.</p><cite><a href="https://developer.android.com/training/printing/custom-docs.html">Android Printing Custom Docs</a></cite></blockquote>
+
+
+
+<p class="wp-block-paragraph">So once we have our PrintAdapter we simply pass it to our PrintManager and Android will handle all the remaining steps of the process to allow our users to print.</p>
+
+
+
+<figure class="wp-block-embed"><div class="wp-block-embed__wrapper">
+https://developer.android.com/training/printing/custom-docs.html
+</div></figure>
+
+
+
+<p class="wp-block-paragraph"><strong>iOS PrintService:</strong></p>
+
+
+
+<p class="wp-block-paragraph">For iOS we simply make a copy of our stream in a <strong>MemoryStream</strong> and set up the basic printer options to define stuff like the OutType of the print we want, for example, Grayscale, if it&#8217;s just a Photo if it&#8217;s General which includes images, text, and graphics. For our case we choosed General.</p>
+
+
+
+<p class="wp-block-paragraph"><script src="https://gist.github.com/Pujolsluis/cba4084dcf6afa30c0b9b358139435f4.js"></script></p>
+
+
+
+<p class="wp-block-paragraph"><strong>Ce finito Guys! </strong>🥳🙌 Now our app should be able to print images and PDF&#8217;s on wifi, and AirPrint Enabled printers, you can do so much more with these native libraries so if you would like to learn more I definitely recommend reading more and checking out the xamarin-samples repo on GitHub some of them are made by the one and only Miguel Icaza🙌🙈, and official documentation for each platform.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Bonus:</strong></p>
+
+
+
+<ul class="wp-block-list"><li>Try updating the app to use the File Picker plugin and choose your PDF&#8217;s dynamically.</li></ul>
+
+
+
+<p class="wp-block-paragraph">PDT: <strong><em>Limitations</em></strong> on PDF Printing in Android, I noticed the PDF&#8217;s must be version 1.6+ to be able to print in Android, anything below that Android PrintManager will say the PDF is malformed and can&#8217;t print.</p>
+
+
+
+<p class="wp-block-paragraph"><em><strong>Full Source Code for the sample App</strong></em>&nbsp;can be found on my&nbsp;<a href="https://github.com/Pujolsluis/FormsPrintSample">Github Repo [FormsPrintSample]</a></p>
+
+
+
+<p class="wp-block-paragraph">Made with ❤ by Pujolsluis</p>
+
+
+
+<h3 class="wp-block-heading">Good References to learn more about Printing in iOS and Android</h3>
+
+
+
+<p class="wp-block-paragraph">Xamarin-samples repo:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://github.com/xamarin/ios-samples">https://github.com/xamarin/ios-samples</a></p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://github.com/xamarin/monodroid-samples">https://github.com/xamarin/monodroid-samples</a></p>
+
+
+
+<p class="wp-block-paragraph">Syncfusion Printing PDF&#8217;s blog post:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.syncfusion.com/kb/8767/how-to-print-pdf-documents-in-xamarin-forms-platform">https://www.syncfusion.com/kb/8767/how-to-print-pdf-documents-in-xamarin-forms-platform</a></p>
+
+
+
+<p class="wp-block-paragraph">Android Printing Official Documentation:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://developer.android.com/training/printing">https://developer.android.com/training/printing</a></p>
+
+
+
+<p class="wp-block-paragraph">iOS Printing Official Documentation:</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://developer.apple.com/airprint/">https://developer.apple.com/airprint/</a></p>
+
+
+
+<p class="wp-block-paragraph">Credits for artwork components:<br>Mobile Icons for the banner&nbsp;of the post made by <a href="https://www.freepik.com/free-photos-vectors/business">Freepik</a></p>
+<span class="cp-load-after-post"></span><div class="tptn_counter" id="tptn_counter_1301">(Visited 8,561 times, 1 visits today)</div>						

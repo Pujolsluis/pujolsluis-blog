@@ -1,6 +1,6 @@
 # Editorial workflow for the Hugo preview
 
-This guide describes the planned Git workflow for editing this repository. The repository currently has a Hugo renderer shell and synthetic fixtures; it does not contain the imported blog or a completed migration. The included theme is scaffolding and has not been verified against the production theme. WordPress remains production while migration review is underway.
+This guide describes the Git workflow for editing the Hugo migration preview. The repository now contains 66 selected static posts/pages/portfolio records and 98 attachment pages, with 420 selected upload files covering 422 public paths. The preview is deployed at the GitHub Pages project URL; WordPress remains production. Source theme and full-page visual parity are still under review, so this is not a completed migration or a cutover approval. See the [preview status report](../reports/content-preview.md) for known gaps.
 
 ## 1. Set up a local checkout
 
@@ -99,7 +99,7 @@ To run the renderer checks for repository-prefix and production-root output:
 python3 -m unittest discover -s tests -v
 ```
 
-The tests use synthetic content. They do not validate migrated pages, the production theme, image inventory, or source screenshots. The default build targets `https://pujolsluis.github.io/pujolsluis-blog/`; local output is configured with `noindex,nofollow`, `robots.txt` disallow, and no sitemap. A hosted preview, if deployed, is public and these crawler directives are not a privacy control. Do not put confidential content in a draft or assume `draft: true` protects a file already committed to this public repository.
+The test suite covers both synthetic renderer fixtures and the migrated content set, including routes and withheld-comment metadata. It does not establish pixel-level parity with every source screenshot or validate every external service. The default build targets `https://pujolsluis.github.io/pujolsluis-blog/`; local output is configured with `noindex,nofollow`, `robots.txt` disallow, and no sitemap. The hosted preview is public and these crawler directives are not a privacy control. Do not put confidential content in a draft or assume `draft: true` protects a file already committed to this public repository.
 
 ## 6. Review changes through a pull request
 
@@ -130,4 +130,4 @@ If a bad staging deployment is already public, revert promptly, verify the new P
 
 ## Still pending
 
-The content/media contracts, importer, complete feature decisions, and production-content reconciliation are not integrated here. The source theme assets, licensing, and visual screenshot baseline are also missing. This guide enables local fixture-driven authoring and describes the current reviewed workflow; it does not claim that migration or production theme fidelity is complete.
+Source theme assets and their licensing, visual screenshot comparison, the two missing image masters, one oEmbed route, three commerce routes, and final content/media reconciliation remain open. Comments are intentionally out of scope. The current preview is useful for content and route review; it does not claim that 100% migration or production theme fidelity is complete.

@@ -6,12 +6,14 @@ the normalized public bundle and the private WXR reconciliation report.
 
 import argparse
 import hashlib
+import html
 import json
 import os
 import re
 import shutil
 import tempfile
 from datetime import datetime
+from html.parser import HTMLParser
 from pathlib import Path
 
 from docs.contracts.validate import validate_document
@@ -26,6 +28,137 @@ class HugoExportError(ValueError):
 
 def _sha(data):
     return hashlib.sha256(data).hexdigest()
+
+
+class _CommentMarkup(HTMLParser):
+    """Find comment threads, avatars and submission forms without changing other HTML."""
+
+    VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta',
+            'param', 'source', 'track', 'wbr'}
+    COMMENT_IDS = {'comments', 'commentlist', 'comment-list', 'commentform', 'respond'}
+    COMMENT_CLASSES = {'comment', 'comments', 'comments-area', 'comment-list', 'commentlist',
+                       'comment-respond', 'comment-form'}
+
+    def __init__(self, source):
+        super().__init__(convert_charrefs=False)
+        self.source = source
+        self.lines = source.splitlines(keepends=True)
+        self.stack = []
+        self.removals = []
+        self.comment_block_count = 0
+        self.form_count = 0
+        self.comment_form_count = 0
+        self.other_form_count = 0
+        self.comment_link_count = 0
+        self.feed(source)
+        self.close()
+        for row in self.stack:
+            if row['drop']:
+                self.removals.append((row['start'], len(source)))
+
+    def position(self):
+        line, column = self.getpos()
+        return sum(map(len, self.lines[:line - 1])) + column
+
+    def _start(self, tag, attrs, self_closing=False):
+        start = self.position()
+        attributes = dict(attrs)
+        element_id = (attributes.get('id') or '').lower()
+        classes = set((attributes.get('class') or '').lower().split())
+        action = (attributes.get('action') or '').lower()
+        comment_form = tag == 'form' and (
+            element_id == 'commentform' or 'comment-form' in classes
+            or 'wp-comments-post.php' in action)
+        comment_node = (element_id in self.COMMENT_IDS or element_id.startswith('comment-')
+                        or bool(classes & self.COMMENT_CLASSES))
+        avatar = tag == 'img' and bool(classes & {'avatar', 'gravatar'})
+        if tag == 'img':
+            source_url = ' '.join((attributes.get(key) or '') for key in ('src', 'srcset')).lower()
+            avatar = avatar or 'gravatar.' in source_url or '/avatar/' in source_url
+        other_form = tag == 'form' and not comment_form
+        href = (attributes.get('href') or '').lower()
+        comment_link = tag == 'a' and bool(re.search(
+            r'(?:#[^#]*(?:comment|respond)[^#]*$|[?&]replytocom=)', href))
+        if comment_link:
+            self.comment_link_count += 1
+        parent_drop = any(row['drop'] for row in self.stack)
+        in_code = any(row['tag'] in {'pre', 'code', 'script', 'style'} for row in self.stack)
+        if tag == 'form':
+            self.form_count += 1
+            if comment_form:
+                self.comment_form_count += 1
+            else:
+                self.other_form_count += 1
+        reason = 'comment' if comment_node or comment_form or avatar else 'form' if other_form else None
+        drop = not parent_drop and not in_code and reason is not None
+        if drop and reason == 'comment':
+            self.comment_block_count += 1
+        end_start = start + len(self.get_starttag_text() or '')
+        if tag in self.VOID or self_closing:
+            if drop:
+                self.removals.append((start, end_start))
+            return
+        self.stack.append({'tag': tag, 'start': start, 'drop': drop,
+                           'unwrap': comment_link and not drop,
+                           'open_end': end_start})
+
+    def handle_starttag(self, tag, attrs):
+        self._start(tag, attrs)
+
+    def handle_startendtag(self, tag, attrs):
+        self._start(tag, attrs, self_closing=True)
+
+    def handle_endtag(self, tag):
+        indexes = [index for index, row in enumerate(self.stack) if row['tag'] == tag]
+        if not indexes:
+            return
+        index = indexes[-1]
+        start = self.position()
+        match = re.search(r'</\s*' + re.escape(tag) + r'\s*>', self.source[start:], re.IGNORECASE)
+        end = start + match.end() if match else start
+        if self.stack[index]['drop']:
+            self.removals.append((self.stack[index]['start'], end))
+        elif self.stack[index]['unwrap']:
+            self.removals.append((self.stack[index]['start'], self.stack[index]['open_end']))
+            self.removals.append((start, end))
+        self.stack = self.stack[:index]
+
+
+def sanitize_public_html(source):
+    """Remove WordPress comments/forms while preserving the remaining source HTML."""
+    source, editor_marker_count = re.subn(
+        r'<span\b(?=[^>]*\bclass\s*=\s*["\'][^"\']*\bmce_SELRES_(?:start|end)\b'
+        r'[^"\']*["\'])[^>]*>.*?</span\s*>', '', source, flags=re.IGNORECASE | re.DOTALL)
+    parsed = _CommentMarkup(source)
+    merged = []
+    for start, end in sorted(parsed.removals):
+        if merged and start <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], end))
+        else:
+            merged.append((start, end))
+    output = []
+    cursor = 0
+    for start, end in merged:
+        output.append(source[cursor:start])
+        cursor = end
+    output.append(source[cursor:])
+    return ''.join(output), {
+        'commentBlockCount': parsed.comment_block_count,
+        'formCount': parsed.form_count,
+        'commentFormCount': parsed.comment_form_count,
+        'otherFormCount': parsed.other_form_count,
+        'commentLinkCount': parsed.comment_link_count,
+        'editorMarkerCount': editor_marker_count,
+    }
+
+
+def _is_comment_fragment(fragment):
+    value = str(fragment).lower().lstrip('#')
+    return 'comment' in value or 'respond' in value
+
+
+def _public_fragments(fragments):
+    return [fragment for fragment in fragments if not _is_comment_fragment(fragment)]
 
 
 def _instant(value):
@@ -59,12 +192,9 @@ def _front_matter(item, source_head=None, mapping=None, base='/', unresolved=Non
             'tags': item['tags'],
             'guid': metadata['guid'],
             'excerptHtml': metadata['excerptHtml'],
-            'commentStatus': metadata['commentStatus'],
-            'pingStatus': metadata['pingStatus'],
             'featuredAssetId': metadata['featuredAssetId'],
             'assetIds': item['assetIds'],
             'embeds': item['embeds'],
-            'comments': item['comments'],
             'provenance': item['content']['provenance'],
         },
     }
@@ -106,6 +236,10 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
     paths = set()
     ids = set()
     unresolved_media = []
+    deferred_comments = []
+    deferred_forms = []
+    removed_comment_markup = 0
+    form_bridge_count = 0
     authored_sections = {item['kind'] for item in bundle['items'] if item['kind'] != 'page'}
     for item in bundle['items']:
         source_id = item['sourceId']
@@ -120,6 +254,9 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
         if _instant(item['publishedAt']) > cutoff:
             excluded.append({'sourceId': source_id, 'reason': 'future-at-build-time'})
             continue
+        if item['comments']:
+            deferred_comments.append({'sourceId': source_id, 'count': len(item['comments']),
+                                      'disposition': 'owner-publication-decision'})
         if item['kind'] not in ('post', 'page', 'portfolio'):
             raise HugoExportError(f'{source_id}: unsupported Hugo content kind')
         if not re.fullmatch(r'wp:[1-9][0-9]*', source_id):
@@ -127,7 +264,18 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
         body = item['content']['html']
         if _sha(body.encode('utf-8')) != item['content']['provenance']['htmlSha256']:
             raise HugoExportError(f'{source_id}: rendered HTML checksum mismatch')
+        body, sanitation = sanitize_public_html(body)
+        removed_comment_markup += sanitation['commentBlockCount']
+        if sanitation['formCount']:
+            deferred_forms.append({'sourceId': source_id, 'count': sanitation['formCount'],
+                                   'disposition': 'form-omitted'})
         rendered_body, missing = rewrite_html(body, mapping, base)
+        if base != '/' and sanitation['otherFormCount']:
+            form_url = html.escape(item['canonicalUrl'], quote=True)
+            rendered_body += ('\n<aside class="migration-form-bridge">This preview does not accept '
+                              f'submissions. <a href="{form_url}">Use the form on the live site</a>.'
+                              '</aside>')
+            form_bridge_count += 1
         missing_set = set(missing)
         front = json.dumps(_front_matter(item, heads.get(source_id), mapping, base, missing_set),
                            ensure_ascii=False, indent=2, sort_keys=True)
@@ -140,8 +288,9 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
         contents = (front + '\n' + rendered_body).encode('utf-8')
         section_root = item['kind'] == 'page' and item['path'].strip('/') in authored_sections \
             and item['path'] == '/' + item['path'].strip('/') + '/'
+        content_section = 'posts' if item['kind'] == 'post' else item['kind']
         relative = (item['path'].strip('/') + '/_index.html' if section_root else
-                    f'{item["kind"]}/{source_id.replace(":", "-")}.html')
+                    f'{content_section}/{source_id.replace(":", "-")}.html')
         files[relative] = contents
         entries.append({'sourceId': source_id, 'kind': item['kind'], 'path': item['path'],
                         'file': relative, 'fileSha256': _sha(contents),
@@ -156,10 +305,22 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
         if _instant(item['publishedAt']) > cutoff:
             excluded.append({'sourceId': source_id, 'reason': 'future-at-build-time'})
             continue
-        body, missing = rewrite_html(item['html'], mapping, base)
+        sanitized_body, sanitation = sanitize_public_html(item['html'])
+        removed_comment_markup += sanitation['commentBlockCount']
+        if sanitation['formCount']:
+            deferred_forms.append({'sourceId': source_id, 'count': sanitation['formCount'],
+                                   'disposition': 'form-omitted'})
+        body, missing = rewrite_html(sanitized_body, mapping, base)
+        if base != '/' and sanitation['otherFormCount']:
+            form_url = html.escape(item['canonicalUrl'], quote=True)
+            body += ('\n<aside class="migration-form-bridge">This preview does not accept '
+                     f'submissions. <a href="{form_url}">Use the form on the live site</a>.'
+                     '</aside>')
+            form_bridge_count += 1
         unresolved_media.extend({'sourceId': source_id, 'sourceUrl': url,
                                  'reason': 'unmapped-upload' if upload_path(url)
                                  else 'owned-non-upload'} for url in missing)
+        public_fragments = _public_fragments(item['fragments'])
         front = {'title': item['title'], 'date': item['publishedAt'], 'lastmod': item['modifiedAt'],
                  'url': item['path'], 'type': 'attachment', 'draft': False,
                  'canonical': item['canonicalUrl'],
@@ -169,10 +330,11 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
                                'sourcePageReference': item['sourcePageReference'],
                                'captionHtml': item['captionHtml'],
                                'imageReferences': item['imageReferences'],
-                               'fragments': item['fragments'],
-                               'duplicateFragments': item['duplicateFragments'],
-                               'sourceFragments': item['sourceFragments'],
-                               'duplicateSourceFragments': item['duplicateSourceFragments']}}
+                               'fragments': public_fragments,
+                               'duplicateFragments': _public_fragments(item['duplicateFragments']),
+                               'sourceFragments': _public_fragments(item['sourceFragments']),
+                               'duplicateSourceFragments': _public_fragments(
+                                   item['duplicateSourceFragments'])}}
         contents = (json.dumps(front, ensure_ascii=False, indent=2, sort_keys=True) + '\n' + body).encode()
         relative = f'attachment/{source_id.replace(":", "-")}.html'
         files[relative] = contents
@@ -186,11 +348,21 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
               'buildTime': cutoff.isoformat(), 'inputRecordCount': len(bundle['items']) + len(attachments),
               'outputRecordCount': len(entries), 'excluded': excluded, 'items': entries,
               'sourceHeadCoverage': len(heads), 'attachmentRouteCount': len(attachments),
+              'deferredComments': {'recordCount': len(deferred_comments),
+                                   'commentCount': sum(row['count'] for row in deferred_comments),
+                                   'items': deferred_comments},
+              'removedCommentMarkupCount': removed_comment_markup,
+              'formBridgeCount': form_bridge_count,
+              'deferredForms': {'recordCount': len(deferred_forms),
+                                'formCount': sum(row['count'] for row in deferred_forms),
+                                'items': deferred_forms},
               'attachmentRoutes': [{'sourceId': item['sourceId'], 'path': item['path'],
-                                    'fragments': item['fragments'],
-                                    'sourceFragments': item['sourceFragments'],
-                                    'sourceShellFragments': sorted(set(item['sourceFragments'])
-                                                                   - set(item['fragments']))}
+                                    'fragments': _public_fragments(item['fragments']),
+                                    'previewFragments': _public_fragments(item['fragments']),
+                                    'sourceFragments': _public_fragments(item['sourceFragments']),
+                                    'sourceShellFragments': sorted(set(_public_fragments(
+                                        item['sourceFragments']))
+                                        - set(_public_fragments(item['fragments'])))}
                                    for item in attachments],
               'unresolvedOwnedMedia': unresolved_media}
     report['contentSha256'] = _sha(json.dumps(bundle, ensure_ascii=False, sort_keys=True,
