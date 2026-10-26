@@ -1,4 +1,5 @@
 """Build sanitized fixtures in preview and production URL modes."""
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -34,6 +35,12 @@ class HugoRenderingTests(unittest.TestCase):
         self.assertIn('aria-label="Synthetic gallery"', html)
         self.assertIn('href=/pujolsluis-blog/categories/fixture/', html)
         self.assertIn('href=/pujolsluis-blog/tags/renderer/', html)
+        self.assertIn('role=search', html)
+        self.assertIn('aria-live=polite', html)
+        self.assertIn('data-index-url=/pujolsluis-blog/search-index.json', html)
+        self.assertIn('src=/pujolsluis-blog/theme/js/search.js', html)
+        self.assertIn('href=/pujolsluis-blog/theme/css/search.css', html)
+        self.assertTrue((out / "theme/js/search.js").is_file())
         self.assertIn("Disallow: /", (out / "robots.txt").read_text())
         self.assertFalse((out / "sitemap.xml").exists())
         self.assertNotIn('class="comments"', html)
@@ -92,6 +99,11 @@ class HugoRenderingTests(unittest.TestCase):
         self.assertIn("https://www.pujolsluis.com/2024/02/03/renderer-fixture/", html)
         self.assertIn("/theme/css/main.css", html)
         self.assertNotIn("/pujolsluis-blog/", html)
+        search_index = json.loads((out / "search-index.json").read_text())
+        self.assertEqual(len(search_index), 1)
+        self.assertEqual(search_index[0]["url"], "/2024/02/03/renderer-fixture/")
+        self.assertIn('data-index-url=/search-index.json', html)
+        self.assertIn('href=/theme/css/search.css', html)
         self.assertIn("Sitemap: https://www.pujolsluis.com/sitemap.xml", (out / "robots.txt").read_text())
         self.assertTrue((out / "sitemap.xml").exists())
         feed = (out / "posts/index.xml").read_text()
