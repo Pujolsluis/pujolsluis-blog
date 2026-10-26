@@ -1,6 +1,6 @@
 # Editorial workflow for the Hugo preview
 
-This guide describes the Git workflow for editing the Hugo migration preview. The repository now contains 66 selected static posts/pages/portfolio records and 98 attachment pages, with 420 selected upload files covering 422 public paths. The preview is deployed at the GitHub Pages project URL; WordPress remains production. Source theme and full-page visual parity are still under review, so this is not a completed migration or a cutover approval. See the [preview status report](../reports/content-preview.md) for known gaps.
+This guide describes the Git workflow for editing the Hugo migration preview. The repository contains 66 selected static posts/pages/portfolio records and 98 attachment pages, with 420 selected upload files covering 422 public paths. Merging to `master` deploys these files to the GitHub Pages project URL; WordPress remains production. Source theme and full-page visual parity are still under review, so this is not a completed migration or a cutover approval. See the [preview status report](../reports/content-preview.md) for known gaps.
 
 ## 1. Set up a local checkout
 

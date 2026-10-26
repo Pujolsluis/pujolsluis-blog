@@ -1,6 +1,6 @@
 # Content preview status
 
-This aggregate report describes the public GitHub Pages preview as of 2026-10-25. It contains no WXR records, comment text, personal comment metadata, source snapshots or private importer reports. The preview remains noindex, and WordPress remains the production site.
+This aggregate report describes the content preview represented in this repository as of 2026-10-25. Merging to `master` and completing the Pages deployment makes these routes available at the public preview URL. The report contains no WXR records, comment text, personal comment metadata, source snapshots or private importer reports. The preview remains noindex, and WordPress remains the production site.
 
 ## Imported preview scope
 

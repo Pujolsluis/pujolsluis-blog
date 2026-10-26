@@ -2,7 +2,7 @@
 
 MIG-04 provides a Hugo theme shell for the public preview. It supports ordinary Hugo pages and posts, homepage stream/sidebar, category/tag taxonomies, portfolio archive/detail shells, page metadata, feed GUID/excerpt fields and preserved WordPress HTML. The Hugo security allowlist explicitly permits `text/html` alongside `text/markdown` because the importer validates hash-bound rendered bodies and rejects unsupported structures before writing content. This is an opt-in trusted import path, not permission to publish arbitrary HTML from untrusted submissions. Imported `.Content` is rendered as-is to retain source structure.
 
-The public source theme archive and its license/custom CSS have not been supplied in this worktree. The included responsive editorial theme is original scaffolding, not a claim that it matches TheBlogger visually. The preview now includes imported content and 420 selected upload files; synthetic renderer fixtures remain separately under `tests/rendering/fixtures` and must not be treated as migrated material.
+The public source theme archive and its license/custom CSS have not been supplied in this worktree. The included responsive editorial theme is original scaffolding, not a claim that it matches TheBlogger visually. The content preview source includes imported content and 420 selected upload files; merging to `master` deploys them to Pages. Synthetic renderer fixtures remain separately under `tests/rendering/fixtures` and must not be treated as migrated material.
 
 ## Build modes
 

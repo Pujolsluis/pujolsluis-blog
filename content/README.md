@@ -1,6 +1,6 @@
 # Blog content
 
-This public preview contains 45 posts, 8 pages, 13 portfolio entries and 98 attachment pages from the reviewed WordPress export and frozen rendered-page evidence. The imported `.html` files preserve rendered article bodies and exact public routes. Posts live under `posts/` so Hugo builds the home page, archives, search index and RSS feed. Portfolio, page and attachment content lives under `portfolio/`, `page/` and `attachment/`.
+The preview content in this repository contains 45 posts, 8 pages, 13 portfolio entries and 98 attachment pages from the reviewed WordPress export and frozen rendered-page evidence. After these files merge to `master` and deploy, they will be available at the Pages preview URL. The imported `.html` files preserve rendered article bodies and exact public routes. Posts live under `posts/` so Hugo builds the home page, archives, search index and RSS feed. Portfolio, page and attachment content lives under `portfolio/`, `page/` and `attachment/`.
 
 To edit an imported article, create a branch, update its `.html` file and open a pull request against `master`. Preserve its JSON front matter and exact `url` unless the route change has been reviewed. For new Markdown posts, use the workflow in [the editorial guide](../docs/editorial/README.md). Merging a reviewed PR to `master` runs tests and deploys the preview through GitHub Actions.
 
