@@ -26,4 +26,5 @@
   {{ with .Params.migration.guid }}<meta name="source-guid" content="{{ . }}">{{ else with .Params.guid }}<meta name="source-guid" content="{{ . }}">{{ end }}
   {{ with .Params.migration.excerptHtml }}<meta name="source-excerpt" content="{{ . | plainify }}">{{ else with .Params.excerpt }}<meta name="source-excerpt" content="{{ . | plainify }}">{{ end }}
   <link rel="stylesheet" href="{{ "theme/css/main.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "theme/css/search.css" | relURL }}">
   {{ if not site.Params.preview }}<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">{{ end }}

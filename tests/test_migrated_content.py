@@ -89,7 +89,11 @@ class MigratedContentTests(unittest.TestCase):
             self.assertNotIn("Posts will appear here when content is imported.", home)
             self.assertGreaterEqual(len(re.findall(r'class=(?:"post-card"|post-card)', home)), 10)
             self.assertTrue((output / "posts/index.xml").is_file())
-            self.assertTrue((output / "search-index.json").is_file())
+            search_index = json.loads((output / "search-index.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(search_index), EXPECTED_SECTIONS["posts"])
+            self.assertTrue(all(item["url"].startswith("/pujolsluis-blog/")
+                                for item in search_index))
+            self.assertTrue(all(item.get("text") for item in search_index))
 
             for section, _ in EXPECTED_SECTIONS.items():
                 extension = "*.md" if section == "posts" else "*.html"
