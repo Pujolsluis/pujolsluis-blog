@@ -45,7 +45,7 @@ class LiveEvidenceTests(unittest.TestCase):
                 'sourceUrl': document['items'][0]['fields']['ogImage'],
                 'targetPath': '/wp-content/uploads/hero.jpg'}]}
             files, report = prepare_hugo(BUNDLE, BUILD_TIME, document, root, media)
-            front = json.loads(files['post/wp-101.html'].rsplit(b'}\n', 1)[0] + b'}')
+            front, _ = json.JSONDecoder().raw_decode(files['posts/wp-101.md'].decode('utf-8'))
             self.assertEqual(front['title'], BUNDLE['items'][0]['title'])
             self.assertEqual(front['seoTitle'], 'Live wp:101')
             self.assertIsNone(front['description'])
@@ -135,7 +135,10 @@ class LiveEvidenceTests(unittest.TestCase):
                 '<div class="entry-content"><p class="attachment"><img id="photo" '
                 'src="https://www.pujolsluis.com/wp-content/uploads/photo.jpg" '
                 'data-image-caption="&lt;p&gt;Credit&lt;/p&gt;"></p></div>'
-                '</article></body></html>').encode()
+                '</article><div id="respond"><form action="https://www.pujolsluis.com/'
+                'wp-comments-post.php" method="post"><a id="cancel-comment-reply-link" '
+                'style="display:none" href="/example-image/#respond">Cancel reply</a>'
+                '</form></div></body></html>').encode()
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             digest = hashlib.sha256(page).hexdigest()
@@ -149,12 +152,23 @@ class LiveEvidenceTests(unittest.TestCase):
             self.assertEqual(row['title'], 'Live image')
             self.assertEqual(row['captionHtml'], ['<p>Credit</p>'])
             self.assertEqual(row['fragments'], ['photo'])
-            files, report = prepare_hugo(BUNDLE, BUILD_TIME, attachment_manifest=document,
+            media_map = {'schemaVersion': '1.0.0', 'previewBase': '/project/', 'mappings': []}
+            files, report = prepare_hugo(BUNDLE, BUILD_TIME, media_map=media_map,
+                                         attachment_manifest=document,
                                          attachment_source_root=root,
                                          wxr_sha256=hashlib.sha256(source).hexdigest())
             self.assertIn('attachment/wp-900.html', files)
+            self.assertNotIn(b'id="respond"', files['attachment/wp-900.html'])
+            self.assertNotIn(b'migration-comment-bridge', files['attachment/wp-900.html'])
+            self.assertNotIn(b'<form', files['attachment/wp-900.html'])
             self.assertEqual(report['attachmentRouteCount'], 1)
+            self.assertEqual(report['formBridgeCount'], 0)
             self.assertEqual(report['attachmentRoutes'][0]['path'], '/example-image/')
+            self.assertNotIn('respond', report['attachmentRoutes'][0]['previewFragments'])
+            self.assertFalse(any('comment' in fragment.lower() or 'respond' in fragment.lower()
+                                 for fragment in report['attachmentRoutes'][0]['sourceFragments']))
+            attachment = files['attachment/wp-900.html'].decode('utf-8')
+            self.assertNotRegex(attachment, r'(?i)commentform|comment-respond|#respond')
             with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
                 validate_attachment_manifest(document, root, '0' * 64)
 

@@ -1,0 +1,8 @@
+{{- $src := .Get "src" -}}
+{{- if not $src }}{{ errorf "figure shortcode requires src: %s" .Position }}{{ end -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}{{ with .Get "style" }} style="{{ . }}"{{ end }}>
+  {{- with .Get "link" }}<a href="{{ . }}">{{ end -}}
+  <img src="{{ $src }}" alt="{{ .Get "alt" }}"{{ with .Get "imgClass" }} class="{{ . }}"{{ end }}{{ with .Get "width" }} width="{{ . }}"{{ end }}{{ with .Get "height" }} height="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- with .Get "link" }}</a>{{ end -}}
+  {{- with .Inner }}<figcaption>{{ . | markdownify }}</figcaption>{{ end -}}
+</figure>
