@@ -45,6 +45,10 @@ class MarkdownConversionTests(unittest.TestCase):
         self.assertIn(r'\* literal\_ text', markdown)
         self.assertIn(r'\# not a heading', markdown)
 
+    def test_link_destination_trims_surrounding_whitespace(self):
+        markdown = html_to_markdown('<p><a href=" https://example.com/watch?v=1 ">video</a></p>')
+        self.assertIn('[video](<https://example.com/watch?v=1>)', markdown)
+
 
 if __name__ == '__main__':
     unittest.main()

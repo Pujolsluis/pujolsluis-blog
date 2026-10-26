@@ -50,6 +50,7 @@ class MigratedContentTests(unittest.TestCase):
                 self.assertNotIn("wp-comments-post.php", body)
                 self.assertNotIn('id="comments"', body)
                 self.assertNotIn('id="respond"', body)
+                self.assertNotRegex(body, r"\(<%20https?://")
                 self.assertNotRegex(body, r"(?i)(?:href|action)=[\"'][^\"']*#(?:comments?|respond)")
 
         self.assertEqual(list((CONTENT / "posts").glob("*.html")), [])

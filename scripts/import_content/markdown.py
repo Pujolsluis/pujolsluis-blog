@@ -102,7 +102,8 @@ def _escape_text(value):
 
 
 def _destination(value):
-    return re.sub(r'[\s<>]', lambda match: f'%{ord(match.group()):02X}', value or '')
+    value = (value or '').strip()
+    return re.sub(r'[\s<>]', lambda match: f'%{ord(match.group()):02X}', value)
 
 
 def _shortcode(name, **attrs):
