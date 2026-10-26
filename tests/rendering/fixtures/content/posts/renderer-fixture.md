@@ -6,18 +6,6 @@ description: Synthetic content used to check rendering.
 migration:
   guid: urn:fixture:renderer-001
   excerptHtml: '<p>Stable synthetic excerpt for feed validation.</p>'
-  commentStatus: open
-  comments:
-    - sourceId: wp-comment:201
-      parentId: null
-      authorName: Synthetic reader
-      publishedAt: 2024-02-04T12:30:00-05:00
-      html: '<p>Sanitized synthetic comment.</p>'
-    - sourceId: wp-comment:202
-      parentId: wp-comment:201
-      authorName: Synthetic author
-      publishedAt: 2024-02-05T12:30:00-05:00
-      html: '<p>Second approved synthetic comment.</p>'
 categories: [fixture]
 tags: [renderer, sample]
 preserved_html: '<p data-source="fixture">Preserved <strong>HTML</strong> survives.</p><pre><code>one  two\nthree</code></pre>'

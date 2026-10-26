@@ -32,12 +32,13 @@ class HugoRenderingTests(unittest.TestCase):
         self.assertIn("data-source=fixture", html)
         self.assertIn("youtube-nocookie.com/embed/dQw4w9WgXcQ?start=30", html)
         self.assertIn('aria-label="Synthetic gallery"', html)
+        self.assertIn('href=/pujolsluis-blog/categories/fixture/', html)
+        self.assertIn('href=/pujolsluis-blog/tags/renderer/', html)
         self.assertIn("Disallow: /", (out / "robots.txt").read_text())
         self.assertFalse((out / "sitemap.xml").exists())
-        self.assertIn('class=comments', html)
-        first_comment = html.index("Sanitized synthetic comment.")
-        second_comment = html.index("Second approved synthetic comment.")
-        self.assertLess(first_comment, second_comment)
+        self.assertNotIn('class="comments"', html)
+        self.assertNotIn("Synthetic reader", html)
+        self.assertNotIn("Sanitized synthetic comment.", html)
 
     def test_home_shell_and_portfolio_templates(self):
         out = self.build("https://pujolsluis.github.io/pujolsluis-blog/", False)
