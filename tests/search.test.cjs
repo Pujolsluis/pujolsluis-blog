@@ -1,6 +1,6 @@
 const assert = require("node:assert/strict");
 const { test } = require("node:test");
-const { createSnippet, searchPosts } = require("../static/theme/js/search.js");
+const { createFetcher, createSnippet, searchPosts } = require("../static/theme/js/search.js");
 
 const posts = [
   { title: "Xamarin Forms workshop", text: "Reactive programming with Rx.NET." },
@@ -33,4 +33,39 @@ test("result snippets center around the matching text", () => {
   const snippet = createSnippet(post, "important phrase", 60);
   assert.match(snippet, /important phrase/);
   assert.ok(snippet.length <= 62);
+});
+
+test("search index can load through XMLHttpRequest when fetch is unavailable", async () => {
+  let request;
+  class FakeXMLHttpRequest {
+    constructor() {
+      request = this;
+    }
+
+    open(method, url, asynchronous) {
+      this.request = { method, url, asynchronous };
+    }
+
+    setRequestHeader(name, value) {
+      this.header = { name, value };
+    }
+
+    send() {
+      this.status = 200;
+      this.responseText = JSON.stringify([{ title: "Indexed post" }]);
+      this.onload();
+    }
+  }
+
+  const fetcher = createFetcher({ XMLHttpRequest: FakeXMLHttpRequest });
+  const response = await fetcher("/search-index.json", {
+    headers: { Accept: "application/json" },
+  });
+  assert.deepEqual(request.request, {
+    method: "GET",
+    url: "/search-index.json",
+    asynchronous: true,
+  });
+  assert.deepEqual(request.header, { name: "Accept", value: "application/json" });
+  assert.deepEqual(await response.json(), [{ title: "Indexed post" }]);
 });

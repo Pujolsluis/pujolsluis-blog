@@ -2,7 +2,7 @@
   const search = factory();
   if (typeof module === "object" && module.exports) module.exports = search;
   if (root && root.document) {
-    const initialize = () => search.initialize(root.document, root.fetch.bind(root), root.location);
+    const initialize = () => search.initialize(root.document, search.createFetcher(root), root.location);
     if (root.document.readyState === "loading") {
       root.document.addEventListener("DOMContentLoaded", initialize, { once: true });
     } else {
@@ -53,6 +53,30 @@
     const start = Math.max(0, firstMatch - Math.floor(limit / 3));
     const end = Math.min(text.length, start + limit);
     return `${start ? "…" : ""}${text.slice(start, end).trim()}${end < text.length ? "…" : ""}`;
+  }
+
+  function createFetcher(root) {
+    if (typeof root.fetch === "function") return root.fetch.bind(root);
+
+    return (url, options) => new Promise((resolve, reject) => {
+      if (typeof root.XMLHttpRequest !== "function") {
+        reject(new Error("No browser request API is available"));
+        return;
+      }
+
+      const request = new root.XMLHttpRequest();
+      request.open("GET", url, true);
+      Object.entries((options && options.headers) || {}).forEach(([name, value]) => {
+        request.setRequestHeader(name, value);
+      });
+      request.onload = () => resolve({
+        ok: request.status >= 200 && request.status < 300,
+        json: () => Promise.resolve().then(() => JSON.parse(request.responseText)),
+      });
+      request.onerror = () => reject(new Error("Search index request failed"));
+      request.onabort = () => reject(new Error("Search index request was aborted"));
+      request.send();
+    });
   }
 
   function initialize(document, fetcher, location) {
@@ -134,5 +158,5 @@
     });
   }
 
-  return { searchPosts, createSnippet, initialize };
+  return { searchPosts, createSnippet, createFetcher, initialize };
 });
