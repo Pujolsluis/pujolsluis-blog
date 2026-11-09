@@ -9,7 +9,7 @@
   {{ if isset $params "canonical" }}{{ with $params.canonical }}{{ $canonical = . }}{{ else }}{{ $canonical = "" }}{{ end }}{{ end }}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ if site.Params.preview }}<meta name="robots" content="noindex, nofollow, max-image-preview:large">{{ else }}<meta name="robots" content="max-image-preview:large">{{ end }}
+  {{ if site.Params.preview }}<meta name="robots" content="noindex, nofollow, max-image-preview:large">{{ else if eq .Section "search" }}<meta name="robots" content="noindex, follow, max-image-preview:large">{{ else }}<meta name="robots" content="max-image-preview:large">{{ end }}
   <title>{{ $seoTitle }}</title>
   {{ if $description }}<meta name="description" content="{{ $description }}">{{ end }}
   {{ with $canonical }}<link rel="canonical" href="{{ . }}">{{ end }}
