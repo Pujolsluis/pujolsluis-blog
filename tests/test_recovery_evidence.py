@@ -47,7 +47,7 @@ class RecoveryEvidenceTests(unittest.TestCase):
                 "rendered_page_references": [{"url": "https://themes.pixelwars.org/demo.jpg"}],
             },
         ]
-        manifest = {"assets": [asset], "missing_references": missing}
+        manifest = {"schema_version": "1.0.0", "assets": [asset], "missing_references": missing}
         evidence = {
             "recovered_references": [{
                 "url_path": public_path,
