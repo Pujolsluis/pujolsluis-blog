@@ -29,9 +29,71 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def check(manifest: dict, static_root: Path) -> tuple[list[str], list[str], dict[str, int]]:
+def verify_recovery_evidence(manifest: dict, static_root: Path, evidence: dict | None) -> tuple[set[str], set[str], list[str]]:
+    """Validate hash-bound icon recoveries and explicitly external theme assets."""
+    if evidence is None:
+        return set(), set(), []
+    errors: list[str] = []
+    missing_by_path = {row.get("url_path"): row for row in manifest.get("missing_references", [])}
+    assets_by_path = {row.get("source_path"): row for row in manifest.get("assets", [])}
+    recovered: set[str] = set()
+    external: set[str] = set()
+    for row in evidence.get("recovered_references", []):
+        path = row.get("url_path", "")
+        source_path = row.get("source_path", "")
+        source_sha256 = row.get("source_sha256", "")
+        output_path = row.get("output_path", "")
+        output_sha256 = row.get("output_sha256", "")
+        output_bytes = row.get("output_bytes")
+        before = len(errors)
+        missing = missing_by_path.get(path)
+        if not missing:
+            errors.append(f"recovery path is not a manifest missing reference: {path}")
+            continue
+        if not path or path.casefold() != source_path.casefold() or path == source_path:
+            errors.append(f"recovery is not a case-only source path match: {path}")
+        candidate = next((item for item in missing.get("case_variant_candidates", [])
+                          if item.get("source_path") == source_path
+                          and item.get("source_sha256") == source_sha256), None)
+        asset = assets_by_path.get(source_path)
+        if not candidate or not asset or asset.get("source_sha256") != source_sha256:
+            errors.append(f"recovery source hash differs from MIG-03 evidence: {path}")
+        if (not output_path.startswith("wp-content/uploads/")
+                or any(part in ("", ".", "..") for part in Path(output_path).parts)):
+            errors.append(f"recovery output is not a safe uploads path: {path}")
+        selected = next((item for item in (asset or {}).get("output_paths", [])
+                         if item.get("path", "").casefold() == output_path.casefold()), None)
+        if (not selected or selected.get("sha256") != output_sha256
+                or selected.get("bytes") != output_bytes):
+            errors.append(f"recovery output differs from optimized selected asset: {path}")
+        target = static_root / output_path
+        if not target.is_file() or target.is_symlink():
+            errors.append(f"recovery output missing or unsafe: {output_path}")
+        elif sha256(target) != output_sha256 or target.stat().st_size != output_bytes:
+            errors.append(f"recovery output checksum mismatch: {output_path}")
+        if len(errors) == before:
+            recovered.add(path)
+    for row in evidence.get("external_dependencies", []):
+        path = row.get("url_path", "")
+        missing = missing_by_path.get(path)
+        if not missing or not row.get("evidence"):
+            errors.append(f"external dependency lacks manifest/evidence record: {path}")
+            continue
+        if row.get("category") != "third-party-theme-demo":
+            errors.append(f"unsupported external dependency category: {path}")
+            continue
+        if path in recovered:
+            errors.append(f"reference cannot be both recovered and external: {path}")
+            continue
+        external.add(path)
+    return recovered, external, errors
+
+
+def check(manifest: dict, static_root: Path, recovery_evidence: dict | None = None) -> tuple[list[str], list[str], dict[str, int]]:
     errors: list[str] = []
     warnings: list[str] = []
+    recovered, external, recovery_errors = verify_recovery_evidence(manifest, static_root, recovery_evidence)
+    errors.extend(recovery_errors)
     expected: set[str] = set()
     total_bytes = 0
     image_count = 0
@@ -89,8 +151,15 @@ def check(manifest: dict, static_root: Path) -> tuple[list[str], list[str], dict
                     errors.append(f"mapped output byte count mismatch: {section}:{mapping.get('public_url_path')}: {relative}")
     if manifest.get("missing_references"):
         for missing in manifest["missing_references"]:
-            if any(missing.get(key) for key in ("body_references", "metadata_references", "rendered_page_references", "attachment_route_references")):
-                errors.append(f"unresolved published image reference: {missing['url_path']}")
+            if not any(missing.get(key) for key in ("body_references", "metadata_references", "rendered_page_references", "attachment_route_references")):
+                continue
+            path = missing["url_path"]
+            if path in recovered:
+                continue
+            if path in external:
+                warnings.append(f"third-party theme-demo image remains external: {path}")
+                continue
+            errors.append(f"unresolved published image reference: {path}")
     return errors, warnings, {"images": image_count, "output_bytes": total_bytes}
 
 
@@ -98,9 +167,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--static-root", type=Path, required=True)
+    parser.add_argument("--recovery-evidence", type=Path,
+                        default=Path(__file__).resolve().parents[2]
+                        / "migration/assets/recovery-evidence.json")
     args = parser.parse_args()
     manifest = json.loads(args.manifest.read_text())
-    errors, warnings, totals = check(manifest, args.static_root)
+    evidence = (json.loads(args.recovery_evidence.read_text(encoding="utf-8"))
+                if args.recovery_evidence.is_file() else None)
+    errors, warnings, totals = check(manifest, args.static_root, evidence)
     for warning in warnings:
         print(f"WARNING: {warning}")
     for error in errors:

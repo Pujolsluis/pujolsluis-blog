@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-08",
+  "source": "migration/assets/manifest.json plus exact live URL and backup source SHA-256 verification",
+  "recovered_references": [
+    {
+      "url_path": "2018/06/cropped-Pujolsluis-icon.png",
+      "source_path": "2018/06/cropped-Pujolsluis-Icon.png",
+      "source_sha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b206502d6aa3",
+      "live_source_sha256": "f9b1e1298b9157e6d11c4332978b75f0f1dc64f896c09704273b206502d6aa3",
+      "source_bytes": 30945,
+      "dimensions": "512x512",
+      "output_path": "wp-content/uploads/2018/06/cropped-Pujolsluis-icon.png",
+      "output_sha256": "81fb95dfebe8355ab7209a9198b13bf517c5759abd357aaa5acf5ff6222c7bf5",
+      "output_bytes": 26542,
+      "pixel_stream_sha256": "c3b4975978376fc7b70529274373c960868d428450fddc71592ec720a237821e",
+      "evidence": "The live lowercase master SHA-256 exactly matches the case-variant upload in the local WordPress backup. The repository output is the losslessly optimized counterpart; its decoded pixel stream matches the source."
+    },
+    {
+      "url_path": "2018/06/cropped-Pujolsluis-icon-1.png",
+      "source_path": "2018/06/cropped-Pujolsluis-Icon-1.png",
+      "source_sha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b",
+      "live_source_sha256": "a31502baa078ad8a2a0c2b17738988573aa0458594429aaafe0225fc2af7087b",
+      "source_bytes": 21158,
+      "dimensions": "240x208",
+      "output_path": "wp-content/uploads/2018/06/cropped-Pujolsluis-icon-1.png",
+      "output_sha256": "59c23907c9773f8d04133e88bf64ed95a380cce0fa430c14059f0d0f1d565f6e",
+      "output_bytes": 17318,
+      "pixel_stream_sha256": "d94cb4638b7a3f60daaca16738067b6f6847abd578a591f792f7e1280f62a7d9",
+      "evidence": "The live lowercase master SHA-256 exactly matches the case-variant upload in the local WordPress backup. The repository output is the losslessly optimized counterpart; its decoded pixel stream matches the source."
+    }
+  ],
+  "external_dependencies": [
+    {"url_path":"sites/12/2016/08/01-300x199.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/01.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/02.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/03.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/blank2.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/blank3.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/blank4.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/kennes2.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/kennes3.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/kennes4.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/stages2.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/stages3.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/stages4.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/12/2017/02/stages5.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
+    {"url_path":"sites/20/2016/08/about-1024x683.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."}
+  ]
+}
