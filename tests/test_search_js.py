@@ -21,5 +21,19 @@ class SearchJavaScriptTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
 
+    def test_search_template_exposes_hooks_used_by_browser_script(self):
+        template = (ROOT / "layouts/partials/search.html").read_text(
+            encoding="utf-8"
+        )
+        for hook in (
+            "data-site-search",
+            "data-search-input",
+            "data-search-status",
+            "data-search-results",
+        ):
+            with self.subTest(hook=hook):
+                self.assertIn(hook, template)
+
+
 if __name__ == "__main__":
     unittest.main()
