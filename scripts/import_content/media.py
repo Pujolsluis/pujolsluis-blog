@@ -67,11 +67,57 @@ def upload_path(url):
     return suffix
 
 
-def selected_media_map(inventory, source_urls, preview_base, static_root):
+def _recovered_outputs(inventory, static_root, evidence):
+    """Verify hash-bound case-variant recoveries and return their selected outputs."""
+    if evidence is None:
+        return {}
+    if not isinstance(evidence, dict):
+        raise ValueError('recovery evidence must be an object')
+    missing_by_path = {row.get('url_path'): row for row in inventory.get('missing_references', [])}
+    assets_by_path = {row.get('source_path'): row for row in inventory.get('assets', [])}
+    recovered = {}
+    for row in evidence.get('recovered_references', []):
+        path = row.get('url_path', '')
+        source_path = row.get('source_path', '')
+        source_sha256 = row.get('source_sha256', '')
+        output_path = row.get('output_path', '')
+        output_sha256 = row.get('output_sha256', '')
+        output_bytes = row.get('output_bytes')
+        missing = missing_by_path.get(path)
+        if not missing:
+            raise ValueError('recovery path is not a manifest missing reference: ' + path)
+        if not path or path.casefold() != source_path.casefold() or path == source_path:
+            raise ValueError('recovery must be a case-only source path match: ' + path)
+        candidate = next((item for item in missing.get('case_variant_candidates', [])
+                          if item.get('source_path') == source_path
+                          and item.get('source_sha256') == source_sha256), None)
+        asset = assets_by_path.get(source_path)
+        if not candidate or not asset or asset.get('source_sha256') != source_sha256:
+            raise ValueError('recovery source hash does not match MIG-03 evidence: ' + path)
+        if (not output_path.startswith('wp-content/uploads/')
+                or any(part in ('', '.', '..') for part in Path(output_path).parts)):
+            raise ValueError('recovery output must be a safe uploads path: ' + path)
+        selected = next((item for item in asset.get('output_paths', [])
+                         if item.get('path', '').casefold() == output_path.casefold()), None)
+        if (not selected or selected.get('sha256') != output_sha256
+                or selected.get('bytes') != output_bytes):
+            raise ValueError('recovery output does not match optimized selected asset: ' + path)
+        target = Path(static_root) / output_path
+        if (not target.is_file() or target.is_symlink()
+                or hashlib.sha256(target.read_bytes()).hexdigest() != output_sha256
+                or target.stat().st_size != output_bytes):
+            raise ValueError('recovery output missing or checksum mismatch: ' + output_path)
+        recovered[path] = {'path': output_path, 'sha256': output_sha256,
+                           'bytes': output_bytes}
+    return recovered
+
+
+def selected_media_map(inventory, source_urls, preview_base, static_root, recovery_evidence=None):
     """Select only MIG-03 included exact output files, verifying their bytes."""
     if not isinstance(inventory, dict) or inventory.get('schema_version') is None:
         raise ValueError('expected MIG-03 asset inventory')
     selected = {}
+    recovered = _recovered_outputs(inventory, static_root, recovery_evidence)
     for field in ('published_body_path_mappings', 'rendered_page_path_mappings',
                   'live_rendered_body_path_mappings', 'attachment_route_path_mappings'):
         for row in inventory.get(field, []):
@@ -90,7 +136,7 @@ def selected_media_map(inventory, source_urls, preview_base, static_root):
         if not is_owned(url):
             continue
         path = upload_path(url)
-        output = selected.get(path)
+        output = selected.get(path) or recovered.get(path)
         if output is None:
             unresolved.append(url)
             continue
@@ -199,6 +245,9 @@ def main(argv=None):
     parser.add_argument('hugo_report', type=Path, help='first Hugo report listing unresolvedOwnedMedia')
     parser.add_argument('output', type=Path)
     parser.add_argument('--preview-base', required=True)
+    parser.add_argument('--recovery-evidence', type=Path,
+                        default=Path(__file__).resolve().parents[2]
+                        / 'migration/assets/recovery-evidence.json')
     args = parser.parse_args(argv)
     try:
         if any((parent / '.git').exists() for parent in (args.output.parent, *args.output.parent.parents)):
@@ -206,7 +255,10 @@ def main(argv=None):
         inventory = json.loads(args.inventory.read_text(encoding='utf-8'))
         report = json.loads(args.hugo_report.read_text(encoding='utf-8'))
         urls = [row['sourceUrl'] for row in report['unresolvedOwnedMedia']]
-        document, unresolved = selected_media_map(inventory, urls, args.preview_base, args.static_root)
+        evidence = (json.loads(args.recovery_evidence.read_text(encoding='utf-8'))
+                    if args.recovery_evidence.is_file() else None)
+        document, unresolved = selected_media_map(
+            inventory, urls, args.preview_base, args.static_root, evidence)
         args.output.write_text(json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + '\n')
     except (OSError, ValueError, KeyError, TypeError) as error:
         parser.exit(1, f'Media map selection failed: {error}\n')
