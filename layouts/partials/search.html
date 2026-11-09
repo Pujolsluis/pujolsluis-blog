@@ -4,7 +4,7 @@
     <form class="search-panel" role="search" data-site-search data-index-url="{{ printf "%ssearch-index.json" site.Home.RelPermalink }}">
       <label for="site-search-input">Search posts</label>
       <input id="site-search-input" type="search" name="q" autocomplete="off" data-search-input aria-describedby="site-search-status">
-      <p id="site-search-status" class="search-status" aria-live="polite">Search post titles and article text.</p>
+      <p id="site-search-status" class="search-status" data-search-status aria-live="polite">Search post titles and article text.</p>
       <ul class="search-results" data-search-results aria-label="Search results" aria-busy="false"></ul>
     </form>
   </details>
