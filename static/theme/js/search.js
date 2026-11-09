@@ -12,7 +12,7 @@
 })(typeof globalThis === "object" ? globalThis : this, function createSearch() {
   "use strict";
 
-  const RESULT_LIMIT = 10;
+  const RESULTS_PER_PAGE = 10;
 
   function normalize(value) {
     return String(value || "")
@@ -55,6 +55,29 @@
     return `${start ? "…" : ""}${text.slice(start, end).trim()}${end < text.length ? "…" : ""}`;
   }
 
+
+  function paginatePosts(posts, pageNumber, pageSize = RESULTS_PER_PAGE) {
+    const pageCount = Math.ceil(posts.length / pageSize);
+    const parsedPage = Number.parseInt(pageNumber, 10) || 1;
+    const currentPage = pageCount
+      ? Math.min(Math.max(parsedPage, 1), pageCount)
+      : 1;
+    const offset = (currentPage - 1) * pageSize;
+    return {
+      items: posts.slice(offset, offset + pageSize),
+      pageNumber: currentPage,
+      pageCount,
+      firstResult: posts.length ? offset + 1 : 0,
+      lastResult: Math.min(offset + pageSize, posts.length),
+    };
+  }
+
+  function createPageHref(query, pageNumber) {
+    const parameters = new URLSearchParams({ q: query });
+    if (pageNumber > 1) parameters.set("page", String(pageNumber));
+    return "?" + parameters.toString();
+  }
+
   function createFetcher(root) {
     if (typeof root.fetch === "function") return root.fetch.bind(root);
 
@@ -80,20 +103,23 @@
   }
 
   function initialize(document, fetcher, location) {
-    const form = document.querySelector("[data-site-search]");
-    if (!form) return;
+    const page = document.querySelector("[data-search-page]");
+    if (!page) return;
 
-    const details = form.closest("details");
-    const input = form.querySelector("[data-search-input]");
-    const status = form.querySelector("[data-search-status]");
-    const results = form.querySelector("[data-search-results]");
-    if (!input || !status || !results) return;
+    const input = page.querySelector("[data-search-query]");
+    const status = page.querySelector("[data-search-status]");
+    const results = page.querySelector("[data-search-results]");
+    const pagination = page.querySelector("[data-search-pagination]");
+    const previous = page.querySelector("[data-search-previous]");
+    const next = page.querySelector("[data-search-next]");
+    const pageStatus = page.querySelector("[data-search-page-number]");
+    if (!input || !status || !results || !pagination || !previous || !next || !pageStatus) return;
 
-    let indexPromise;
-    let requestVersion = 0;
-    const loadIndex = () => {
-      if (!indexPromise) {
-        indexPromise = fetcher(form.dataset.indexUrl, { headers: { Accept: "application/json" } })
+    const parameters = new URLSearchParams(location.search || "");
+    const query = (parameters.get("q") || "").trim();
+    const requestedPage = Number.parseInt(parameters.get("page") || "1", 10);
+    input.value = query;
+    const loadIndex = () => fetcher(page.dataset.indexUrl, { headers: { Accept: "application/json" } })
           .then((response) => {
             if (!response.ok) throw new Error("Search index request failed");
             return response.json();
@@ -102,61 +128,61 @@
             if (!Array.isArray(posts)) throw new Error("Search index has an invalid format");
             return posts;
           });
-      }
-      return indexPromise;
-    };
 
-    function renderResults() {
-      const query = input.value.trim();
-      const version = ++requestVersion;
+    function renderResults(posts) {
       results.replaceChildren();
-      if (!query) {
-        results.setAttribute("aria-busy", "false");
-        status.textContent = "Search post titles and article text.";
+      const matches = searchPosts(posts, query);
+      const page = paginatePosts(matches, requestedPage);
+      page.items.forEach((post) => {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = post.url;
+        link.textContent = post.title;
+        item.append(link);
+
+        const snippet = createSnippet(post, query);
+        if (snippet) {
+          const description = document.createElement("p");
+          description.textContent = snippet;
+          item.append(description);
+        }
+        results.append(item);
+      });
+
+      results.setAttribute("aria-busy", "false");
+      if (!matches.length) {
+        status.textContent = "No posts found for “" + query + "”.";
+        pagination.hidden = true;
         return;
       }
 
-      status.textContent = "Searching…";
-      results.setAttribute("aria-busy", "true");
-      loadIndex().then((posts) => {
-        if (version !== requestVersion) return;
-        const matches = searchPosts(posts, query).slice(0, RESULT_LIMIT);
-        matches.forEach((post) => {
-          const item = document.createElement("li");
-          const link = document.createElement("a");
-          link.href = post.url;
-          link.textContent = post.title;
-          item.append(link);
-
-          const snippet = createSnippet(post, query);
-          if (snippet) {
-            const description = document.createElement("p");
-            description.textContent = snippet;
-            item.append(description);
-          }
-          results.append(item);
-        });
-        results.setAttribute("aria-busy", "false");
-        status.textContent = matches.length
-          ? `${matches.length} result${matches.length === 1 ? "" : "s"}${matches.length === RESULT_LIMIT ? " (showing the top results)" : ""}.`
-          : `No posts found for “${query}”.`;
-      }).catch(() => {
-        if (version !== requestVersion) return;
-        results.setAttribute("aria-busy", "false");
-        status.textContent = "Search could not load. Refresh the page and try again.";
-      });
+      status.textContent = "Showing " + page.firstResult + "–" + page.lastResult
+        + " of " + matches.length + " results for “" + query + "”.";
+      pageStatus.textContent = "Page " + page.pageNumber + " of " + page.pageCount;
+      previous.hidden = page.pageNumber <= 1;
+      next.hidden = page.pageNumber >= page.pageCount;
+      if (!previous.hidden) previous.href = createPageHref(query, page.pageNumber - 1);
+      if (!next.hidden) next.href = createPageHref(query, page.pageNumber + 1);
+      pagination.hidden = page.pageCount <= 1;
     }
 
-    input.addEventListener("input", renderResults);
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const firstResult = results.querySelector("a");
-      if (firstResult) location.assign(firstResult.href);
+    if (!query) {
+      status.textContent = "Enter a search term to find posts.";
+      results.replaceChildren();
+      results.setAttribute("aria-busy", "false");
+      pagination.hidden = true;
+      return;
+    }
+
+    status.textContent = "Loading search results…";
+    results.setAttribute("aria-busy", "true");
+    loadIndex().then((posts) => renderResults(posts)).catch(() => {
+      results.setAttribute("aria-busy", "false");
+      status.textContent = "Search could not load. Refresh the page and try again.";
+      pagination.hidden = true;
     });
-    if (details) details.addEventListener("toggle", () => {
-      if (details.open) input.focus();
-    });
+
   }
 
-  return { searchPosts, createSnippet, createFetcher, initialize };
+  return { searchPosts, createSnippet, createFetcher, paginatePosts, createPageHref, initialize };
 });
