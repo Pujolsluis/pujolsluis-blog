@@ -55,7 +55,6 @@
     return `${start ? "…" : ""}${text.slice(start, end).trim()}${end < text.length ? "…" : ""}`;
   }
 
-
   function paginatePosts(posts, pageNumber, pageSize = RESULTS_PER_PAGE) {
     const pageCount = Math.ceil(posts.length / pageSize);
     const parsedPage = Number.parseInt(pageNumber, 10) || 1;
@@ -103,6 +102,14 @@
   }
 
   function initialize(document, fetcher, location) {
+    const menu = document.querySelector(".site-search");
+    const menuInput = menu && menu.querySelector("[data-search-menu-input]");
+    if (menu && menuInput) {
+      menu.addEventListener("toggle", () => {
+        if (menu.open) menuInput.focus();
+      });
+    }
+
     const page = document.querySelector("[data-search-page]");
     if (!page) return;
 
@@ -120,14 +127,14 @@
     const requestedPage = Number.parseInt(parameters.get("page") || "1", 10);
     input.value = query;
     const loadIndex = () => fetcher(page.dataset.indexUrl, { headers: { Accept: "application/json" } })
-          .then((response) => {
-            if (!response.ok) throw new Error("Search index request failed");
-            return response.json();
-          })
-          .then((posts) => {
-            if (!Array.isArray(posts)) throw new Error("Search index has an invalid format");
-            return posts;
-          });
+      .then((response) => {
+        if (!response.ok) throw new Error("Search index request failed");
+        return response.json();
+      })
+      .then((posts) => {
+        if (!Array.isArray(posts)) throw new Error("Search index has an invalid format");
+        return posts;
+      });
 
     function renderResults(posts) {
       results.replaceChildren();
@@ -181,8 +188,14 @@
       status.textContent = "Search could not load. Refresh the page and try again.";
       pagination.hidden = true;
     });
-
   }
 
-  return { searchPosts, createSnippet, createFetcher, paginatePosts, createPageHref, initialize };
+  return {
+    searchPosts,
+    createSnippet,
+    createFetcher,
+    paginatePosts,
+    createPageHref,
+    initialize,
+  };
 });
