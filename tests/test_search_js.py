@@ -25,6 +25,7 @@ class SearchJavaScriptTests(unittest.TestCase):
         page = (ROOT / "layouts/search/list.html").read_text(encoding="utf-8")
         self.assertIn('method="get"', menu)
         self.assertIn('name="q"', menu)
+        self.assertIn("data-search-menu-input", menu)
         self.assertIn("site.Home.RelPermalink", menu)
         self.assertNotIn("data-search-results", menu)
         for hook in (
