@@ -3,7 +3,7 @@
     <summary>Search</summary>
     <form class="search-panel" role="search" action="{{ printf "%ssearch/" site.Home.RelPermalink }}" method="get">
       <label for="site-search-input">Search posts</label>
-      <input id="site-search-input" type="search" name="q" autocomplete="off" required>
+      <input id="site-search-input" type="search" name="q" data-search-menu-input autocomplete="off" required>
       <p class="search-help">Search post titles and article text. Results open on a separate page.</p>
       <button type="submit">Search</button>
     </form>
