@@ -13,11 +13,9 @@
       </div>
     </form>
     <p id="search-status" class="search-status" data-search-status aria-live="polite">Enter a search term to find posts.</p>
-    <ul class="search-results" data-search-results aria-label="Search results" aria-busy="false"></ul>
+    <ul class="search-results post-list" data-search-results aria-label="Search results" aria-busy="false"></ul>
     <nav class="search-pagination" data-search-pagination aria-label="Search result pages" hidden>
-      <a data-search-previous rel="prev" hidden>Previous</a>
-      <span data-search-page-number aria-live="polite"></span>
-      <a data-search-next rel="next" hidden>Next</a>
+      <ul class="pagination pagination-default" data-search-page-links aria-label="Search result page numbers"></ul>
     </nav>
   </section>
 {{ end }}

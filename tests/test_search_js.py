@@ -34,12 +34,12 @@ class SearchJavaScriptTests(unittest.TestCase):
             "data-search-status",
             "data-search-results",
             "data-search-pagination",
-            "data-search-previous",
-            "data-search-next",
-            "data-search-page-number",
+            "data-search-page-links",
         ):
             with self.subTest(hook=hook):
                 self.assertIn(hook, page)
+        self.assertIn('class="search-results post-list"', page)
+        self.assertIn('class="pagination pagination-default"', page)
 
 
 if __name__ == "__main__":

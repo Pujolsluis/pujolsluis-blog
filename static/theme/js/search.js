@@ -42,7 +42,7 @@
       .map((result) => result.post);
   }
 
-  function createSnippet(post, query, limit = 180) {
+  function createSnippet(post, query, limit = 200) {
     const text = String(post.text || post.summary || "").replace(/\s+/g, " ").trim();
     if (text.length <= limit) return text;
 
@@ -75,6 +75,94 @@
     const parameters = new URLSearchParams({ q: query });
     if (pageNumber > 1) parameters.set("page", String(pageNumber));
     return "?" + parameters.toString();
+  }
+
+  function appendPageControl(document, pageList, query, {
+    label,
+    ariaLabel,
+    pageNumber,
+    currentPage,
+    disabled = false,
+  }) {
+    const item = document.createElement("li");
+    const isCurrent = !disabled && pageNumber === currentPage;
+    item.className = ["page-item", disabled ? "disabled" : "", isCurrent ? "active" : ""]
+      .filter(Boolean)
+      .join(" ");
+
+    const link = document.createElement("a");
+    link.className = "page-link";
+    link.setAttribute("aria-label", ariaLabel);
+    link.setAttribute("role", "button");
+
+    if (disabled) {
+      link.setAttribute("aria-disabled", "true");
+      link.tabIndex = -1;
+    } else if (isCurrent) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.href = createPageHref(query, pageNumber);
+    }
+
+    if (/^(First|Previous|Next|Last)$/.test(ariaLabel)) {
+      const symbol = document.createElement("span");
+      symbol.setAttribute("aria-hidden", "true");
+      symbol.textContent = label;
+      link.append(symbol);
+    } else {
+      link.textContent = label;
+    }
+
+    item.append(link);
+    pageList.append(item);
+  }
+
+  function renderPagination(document, pageList, query, currentPage, pageCount) {
+    pageList.replaceChildren();
+    const visiblePages = Math.min(pageCount, 5);
+    const firstVisiblePage = Math.min(
+      Math.max(currentPage - Math.floor(visiblePages / 2), 1),
+      pageCount - visiblePages + 1
+    );
+
+    appendPageControl(document, pageList, query, {
+      label: "««",
+      ariaLabel: "First",
+      pageNumber: 1,
+      currentPage,
+      disabled: currentPage === 1,
+    });
+    appendPageControl(document, pageList, query, {
+      label: "«",
+      ariaLabel: "Previous",
+      pageNumber: currentPage - 1,
+      currentPage,
+      disabled: currentPage === 1,
+    });
+
+    for (let pageNumber = firstVisiblePage; pageNumber < firstVisiblePage + visiblePages; pageNumber += 1) {
+      appendPageControl(document, pageList, query, {
+        label: String(pageNumber),
+        ariaLabel: "Page " + pageNumber,
+        pageNumber,
+        currentPage,
+      });
+    }
+
+    appendPageControl(document, pageList, query, {
+      label: "»",
+      ariaLabel: "Next",
+      pageNumber: currentPage + 1,
+      currentPage,
+      disabled: currentPage === pageCount,
+    });
+    appendPageControl(document, pageList, query, {
+      label: "»»",
+      ariaLabel: "Last",
+      pageNumber: pageCount,
+      currentPage,
+      disabled: currentPage === pageCount,
+    });
   }
 
   function createFetcher(root) {
@@ -117,10 +205,8 @@
     const status = page.querySelector("[data-search-status]");
     const results = page.querySelector("[data-search-results]");
     const pagination = page.querySelector("[data-search-pagination]");
-    const previous = page.querySelector("[data-search-previous]");
-    const next = page.querySelector("[data-search-next]");
-    const pageStatus = page.querySelector("[data-search-page-number]");
-    if (!input || !status || !results || !pagination || !previous || !next || !pageStatus) return;
+    const pageList = page.querySelector("[data-search-page-links]");
+    if (!input || !status || !results || !pagination || !pageList) return;
 
     const parameters = new URLSearchParams(location.search || "");
     const query = (parameters.get("q") || "").trim();
@@ -139,13 +225,24 @@
     function renderResults(posts) {
       results.replaceChildren();
       const matches = searchPosts(posts, query);
-      const page = paginatePosts(matches, requestedPage);
-      page.items.forEach((post) => {
+      const resultPage = paginatePosts(matches, requestedPage);
+      resultPage.items.forEach((post) => {
         const item = document.createElement("li");
+        item.className = "post-card";
+
+        const heading = document.createElement("h2");
         const link = document.createElement("a");
         link.href = post.url;
         link.textContent = post.title;
-        item.append(link);
+        heading.append(link);
+        item.append(heading);
+
+        if (post.date) {
+          const date = document.createElement("time");
+          date.dateTime = post.date;
+          date.textContent = post.displayDate || post.date;
+          item.append(date);
+        }
 
         const snippet = createSnippet(post, query);
         if (snippet) {
@@ -163,14 +260,10 @@
         return;
       }
 
-      status.textContent = "Showing " + page.firstResult + "–" + page.lastResult
+      status.textContent = "Showing " + resultPage.firstResult + "–" + resultPage.lastResult
         + " of " + matches.length + " results for “" + query + "”.";
-      pageStatus.textContent = "Page " + page.pageNumber + " of " + page.pageCount;
-      previous.hidden = page.pageNumber <= 1;
-      next.hidden = page.pageNumber >= page.pageCount;
-      if (!previous.hidden) previous.href = createPageHref(query, page.pageNumber - 1);
-      if (!next.hidden) next.href = createPageHref(query, page.pageNumber + 1);
-      pagination.hidden = page.pageCount <= 1;
+      renderPagination(document, pageList, query, resultPage.pageNumber, resultPage.pageCount);
+      pagination.hidden = resultPage.pageCount <= 1;
     }
 
     if (!query) {
