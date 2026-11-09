@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <section class="search-page" data-search-page data-index-url="{{ printf "%ssearch-index.json" site.Home.RelPermalink }}">
+    <header class="page-header">
+      <p class="eyebrow">Search</p>
+      <h1>Search posts</h1>
+      <p>Search post titles and article text. Select a result to open the post.</p>
+    </header>
+    <form class="search-page-form" role="search" method="get" action="{{ .RelPermalink }}">
+      <label for="search-results-query">Search posts</label>
+      <div class="search-page-controls">
+        <input id="search-results-query" type="search" name="q" data-search-query autocomplete="off">
+        <button type="submit">Search</button>
+      </div>
+    </form>
+    <p id="search-status" class="search-status" data-search-status aria-live="polite">Enter a search term to find posts.</p>
+    <ul class="search-results" data-search-results aria-label="Search results" aria-busy="false"></ul>
+    <nav class="search-pagination" data-search-pagination aria-label="Search result pages" hidden>
+      <a data-search-previous rel="prev" hidden>Previous</a>
+      <span data-search-page-number aria-live="polite"></span>
+      <a data-search-next rel="next" hidden>Next</a>
+    </nav>
+  </section>
+{{ end }}

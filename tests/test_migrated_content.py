@@ -94,6 +94,11 @@ class MigratedContentTests(unittest.TestCase):
             self.assertTrue(all(item["url"].startswith("/pujolsluis-blog/")
                                 for item in search_index))
             self.assertTrue(all(item.get("text") for item in search_index))
+            search_page = (output / "search/index.html").read_text(encoding="utf-8")
+            self.assertIn("action=/pujolsluis-blog/search/", search_page)
+            self.assertIn("data-index-url=/pujolsluis-blog/search-index.json", search_page)
+            self.assertIn("data-search-pagination", search_page)
+            self.assertIn('name=robots content="noindex, nofollow, max-image-preview:large"', search_page)
 
             for section, _ in EXPECTED_SECTIONS.items():
                 extension = "*.md" if section == "posts" else "*.html"

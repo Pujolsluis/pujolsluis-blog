@@ -20,19 +20,26 @@ class SearchJavaScriptTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
-
-    def test_search_template_exposes_hooks_used_by_browser_script(self):
-        template = (ROOT / "layouts/partials/search.html").read_text(
-            encoding="utf-8"
-        )
+    def test_search_templates_route_queries_to_a_paginated_page(self):
+        menu = (ROOT / "layouts/partials/search.html").read_text(encoding="utf-8")
+        page = (ROOT / "layouts/search/list.html").read_text(encoding="utf-8")
+        self.assertIn('method="get"', menu)
+        self.assertIn('name="q"', menu)
+        self.assertIn("data-search-menu-input", menu)
+        self.assertIn("site.Home.RelPermalink", menu)
+        self.assertNotIn("data-search-results", menu)
         for hook in (
-            "data-site-search",
-            "data-search-input",
+            "data-search-page",
+            "data-search-query",
             "data-search-status",
             "data-search-results",
+            "data-search-pagination",
+            "data-search-previous",
+            "data-search-next",
+            "data-search-page-number",
         ):
             with self.subTest(hook=hook):
-                self.assertIn(hook, template)
+                self.assertIn(hook, page)
 
 
 if __name__ == "__main__":
