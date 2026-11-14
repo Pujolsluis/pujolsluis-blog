@@ -1,6 +1,7 @@
 """Import a complete owner WXR export into a private working directory."""
 
 import argparse
+import hashlib
 import json
 import os
 import tempfile
@@ -37,11 +38,37 @@ def atomic_write(path, document):
             os.unlink(temporary)
 
 
+def merge_exclusions(manifest, exclusions, wxr_bytes):
+    """Bind the reviewed public theme-demo policy to one exact complete WXR."""
+    required = {'schemaVersion', 'wxrSha256', 'excludedItems', 'excludedAttachments'}
+    optional = {'themeDemoOnlyAssets', 'sharedAssets', 'retainedPostIds',
+                'retainedPageIds', 'retainedAttachmentIds', 'evidence'}
+    if (not isinstance(manifest, dict) or not isinstance(exclusions, dict)
+            or not required <= set(exclusions) or set(exclusions) - required - optional
+            or exclusions['schemaVersion'] != '1.0.0'
+            or not isinstance(exclusions['excludedItems'], dict)
+            or not isinstance(exclusions['excludedAttachments'], dict)):
+        raise ValueError('invalid theme-demo exclusion policy')
+    source_sha = hashlib.sha256(wxr_bytes).hexdigest()
+    if exclusions['wxrSha256'] != source_sha:
+        raise ValueError('theme-demo exclusion WXR checksum differs from source bytes')
+    if manifest.get('wxrSha256') not in (None, source_sha):
+        raise ValueError('import manifest and theme-demo exclusion WXR checksums differ')
+    for field in ('excludedItems', 'excludedAttachments'):
+        existing = manifest.get(field)
+        if existing is not None and existing != exclusions[field]:
+            raise ValueError(f'import manifest {field} differs from the reviewed theme-demo policy')
+        manifest[field] = exclusions[field]
+    manifest['wxrSha256'] = source_sha
+    return manifest
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('wxr', type=Path, help='complete WXR 1.2 export (not a partial incremental export)')
     parser.add_argument('output', type=Path, help='private directory outside Git checkouts')
     parser.add_argument('--manifest', type=Path, help='reviewed snapshot/metadata evidence manifest')
+    parser.add_argument('--exclusions', type=Path, help='hash-bound theme-demo exclusion policy')
     parser.add_argument('--assets', type=Path, help='v1 assets.json for attachment reference resolution')
     parser.add_argument('--previous', type=Path, help='earlier content.json, for final full-export delta report')
     args = parser.parse_args(argv)
@@ -49,7 +76,13 @@ def main(argv=None):
         output = private_directory(args.output)
         options = {name: json.loads(getattr(args, name).read_text(encoding='utf-8'))
                    for name in ('manifest', 'assets', 'previous') if getattr(args, name)}
-        bundle, report = import_wxr(args.wxr.read_bytes(), **options)
+        wxr_bytes = args.wxr.read_bytes()
+        if args.exclusions:
+            manifest = options.get('manifest', {
+                'schemaVersion': '1.0.0', 'sourceReference': 'owner-wxr', 'items': {}})
+            exclusions = json.loads(args.exclusions.read_text(encoding='utf-8'))
+            options['manifest'] = merge_exclusions(manifest, exclusions, wxr_bytes)
+        bundle, report = import_wxr(wxr_bytes, **options)
         try:
             routes = routes_from_content(bundle)
             report['duplicateRenderedAnchors'] = duplicate_anchors_from_content(bundle)

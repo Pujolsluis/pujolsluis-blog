@@ -7,8 +7,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.import_content.hugo import (HugoExportError, prepare_hugo, sanitize_public_html,
-                                         write_hugo)
+from scripts.import_content.hugo import (HugoExportError, filter_attachment_pages,
+                                         prepare_hugo, sanitize_public_html, write_hugo)
 from scripts.import_content.markdown import html_to_markdown
 
 
@@ -45,6 +45,19 @@ class HugoTests(unittest.TestCase):
         self.assertEqual(report, {'commentBlockCount': 2, 'formCount': 2,
                                   'commentFormCount': 1, 'otherFormCount': 1,
                                   'commentLinkCount': 1, 'editorMarkerCount': 1})
+
+    def test_demo_attachment_wrappers_are_filtered_by_exact_source_id(self):
+        attachments = [
+            {'sourceId': 'wp:900', 'path': '/2020/01/02/example/'},
+            {'sourceId': 'wp:901', 'path': '/2020/01/03/demo/'},
+        ]
+        included, excluded = filter_attachment_pages(attachments, ['wp:901'])
+        self.assertEqual(included, [attachments[0]])
+        self.assertEqual(excluded, ['wp:901'])
+        with self.assertRaisesRegex(HugoExportError, 'absent from the hash-bound attachment manifest'):
+            filter_attachment_pages(attachments, ['wp:999'])
+        with self.assertRaisesRegex(HugoExportError, 'unique'):
+            filter_attachment_pages(attachments, ['wp:901', 'wp:901'])
 
     def test_markdown_post_path_and_source_metadata(self):
         files, report = prepare_hugo(FIXTURE, BUILD_TIME)

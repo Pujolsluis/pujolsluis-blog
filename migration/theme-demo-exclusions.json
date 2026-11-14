@@ -1,0 +1,606 @@
+{
+  "schemaVersion": "1.0.0",
+  "wxrSha256": "deae8936282e86fd03376bcced44e0e698b1bfa141029ad79c3a406493ae3d11",
+  "excludedItems": {
+    "wp:86": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/page-full-width/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:93": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/shortcodes/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:117": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/contact/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:333": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/planet-unknown/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:342": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/lenvers-des-contes/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:347": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/matin-ordinaire/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:354": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/blank-space/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:359": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/stages/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:365": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/chemistry-ft-blackbear/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:367": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/disclosure-you-me/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:369": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/changes/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:371": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/makeba-jain/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:373": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/the-kitchens/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:375": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/various-illustrations-2016/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:380": {
+      "kind": "portfolio",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/branding-exploration/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1997": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/page-with-sidebar/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1998": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/typography/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1999": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/about-me/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:2001": {
+      "kind": "page",
+      "canonicalUrl": "https://www.pujolsluis.com/portfolio/",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    }
+  },
+  "excludedAttachments": {
+    "wp:8": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/01-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:9": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/01.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:29": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/11.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:64": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/about-small.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:140": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-04.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:141": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-03-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:142": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-02.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:143": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-01.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1788": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/13-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:1800": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/09-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:1809": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/03-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:1811": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/02-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:1829": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/01-2-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:1839": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/03.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1841": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/04.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1842": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/07-2-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:1845": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/07.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1918": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/10-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1919": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/11-1-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1931": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/08-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1953": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/l-02.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1954": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/l-03.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1955": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/l-04.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1956": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/banner.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1957": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/touch-icon.png",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1958": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/06.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1959": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/01-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1960": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/02.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1961": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/05.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1962": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/08.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1963": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/12-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1964": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/13-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1965": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/14-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1966": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/16-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1967": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/15.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1969": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/cropped-touch-icon.png",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1970": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/09.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1971": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/06-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1972": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/07-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1973": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2017/03/logo.png",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1974": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2017/03/banner.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:1975": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2017/03/about-small.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:oliver"
+    },
+    "wp:2016": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/11-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2017": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/l-02-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2018": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/l-03-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2019": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/l-04-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2020": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/about-small-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2021": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/banner-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2022": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/touch-icon-1.png",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2023": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/cropped-touch-icon-1.png",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2024": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-04-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2025": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-03-1-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2026": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-02-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2027": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/g-01-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2028": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/logo-adventura.png",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2029": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/16-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2030": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/15-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2031": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/14-1-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2032": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/12-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2033": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/11-1-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2034": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/10-1-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2035": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/08-1-1-scaled.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2036": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/07-1-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2037": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/06-1-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2038": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/05-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2039": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/04-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2040": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/01-1-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2041": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/about-small-1-1.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2042": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2015/08/slide-03.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2043": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2015/08/slide-02.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2044": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2015/08/slide-01.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2045": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/02-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2046": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/03-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2047": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/04-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2048": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/05-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    },
+    "wp:2049": {
+      "sourceUrl": "https://www.pujolsluis.com/wp-content/uploads/2016/08/06-2.jpg",
+      "reason": "theme-demo",
+      "reference": "theblogger-demo-guid-match:andy"
+    }
+  },
+  "themeDemoOnlyAssets": [
+    "static/wp-content/uploads/2016/08/06-1.jpg",
+    "static/wp-content/uploads/2016/08/07-1.jpg",
+    "static/wp-content/uploads/2016/08/about.jpg",
+    "static/wp-content/uploads/2017/02/blank1.jpg",
+    "static/wp-content/uploads/2017/02/branding-exploration.png",
+    "static/wp-content/uploads/2017/02/changes.jpg",
+    "static/wp-content/uploads/2017/02/chemistry.jpg",
+    "static/wp-content/uploads/2017/02/disclosure.jpg",
+    "static/wp-content/uploads/2017/02/kennes1.jpg",
+    "static/wp-content/uploads/2017/02/makeba.jpg",
+    "static/wp-content/uploads/2017/02/matin2.jpg",
+    "static/wp-content/uploads/2017/02/stages1.jpg",
+    "static/wp-content/uploads/2017/02/thekitchens.jpg",
+    "static/wp-content/uploads/2017/02/unknown.jpg",
+    "static/wp-content/uploads/2017/02/various1.jpg",
+    "static/wp-content/uploads/2017/03/logo.png",
+    "static/wp-content/uploads/sites/12/2016/08/01.jpg",
+    "static/wp-content/uploads/sites/12/2017/02/kennes1.jpg"
+  ],
+  "sharedAssets": [
+    "static/wp-content/uploads/2018/07/Pujolsluis-Icon.png",
+    "static/wp-content/uploads/2018/07/cropped-Pujolsluis-Icon-2.png"
+  ],
+  "retainedPostIds": [
+    "wp:36",
+    "wp:57",
+    "wp:99",
+    "wp:161",
+    "wp:202",
+    "wp:269",
+    "wp:271",
+    "wp:274",
+    "wp:279",
+    "wp:981",
+    "wp:983",
+    "wp:1106",
+    "wp:1158",
+    "wp:1194",
+    "wp:1212",
+    "wp:1222",
+    "wp:1254",
+    "wp:1279",
+    "wp:1301",
+    "wp:1343",
+    "wp:1368",
+    "wp:1370",
+    "wp:1434",
+    "wp:1450",
+    "wp:1573",
+    "wp:1575",
+    "wp:1639",
+    "wp:1702",
+    "wp:1715",
+    "wp:1830",
+    "wp:1889",
+    "wp:2112",
+    "wp:2118",
+    "wp:2139",
+    "wp:2149",
+    "wp:2169",
+    "wp:2182",
+    "wp:2202",
+    "wp:2223",
+    "wp:2237",
+    "wp:2243",
+    "wp:2258",
+    "wp:2271",
+    "wp:2288",
+    "wp:2306"
+  ],
+  "retainedPageIds": [
+    "wp:1946",
+    "wp:1948"
+  ],
+  "retainedAttachmentIds": [
+    "wp:6",
+    "wp:7",
+    "wp:11",
+    "wp:12",
+    "wp:27",
+    "wp:28",
+    "wp:31",
+    "wp:34",
+    "wp:41",
+    "wp:44",
+    "wp:46",
+    "wp:91",
+    "wp:92",
+    "wp:926",
+    "wp:929",
+    "wp:1160",
+    "wp:1162",
+    "wp:1947",
+    "wp:2012",
+    "wp:2014",
+    "wp:2060",
+    "wp:2102"
+  ],
+  "evidence": {
+    "content": "Published page and portfolio source IDs and exact URLs match TheBlogger Oliver theme-demo records by GUID. The About Me body also contains Oliver demo placeholder copy.",
+    "attachments": "Each excluded attachment source ID and upload URL has a GUID matching one of the bundled TheBlogger theme-demo exports and its public attachment wrapper is present in the migrated route set.",
+    "assets": "These 18 selected output files are referenced only by theme-demo records. The two shared brand icons are referenced by both theme-demo rendering and retained authored posts, so they stay."
+  }
+}

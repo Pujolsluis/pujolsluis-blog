@@ -172,6 +172,23 @@ def _instant(value):
     return result
 
 
+def filter_attachment_pages(attachments, excluded_source_ids=()):
+    """Remove only source-ID-bound theme-demo attachment wrappers."""
+    excluded = list(excluded_source_ids or ())
+    if any(not isinstance(source_id, str)
+           or not re.fullmatch(r'wp:[1-9][0-9]*', source_id) for source_id in excluded):
+        raise HugoExportError('excluded attachment IDs must be WordPress source IDs')
+    if len(excluded) != len(set(excluded)):
+        raise HugoExportError('excluded attachment IDs must be unique')
+    available = {item['sourceId'] for item in attachments}
+    unknown = set(excluded) - available
+    if unknown:
+        raise HugoExportError('excluded attachment IDs are absent from the hash-bound attachment manifest')
+    excluded_set = set(excluded)
+    return ([item for item in attachments if item['sourceId'] not in excluded_set],
+            sorted(excluded, key=lambda source_id: int(source_id.split(':')[1])))
+
+
 def _front_matter(item, source_head=None, mapping=None, base='/', unresolved=None):
     metadata = item['sourceMetadata']
     front = {
@@ -219,7 +236,8 @@ def _front_matter(item, source_head=None, mapping=None, base='/', unresolved=Non
 
 
 def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, media_map=None,
-                 attachment_manifest=None, attachment_source_root=None, wxr_sha256=None):
+                 attachment_manifest=None, attachment_source_root=None, wxr_sha256=None,
+                 excluded_attachment_ids=None):
     """Return {relative file: bytes}, report; fail before producing any files."""
     validate_document('content', bundle)
     if (head_manifest is None) != (head_source_root is None):
@@ -227,13 +245,16 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
     heads = validate_head_manifest(head_manifest, bundle, head_source_root) if head_manifest else {}
     if attachment_manifest is not None and (attachment_source_root is None or wxr_sha256 is None):
         raise HugoExportError('attachment sidecar needs snapshot root and WXR checksum')
-    attachments = (validate_attachment_manifest(attachment_manifest, attachment_source_root, wxr_sha256)
-                   if attachment_manifest is not None else [])
+    all_attachments = (validate_attachment_manifest(attachment_manifest, attachment_source_root, wxr_sha256)
+                       if attachment_manifest is not None else [])
+    attachments, excluded_attachment_ids = filter_attachment_pages(
+        all_attachments, excluded_attachment_ids)
     mapping, base = validate_media_map(media_map)
     cutoff = _instant(build_time)
     files = {}
     entries = []
-    excluded = []
+    excluded = [{'sourceId': source_id, 'reason': 'theme-demo-attachment-page'}
+                for source_id in excluded_attachment_ids]
     paths = set()
     ids = set()
     unresolved_media = []
@@ -349,9 +370,11 @@ def prepare_hugo(bundle, build_time, head_manifest=None, head_source_root=None, 
     entries.sort(key=lambda e: int(e['sourceId'].split(':')[1]))
     excluded.sort(key=lambda e: int(e['sourceId'].split(':')[1]))
     report = {'schemaVersion': '1.0.0', 'sourceCompleteness': 'unverified',
-              'buildTime': cutoff.isoformat(), 'inputRecordCount': len(bundle['items']) + len(attachments),
+              'buildTime': cutoff.isoformat(), 'inputRecordCount': len(bundle['items']) + len(all_attachments),
               'outputRecordCount': len(entries), 'excluded': excluded, 'items': entries,
               'sourceHeadCoverage': len(heads), 'attachmentRouteCount': len(attachments),
+              'excludedAttachmentRouteCount': len(excluded_attachment_ids),
+              'excludedAttachmentIds': excluded_attachment_ids,
               'deferredComments': {'recordCount': len(deferred_comments),
                                    'commentCount': sum(row['count'] for row in deferred_comments),
                                    'items': deferred_comments},
@@ -395,10 +418,11 @@ def _verify_owned(destination):
 
 def write_hugo(bundle, output, build_time, head_manifest=None, head_source_root=None,
                media_map=None, attachment_manifest=None, attachment_source_root=None,
-               wxr_sha256=None):
+               wxr_sha256=None, excluded_attachment_ids=None):
     """Replace a dedicated generated directory after a complete preflight."""
     files, report = prepare_hugo(bundle, build_time, head_manifest, head_source_root, media_map,
-                                 attachment_manifest, attachment_source_root, wxr_sha256)
+                                 attachment_manifest, attachment_source_root, wxr_sha256,
+                                 excluded_attachment_ids)
     destination = Path(output).absolute()
     if destination.is_symlink():
         raise HugoExportError('output must not be a symlink')
@@ -452,8 +476,22 @@ def main(argv=None):
         attachments = json.loads(args.attachment_manifest.read_text(encoding='utf-8')) if args.attachment_manifest else None
         wxr_report = json.loads(args.private_report.read_text(encoding='utf-8')) if args.private_report else None
         wxr_sha = wxr_report.get('sourceSha256') if isinstance(wxr_report, dict) else None
+        excluded_attachment_ids = []
+        if wxr_report is not None:
+            if not isinstance(wxr_report, dict):
+                raise HugoExportError('private WXR report is invalid')
+            excluded_rows = wxr_report.get('excludedAttachmentIds', [])
+            if (not isinstance(excluded_rows, list)
+                    or any(not isinstance(row, dict)
+                           or set(row) != {'sourceId', 'reason', 'reference'}
+                           or row['reason'] != 'theme-demo'
+                           or not isinstance(row['reference'], str) or not row['reference']
+                           for row in excluded_rows)):
+                raise HugoExportError('private WXR report has invalid attachment exclusions')
+            excluded_attachment_ids = [row['sourceId'] for row in excluded_rows]
         report = write_hugo(bundle, args.output, args.build_time, head, args.head_source_root,
-                            media, attachments, args.attachment_source_root, wxr_sha)
+                            media, attachments, args.attachment_source_root, wxr_sha,
+                            excluded_attachment_ids)
     except (OSError, ValueError) as error:
         parser.exit(1, f'Hugo export failed: {error}\n')
     print(f'Wrote {report["outputRecordCount"]} Hugo records; source completeness remains unverified.')
