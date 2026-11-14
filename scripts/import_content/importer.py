@@ -238,7 +238,8 @@ class References(HTMLParser):
 
 def validate_manifest(manifest):
     required = {'schemaVersion', 'sourceReference', 'items'}
-    optional = {'wxrSha256', 'utilityItems', 'deferredItems', 'externalAttachmentIds'}
+    optional = {'wxrSha256', 'utilityItems', 'deferredItems', 'excludedItems',
+                'excludedAttachments', 'externalAttachmentIds'}
     if (not isinstance(manifest, dict) or not required <= set(manifest)
             or set(manifest) - required - optional
             or manifest['schemaVersion'] != '1.0.0' or not isinstance(manifest['sourceReference'], str)
@@ -277,7 +278,7 @@ def validate_manifest(manifest):
     if wxr_hash is not None and (not isinstance(wxr_hash, str)
                                  or not re.fullmatch(r'[a-f0-9]{64}', wxr_hash)):
         raise ValueError('wxrSha256 must be an exact SHA-256 digest')
-    for field in ('utilityItems', 'deferredItems'):
+    for field in ('utilityItems', 'deferredItems', 'excludedItems'):
         entries = manifest.get(field, {})
         if not isinstance(entries, dict) or entries and wxr_hash is None:
             raise ValueError(f'{field} requires an exact WXR checksum and item map')
@@ -291,8 +292,23 @@ def validate_manifest(manifest):
             if field == 'utilityItems' and entry['reason'] not in (
                     'navigation-config', 'ad-config', 'newsletter-form', 'template-config'):
                 raise ValueError('unknown utility disposition reason')
-    if set(manifest.get('utilityItems', {})) & set(manifest.get('deferredItems', {})):
-        raise ValueError('item cannot be both utility and deferred content')
+            if field == 'excludedItems' and (
+                    entry['reason'] != 'theme-demo' or entry['kind'] not in ('page', 'portfolio')):
+                raise ValueError('theme-demo content exclusions may target only pages and portfolios')
+    excluded_attachments = manifest.get('excludedAttachments', {})
+    if not isinstance(excluded_attachments, dict) or excluded_attachments and wxr_hash is None:
+        raise ValueError('excludedAttachments requires an exact WXR checksum and item map')
+    for source_id, entry in excluded_attachments.items():
+        if (not re.fullmatch(r'wp:[1-9][0-9]*', source_id) or not isinstance(entry, dict)
+                or set(entry) != {'sourceUrl', 'reason', 'reference'}
+                or not all(isinstance(v, str) and v for v in entry.values())
+                or entry['reason'] != 'theme-demo'):
+            raise ValueError('excludedAttachments requires theme-demo source URLs and references')
+    dispositions = [set(manifest.get(field, {}))
+                    for field in ('utilityItems', 'deferredItems', 'excludedItems', 'excludedAttachments')]
+    if any(left & right for index, left in enumerate(dispositions)
+           for right in dispositions[index + 1:]):
+        raise ValueError('item cannot have conflicting import dispositions')
     external = manifest.get('externalAttachmentIds', {})
     if (not isinstance(external, dict) or external and wxr_hash is None
             or any(not re.fullmatch(r'wp:[1-9][0-9]*', key)
@@ -425,7 +441,8 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
               'scope': 'complete-export',
               'sourceCompleteness': 'unverified', 'errors': [], 'excludedByReason': {},
               'sourceMetadata': [], 'attachments': [], 'unresolvedBehavior': [], 'unresolvedRecords': [],
-              'unresolvedMetadata': [], 'records': []}
+              'unresolvedMetadata': [], 'records': [], 'excludedRecords': [],
+              'excludedAttachmentIds': []}
     errors = report['errors']
     try:
         validate_manifest(manifest)
@@ -502,15 +519,46 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
         counts = Counter()
         items = []
         consumed_utility, consumed_deferred = set(), set()
+        consumed_excluded, consumed_excluded_attachments = set(), set()
         for item in records:
             source_id = 'wp:' + value(item, 'wp:post_id')
             kind, status = value(item, 'wp:post_type'), value(item, 'wp:status')
             observed_url = item.findtext('link', default='')
             evidence = {'sourceId': source_id, 'kind': kind, 'status': status, 'disposition': 'failed'}
             report['records'].append(evidence)
+            excluded_entry = manifest.get('excludedItems', {}).get(source_id)
+            if excluded_entry is not None:
+                if (kind != excluded_entry['kind'] or kind not in ('page', 'portfolio')
+                        or observed_url != excluded_entry['canonicalUrl'] or status != 'publish'):
+                    errors.append(f'{source_id}: theme-demo exclusion differs from the published source record')
+                else:
+                    counts['theme-demo-public-content'] += 1
+                    consumed_excluded.add(source_id)
+                    evidence['disposition'] = 'excluded-theme-demo-content'
+                    evidence['canonicalUrl'] = observed_url
+                    report['excludedRecords'].append({'sourceId': source_id, 'kind': kind,
+                                                       'canonicalUrl': observed_url,
+                                                       'reason': 'theme-demo',
+                                                       'reference': excluded_entry['reference']})
+                continue
             if kind == 'attachment':
-                counts['attachment-delegated-to-MIG-03'] += 1
-                evidence['disposition'] = 'attachment-delegated-to-MIG-03'
+                attachment_exclusion = manifest.get('excludedAttachments', {}).get(source_id)
+                if attachment_exclusion is not None:
+                    source_url = value(item, 'wp:attachment_url')
+                    if (source_url != attachment_exclusion['sourceUrl']
+                            or status not in ('inherit', 'publish')):
+                        errors.append(f'{source_id}: theme-demo attachment exclusion differs from the WXR source')
+                    else:
+                        counts['theme-demo-attachment-page'] += 1
+                        consumed_excluded_attachments.add(source_id)
+                        evidence['disposition'] = 'excluded-theme-demo-attachment'
+                        evidence['canonicalUrl'] = observed_url
+                        report['excludedAttachmentIds'].append({
+                            'sourceId': source_id, 'reason': 'theme-demo',
+                            'reference': attachment_exclusion['reference']})
+                else:
+                    counts['attachment-delegated-to-MIG-03'] += 1
+                    evidence['disposition'] = 'attachment-delegated-to-MIG-03'
                 continue
             if status in ('draft', 'pending', 'private', 'future', 'trash', 'auto-draft', 'inherit'):
                 counts['nonpublic:' + status] += 1
@@ -572,16 +620,22 @@ def import_wxr(data, manifest=None, assets=None, previous=None):
                 errors.append(f'{source_id}: {error}')
                 report['unresolvedRecords'].append({'sourceId': source_id, 'kind': kind,
                                                      'canonicalUrl': observed_url})
+        report['excludedRecords'].sort(key=lambda row: int(row['sourceId'].split(':')[1]))
+        report['excludedAttachmentIds'].sort(key=lambda row: int(row['sourceId'].split(':')[1]))
         report['excludedByReason'] = dict(sorted(counts.items()))
         report['publicRecordCount'] = len(items)
         report['failedRecordCount'] = sum(r['disposition'] == 'failed' for r in report['records'])
-        for field in ('items', 'utilityItems', 'deferredItems'):
+        for field in ('items', 'utilityItems', 'deferredItems', 'excludedItems', 'excludedAttachments'):
             if set(manifest.get(field, {})) - ids:
                 errors.append(f'{field} manifest references IDs absent from this complete export')
         if consumed_utility != set(manifest.get('utilityItems', {})):
             errors.append('utilityItems dispositions no longer match published utility records')
         if consumed_deferred != set(manifest.get('deferredItems', {})):
             errors.append('deferredItems dispositions no longer match published backend records')
+        if consumed_excluded != set(manifest.get('excludedItems', {})):
+            errors.append('excludedItems dispositions no longer match published theme-demo records')
+        if consumed_excluded_attachments != set(manifest.get('excludedAttachments', {})):
+            errors.append('excludedAttachments dispositions no longer match WXR attachments')
         used_external = set().union(*(set(item['assetIds']) for item in items)) if items else set()
         if set(external) - used_external:
             errors.append('externalAttachmentIds contains IDs absent from selected rendered content')

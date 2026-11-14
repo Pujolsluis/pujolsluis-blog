@@ -89,11 +89,54 @@ def verify_recovery_evidence(manifest: dict, static_root: Path, evidence: dict |
     return recovered, external, errors
 
 
-def check(manifest: dict, static_root: Path, recovery_evidence: dict | None = None) -> tuple[list[str], list[str], dict[str, int]]:
+def verify_theme_demo_exclusions(manifest: dict, static_root: Path, exclusions: dict | None) -> tuple[set[str], list[str]]:
+    """Ensure exact demo-only selected outputs are absent from the public media tree."""
+    if exclusions is None:
+        return set(), []
+    required = {"schemaVersion", "wxrSha256", "excludedItems", "excludedAttachments", "themeDemoOnlyAssets"}
+    if (not isinstance(exclusions, dict) or not required <= set(exclusions)
+            or exclusions.get("schemaVersion") != "1.0.0"
+            or not isinstance(exclusions.get("wxrSha256"), str)
+            or len(exclusions["wxrSha256"]) != 64
+            or any(char not in "0123456789abcdef" for char in exclusions["wxrSha256"])
+            or not isinstance(exclusions.get("excludedItems"), dict)
+            or not isinstance(exclusions.get("excludedAttachments"), dict)
+            or not isinstance(exclusions.get("themeDemoOnlyAssets"), list)):
+        return set(), ["invalid hash-bound theme-demo exclusion policy"]
+    outputs = {
+        output.get("path", "")
+        for asset in manifest.get("assets", [])
+        for output in asset.get("output_paths", [])
+        if isinstance(output, dict)
+    }
+    excluded: set[str] = set()
+    errors: list[str] = []
+    for public_path in exclusions["themeDemoOnlyAssets"]:
+        if (not isinstance(public_path, str) or not public_path.startswith("static/wp-content/uploads/")
+                or any(part in ("", ".", "..") for part in Path(public_path).parts)):
+            errors.append(f"unsafe theme-demo output exclusion: {public_path}")
+            continue
+        relative = public_path.removeprefix("static/")
+        if relative not in outputs:
+            errors.append(f"theme-demo output is absent from media inventory: {relative}")
+            continue
+        target = static_root / relative
+        if target.exists() or target.is_symlink():
+            errors.append(f"theme-demo asset must not be published: {relative}")
+        excluded.add(relative)
+    if len(excluded) != len(exclusions["themeDemoOnlyAssets"]):
+        errors.append("theme-demo output exclusions must be unique")
+    return excluded, errors
+
+
+def check(manifest: dict, static_root: Path, recovery_evidence: dict | None = None, theme_demo_exclusions: dict | None = None) -> tuple[list[str], list[str], dict[str, int]]:
     errors: list[str] = []
     warnings: list[str] = []
     recovered, external, recovery_errors = verify_recovery_evidence(manifest, static_root, recovery_evidence)
     errors.extend(recovery_errors)
+    excluded_outputs, exclusion_errors = verify_theme_demo_exclusions(
+        manifest, static_root, theme_demo_exclusions)
+    errors.extend(exclusion_errors)
     expected: set[str] = set()
     total_bytes = 0
     image_count = 0
@@ -114,6 +157,8 @@ def check(manifest: dict, static_root: Path, recovery_evidence: dict | None = No
                 errors.append(f"duplicate public output path: {relative}")
                 continue
             expected.add(relative)
+            if relative in excluded_outputs:
+                continue
             target = static_root / relative
             if not target.is_file():
                 errors.append(f"missing output file: {relative}")
@@ -141,6 +186,8 @@ def check(manifest: dict, static_root: Path, recovery_evidence: dict | None = No
                 if not output:
                     continue
                 relative = output.get("path", "")
+                if relative in excluded_outputs:
+                    continue
                 target = static_root / relative
                 if not target.is_file():
                     errors.append(f"missing mapped output file: {section}:{mapping.get('public_url_path')}: {relative}")
@@ -170,11 +217,16 @@ def main() -> int:
     parser.add_argument("--recovery-evidence", type=Path,
                         default=Path(__file__).resolve().parents[2]
                         / "migration/assets/recovery-evidence.json")
+    parser.add_argument("--theme-demo-exclusions", type=Path,
+                        default=Path(__file__).resolve().parents[2]
+                        / "migration/theme-demo-exclusions.json")
     args = parser.parse_args()
     manifest = json.loads(args.manifest.read_text())
     evidence = (json.loads(args.recovery_evidence.read_text(encoding="utf-8"))
                 if args.recovery_evidence.is_file() else None)
-    errors, warnings, totals = check(manifest, args.static_root, evidence)
+    exclusions = (json.loads(args.theme_demo_exclusions.read_text(encoding="utf-8"))
+                  if args.theme_demo_exclusions.is_file() else None)
+    errors, warnings, totals = check(manifest, args.static_root, evidence, exclusions)
     for warning in warnings:
         print(f"WARNING: {warning}")
     for error in errors:

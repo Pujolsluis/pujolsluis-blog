@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
-EXPECTED_SECTIONS = {"posts": 45, "page": 8, "portfolio": 13, "attachment": 98}
+EXPECTED_SECTIONS = {"posts": 45, "page": 2, "portfolio": 0, "attachment": 22}
 
 
 def read_front_matter(path: Path) -> tuple[dict, str]:
@@ -55,7 +55,7 @@ class MigratedContentTests(unittest.TestCase):
 
         self.assertEqual(list((CONTENT / "posts").glob("*.html")), [])
 
-        self.assertEqual(count, 164)
+        self.assertEqual(count, 69)
         self.assertFalse((CONTENT / ".hugo-import-report.json").exists())
         content_files = [path for section in EXPECTED_SECTIONS
                          for pattern in ("*.html", "*.md")

@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from docs.contracts.validate import validate_bundle
-from scripts.import_content.__main__ import main, private_directory
+from scripts.import_content.__main__ import main, merge_exclusions, private_directory
 from scripts.import_content.importer import ImportFailure, NS, WP, import_wxr, serialize, sha
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -97,6 +97,58 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(len(report['unresolvedRecords']), 2)
         self.manifest['utilityItems']['wp:901']['canonicalUrl'] = 'https://example.invalid/wrong/'
         self.fails('requires explicit migration disposition', changed=True)
+
+    def test_theme_demo_exclusions_are_exact_and_hash_bound(self):
+        self.manifest['wxrSha256'] = hashlib.sha256(self.data).hexdigest()
+        self.manifest['excludedItems'] = {'wp:102': {
+            'kind': 'page', 'canonicalUrl': self.item(1).findtext('link'),
+            'reason': 'theme-demo', 'reference': 'fixture-theme-demo-page'}}
+        self.manifest['excludedAttachments'] = {'wp:900': {
+            'sourceUrl': self.item(2).findtext('wp:attachment_url', namespaces=NS),
+            'reason': 'theme-demo', 'reference': 'fixture-theme-demo-attachment'}}
+
+        bundle, report = self.run_import()
+        self.assertEqual([item['sourceId'] for item in bundle['items']], ['wp:101'])
+        self.assertEqual(report['excludedByReason'], {
+            'nonpublic:draft': 1, 'password-protected': 1,
+            'theme-demo-attachment-page': 1, 'theme-demo-public-content': 1})
+        self.assertEqual(report['excludedRecords'][0]['sourceId'], 'wp:102')
+        self.assertEqual(report['excludedAttachmentIds'], [{
+            'sourceId': 'wp:900', 'reason': 'theme-demo',
+            'reference': 'fixture-theme-demo-attachment'}])
+        self.assertEqual(report['unresolvedRecords'], [])
+
+        self.manifest['excludedItems']['wp:102']['canonicalUrl'] = 'https://example.invalid/wrong/'
+        with self.assertRaises(ImportFailure) as caught:
+            self.run_import()
+        self.assertIn('theme-demo exclusion differs from the published source record',
+                      str(caught.exception))
+
+    def test_public_theme_demo_policy_merges_only_when_wxr_hash_matches(self):
+        policy = {
+            'schemaVersion': '1.0.0',
+            'wxrSha256': hashlib.sha256(self.data).hexdigest(),
+            'excludedItems': {'wp:102': {
+                'kind': 'page', 'canonicalUrl': self.item(1).findtext('link'),
+                'reason': 'theme-demo', 'reference': 'fixture-theme-demo-page'}},
+            'excludedAttachments': {},
+        }
+        manifest = copy.deepcopy(self.manifest)
+        merged = merge_exclusions(manifest, policy, self.data)
+        self.assertEqual(merged['excludedItems'], policy['excludedItems'])
+        self.assertEqual(merged['wxrSha256'], policy['wxrSha256'])
+        with self.assertRaisesRegex(ValueError, 'checksum differs'):
+            merge_exclusions(copy.deepcopy(self.manifest), policy, self.data + b' changed')
+
+    def test_theme_demo_exclusions_cannot_target_authored_posts(self):
+        self.manifest['wxrSha256'] = hashlib.sha256(self.data).hexdigest()
+        self.manifest['excludedItems'] = {'wp:101': {
+            'kind': 'post', 'canonicalUrl': self.item(0).findtext('link'),
+            'reason': 'theme-demo', 'reference': 'fixture-invalid-post-exclusion'}}
+        with self.assertRaises(ImportFailure) as caught:
+            self.run_import()
+        self.assertIn('theme-demo content exclusions may target only pages and portfolios',
+                      str(caught.exception))
 
     def test_timezones_derive_from_source_pairs_and_keep_instant(self):
         bundle, report = self.run_import()
