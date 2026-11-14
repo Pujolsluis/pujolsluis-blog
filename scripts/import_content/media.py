@@ -67,49 +67,162 @@ def upload_path(url):
     return suffix
 
 
+def _safe_upload_output(output_path):
+    return (isinstance(output_path, str) and output_path.startswith('wp-content/uploads/')
+            and '\\' not in output_path
+            and all(part not in ('', '.', '..') for part in output_path.split('/')))
+
+
+def _verify_recovery_output(static_root, output_path, output_sha256, output_bytes, label):
+    if (not _safe_upload_output(output_path)
+            or not re.fullmatch(r'[0-9a-f]{64}', str(output_sha256))
+            or not isinstance(output_bytes, int) or isinstance(output_bytes, bool) or output_bytes < 1):
+        raise ValueError('invalid recovery output record: ' + label)
+    target = Path(static_root) / output_path
+    if (not target.is_file() or target.is_symlink()
+            or hashlib.sha256(target.read_bytes()).hexdigest() != output_sha256
+            or target.stat().st_size != output_bytes):
+        raise ValueError('recovery output missing or checksum mismatch: ' + output_path)
+    return {'path': output_path, 'sha256': output_sha256, 'bytes': output_bytes}
+
+
+def _upload_suffix(url):
+    if not isinstance(url, str):
+        return None
+    parts = urlsplit(html.unescape(url.strip()))
+    if parts.scheme not in ('http', 'https') or not parts.hostname:
+        return None
+    path = unquote(parts.path)
+    marker = '/wp-content/uploads/'
+    index = path.rfind(marker)
+    if index < 0:
+        return None
+    suffix = path[index + len(marker):]
+    if not suffix or any(part in ('', '.', '..') for part in suffix.split('/')):
+        return None
+    return suffix
+
+
 def _recovered_outputs(inventory, static_root, evidence):
-    """Verify hash-bound case-variant recoveries and return their selected outputs."""
+    """Verify hash-bound recoveries and exact external URL mappings."""
     if evidence is None:
-        return {}
+        return {}, {}
     if not isinstance(evidence, dict):
         raise ValueError('recovery evidence must be an object')
     missing_by_path = {row.get('url_path'): row for row in inventory.get('missing_references', [])}
     assets_by_path = {row.get('source_path'): row for row in inventory.get('assets', [])}
-    recovered = {}
+    recovered, explicit = {}, {}
+    derived_by_path = {}
     for row in evidence.get('recovered_references', []):
         path = row.get('url_path', '')
         source_path = row.get('source_path', '')
         source_sha256 = row.get('source_sha256', '')
-        output_path = row.get('output_path', '')
-        output_sha256 = row.get('output_sha256', '')
-        output_bytes = row.get('output_bytes')
         missing = missing_by_path.get(path)
         if not missing:
             raise ValueError('recovery path is not a manifest missing reference: ' + path)
-        if not path or path.casefold() != source_path.casefold() or path == source_path:
-            raise ValueError('recovery must be a case-only source path match: ' + path)
-        candidate = next((item for item in missing.get('case_variant_candidates', [])
-                          if item.get('source_path') == source_path
-                          and item.get('source_sha256') == source_sha256), None)
         asset = assets_by_path.get(source_path)
-        if not candidate or not asset or asset.get('source_sha256') != source_sha256:
+        if not asset or asset.get('source_sha256') != source_sha256:
             raise ValueError('recovery source hash does not match MIG-03 evidence: ' + path)
-        if (not output_path.startswith('wp-content/uploads/')
-                or any(part in ('', '.', '..') for part in Path(output_path).parts)):
-            raise ValueError('recovery output must be a safe uploads path: ' + path)
-        selected = next((item for item in asset.get('output_paths', [])
-                         if item.get('path', '').casefold() == output_path.casefold()), None)
-        if (not selected or selected.get('sha256') != output_sha256
-                or selected.get('bytes') != output_bytes):
-            raise ValueError('recovery output does not match optimized selected asset: ' + path)
-        target = Path(static_root) / output_path
-        if (not target.is_file() or target.is_symlink()
-                or hashlib.sha256(target.read_bytes()).hexdigest() != output_sha256
-                or target.stat().st_size != output_bytes):
-            raise ValueError('recovery output missing or checksum mismatch: ' + output_path)
-        recovered[path] = {'path': output_path, 'sha256': output_sha256,
-                           'bytes': output_bytes}
-    return recovered
+        kind = row.get('recovery_kind', 'case-variant')
+        if kind == 'case-variant':
+            if not path or path.casefold() != source_path.casefold() or path == source_path:
+                raise ValueError('recovery must be a case-only source path match: ' + path)
+            candidate = next((item for item in missing.get('case_variant_candidates', [])
+                              if item.get('source_path') == source_path
+                              and item.get('source_sha256') == source_sha256), None)
+            if not candidate:
+                raise ValueError('recovery source hash does not match MIG-03 candidate: ' + path)
+            output_path = row.get('output_path', '')
+            output_sha256 = row.get('output_sha256', '')
+            output_bytes = row.get('output_bytes')
+            selected = next((item for item in asset.get('output_paths', [])
+                             if item.get('path', '').casefold() == output_path.casefold()), None)
+            if (not selected or selected.get('sha256') != output_sha256
+                    or selected.get('bytes') != output_bytes):
+                raise ValueError('recovery output does not match optimized selected asset: ' + path)
+            recovered[path] = _verify_recovery_output(
+                static_root, output_path, output_sha256, output_bytes, path)
+            continue
+        if kind != 'owner-source-derived-variants':
+            raise ValueError('unsupported recovery kind: ' + str(kind))
+        if row.get('source_bytes') != asset.get('source_bytes'):
+            raise ValueError('recovery source byte count differs from MIG-03 evidence: ' + path)
+        dimensions = asset.get('dimensions', {})
+        if row.get('source_dimensions') != f"{dimensions.get('width')}x{dimensions.get('height')}":
+            raise ValueError('recovery source dimensions differ from MIG-03 evidence: ' + path)
+        source_output = row.get('source_output', {})
+        if not isinstance(source_output, dict):
+            raise ValueError('invalid recovery source output: ' + path)
+        source_output_path = source_output.get('path', '')
+        source_selected = next((item for item in asset.get('output_paths', [])
+                                if item.get('path') == source_output_path
+                                and item.get('sha256') == source_output.get('sha256')
+                                and item.get('bytes') == source_output.get('bytes')), None)
+        if not source_selected:
+            raise ValueError('recovery source output does not match selected MIG-03 asset: ' + path)
+        _verify_recovery_output(static_root, source_output_path, source_output['sha256'],
+                                source_output['bytes'], path + ' source')
+        generated = {}
+        for output in row.get('generated_outputs', []):
+            output_path = output.get('output_path', '')
+            verified = _verify_recovery_output(static_root, output_path,
+                                               output.get('sha256'), output.get('bytes'), path)
+            if not re.fullmatch(r'[1-9][0-9]*x[1-9][0-9]*', str(output.get('dimensions', ''))):
+                raise ValueError('invalid recovery output dimensions: ' + output_path)
+            if output_path in generated or output_path in derived_by_path:
+                raise ValueError('duplicate recovery output path: ' + output_path)
+            generated[output_path] = verified
+            derived_by_path[output_path] = {
+                **verified, 'source_path': source_path, 'source_sha256': source_sha256,
+                'dimensions': output['dimensions'],
+            }
+        if not generated or row.get('primary_output_path') not in generated:
+            raise ValueError('derived recovery lacks its primary output: ' + path)
+        allowed_urls = {
+            reference.get('url')
+            for key in ('body_references', 'metadata_references', 'rendered_page_references',
+                        'attachment_route_references', 'social_metadata_references')
+            for reference in missing.get(key, []) if reference.get('url')
+        }
+        mapped_urls = set()
+        for mapping in row.get('url_mappings', []):
+            source_url = mapping.get('source_url')
+            output_path = mapping.get('output_path')
+            if source_url not in allowed_urls or output_path not in generated:
+                raise ValueError('derived recovery URL mapping lacks exact source/output evidence: ' + path)
+            if source_url in explicit and explicit[source_url] != generated[output_path]:
+                raise ValueError('conflicting explicit recovery URL mapping: ' + source_url)
+            explicit[source_url] = generated[output_path]
+            mapped_urls.add(source_url)
+        if mapped_urls != allowed_urls:
+            raise ValueError('derived recovery does not map every exact missing-reference URL: ' + path)
+        recovered[path] = generated[row['primary_output_path']]
+    for mapping in evidence.get('explicit_url_mappings', []):
+        source_url = mapping.get('source_url')
+        source_path = mapping.get('source_path', '')
+        source_sha256 = mapping.get('source_sha256', '')
+        asset = assets_by_path.get(source_path)
+        if (not asset or asset.get('source_sha256') != source_sha256
+                or _upload_suffix(source_url) not in asset.get('referenced_url_paths', [])):
+            raise ValueError('explicit external URL lacks selected source-path evidence: ' + str(source_url))
+        output_path = mapping.get('output_path', '')
+        output = derived_by_path.get(output_path)
+        if output is not None:
+            if output.get('source_path') != source_path or output.get('source_sha256') != source_sha256:
+                raise ValueError('explicit URL maps to a derivative of a different source: ' + source_url)
+        else:
+            output = next((item for item in asset.get('output_paths', [])
+                           if item.get('path') == output_path
+                           and item.get('sha256') == mapping.get('output_sha256')
+                           and item.get('bytes') == mapping.get('output_bytes')), None)
+            if not output:
+                raise ValueError('explicit URL target is not a selected source output: ' + source_url)
+        verified = _verify_recovery_output(static_root, output_path, mapping.get('output_sha256'),
+                                           mapping.get('output_bytes'), source_url)
+        if (source_url in explicit and explicit[source_url] != verified):
+            raise ValueError('conflicting explicit recovery URL mapping: ' + source_url)
+        explicit[source_url] = verified
+    return recovered, explicit
 
 
 def selected_media_map(inventory, source_urls, preview_base, static_root, recovery_evidence=None):
@@ -117,7 +230,7 @@ def selected_media_map(inventory, source_urls, preview_base, static_root, recove
     if not isinstance(inventory, dict) or inventory.get('schema_version') is None:
         raise ValueError('expected MIG-03 asset inventory')
     selected = {}
-    recovered = _recovered_outputs(inventory, static_root, recovery_evidence)
+    recovered, explicit = _recovered_outputs(inventory, static_root, recovery_evidence)
     for field in ('published_body_path_mappings', 'rendered_page_path_mappings',
                   'live_rendered_body_path_mappings', 'attachment_route_path_mappings'):
         for row in inventory.get(field, []):
@@ -133,10 +246,12 @@ def selected_media_map(inventory, source_urls, preview_base, static_root, recove
     mapping, unresolved = [], []
     checked = set()
     for url in sorted(set(source_urls)):
-        if not is_owned(url):
-            continue
-        path = upload_path(url)
-        output = selected.get(path) or recovered.get(path)
+        output = explicit.get(url)
+        if output is None:
+            if not is_owned(url):
+                continue
+            path = upload_path(url)
+            output = selected.get(path) or recovered.get(path)
         if output is None:
             unresolved.append(url)
             continue
@@ -157,13 +272,13 @@ def selected_media_map(inventory, source_urls, preview_base, static_root, recove
 
 def rewrite_url(url, mapping, base, unresolved):
     decoded = html.unescape(url.strip())
+    target = mapping.get(decoded)
+    if target is not None:
+        return base.rstrip('/') + target
     if not is_owned(decoded):
         return url
-    target = mapping.get(decoded)
-    if target is None:
-        unresolved.add(decoded)
-        return url
-    return base.rstrip('/') + target
+    unresolved.add(decoded)
+    return url
 
 
 def _css(value, mapping, base, unresolved):

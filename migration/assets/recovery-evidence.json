@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-08",
-  "source": "migration/assets/manifest.json plus exact live URL and backup source SHA-256 verification",
+  "updated": "2026-11-13",
+  "source": "migration/assets/manifest.json plus exact live URL, owner WXR and theme-demo WXR evidence; derived files are SHA-256 verified",
   "recovered_references": [
     {
       "url_path": "2018/06/cropped-Pujolsluis-icon.png",
@@ -28,23 +28,153 @@
       "output_bytes": 17318,
       "pixel_stream_sha256": "d94cb4638b7a3f60daaca16738067b6f6847abd578a591f792f7e1280f62a7d9",
       "evidence": "The live lowercase master SHA-256 exactly matches the case-variant upload in the local WordPress backup. The repository output is the losslessly optimized counterpart; its decoded pixel stream matches the source."
+    },
+    {
+      "url_path": "sites/12/2016/08/01-300x199.jpg",
+      "recovery_kind": "owner-source-derived-variants",
+      "source_path": "2016/08/01.jpg",
+      "source_sha256": "e71b015f5599cb9123026a640805d7ea021a715d0efa2f8be9f4fe09eaed749e",
+      "source_bytes": 984497,
+      "source_dimensions": "1920x1273",
+      "source_output": {
+        "path": "wp-content/uploads/sites/12/2016/08/01.jpg",
+        "sha256": "71d152b016fd49df209a04ce9fc199c836777b67688ced6b784e872b69e6c6ba",
+        "bytes": 975709
+      },
+      "primary_output_path": "wp-content/uploads/sites/12/2016/08/01-300x199.jpg",
+      "generated_outputs": [
+        {
+          "output_path": "wp-content/uploads/sites/12/2016/08/01-300x199.jpg",
+          "sha256": "b1f15eb01d27ca0377091f8174e6b7be8c95999773caa0203243d96137f7f13d",
+          "bytes": 28779,
+          "dimensions": "300x199",
+          "quality": 80,
+          "method": "sips -s format jpeg -s formatOptions 80 -Z 300; jpegtran -copy all -optimize"
+        },
+        {
+          "output_path": "wp-content/uploads/sites/12/2016/08/01-640x424.jpg",
+          "sha256": "ed4f29f66d48a23f03aa1510e50cdcedb8d3962d5cf11044c77ddbcefa8a7a47",
+          "bytes": 110997,
+          "dimensions": "640x424",
+          "quality": 80,
+          "method": "sips -s format jpeg -s formatOptions 80 -Z 640; jpegtran -copy all -optimize"
+        },
+        {
+          "output_path": "wp-content/uploads/sites/12/2016/08/01-710x471.jpg",
+          "sha256": "35d4dd84386ec5a9eb995f5b08d9536de2083771f404b5d2ed6b0d94d21d048c",
+          "bytes": 146949,
+          "dimensions": "710x471",
+          "quality": 80,
+          "method": "sips -s format jpeg -s formatOptions 80 -z 471 710; jpegtran -copy all -optimize"
+        }
+      ],
+      "url_mappings": [
+        {
+          "source_url": "http://themes.pixelwars.org/theblogger/default/wp-content/uploads/sites/12/2016/08/01-300x199.jpg",
+          "output_path": "wp-content/uploads/sites/12/2016/08/01-300x199.jpg"
+        },
+        {
+          "source_url": "http://themes.pixelwars.org/theblogger/default/wp-content/uploads/sites/12/2016/08/01-300x199.jpg?w=640",
+          "output_path": "wp-content/uploads/sites/12/2016/08/01-640x424.jpg"
+        },
+        {
+          "source_url": "https://i0.wp.com/themes.pixelwars.org/theblogger/default/wp-content/uploads/sites/12/2016/08/01-300x199.jpg?resize=300%2C199",
+          "output_path": "wp-content/uploads/sites/12/2016/08/01-300x199.jpg"
+        }
+      ],
+      "evidence": "Owner WXR attachment 9 identifies uploads/2016/08/01.jpg (1920x1273). The bundled theme demo WXR identifies its /sites/12/2016/08/01.jpg attachment and records 01-300x199.jpg as a 300x199 generated size used by the Typography page. Exact derivative bytes are absent, so these are reconstructed variants, not byte-identical recoveries. The source image was resized to the captured dimensions at JPEG quality 80; 710x471 follows the live resize request exactly, while 300x199 and 640x424 preserve the source aspect ratio."
     }
   ],
   "external_dependencies": [
-    {"url_path":"sites/12/2016/08/01-300x199.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/01.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/02.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/03.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/blank2.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/blank3.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/blank4.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/kennes2.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/kennes3.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/kennes4.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/stages2.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/stages3.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/stages4.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/12/2017/02/stages5.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."},
-    {"url_path":"sites/20/2016/08/about-1024x683.jpg","category":"third-party-theme-demo","evidence":"Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."}
+    {
+      "url_path": "sites/12/2017/02/01.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/02.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/03.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/blank2.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/blank3.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/blank4.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/kennes2.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/kennes3.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/kennes4.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/stages2.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/stages3.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/stages4.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/12/2017/02/stages5.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    },
+    {
+      "url_path": "sites/20/2016/08/about-1024x683.jpg",
+      "category": "third-party-theme-demo",
+      "evidence": "Pixelwars theme-demo asset; captured source/CDN URL unavailable during recovery."
+    }
+  ],
+  "explicit_url_mappings": [
+    {
+      "source_url": "https://i0.wp.com/themes.pixelwars.org/theblogger/default/wp-content/uploads/sites/12/2016/08/01.jpg",
+      "source_path": "2016/08/01.jpg",
+      "source_sha256": "e71b015f5599cb9123026a640805d7ea021a715d0efa2f8be9f4fe09eaed749e",
+      "output_path": "wp-content/uploads/sites/12/2016/08/01.jpg",
+      "output_sha256": "71d152b016fd49df209a04ce9fc199c836777b67688ced6b784e872b69e6c6ba",
+      "output_bytes": 975709,
+      "evidence": "The bundled theme demo WXR links its Typography image to the full /sites/12/2016/08/01.jpg image; the owner WXR binds the same relative upload to Attachment 9."
+    },
+    {
+      "source_url": "https://i0.wp.com/themes.pixelwars.org/theblogger/default/wp-content/uploads/sites/12/2016/08/01.jpg?resize=710%2C471",
+      "source_path": "2016/08/01.jpg",
+      "source_sha256": "e71b015f5599cb9123026a640805d7ea021a715d0efa2f8be9f4fe09eaed749e",
+      "output_path": "wp-content/uploads/sites/12/2016/08/01-710x471.jpg",
+      "output_sha256": "35d4dd84386ec5a9eb995f5b08d9536de2083771f404b5d2ed6b0d94d21d048c",
+      "output_bytes": 146949,
+      "evidence": "The frozen Typography source references this exact 710x471 resize of the same selected owner upload; the local derivative keeps the original aspect ratio within the requested rounded dimensions."
+    }
   ]
 }

@@ -1,6 +1,6 @@
 # Content preview status
 
-This aggregate report describes the preview currently deployed to GitHub Pages, updated as of 2026-11-08. It contains no WXR records, comment text, personal comment metadata, source snapshots or private importer reports. The preview remains noindex, and WordPress remains the production site.
+This aggregate report describes the preview currently deployed to GitHub Pages, updated as of 2026-11-13. It contains no WXR records, comment text, personal comment metadata, source snapshots or private importer reports. The preview remains noindex, and WordPress remains the production site.
 
 ## Imported preview scope
 
@@ -8,12 +8,13 @@ This aggregate report describes the preview currently deployed to GitHub Pages, 
 - All 45 blog posts are Markdown (`content/posts/*.md`) with route-preserving JSON front matter. Common article structure is Markdown; supported video, Gist and image/gallery content uses Hugo shortcodes; complex blocks remain inline HTML when needed to retain source behavior.
 - 98 public attachment URLs are represented as HTML pages with their captured title, body, caption, image references, canonical and fragment evidence.
 - The media inventory selects 420 uploaded source files across 422 observed public URL paths at 414,443,545 bytes. Two missing case-sensitive icon master paths are now covered by aliases whose optimized image bytes preserve the original decoded pixels. The aliases reuse existing optimized Git blobs.
-- The selected media mapping now covers all 1,714 owned reference occurrences: 1,665 distinct URLs across 384 local target files. Fifteen third-party theme-demo image references are separately recorded as external and remain outside owned-media coverage.
+- The selected media mapping now covers all 1,714 owned reference occurrences: 1,665 distinct URLs across 384 local target files. Exact source URLs for the Typography page's 300×199, 640×424 and 710×471 image variants, plus its full-size image link, now map to local files. Fourteen other third-party theme-demo image paths remain separately recorded as external.
+- Three reconstructed Typography variants add 286,725 bytes. They are quality-80 JPEGs with a lossless `jpegtran` optimization pass, derived from the selected 1920×1273 owner upload; their source/output hashes and dimensions are recorded in the recovery sidecar. The exact original derivative bytes were unavailable.
 - Nine source-head fields or explicit absences match the frozen source evidence for all 66 selected post/page/portfolio routes.
 
 ## Remaining review items
 
-- Fifteen external Pixelwars theme-demo image references remain external. Their source/CDN URLs were unavailable during recovery, so these pages still need visual review against WordPress before production launch.
+- Fourteen external Pixelwars theme-demo image paths remain unresolved and need owner review before production launch. The Typography page's formerly missing 300×199 path and its 640×424/710×471 variants now load locally from the verified owner upload, but the unavailable original derivative bytes prevent a claim of exact CDN-output identity.
 - Eighty-nine selected media files exceed 1 MB. Check their actual display sizes and quality, then reduce or provide responsive variants where measurements support it before production launch.
 - Comments are intentionally omitted by owner decision. The importer removes captured comment threads, avatar markup and WordPress comment submission forms from the published bodies; it creates no comment UI or link back to comment functionality.
 - Other WordPress submission forms are also removed from static bodies. A preview-only link points to the corresponding live page when a non-comment form needs a backend.

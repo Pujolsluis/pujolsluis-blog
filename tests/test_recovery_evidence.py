@@ -2,12 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.import_content.media import selected_media_map
-from scripts.import_media.check import check as check_media
+from scripts.import_content.media import rewrite_url, selected_media_map
+from scripts.import_media.check import check as check_media, jpeg_dimensions
 
 
 class RecoveryEvidenceTests(unittest.TestCase):
@@ -86,6 +87,98 @@ class RecoveryEvidenceTests(unittest.TestCase):
             self.assertTrue(any("third-party theme-demo image remains external" in item
                                 for item in warnings))
 
+    def test_external_demo_image_urls_map_to_local_generated_variants(self):
+        repository = Path(__file__).resolve().parents[1]
+        manifest = json.loads((repository / "migration/assets/manifest.json").read_text())
+        evidence = json.loads(
+            (repository / "migration/assets/recovery-evidence.json").read_text()
+        )
+        recovery = next(
+            item for item in evidence["recovered_references"]
+            if item.get("recovery_kind") == "owner-source-derived-variants"
+        )
+        urls = [item["source_url"] for item in recovery["url_mappings"]]
+        urls.extend(item["source_url"] for item in evidence["explicit_url_mappings"])
+        document, unresolved = selected_media_map(
+            manifest, urls, "/pujolsluis-blog/", repository / "static", evidence
+        )
+        self.assertEqual(unresolved, [])
+        mappings = {item["sourceUrl"]: item["targetPath"] for item in document["mappings"]}
+        for item in recovery["url_mappings"] + evidence["explicit_url_mappings"]:
+            self.assertEqual(mappings[item["source_url"]], "/" + item["output_path"])
+        external_body_url = recovery["url_mappings"][2]["source_url"]
+        self.assertEqual(
+            rewrite_url(external_body_url, mappings, "/pujolsluis-blog/", set()),
+            "/pujolsluis-blog/" + recovery["url_mappings"][2]["output_path"],
+        )
+
+        page = (repository / "content/page/wp-1998.html").read_text()
+        boundary = page.index("}\n\n")
+        front = json.loads(page[:boundary + 1])
+        body = page[boundary + 3:]
+        self.assertEqual(front["ogImage"], "/pujolsluis-blog/" + recovery["generated_outputs"][0]["output_path"])
+        self.assertEqual(front["twitterImage"], "/pujolsluis-blog/" + recovery["generated_outputs"][1]["output_path"])
+        self.assertIn('src="/pujolsluis-blog/' + recovery["generated_outputs"][0]["output_path"] + '"', body)
+        self.assertIn('src="/pujolsluis-blog/' + recovery["generated_outputs"][2]["output_path"] + '"', body)
+        self.assertIn('href="/pujolsluis-blog/' + recovery["source_output"]["path"] + '"', body)
+        self.assertNotIn("themes.pixelwars.org/theblogger/default/wp-content/uploads/sites/12/2016/08/", body)
+        self.assertTrue(front["migration"]["sourceHead"]["fields"]["ogImage"].startswith("http://themes.pixelwars.org/"))
+
+    def test_checker_rejects_corrupted_generated_variant(self):
+        repository = Path(__file__).resolve().parents[1]
+        manifest = json.loads((repository / "migration/assets/manifest.json").read_text())
+        evidence = json.loads(
+            (repository / "migration/assets/recovery-evidence.json").read_text()
+        )
+        recovery = next(
+            item for item in evidence["recovered_references"]
+            if item.get("recovery_kind") == "owner-source-derived-variants"
+        )
+        source = next(
+            item for item in manifest["assets"]
+            if item["source_path"] == recovery["source_path"]
+        )
+        source_output = next(
+            item for item in source["output_paths"]
+            if item["path"] == recovery["source_output"]["path"]
+        )
+        minimal_asset = {**source, "output_paths": [source_output]}
+        minimal_manifest = {
+            "schema_version": manifest["schema_version"],
+            "assets": [minimal_asset],
+            "missing_references": [
+                next(item for item in manifest["missing_references"]
+                     if item["url_path"] == recovery["url_path"])
+            ],
+        }
+        minimal_evidence = {
+            "recovered_references": [recovery],
+            "external_dependencies": [],
+            "explicit_url_mappings": evidence["explicit_url_mappings"],
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for relative in [source_output["path"]] + [
+                item["output_path"] for item in recovery["generated_outputs"]
+            ]:
+                destination = root / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(repository / "static" / relative, destination)
+            errors, _, totals = check_media(minimal_manifest, root, minimal_evidence)
+            self.assertEqual(errors, [])
+            self.assertEqual(totals["images"], 4)
+            self.assertEqual(
+                totals["output_bytes"],
+                source_output["bytes"] + sum(
+                    item["bytes"] for item in recovery["generated_outputs"]
+                ),
+            )
+            damaged = root / recovery["generated_outputs"][0]["output_path"]
+            damaged.write_bytes(damaged.read_bytes() + b"corruption")
+            errors, _, _ = check_media(minimal_manifest, root, minimal_evidence)
+            self.assertTrue(any("recovery output checksum mismatch" in error for error in errors))
+
+
     def test_committed_recovery_evidence_matches_optimized_aliases_and_attachment_html(self):
         repository = Path(__file__).resolve().parents[1]
         manifest = json.loads((repository / "migration/assets/manifest.json").read_text())
@@ -93,6 +186,29 @@ class RecoveryEvidenceTests(unittest.TestCase):
             (repository / "migration/assets/recovery-evidence.json").read_text()
         )
         for recovery in evidence["recovered_references"]:
+            if recovery.get("recovery_kind") == "owner-source-derived-variants":
+                asset = next(
+                    item for item in manifest["assets"]
+                    if item["source_path"] == recovery["source_path"]
+                )
+                self.assertEqual(asset["source_sha256"], recovery["source_sha256"])
+                source_output = next(
+                    item for item in asset["output_paths"]
+                    if item["path"] == recovery["source_output"]["path"]
+                )
+                self.assertEqual(source_output["sha256"], recovery["source_output"]["sha256"])
+                self.assertEqual(source_output["bytes"], recovery["source_output"]["bytes"])
+                source_target = repository / "static" / source_output["path"]
+                self.assertEqual(hashlib.sha256(source_target.read_bytes()).hexdigest(),
+                                 source_output["sha256"])
+                for output in recovery["generated_outputs"]:
+                    target = repository / "static" / output["output_path"]
+                    self.assertEqual(hashlib.sha256(target.read_bytes()).hexdigest(),
+                                     output["sha256"])
+                    self.assertEqual(target.stat().st_size, output["bytes"])
+                    width, height = map(int, output["dimensions"].split("x"))
+                    self.assertEqual(jpeg_dimensions(target), (width, height))
+                continue
             missing = next(
                 item for item in manifest["missing_references"]
                 if item["url_path"] == recovery["url_path"]
